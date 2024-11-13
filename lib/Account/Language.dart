@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Language_Informations_Screen extends StatelessWidget {
-  const Language_Informations_Screen({Key? key}) : super(key: key);
+class Language_Information_Screen extends StatelessWidget {
+  
+  const Language_Information_Screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  const Scaffold(
-      body:  SafeArea(
-        child: Text('Arab'),
-      ),
-    );
+    return   Scaffold();
   }
 }

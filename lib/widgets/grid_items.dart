@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
-import '../screens/Item/ItemScreen.dart';
+import '../les elements/Item/ItemScreen.dart';
 
 class GridItems extends StatelessWidget {
+
   var pNames = [
-    "Swatch1",
-    "Adidas",
-    "Casqe",
-    "eee",
-    "Iphone",
-    "mmm",
-    "Nike",
-    "Swatch3",
-    "Swatch4",
-    "Swatch",
-    "USP",
-    "Swatch2",
+    "Swatch_Irony_pour_homme",
+    "Swatch_YCS_590G",
+    "Swatch_Unisex_Chronographe_Quartz",
+    "Swatch_YWS420G_Menichelli",
+    "SWATCH_MENS_SWISS_SY23S413",
+    "SWATCH_MENS_IRONY_CHRONOGRAPH_SS",
+    "Swatch_Chrono_Swatchour_YVS426G",
+    "SWATCH_SYXG110G",
+    "Swatch_Bijoux_Jewelry",
+    "Swatch_Hombre_Irony_Xlite_Red_Attack",
+    "SWATCH_Analogique",
+    "Swatch_Irony_Chrono_New_YVB416_By_the_bonfire",
   ];
 
-  GridItems({Key? key}) : super(key: key);
+  GridItems (int index, {Key? key}) : super(key: key);
   
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      
         itemCount: pNames.length,
         physics:  const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
@@ -35,7 +37,7 @@ class GridItems extends StatelessWidget {
             margin:  const EdgeInsets.all(10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: Colors.pink,
+              color: Colors.grey.shade400,
               boxShadow:  const [
                 BoxShadow(
                   color: Colors.black87,
@@ -57,7 +59,8 @@ class GridItems extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 12,
                         ),
-                      )
+                      ),
+                      Icon(Icons.favorite,color: Colors.white),
                     ],
                   ),
                   const SizedBox(
@@ -74,8 +77,8 @@ class GridItems extends StatelessWidget {
                       },
                       child: Image.asset(
                         "images/${pNames[index]}.png",
-                        height: 75,
-                        width: 75,
+                        height: 112,
+                        width: 600,
                       ),
                     ),
                   ),
@@ -99,8 +102,9 @@ class GridItems extends StatelessWidget {
                             Text(
                               "100\$",
                               style: TextStyle(
+                                decoration: TextDecoration.lineThrough,
                                 fontSize: 15,
-                                color: Colors.white,
+                                color: Colors.black,
                                 fontWeight: FontWeight.w500,
                               ),
                             )
