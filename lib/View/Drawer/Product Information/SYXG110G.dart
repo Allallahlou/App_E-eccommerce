@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
-class Swatch_Irony_Screen extends StatelessWidget {
+class SYXG110G_Screen extends StatelessWidget {
   
-  const Swatch_Irony_Screen({Key? key}) : super(key: key);
+  const SYXG110G_Screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

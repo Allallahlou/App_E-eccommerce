@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
-class Swatch_Bijoux_Jewelty_Screen extends StatelessWidget {
+class Unisex_Chronographe_Quartz_Screen extends StatelessWidget {
   
-  const Swatch_Bijoux_Jewelty_Screen({Key? key}) : super(key: key);
+  const Unisex_Chronographe_Quartz_Screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

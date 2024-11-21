@@ -97,6 +97,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+  cloud_firestore:
+    dependency: "direct main"
+    description:
+      name: cloud_firestore
+      sha256: "31cfa4d65d6e9ea837234fffe121304034c30c9214c06207b4a35867e3757900"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.15.8"
+  cloud_firestore_platform_interface:
+    dependency: transitive
+    description:
+      name: cloud_firestore_platform_interface
+      sha256: a0097a26569b015faf8142e159e855241609ea9a1738b5fd1c40bfe8411b41a0
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.9"
+  cloud_firestore_web:
+    dependency: transitive
+    description:
+      name: cloud_firestore_web
+      sha256: ed680ece29a5750985119c09cdc276b460c3a2fa80e8c12f9b7241f6b4a7ca16
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.10.8"
   collection:
     dependency: transitive
     description:
@@ -294,6 +318,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.0"
+  flutter_stripe:
+    dependency: "direct main"
+    description:
+      name: flutter_stripe
+      sha256: "06d7d8ac853470b7c9a9ed81f9fccafaf35f417a151e1b7ddcded56113aadf6f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "11.3.0"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -312,6 +344,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  freezed_annotation:
+    dependency: transitive
+    description:
+      name: freezed_annotation
+      sha256: c2e2d632dd9b8a2b7751117abcfc2b4888ecfe181bd9fca7170d9ef02e595fe2
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.4"
   google_nav_bar:
     dependency: "direct main"
     description:
@@ -352,6 +392,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.7"
+  json_annotation:
+    dependency: transitive
+    description:
+      name: json_annotation
+      sha256: "1ce844379ca14835a50d2f019a3099f419082cfdd231cd86a142af94dd5c6bb1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.9.0"
   lints:
     dependency: transitive
     description:
@@ -605,6 +653,38 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  stripe_android:
+    dependency: transitive
+    description:
+      name: stripe_android
+      sha256: bc919b07ba1560b25a69002f9ca67a5973f12bfb96f78033cf9bd6c561f1aa10
+      url: "https://pub.dev"
+    source: hosted
+    version: "11.3.0"
+  stripe_ios:
+    dependency: transitive
+    description:
+      name: stripe_ios
+      sha256: "734a7668babd85a451c8049f0dfa8ca5dc6d80f85600d29732e7fa703dd5ec5e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "11.3.0"
+  stripe_payment:
+    dependency: "direct main"
+    description:
+      name: stripe_payment
+      sha256: "8c84e07127f821fdcb63697461fff3a68a693eee4286c28a4cb313517c46e9d6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.4"
+  stripe_platform_interface:
+    dependency: transitive
+    description:
+      name: stripe_platform_interface
+      sha256: "5cb987074b6ee199e7dd1b81d189c87583f6eaeb19147ffc8c15bc009596e6ce"
+      url: "https://pub.dev"
+    source: hosted
+    version: "11.3.0"
   term_glyph:
     dependency: transitive
     description:

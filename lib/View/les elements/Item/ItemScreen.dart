@@ -1,6 +1,4 @@
-// ignore_for_file: file_names
-
-import 'package:app_e_ecommerce/View/Login%20Screen/Payments.dart';
+import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../../widgets/product_images_slider.dart';
@@ -140,7 +138,7 @@ class ItemScreen extends StatelessWidget {
                 Navigator.push(
                             context, 
                             MaterialPageRoute(
-                              builder:(context)=>  const PaymentsScreen()
+                              builder:(context)=>  const PaymentScreen()
                               ),
                               );
               },
@@ -177,7 +175,7 @@ class ItemScreen extends StatelessWidget {
 
                 child:  const Center(
                   child: Icon(
-                    Icons.favorite,
+                    Icons.favorite_border,
                     color: Colors.redAccent,
                     size: 30,
                   ),

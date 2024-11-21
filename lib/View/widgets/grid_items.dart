@@ -4,22 +4,21 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../les elements/Item/ItemScreen.dart';
 
-// ignore: must_be_immutable
 class GridItems extends StatelessWidget {
 
   var pNames = [
-    "Swatch_Irony_pour_homme",
-    "Swatch_YCS_590G",
-    "Swatch_Unisex_Chronographe_Quartz",
-    "Swatch_YWS420G_Menichelli",
-    "SWATCH_MENS_SWISS_SY23S413",
-    "SWATCH_MENS_IRONY_CHRONOGRAPH_SS",
-    "Swatch_Chrono_Swatchour_YVS426G",
-    "SWATCH_SYXG110G",
-    "Swatch_Bijoux_Jewelry",
-    "Swatch_Hombre_Irony_Xlite_Red_Attack",
-    "SWATCH_Analogique",
-    "Swatch_Irony_Chrono_New_YVB416_By_the_bonfire",
+    "Irony_pour_homme",
+    "YCS590G",
+    "Unisex_Chronographe_Quartz",
+    "YWS420G_Menichelli",
+    "Mens_Swiss_SY23S413",
+    "Mens_Irony_Chronograph",
+    "Swatchour_YVS426G",
+    "SYXG110G",
+    "Bijoux_Jewelry",
+    "Hombre_Irony_Xlite_Red_Attack",
+    "Analogique",
+    "Irony_Chrono_New_YVB416_bonfire",
   ];
 
   GridItems (int index, {Key? key}) : super(key: key);
@@ -36,6 +35,7 @@ class GridItems extends StatelessWidget {
           childAspectRatio: 0.7,
           crossAxisCount: 2,
         ),
+
         itemBuilder: (context, index) {
           return Container(
             margin:  const EdgeInsets.all(10),
@@ -50,6 +50,7 @@ class GridItems extends StatelessWidget {
                 ),
               ],
             ),
+
             child: Padding(
               padding:  const EdgeInsets.all(10),
               child: Column(
@@ -64,6 +65,7 @@ class GridItems extends StatelessWidget {
                           fontSize: 12,
                         ),
                       ),
+
                       FavoriteButton(
                   isFavorite: false,
                   valueChanged: (isFavorite) {
@@ -71,14 +73,20 @@ class GridItems extends StatelessWidget {
                       print(Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>  const FavoriteScreen())));
+                                builder: (context) =>  FavoritesScreen()
+                                ),
+                                ),
+                                );
                     }
-                  }),
+                  }
+                  ),
                     ],
                   ),
+
                   const SizedBox(
                     height: 10,
                   ),
+
                   Padding(
                     padding:  const EdgeInsets.all(10),
                     child: InkWell(
@@ -86,7 +94,10 @@ class GridItems extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>  const ItemScreen()));
+                                builder: (context) =>
+                                  const ItemScreen()
+                                  ),
+                                  );
                       },
                       child: Image.asset(
                         "images/${pNames[index]}.png",
@@ -95,7 +106,9 @@ class GridItems extends StatelessWidget {
                       ),
                     ),
                   ),
+
                    const SizedBox(height: 15),
+
                   Padding(
                     padding:  const EdgeInsets.all(8),
                     child: Column(
@@ -109,7 +122,9 @@ class GridItems extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+
                          const SizedBox(height: 10),
+                         
                         const Row(
                           children:  [
                             Text(

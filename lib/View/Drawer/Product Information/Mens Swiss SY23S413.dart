@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 
-class Swatch5_Screen extends StatelessWidget {
+class mens_swiss_SY23S413_Screen extends StatelessWidget {
   
-  const Swatch5_Screen({Key? key}) : super(key: key);
+  const mens_swiss_SY23S413_Screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

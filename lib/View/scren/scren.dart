@@ -1,7 +1,7 @@
 import 'package:app_e_ecommerce/View/Account/Language.dart';
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
 import 'package:app_e_ecommerce/View/Drawer/Notification.dart';
-import 'package:app_e_ecommerce/View/Login%20Screen/Payments.dart';
+import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Favorite/favorite_screen.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Home/home_scren.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import '../Offers/Offers.dart';
 
-// ignore: camel_case_types
 class scren extends StatefulWidget {
   const scren({Key? key}) : super(key: key);
 
@@ -23,12 +22,12 @@ class _ScreensState extends State<scren> {
   final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
     const CartScreen(),
-    const FavoriteScreen(),
+     FavoritesScreen(),
     const login_screen(),
     const Offers_Screen(),
     const Language_Information_Screen(),
     const Notification_Screen(),
-    const PaymentsScreen(),
+    const PaymentScreen(),
   ];
 
   @override

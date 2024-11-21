@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
 class Mon_Profile_Screen extends StatelessWidget {
 
   const Mon_Profile_Screen({Key? key}) : super(key: key);
@@ -59,7 +58,7 @@ class Mon_Profile_Screen extends StatelessWidget {
                 const CircleAvatar(
                   radius:42,
                   backgroundImage:
-                   AssetImage("images/pres.png"),
+                   AssetImage("images/person.png"),
                    ),
                    Positioned(
                     bottom: 0,

@@ -2,23 +2,30 @@ import 'package:app_e_ecommerce/View/les%20elements/Home/home_scren.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
 class sighupScreen extends StatelessWidget {
   const sighupScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return  Scaffold(
       body: SingleChildScrollView(
-        child: SafeArea(child: Column(
+
+        child: SafeArea(
+          child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+
             const SizedBox(height: 20,),
-            Image.asset("images/account.png",
+
+            Image.asset(
+              "images/account.png",
             width: MediaQuery.of(context).size.width/5,
             ),
+            
              const SizedBox(height: 10),
+
              Text(
               "Caret Your Account",
               style: TextStyle(
@@ -28,7 +35,9 @@ class sighupScreen extends StatelessWidget {
                   letterSpacing: 1
               ),
             ),
+
             const SizedBox(height: 30,),
+
             Container(
                   margin:  const EdgeInsets.symmetric(horizontal: 20),
                   padding:  const EdgeInsets.only(left: 20, right: 15),
@@ -39,7 +48,9 @@ class sighupScreen extends StatelessWidget {
                       topRight: Radius.circular(45),
                       bottomLeft: Radius.circular(45),
                     ),
-                    border: Border.all(color: Colors.indigo, width: 1.5),
+
+                    border: Border.all(
+                      color: Colors.indigo, width: 1.5),
                     boxShadow:  const [
                       BoxShadow(
                         color: Color(0xFFE7EEF8),
@@ -48,6 +59,7 @@ class sighupScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+
                   child: Center(
                     child: TextFormField(
                       decoration:  const InputDecoration(
@@ -57,8 +69,11 @@ class sighupScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+
                 ),
+
                 const SizedBox(height: 20),
+
                 Container(
                   margin:  const EdgeInsets.symmetric(horizontal: 20),
                   padding:  const EdgeInsets.only(left: 20, right: 15),
@@ -69,7 +84,9 @@ class sighupScreen extends StatelessWidget {
                       topRight: Radius.circular(45),
                       bottomLeft: Radius.circular(45),
                     ),
-                    border: Border.all(color: Colors.indigo, width: 1.5),
+
+                    border: Border.all(
+                      color: Colors.indigo, width: 1.5),
                     boxShadow:  const [
                       BoxShadow(
                         color: Color(0xFFE7EEF8),
@@ -78,6 +95,7 @@ class sighupScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+
                   child: Center(
                     child: TextFormField(
                       decoration:  const InputDecoration(
@@ -88,7 +106,9 @@ class sighupScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 20),
+
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   padding:  const EdgeInsets.only(left: 20, right: 15),
@@ -99,7 +119,10 @@ class sighupScreen extends StatelessWidget {
                       topRight: Radius.circular(45),
                       bottomLeft: Radius.circular(45),
                     ),
-                    border: Border.all(color: Colors.indigo, width: 1.5),
+
+                    border: Border.all(
+                      color: Colors.indigo, width: 1.5
+                      ),
                     boxShadow:  const [
                       BoxShadow(
                         color: Color(0xFFE7EEF8),
@@ -108,6 +131,7 @@ class sighupScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+
                   child: Center(
                     child: TextFormField(
                     
@@ -119,7 +143,9 @@ class sighupScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 20),
+
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   padding:  const EdgeInsets.only(left: 20, right: 15),
@@ -130,7 +156,10 @@ class sighupScreen extends StatelessWidget {
                       topRight: Radius.circular(45),
                       bottomLeft: Radius.circular(45),
                     ),
-                    border: Border.all(color: Colors.indigo, width: 1.5),
+
+                    border: Border.all(
+                      color: Colors.indigo, width: 1.5
+                      ),
                     boxShadow:  const [
                       BoxShadow(
                         color: Color(0xFFE7EEF8),
@@ -139,6 +168,7 @@ class sighupScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+
                   child: Center(
                     child: TextFormField(
                       obscureText: true,
@@ -151,7 +181,9 @@ class sighupScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 30),
+                
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

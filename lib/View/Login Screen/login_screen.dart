@@ -2,7 +2,6 @@ import 'package:app_e_ecommerce/View/les%20elements/Home/home_scren.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/signup_screen.dart';
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
 class login_screen extends StatelessWidget {
   const login_screen({Key? key}) : super(key: key);
 
@@ -13,13 +12,18 @@ class login_screen extends StatelessWidget {
         child: SafeArea(
             child: Column(
               children: [
+
                 const SizedBox(height: 100),
+
                 Image.asset(
                     'images/Sign_in.png',
                     height: 200,
                   ),
+
                  const SizedBox(height: 20,),
-                 Text("Welcome To My Account",
+
+                 Text(
+                  "Welcome To My Account",
                   style: TextStyle(
                     fontSize: 30,
                     color: Colors.grey[700],
@@ -29,6 +33,7 @@ class login_screen extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 30,),
+
                 Container(
                   margin:  const EdgeInsets.symmetric(horizontal: 20),
                   padding:  const EdgeInsets.only(left: 20, right: 15),
@@ -48,6 +53,7 @@ class login_screen extends StatelessWidget {
                       ),
                     ],
                   ),
+
                   child: Center(
                     child: TextFormField(
                       decoration:  const InputDecoration(
@@ -58,7 +64,9 @@ class login_screen extends StatelessWidget {
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 30,),
+
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   padding:  const EdgeInsets.only(left: 20, right: 15),
@@ -78,6 +86,7 @@ class login_screen extends StatelessWidget {
                       ),
                     ],
                   ),
+
                   child: Center(
                     child: TextFormField(
                       obscureText: true,
@@ -90,7 +99,9 @@ class login_screen extends StatelessWidget {
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 30),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -102,6 +113,7 @@ class login_screen extends StatelessWidget {
                           builder:(context)=> const HomeScreen(),
                           ));
                       },
+
                       child: Container(
                         margin:  const EdgeInsets.symmetric(horizontal: 10),
                         padding:  const EdgeInsets.symmetric(horizontal: 35),
@@ -126,6 +138,7 @@ class login_screen extends StatelessWidget {
                             ),
                           ],
                         ),
+
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -137,7 +150,9 @@ class login_screen extends StatelessWidget {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
+
                             SizedBox(width: 8),
+
                             Icon(
                                 Icons.login,
                                 color: Colors.white,
@@ -147,6 +162,7 @@ class login_screen extends StatelessWidget {
                         ),
                       ),
                     ),
+
                     GestureDetector(
                       onTap: (){
                         Navigator.push(context,
@@ -166,6 +182,7 @@ class login_screen extends StatelessWidget {
                             topRight:Radius.circular(8),
                             bottomLeft:Radius.circular(8),
                           ),
+
                           boxShadow: [
                             BoxShadow(
                               color: Color(0xFFE7EEF8),
@@ -174,6 +191,7 @@ class login_screen extends StatelessWidget {
                             ),
                           ],
                         ),
+
                         child:   const Center(
                           child: Text(
                             "Sign up",
@@ -188,7 +206,9 @@ class login_screen extends StatelessWidget {
                     ),
                   ],
                 ),
+
                 const SizedBox(height: 40),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -204,9 +224,14 @@ class login_screen extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
                       ),
-                       child: Image.asset("images/google_icon.png"),
+
+                       child: Image.asset(
+                        "images/google_icon.png"
+                        ),
                     ),
+
                     const SizedBox(width: 30),
+
                      Container(
                       width: 50,
                       height: 60,
@@ -220,7 +245,9 @@ class login_screen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
 
                       ),
-                       child: Image.asset("images/facebook_icon.png"),
+                       child: Image.asset(
+                        "images/facebook_icon.png"
+                        ),
                     )
                   ],
                 )

@@ -1,5 +1,3 @@
-// ignore_for_file: file_names
-
 import 'package:app_e_ecommerce/View/Drawer/Chat%20Server/chatpage.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +45,7 @@ class RecentChats extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(35),
                       child: Image.asset(
-                        "images/ee.png",
+                        "images/person.png",
                         height: 65,
                         width: 65,
                       ),

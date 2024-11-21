@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 
-class Swatch_Bijoux_Jewelry_Screen extends StatelessWidget {
+class Apple_Swatch_Screen extends StatelessWidget {
   
-  const Swatch_Bijoux_Jewelry_Screen({Key? key}) : super(key: key);
+  const Apple_Swatch_Screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,3 @@
-// ignore_for_file: camel_case_types
-
 import 'package:app_e_ecommerce/View/Drawer/Chat%20Server/chatsample.dart';
 import 'package:flutter/material.dart';
 import 'ChatBottomSheet.dart';
@@ -21,7 +19,7 @@ class chatpage_screen extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(35),
                   child: Image.asset(
-                    "images/ee.png",
+                    "images/person.png",
                     height: 45,
                     width: 39,
                   ),

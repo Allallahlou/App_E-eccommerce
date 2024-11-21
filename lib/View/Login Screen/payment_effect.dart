@@ -13,7 +13,7 @@ class PaymentsEffectScreen extends StatelessWidget {
                 const SizedBox(height: 300),
                 Center(
                   child: Image.asset(
-                      'images/rrr.png',
+                      'images/validation.png',
                       height: 200,
                     ),
                 ),

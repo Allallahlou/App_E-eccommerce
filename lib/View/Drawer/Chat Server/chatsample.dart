@@ -1,7 +1,6 @@
 import 'package:custom_clippers/custom_clippers.dart';
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
 class ChatSample_Screen extends StatelessWidget {
   const ChatSample_Screen({Key? key}) : super(key: key);
 

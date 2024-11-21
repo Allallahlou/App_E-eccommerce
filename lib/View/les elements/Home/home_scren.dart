@@ -1,12 +1,9 @@
-
-// ignore_for_file: non_constant_identifier_names
-
 import 'package:app_e_ecommerce/View/Account/Language.dart';
 import 'package:app_e_ecommerce/View/Drawer/Help.dart';
 import 'package:app_e_ecommerce/View/Drawer/Notification.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings.dart';
 import 'package:app_e_ecommerce/View/Drawer/mon_profile.dart';
-import 'package:app_e_ecommerce/View/Login%20Screen/Payments.dart';
+import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Favorite/favorite_screen.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:app_e_ecommerce/View/Offers/Offers.dart';
@@ -21,28 +18,34 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     List<Color> Cars = [
-      const Color.fromARGB(255, 139, 149, 149),
-      const Color.fromARGB(255, 139, 149, 149),
-      const Color.fromARGB(255, 139, 149, 149),
+      const Color.fromARGB(
+        255, 139, 149, 149
+        ),
+      const Color.fromARGB(
+        255, 139, 149, 149
+        ),
+      const Color.fromARGB(
+        255, 139, 149, 149
+        ),
     ];
 
     var imageList = [
-      "images/Swatch_Unisex_Chronographe_Quartz.png",
-      "images/Swatch_YWS420G_Menichelli.png",
-      "images/Swatch_Bijoux_Jewelry.png",
+      "images/Unisex_Chronographe_Quartz.png",
+      "images/YWS420G_Menichelli.png",
+      "images/Bijoux_Jewelry.png",
     ];
 
     var iconImageList = [
-      "images/3swatch.png",
-      "images/Swatch_YCS_590G.png",
-      "images/Swatch_Unisex_Chronographe_Quartz.png",
-      "images/Swatch_YWS420G_Menichelli.png",
-      "images/SWATCH_MENS_SWISS_SY23S413.png",
-      "images/SWATCH_MENS_IRONY_CHRONOGRAPH_SS.png",
-      "images/Swatch_Chrono_Swatchour_YVS426G.png",
-      "images/Swatch_Irony_pour_homme.png",
-      "images/SWATCH_analogique.png",
-      "images/Swatch6.png",
+      "images/SYXG110G.png",
+      "images/YCS590G.png",
+      "images/Unisex_Chronographe_Quartz.png",
+      "images/YWS420G_Menichelli.png",
+      "images/Mens_Swiss_SY23S413.png",
+      "images/Mens_Irony_Chronograph.png",
+      "images/Swatchour_YVS426G.png",
+      "images/Irony_pour_homme.png",
+      "images/Analogique.png",
+      "images/Apple_Swatch_Black.png",
     ];
 
     return Scaffold(
@@ -54,7 +57,11 @@ class HomeScreen extends StatelessWidget {
             margin: const EdgeInsets.all(10),
             child: InkWell(
               onTap: () {
-                 Navigator.push(context, MaterialPageRoute(builder: (context) => const Notification_Screen()));
+                 Navigator.push(
+                  context, MaterialPageRoute(
+                    builder: (context) => const Notification_Screen()
+                    ),
+                    );
               },
 
               child: const Icon(
@@ -64,11 +71,17 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
+
           Container(
             margin: const EdgeInsets.all(10),
             child: InkWell(
               onTap: () {
-                 Navigator.push(context, MaterialPageRoute(builder: (context) => const Notification_Screen()));
+                 Navigator.push(
+                  context, MaterialPageRoute(
+                    builder: (context) =>
+                     const Notification_Screen()
+                     ),
+                     );
               },
 
               child: const Icon(
@@ -90,71 +103,175 @@ class HomeScreen extends StatelessWidget {
 
             UserAccountsDrawerHeader(
 
-                accountName: const Text('Application Ecommerce'),
-                accountEmail:const Text('Support.App@gmail.com'),
+                accountName: const Text(
+                  'Application Ecommerce'
+                  ),
+                accountEmail:const Text(
+                  'Support.App@gmail.com'
+                  ),
 
               currentAccountPicture: CircleAvatar(
-                child: ClipOval(child: Image.asset('images/drawer.png'),),),
+                child: ClipOval(
+                  child: Image.asset(
+                    'images/drawer.png'
+                    ),
+                    ),
+                    ),
 
               decoration: const BoxDecoration(
                 color: Colors.purpleAccent,
                 image: DecorationImage(
-                    image: AssetImage('images/pex.png'),
+                    image: AssetImage(
+                      'images/pex.png'
+                      ),
                     fit: BoxFit.cover
                 ),
                 ),
                 ),
 
-            ListTile(leading: const Icon(Icons.person),
+            ListTile(
+              leading: const Icon(
+                Icons.person
+                ),
               title: const Text('Mon Profile'),
-              onTap:() => Navigator.push(context, MaterialPageRoute(builder: (context) => const Mon_Profile_Screen())),
+              onTap:() => Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (context) =>
+                   const Mon_Profile_Screen()
+                   ),
+                   ),
             ),
 
-             ListTile(leading: const Icon(Icons.production_quantity_limits),
-              title: const Text('Product Information'),
-              onTap:() => Navigator.push(context, MaterialPageRoute(builder: (context) => const FavoriteScreen())),
+             ListTile(
+              leading: const Icon(
+                Icons.production_quantity_limits
+                ),
+              title: const Text(
+                'Product Information'
+                ),
+              onTap:() => Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (context) =>  
+                  FavoritesScreen()
+                  ),
+                  ),
             ),
 
-            ListTile(leading: const Icon(Icons.language),
-              title: const Text('Language'),
-              onTap:() => Navigator.push(context, MaterialPageRoute(builder: (context) => const Language_Information_Screen())),
+            ListTile(
+              leading: const Icon(
+                Icons.language
+                ),
+              title: const Text(
+                'Language'
+                ),
+              onTap:() => Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (context) =>
+                   const Language_Information_Screen()
+                   ),
+                   ),
             ),
 
-            ListTile(leading: const Icon(Icons.notification_add),
-              title: const Text('Notifications'),
-              onTap:() => Navigator.push(context, MaterialPageRoute(builder: (context) => const Notification_Screen())),
+            ListTile(
+              leading: const Icon(
+                Icons.notification_add
+                ),
+              title: const Text(
+                'Notifications'
+                ),
+              onTap:() => Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (context) => 
+                  const Notification_Screen()
+                  ),
+                  ),
             ),
 
-            ListTile(leading: const Icon(Icons.work),
-              title: const Text('Offers'),
-              onTap:() => Navigator.push(context, MaterialPageRoute(builder: (context) => const Offers_Screen())),
+            ListTile(
+              leading: const Icon(
+                Icons.work
+                ),
+              title: const Text(
+                'Offers'
+                ),
+              onTap:() => Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (context) =>
+                   const Offers_Screen()
+                   ),
+                   ),
             ),
             
-             ListTile(leading: const Icon(Icons.payment),
-              title: const Text('Payments'),
-              onTap:() => Navigator.push(context, MaterialPageRoute(builder: (context) =>  const PaymentsScreen())),
+             ListTile(
+              leading: const Icon(
+                Icons.payment
+                ),
+              title: const Text(
+                'Payments'
+                ),
+              onTap:() => Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (context) =>
+                    const PaymentScreen()
+                    ),
+                    ),
             ),
 
-            ListTile(leading: const Icon(Icons.message),
-              title: const Text('Chat Server'),
-              onTap:() => Navigator.push(context, MaterialPageRoute(builder: (context) => const Message_Screen())),
+            ListTile(
+              leading: const Icon(
+                Icons.message
+                ),
+              title: const Text(
+                'Chat Server'
+                ),
+              onTap:() => Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (context) =>
+                   const Message_Screen()
+                   ),
+                   ),
             ),
 
-            ListTile(leading: const Icon(Icons.share),
-              title: const Text('share'),
-              onTap:() => Navigator.push(context, MaterialPageRoute(builder: (context) => const Help_Screen())),
+            ListTile(
+              leading: const Icon(
+                Icons.share
+                ),
+              title: const Text(
+                'share'
+                ),
+              onTap:() => Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (context) =>
+                   const Help_Screen()
+                   ),
+                   ),
             ),
 
-            ListTile(leading: const Icon(Icons.help),
-              title: const Text('Help'),
-              onTap:() => Navigator.push(context, MaterialPageRoute(builder: (context) => const Help_Screen())),
+            ListTile(
+              leading: const Icon(
+                Icons.help
+                ),
+              title: const Text(
+                'Help'
+                ),
+              onTap:() => Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (context) =>
+                   const Help_Screen()
+                   ),
+                   ),
             ),
 
 
             const Divider(),
 
-            ListTile(leading: const Icon(Icons.settings),
-              title: const Text('Settings'),
+            ListTile(
+              leading: const Icon(
+                Icons.settings
+                ),
+              title: const Text(
+                'Settings'
+                ),
               onTap:() => Navigator.push(
                   context, MaterialPageRoute(
                   builder: (context) => const Settings_Screen()
@@ -162,11 +279,19 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            ListTile(leading: const Icon(Icons.logout),
-              title: const Text('Logout'),
+            ListTile(
+              leading: const Icon(
+                Icons.logout
+                ),
+              title: const Text(
+                'Logout'
+                ),
               onTap: () => Navigator.push( context,
                  MaterialPageRoute(
-                  builder: (context) =>const login_screen())),
+                  builder: (context) =>
+                  const login_screen()
+                  ),
+                  ),
             ),
           ],
         ),

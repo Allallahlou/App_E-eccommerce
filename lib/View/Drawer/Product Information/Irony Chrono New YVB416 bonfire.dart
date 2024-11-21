@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
-class Swatch_analogue_Screen extends StatelessWidget {
+class Irony_Screen extends StatelessWidget {
   
-  const Swatch_analogue_Screen({Key? key}) : super(key: key);
+  const Irony_Screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

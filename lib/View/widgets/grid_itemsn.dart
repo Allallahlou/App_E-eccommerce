@@ -8,7 +8,9 @@ class grid_itemsn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
+
       padding: const EdgeInsets.symmetric(vertical: 50),
       decoration: BoxDecoration(
         boxShadow: const [
@@ -21,7 +23,9 @@ class grid_itemsn extends StatelessWidget {
 
         color: Colors.white,
         border: Border.all(
-          color: Colors.indigo,width: 1.5),
+          color: Colors.indigo,
+          width: 1.5
+          ),
         borderRadius: index == 0 || index % 3 == 0 ? const BorderRadius.only(
           topRight: Radius.circular(100),
           bottomLeft: Radius.circular(100),

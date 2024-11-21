@@ -2,7 +2,6 @@ import 'package:app_e_ecommerce/View/Drawer/Chat%20Server/ActiveChats.dart';
 import 'package:flutter/material.dart';
 import 'RecentChats.dart';
 
-// ignore: camel_case_types
 class Message_Screen extends StatelessWidget {
   const Message_Screen({Key? key}) : super(key: key);
 

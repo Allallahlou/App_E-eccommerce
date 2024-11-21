@@ -1,8 +1,5 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
 class Chats_Screen extends StatelessWidget {
 
   const Chats_Screen({Key? key}) : super(key: key);
@@ -48,7 +45,7 @@ class Chats_Screen extends StatelessWidget {
                 
                 child: ClipRect(
                   child: Image.asset(
-                    "images/ee.png",
+                    "images/person.png",
                   ),
                 ),
               ),
