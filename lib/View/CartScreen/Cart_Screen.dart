@@ -161,7 +161,7 @@ class _CardScreenState extends State<CardScreen> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child:  Text(
+                  child:  const Text(
                     "Complete the purchase",
                     style: TextStyle(fontSize: 18),
                   ),

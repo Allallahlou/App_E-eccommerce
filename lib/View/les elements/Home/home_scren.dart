@@ -322,7 +322,7 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
               ),
             ),
-            const Padding(
+             const Padding(
               padding: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
 
               child: Column(
@@ -342,7 +342,7 @@ class HomeScreen extends StatelessWidget {
                     "Lets shop something",
                     style: TextStyle(
                       fontSize: 23,
-                      color: Colors.black45,
+                      color: Colors.deepOrange,
                     ),
                   ),
                 ],
