@@ -57,8 +57,9 @@ class HomeScreen extends StatelessWidget {
                 onPressed: (){
                   Provider.of<ModeProvider>(context,listen:false ).chaneMode();
                 },
-                icon: Icon(Icons.dark_mode),
-                 label: Text("dark")),
+                 label: const Text("lighting"),
+                 icon: const Icon(Icons.light_mode_outlined),
+                 ),
             Container(
               
             margin: const EdgeInsets.all(10),

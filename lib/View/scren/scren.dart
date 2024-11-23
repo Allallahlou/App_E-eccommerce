@@ -21,7 +21,7 @@ class _ScreensState extends State<scren> {
 
   final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
-    CartScreen(),
+    CardScreen(),
      FavoritesScreen(),
     const login_screen(),
     const Offers_Screen(),
