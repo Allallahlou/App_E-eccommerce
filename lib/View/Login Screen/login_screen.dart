@@ -8,6 +8,7 @@ class login_screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade700,
       body: SingleChildScrollView(
         child: SafeArea(
             child: Column(
@@ -16,11 +17,11 @@ class login_screen extends StatelessWidget {
                 const SizedBox(height: 100),
 
                 Image.asset(
-                    'images/Sign_in.png',
-                    height: 200,
+                    'images/mod.png',
+                    height: 270,
                   ),
 
-                 const SizedBox(height: 20,),
+                 const SizedBox(height: 30,),
 
                  Text(
                   "Welcome To My Account",
@@ -122,15 +123,15 @@ class login_screen extends StatelessWidget {
                             .of(context)
                             .size
                             .width / 2,
-                        decoration: const BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.only(
+                        decoration:  BoxDecoration(
+                          color: Colors.orangeAccent.shade700,
+                          borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(55),
                             bottomRight: Radius.circular(55),
                             topRight: Radius.circular(8),
                             bottomLeft: Radius.circular(8),
                           ),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Color(0xFFE7EEF8),
                               blurRadius: 1.0,
@@ -174,16 +175,16 @@ class login_screen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         height: 60,
                         width: MediaQuery.of(context).size.width /3,
-                        decoration: const BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius:BorderRadius.only(
+                        decoration:  BoxDecoration(
+                          color: Colors.orangeAccent.shade700,
+                          borderRadius:const BorderRadius.only(
                             topLeft:Radius.circular(55),
                             bottomRight:Radius.circular(55),
                             topRight:Radius.circular(8),
                             bottomLeft:Radius.circular(8),
                           ),
 
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Color(0xFFE7EEF8),
                               blurRadius: 1.0,

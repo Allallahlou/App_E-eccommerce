@@ -10,7 +10,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import '../Offers/Offers.dart';
 
 class scren extends StatefulWidget {
-  const scren({Key? key}) : super(key: key);
+  const scren({Key? key, required Null Function(ThemeMode mode) onThemeChanged}) : super(key: key);
 
   @override
   State<scren> createState() => _ScreensState();
@@ -21,13 +21,12 @@ class _ScreensState extends State<scren> {
 
   final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
-    const CartScreen(),
+    CartScreen(),
      FavoritesScreen(),
     const login_screen(),
     const Offers_Screen(),
     const Language_Information_Screen(),
-    const Notification_Screen(),
-    const PaymentScreen(),
+    NoificationScreen(),
   ];
 
   @override

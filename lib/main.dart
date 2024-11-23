@@ -1,22 +1,32 @@
+import 'package:app_e_ecommerce/View/Drawer/theme_mode.dart';
 import 'package:app_e_ecommerce/View/scren/scren.dart';
+import 'package:app_e_ecommerce/provider/mode_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-
-void main() async {
+void main() {
   runApp(
-    const MyApp()
-  );
+    ChangeNotifierProvider(create: (context) => ModeProvider(),
+    child: const MyApp()));
 }
 
-class MyApp extends StatelessWidget{
-   const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
 
   @override
-  Widget build (BuildContext context){
-    return    const MaterialApp(
-      debugShowCheckedModeBanner: false ,
-      home:scren(),
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: Provider.of<ModeProvider>(context).lightModeEnable ? ModeTheme.lightMode: ModeTheme.darkMode,
+      debugShowCheckedModeBanner: false,
+      title: 'Online Store Watches ',
+      home: scren(onThemeChanged: (ThemeMode mode) {},),
     );
   }
-
 }
+
+

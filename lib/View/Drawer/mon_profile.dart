@@ -1,3 +1,4 @@
+import 'package:app_e_ecommerce/View/les%20elements/Home/home_scren.dart';
 import 'package:flutter/material.dart';
 
 class Mon_Profile_Screen extends StatelessWidget {
@@ -15,11 +16,22 @@ class Mon_Profile_Screen extends StatelessWidget {
      body: Stack(
       children: [
        Image.asset(
-        "images/clock.png",
+        "images/sl.png",
         fit: BoxFit.cover,
         height: size.height,
         width: size.width,
       ),
+       IconButton(
+    icon: const Icon(Icons.arrow_back),
+    onPressed: () {
+      Navigator.push(
+        context, MaterialPageRoute(
+          builder: (context) =>  
+          const HomeScreen(),
+          ),
+          ); // الرجوع إلى الشاشة السابقة
+    },
+  ),
 
       Padding(
         padding: const EdgeInsets.symmetric(
@@ -34,10 +46,10 @@ class Mon_Profile_Screen extends StatelessWidget {
         ),
 
         child:Container(
-          height: size.height *0.4,
+          height: size.height *0.5,
           padding: const EdgeInsets.symmetric(
-            horizontal: 8,
-            vertical:15,
+            horizontal: 10,
+            vertical:33,
             ),
 
         child: Column(
@@ -58,7 +70,7 @@ class Mon_Profile_Screen extends StatelessWidget {
                 const CircleAvatar(
                   radius:42,
                   backgroundImage:
-                   AssetImage("images/person.png"),
+                   AssetImage("images/we.png"),
                    ),
                    Positioned(
                     bottom: 0,
@@ -79,46 +91,39 @@ class Mon_Profile_Screen extends StatelessWidget {
                    ),
               ],
               ),
-
-              Row(
-                children: [
-                  Text(
-                    "Phone:",
-                    style: TextStyle(
-                      fontWeight:FontWeight.bold,
-                      color: Colors.lightBlue.shade900,
-                      fontSize: 16),
-                      ),
-              const SizedBox(width:7.0),
-              const Text(
-                "0687654532",
-                style: TextStyle(
-                  fontWeight:FontWeight.bold,
-                  fontSize: 15,
-                  color: Colors.black,
-                  ),
-                  ),
-              ],
-              ),
               ],
               ),
               const SizedBox(height: 10),
-               const Text(
-                "Allal Lahlou",
-                style: TextStyle(
-                  fontWeight:FontWeight.w800,
-                  fontSize: 30,
-                  fontStyle: FontStyle.normal
+               Center(
+                 child: const Text(
+                  "Allal Lahlou",
+                  style: TextStyle(
+                    fontWeight:FontWeight.w800,
+                    fontSize: 31,
+                    fontStyle: FontStyle.normal
+                    ),
+                               ),
+               ),
+              Center(
+                child: Text(
+                  "Seller Of All Watches",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 16,
+                    color: Colors.orange.shade900,
                   ),
-              ),
-              const Text(
-                "SELLER OF ALL WATCHES",
-                style: TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontSize: 17,
-                  color: Color.fromARGB(255, 220, 6, 84),
                 ),
               ),
+               Center(
+                 child: const Text(
+                  "0687654532",
+                  style: TextStyle(
+                    fontWeight:FontWeight.bold,
+                    fontSize: 15,
+                    color: Colors.black,
+                    ),
+                    ),
+               ),
               const SizedBox(height: 10),
               const Text(
                     "Welcome to our store! We are delighted to have you here."
@@ -130,16 +135,17 @@ class Mon_Profile_Screen extends StatelessWidget {
                   color: Colors.black,
                   fontWeight:FontWeight.w800,
                   fontStyle: FontStyle.normal,
-                  fontSize: 13.6,
+                  fontSize: 15,
                 ),
               ),
               ],
               ),
             ),
-            const Spacer(),
+            SizedBox(height: 10,),
+          
             const Divider(color: Colors.black12,),
             SizedBox(
-              height: 65,
+              height: 50,
                child: Row(
                 mainAxisAlignment:MainAxisAlignment.spaceEvenly,
                 children: [
@@ -168,7 +174,7 @@ class Mon_Profile_Screen extends StatelessWidget {
           Text(title,
           style: const TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 15,
+            fontSize: 14,
             color: Colors.purple),
             ),
             Text(

@@ -8,7 +8,9 @@ import 'package:app_e_ecommerce/View/les%20elements/Favorite/favorite_screen.dar
 import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:app_e_ecommerce/View/Offers/Offers.dart';
 import 'package:app_e_ecommerce/View/widgets/grid_items.dart';
+import 'package:app_e_ecommerce/provider/mode_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../Drawer/Chat Server/message.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -51,7 +53,12 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         actions: [
-
+           ElevatedButton.icon(
+                onPressed: (){
+                  Provider.of<ModeProvider>(context,listen:false ).chaneMode();
+                },
+                icon: Icon(Icons.dark_mode),
+                 label: Text("dark")),
             Container(
               
             margin: const EdgeInsets.all(10),
@@ -59,7 +66,7 @@ class HomeScreen extends StatelessWidget {
               onTap: () {
                  Navigator.push(
                   context, MaterialPageRoute(
-                    builder: (context) => const Notification_Screen()
+                    builder: (context) => const NoificationScreen()
                     ),
                     );
               },
@@ -79,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                  Navigator.push(
                   context, MaterialPageRoute(
                     builder: (context) =>
-                     const Notification_Screen()
+                     const NoificationScreen()
                      ),
                      );
               },
@@ -182,7 +189,7 @@ class HomeScreen extends StatelessWidget {
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) => 
-                  const Notification_Screen()
+                  const NoificationScreen()
                   ),
                   ),
             ),
