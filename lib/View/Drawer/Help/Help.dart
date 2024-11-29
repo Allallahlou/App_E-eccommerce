@@ -78,7 +78,7 @@ class HelpScreen extends StatelessWidget {
                 print("Contact support tapped");
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.pinkAccent,
+                backgroundColor: Colors.pinkAccent,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
