@@ -1,6 +1,7 @@
-import 'package:app_e_ecommerce/View/Drawer/theme_mode.dart';
+import 'package:app_e_ecommerce/View/Drawer/Theme%20Mode/theme_mode.dart';
 import 'package:app_e_ecommerce/View/scren/scren.dart';
 import 'package:app_e_ecommerce/provider/mode_provider.dart';
+import 'package:app_e_ecommerce/shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,7 +25,7 @@ class _MyAppState extends State<MyApp> {
       theme: Provider.of<ModeProvider>(context).lightModeEnable ? ModeTheme.lightMode: ModeTheme.darkMode,
       debugShowCheckedModeBanner: false,
       title: 'Online Store Watches ',
-      home: scren(onThemeChanged: (ThemeMode mode) {},),
+      home: OfflineSupportPage(),
     );
   }
 }

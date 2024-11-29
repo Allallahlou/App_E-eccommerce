@@ -1,8 +1,11 @@
-import 'package:app_e_ecommerce/View/Account/Language.dart';
-import 'package:app_e_ecommerce/View/Drawer/Help.dart';
-import 'package:app_e_ecommerce/View/Drawer/Notification.dart';
-import 'package:app_e_ecommerce/View/Drawer/Settings.dart';
-import 'package:app_e_ecommerce/View/Drawer/mon_profile.dart';
+import 'package:app_e_ecommerce/View/Account/LanguageInfo.dart';
+import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
+import 'package:app_e_ecommerce/View/CartScreen/MainPage.dart';
+import 'package:app_e_ecommerce/View/Drawer/Support/Support.dart';
+import 'package:app_e_ecommerce/View/Drawer/Help/Help.dart';
+import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
+import 'package:app_e_ecommerce/View/Drawer/Settings/Settings.dart';
+import 'package:app_e_ecommerce/View/Drawer/Delivery%20Service/Delivery%20Service.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Favorite/favorite_screen.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
@@ -11,7 +14,6 @@ import 'package:app_e_ecommerce/View/widgets/grid_items.dart';
 import 'package:app_e_ecommerce/provider/mode_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../Drawer/Chat Server/message.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -52,14 +54,9 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        title:  Center(child: Text("App E Commerce",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.pinkAccent.shade400),)),
         actions: [
-           ElevatedButton.icon(
-                onPressed: (){
-                  Provider.of<ModeProvider>(context,listen:false ).chaneMode();
-                },
-                 label: const Text("lighting"),
-                 icon: const Icon(Icons.light_mode_outlined),
-                 ),
+          
             Container(
               
             margin: const EdgeInsets.all(10),
@@ -67,14 +64,14 @@ class HomeScreen extends StatelessWidget {
               onTap: () {
                  Navigator.push(
                   context, MaterialPageRoute(
-                    builder: (context) => const NoificationScreen()
+                    builder: (context) => const MainPage()
                     ),
                     );
               },
 
-              child: const Icon(
-                Icons.shopping_bag,
-                color: Colors.pink,
+              child:  Icon(
+                Icons.shopping_cart,
+                color: Colors.grey.shade900,
                 size: 30,
               ),
             ),
@@ -92,8 +89,10 @@ class HomeScreen extends StatelessWidget {
                      );
               },
 
-              child: const Icon(
+              child:  Icon(
                 Icons.notification_add_sharp,
+                color: Colors.grey.shade900,
+
                 size: 30,
               ),
             ),
@@ -138,14 +137,33 @@ class HomeScreen extends StatelessWidget {
                 ),
 
             ListTile(
+            leading: const Icon(
+              Icons.brightness_6
+              ),
+
+            title: const Text(
+              "Night mode "
+              ),
+
+            trailing: Switch(
+              value: Provider.of<ModeProvider>(context).lightModeEnable,
+              onChanged: (value) {
+                Provider.of<ModeProvider>(context, listen: false)
+                    .chaneMode(); 
+                    // تغيير الوضع
+              },
+            ),
+          ),
+
+            ListTile(
               leading: const Icon(
-                Icons.person
+                Icons.delivery_dining
                 ),
-              title: const Text('Mon Profile'),
+              title: const Text('Delivery Service'),
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) =>
-                   const Mon_Profile_Screen()
+                   const DeliveryProfileScreen()
                    ),
                    ),
             ),
@@ -175,7 +193,7 @@ class HomeScreen extends StatelessWidget {
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) =>
-                   const Language_Information_Screen()
+                   const LanguageInfoScreen()
                    ),
                    ),
             ),
@@ -235,7 +253,7 @@ class HomeScreen extends StatelessWidget {
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) =>
-                   const Message_Screen()
+                   ChatScreen()
                    ),
                    ),
             ),
@@ -250,7 +268,7 @@ class HomeScreen extends StatelessWidget {
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) =>
-                   const Help_Screen()
+                   const HelpScreen()
                    ),
                    ),
             ),
@@ -265,7 +283,7 @@ class HomeScreen extends StatelessWidget {
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) =>
-                   const Help_Screen()
+                   const HelpScreen()
                    ),
                    ),
             ),
@@ -386,13 +404,22 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(16.0),
+                                  padding:  const EdgeInsets.all(16.0),
                                   child: ElevatedButton.icon(
-                                    onPressed: (){},
+                                    onPressed: (){
+                                       Navigator.push(
+                                    context, MaterialPageRoute(
+                                    builder: (context) => const CardScreen()
+                                   ),
+                                  );
+                                  },
                                     icon:const Icon(Icons.shop),
                                     label: const Text(
                                       "Shop New",
-                                      style: TextStyle(fontSize: 16,color: Colors.pink),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.pink
+                                        ),
                                       ),),
                                 )
                                 ],
@@ -412,24 +439,31 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
-            const Padding(
+             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "Top Categories",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
                   ),
-                  Text(
-                    "See All",
-                    style: TextStyle(
-                      color: Colors.black54,
-                    ),
-                  )
+                  TextButton(
+        style: TextButton.styleFrom(
+          foregroundColor: Colors.deepOrange,
+        ),
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(
+              builder: (context) =>  FavoritesScreen()
+              ),
+            );
+        },
+        child:  const Text('See All'),
+      ),
                 ],
               ),
             ),

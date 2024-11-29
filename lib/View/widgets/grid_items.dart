@@ -50,11 +50,11 @@ class GridItems extends StatelessWidget {
                 ),
               ],
             ),
-
             child: Padding(
               padding:  const EdgeInsets.all(10),
               child: Column(
                 children: [
+                  SizedBox(height: 5,),
                    Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children:  [
@@ -65,7 +65,7 @@ class GridItems extends StatelessWidget {
                           fontSize: 12,
                         ),
                       ),
-
+                      SizedBox(height: 60,),
                       FavoriteButton(
                   isFavorite: false,
                   valueChanged: (isFavorite) {
@@ -101,13 +101,13 @@ class GridItems extends StatelessWidget {
                       },
                       child: Image.asset(
                         "images/${pNames[index]}.png",
-                        height: 96,
+                        height: 120,
                         width: 300,
                       ),
                     ),
                   ),
 
-                   const SizedBox(height: 15),
+                   const SizedBox(height: 20),
 
                   Padding(
                     padding:  const EdgeInsets.all(8),
@@ -123,21 +123,7 @@ class GridItems extends StatelessWidget {
                           ),
                         ),
 
-                         const SizedBox(height: 10),
                          
-                        const Row(
-                          children:  [
-                            Text(
-                              "100\$",
-                              style: TextStyle(
-                                decoration: TextDecoration.lineThrough,
-                                fontSize: 15,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            )
-                          ],
-                        ),
                       ],
                     ),
                   ),

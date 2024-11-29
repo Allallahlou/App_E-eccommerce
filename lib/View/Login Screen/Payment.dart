@@ -33,7 +33,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
     // عرض رسالة نجاح بعد إتمام الدفع
     
-    _showDialog("Congratulations!", "Payment has been made successfully and the watch has been purchased.");
+    _showDialog(
+      "Congratulations!", 
+      "Payment has been made successfully and the watch has been purchased.");
   }
 
   void _showDialog(String title, String content) {
@@ -59,19 +61,22 @@ class _PaymentScreenState extends State<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: Colors.grey.shade400,
       appBar: AppBar(
-        backgroundColor: Colors.deepOrange.shade600,
-        title: const Center(child: Text(
-          "Buy Watch",
+        backgroundColor: Colors.grey.shade400,
+        title: const Center(
+          
+          child: Text(
+          "Payment",
            style: TextStyle(
             color: Colors.black,
             fontSize: 30,
             fontWeight: FontWeight.bold,
-            ),
-            ),
-            ),
+            ),),),
+
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -79,12 +84,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
           children: [
             
           const Image(  
-                height: 250,
-                width: 500,
-                image: AssetImage("images/payment.png"),
+                height: 260,
+                width: 600,
+                image: AssetImage("images/Payments.png"),
                 ),
 
-            const SizedBox(height: 110),
+            const SizedBox(height: 80),
             TextField(
               controller: _cardNumberController,
               keyboardType: TextInputType.number,
@@ -131,8 +136,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
             const SizedBox(height: 20),
 
             ElevatedButton.icon(
+
               onPressed:  processPayment,
-              icon:const Icon(Icons.payment,size: 30,),
+
+              icon:const Icon(
+                Icons.payment,size: 30),
+
               label: const Text(
                 "Complete payment",
                   style: TextStyle(
@@ -141,8 +150,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     fontSize: 20,
                     color: Colors.pink
                     ),
-                ),
-                ),
+                    ),
+                    ),
           ],
         ),
       ),

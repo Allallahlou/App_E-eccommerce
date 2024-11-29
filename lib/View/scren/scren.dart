@@ -1,6 +1,6 @@
-import 'package:app_e_ecommerce/View/Account/Language.dart';
+import 'package:app_e_ecommerce/View/Account/LanguageInfo.dart';
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
-import 'package:app_e_ecommerce/View/Drawer/Notification.dart';
+import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Favorite/favorite_screen.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Home/home_scren.dart';
@@ -25,7 +25,7 @@ class _ScreensState extends State<scren> {
      FavoritesScreen(),
     const login_screen(),
     const Offers_Screen(),
-    const Language_Information_Screen(),
+    const LanguageInfoScreen(),
     NoificationScreen(),
   ];
 
