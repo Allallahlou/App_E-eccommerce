@@ -13,6 +13,7 @@ import 'package:app_e_ecommerce/View/Offers/Offers.dart';
 import 'package:app_e_ecommerce/View/widgets/grid_items.dart';
 import 'package:app_e_ecommerce/provider/mode_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -54,7 +55,18 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title:  Center(child: Text("App E Commerce",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.pinkAccent.shade400),)),
+        backgroundColor: Colors.grey,
+        title:  Center(
+          child: Text(
+            "App E Commerce",
+             style: GoogleFonts.adamina(
+               textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.pinkAccent.shade400,
+                letterSpacing:.5
+                ),),
+              ),
+              ),
         actions: [
           
             Container(
@@ -111,7 +123,7 @@ class HomeScreen extends StatelessWidget {
             UserAccountsDrawerHeader(
 
                 accountName: const Text(
-                  'Application Ecommerce'
+                  'Application Ecommerce',style: TextStyle(color: Colors.white),
                   ),
                 accountEmail:const Text(
                   'Support.App@gmail.com'
@@ -253,7 +265,7 @@ class HomeScreen extends StatelessWidget {
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) =>
-                   ChatScreen()
+                   const ChatScreen()
                    ),
                    ),
             ),
@@ -440,7 +452,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 20),
 
              Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

@@ -157,7 +157,7 @@ class FavoriteSearchDelegate extends SearchDelegate {
                             MaterialPageRoute(
                               builder:(
                                 context
-                                )=> PaymentScreen()
+                                )=> const PaymentScreen()
                               ),
                               );
                 },

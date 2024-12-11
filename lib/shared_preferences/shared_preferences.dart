@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OfflineSupportPage extends StatefulWidget {
+  const OfflineSupportPage({Key? key}) : super(key: key);
+
   @override
   _OfflineSupportPageState createState() => _OfflineSupportPageState();
 }

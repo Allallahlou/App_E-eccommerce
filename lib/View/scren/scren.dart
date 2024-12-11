@@ -1,7 +1,8 @@
 import 'package:app_e_ecommerce/View/Account/LanguageInfo.dart';
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
+import 'package:app_e_ecommerce/View/Drawer/Help/SettingsScreen.dart';
 import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
-import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
+import 'package:app_e_ecommerce/View/Drawer/Settings/Settings.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Favorite/favorite_screen.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Home/home_scren.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
@@ -21,12 +22,13 @@ class _ScreensState extends State<scren> {
 
   final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
-    CardScreen(),
+    const CardScreen(),
      FavoritesScreen(),
+     Settings_Screen(),
     const login_screen(),
     const Offers_Screen(),
     const LanguageInfoScreen(),
-    NoificationScreen(),
+    const NoificationScreen(),
   ];
 
   @override
@@ -64,6 +66,7 @@ class _ScreensState extends State<scren> {
                   GButton(icon: Icons.home, text: 'Home'),
                   GButton(icon: Icons.shopping_bag, text: 'Cart'),
                   GButton(icon: Icons.favorite, text: 'Favorite'),
+                  GButton(icon: Icons.settings, text: 'Settings'),
                   GButton(icon: Icons.person, text: 'Account'),
                 ],
                 selectedIndex: _selectedIndex,

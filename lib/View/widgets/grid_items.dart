@@ -54,7 +54,7 @@ class GridItems extends StatelessWidget {
               padding:  const EdgeInsets.all(10),
               child: Column(
                 children: [
-                  SizedBox(height: 5,),
+                  const SizedBox(height: 5,),
                    Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children:  [
@@ -65,7 +65,7 @@ class GridItems extends StatelessWidget {
                           fontSize: 12,
                         ),
                       ),
-                      SizedBox(height: 60,),
+                      const SizedBox(height: 60,),
                       FavoriteButton(
                   isFavorite: false,
                   valueChanged: (isFavorite) {

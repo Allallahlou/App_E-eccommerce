@@ -8,5 +8,6 @@
         "screenutil",
         "scren",
         "signup"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
