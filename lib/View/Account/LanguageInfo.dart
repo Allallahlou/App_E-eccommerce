@@ -7,9 +7,14 @@ class LanguageInfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Language Information'),
+
+        title: const Text(
+          'Language Information'
+          ),
+
         centerTitle: true,
       ),
+
       body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -19,10 +24,15 @@ class LanguageInfoScreen extends StatelessWidget {
               size: 100,
               color: Colors.blue,
             ),
+
             SizedBox(height: 20),
+
             Text(
               'Welcome to the Language Information Screen!',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                ),
               textAlign: TextAlign.center,
             ),
           ],

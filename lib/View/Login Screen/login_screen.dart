@@ -36,8 +36,13 @@ class login_screen extends StatelessWidget {
                 const SizedBox(height: 30,),
 
                 Container(
-                  margin:  const EdgeInsets.symmetric(horizontal: 20),
-                  padding:  const EdgeInsets.only(left: 20, right: 15),
+                  margin:  
+                  const EdgeInsets.symmetric(horizontal: 20),
+                  padding:
+                  const EdgeInsets.only(
+                    left: 20,
+                    right: 15,
+                  ),
                   height: 60,
                   decoration: BoxDecoration(
                     color:  const Color(0xFFFFFFFF),
@@ -45,7 +50,12 @@ class login_screen extends StatelessWidget {
                       topRight: Radius.circular(45),
                       bottomLeft: Radius.circular(45),
                     ),
-                    border: Border.all(color: Colors.indigo, width: 1.5),
+
+                    border: Border.all(
+                      color: Colors.indigo,
+                      width: 1.5,
+                    ),
+
                     boxShadow:  const [
                       BoxShadow(
                         color: Color(0xFFE7EEF8),
@@ -70,7 +80,10 @@ class login_screen extends StatelessWidget {
 
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
-                  padding:  const EdgeInsets.only(left: 20, right: 15),
+                  padding:  const EdgeInsets.only(
+                    left: 20,
+                    right: 15,
+                    ),
                   height: 60,
                   decoration: BoxDecoration(
                     color:  const Color(0xFFFFFFFF),

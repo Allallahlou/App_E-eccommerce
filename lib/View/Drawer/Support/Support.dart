@@ -53,7 +53,10 @@ class _ChatScreenState extends State<ChatScreen> {
       appBar:  AppBar(
 
         title: const Center(
-          child: Text('Support'),
+
+          child: Text(
+            'Support'
+            ),
         ),
         ),
 
@@ -70,6 +73,7 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
 
           // Emoji Picker
+
           if (_showEmojiPicker)
             Align(
               alignment: Alignment.bottomLeft,
@@ -91,6 +95,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
       bottomSheet: Padding(
         padding: const EdgeInsets.all(8.0),
+
         child: Row(
           children: [
             IconButton(
@@ -98,14 +103,17 @@ class _ChatScreenState extends State<ChatScreen> {
               onPressed: () {
                 setState(() {
                   _showEmojiPicker = !_showEmojiPicker;
-                });
+                }
+                );
               },
             ),
 
             Expanded(
               child: TextField(
                 controller: _controller,
-                decoration: const InputDecoration(hintText: 'Type a message'),
+                decoration: const InputDecoration(
+                  hintText: 'Type a message',
+                  ),
                 onSubmitted: (text) => _sendMessage(text),
               ),
             ),

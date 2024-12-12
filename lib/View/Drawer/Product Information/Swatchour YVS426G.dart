@@ -1,8 +1,4 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
-
-// ignore: camel_case_types
 class Swatchour_YVS426G_Screen extends StatelessWidget {
   
   const Swatchour_YVS426G_Screen({Key? key}) : super(key: key);

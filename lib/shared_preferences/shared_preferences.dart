@@ -32,15 +32,28 @@ class _OfflineSupportPageState extends State<OfflineSupportPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Offline Support")),
+      appBar: AppBar(
+        title: const Text(
+          "Offline Support"
+          ),
+          ),
+
       body: Column(
         children: [
-          Text('Saved Data: $_savedData'),
+          Text(
+            'Saved Data: $_savedData'
+            ),
+
           ElevatedButton(
             onPressed: () {
-              _saveData('New data');
+              _saveData(
+                'New data'
+                );
             },
-            child: const Text('Save Data'),
+
+            child: const Text(
+              'Save Data'
+              ),
           ),
         ],
       ),

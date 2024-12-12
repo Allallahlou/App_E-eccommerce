@@ -1,7 +1,3 @@
-
-
-
-
 import 'package:flutter/material.dart';
 
 class ModeProvider with ChangeNotifier {
@@ -13,8 +9,6 @@ class ModeProvider with ChangeNotifier {
   set lightModeEnable(bool value) {
     _lightModeEnable = value;
   }
-
-
 
   chaneMode(){
     if(_lightModeEnable == true ){
@@ -28,15 +22,4 @@ class ModeProvider with ChangeNotifier {
       notifyListeners();
     }
   }
-
-
-
-
-
-
-
-
-
-
-
 }

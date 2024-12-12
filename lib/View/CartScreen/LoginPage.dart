@@ -7,14 +7,20 @@ class Login_PageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("Login")),
+        title: const Center(
+          child: Text(
+            "Login"
+            ),
+            ),
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
             // أضف المنطق للتوجه إلى الصفحة الرئيسية أو شاشة أخرى
           },
-          child: const Text("Login"),
+          child: const Text(
+            "Login"
+            ),
         ),
       ),
     );

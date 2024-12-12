@@ -108,19 +108,24 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: products.length,
-      itemBuilder: (context, index) {
+      itemBuilder: (
+        context, index) {
         final product = products[index];
         return Card(
           margin: const EdgeInsets.all(8),
           child: ListTile(
+
             leading: Image.asset(
               product.imagePath,
               width: 60,
               height: 60,
               fit: BoxFit.cover,
             ),
+
             title: Text(product.name),
-            subtitle: Text("\$${product.price.toStringAsFixed(2)}"),
+            subtitle: Text(
+              "\$${product.price.toStringAsFixed(2)}"
+              ),
             trailing: IconButton(
               icon: Icon(
                 product.isFavorite ? Icons.favorite : Icons.favorite_border,
@@ -129,7 +134,9 @@ class _ProductPageState extends State<ProductPage> {
               onPressed: () {
                 setState(() {
                   product.isFavorite = !product.isFavorite;
-                });
+                }
+                );
+
                 if (product.isFavorite) {
                   widget.onAddToCart(product);
                 }

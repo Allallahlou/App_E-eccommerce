@@ -24,7 +24,13 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("App E-Commerce")),
+        title: const Center(
+
+          child: Text(
+            "App E-Commerce"
+            ),
+            ),
+
         actions: [
           Stack(
             alignment: Alignment.topRight,
@@ -40,6 +46,7 @@ class _MainPageState extends State<MainPage> {
                   );
                 },
               ),
+
               if (cartItems.isNotEmpty)
                 Positioned(
                   right: 8,
@@ -50,9 +57,13 @@ class _MainPageState extends State<MainPage> {
                       color: Colors.red,
                       shape: BoxShape.circle,
                     ),
+
                     child: Text(
                       '${cartItems.length}',
-                      style: const TextStyle(color: Colors.white, fontSize: 12),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        ),
                     ),
                   ),
                 ),
@@ -60,7 +71,9 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
-      body: ProductPage(onAddToCart: _addToCart),
+      body: ProductPage(
+        onAddToCart: _addToCart
+        ),
     );
   }
 }

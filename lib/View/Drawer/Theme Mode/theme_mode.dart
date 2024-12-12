@@ -2,15 +2,6 @@ import 'package:flutter/material.dart';
 
 class ModeTheme {
 
-
-
-
-
-
-
-
-
-
   static final lightMode = ThemeData(
   useMaterial3: true,
 

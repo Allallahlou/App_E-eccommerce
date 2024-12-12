@@ -10,48 +10,156 @@ class CardScreen extends StatefulWidget {
 }
 
 class _CardScreenState extends State<CardScreen> {
-  // قائمة المنتجات في السلة
+
+                  // قائمة المنتجات في السلة
+
   final List<Map<String, dynamic>> cartItems = [
-    {"image": "images/Analogique.png", "name": "Analogique", "price": 100, "quantity": 1},
-    {"image": "images/Apple_Swatch_Black.png", "name": "Apple Swatch Black", "price": 280, "quantity": 1},
-    {"image": "images/Apple_Swatch.png", "name": "Apple Swatch", "price": 300, "quantity": 1},
-    {"image": "images/Bijoux_Jewelry.png", "name": "Bijoux Jewelry", "price": 400, "quantity": 1},
-    {"image": "images/Hombre_Irony_Xlite_Red_Attack.png", "name": "Hombre Irony Xlite Red Attack", "price": 160, "quantity": 1},
-    {"image": "images/Irony_Chrono_New_YVB416_bonfire.png", "name": "Irony Chrono New YVB416 bonfire", "price": 250, "quantity": 1},
-    {"image": "images/Irony_pour_homme.png", "name": "Irony pour homme", "price": 270, "quantity": 1},
-    {"image": "images/Mens_Irony_Chronograph.png", "name": "Mens Irony Chronograph", "price": 320, "quantity": 1},
-    {"image": "images/Mens_Swiss_SY23S413.png", "name": "Mens Swiss SY23S413", "price": 220, "quantity": 1},
-    {"image": "images/Sport_Swatch.png", "name": "Sport Swatch", "price": 145, "quantity": 1},
-    {"image": "images/Swatchour_YVS426G.png", "name": "Swatchour YVS426G", "price": 305, "quantity": 1},
-    {"image": "images/SYXG110G.png", "name": "SYXG110G", "price": 245, "quantity": 1},
-    {"image": "images/Unisex_Chronographe_Quartz.png", "name": "Unisex Chronographe Quartz", "price": 105, "quantity": 1},
-    {"image": "images/YCS590G.png", "name": "YCS590G", "price": 115, "quantity": 1},
-    {"image": "images/YWS420G_Menichelli.png", "name": "YWS420G Menichelli", "price": 45, "quantity": 1},
+
+    {
+      "image": "images/Analogique.png",
+      "name": "Analogique",
+      "price": 100,
+      "quantity": 1,
+    },
+
+    {
+      "image": "images/Apple_Swatch_Black.png",
+      "name": "Apple Swatch Black",
+      "price": 280,
+      "quantity": 1,
+    },
+
+    {
+      "image": "images/Apple_Swatch.png",
+      "name": "Apple Swatch",
+      "price": 300,
+      "quantity": 1,
+    },
+
+    {
+      "image": "images/Bijoux_Jewelry.png",
+      "name": "Bijoux Jewelry",
+      "price": 400,
+      "quantity": 1,
+    },
+
+    {
+      "image": "images/Hombre_Irony_Xlite_Red_Attack.png",
+      "name": "Hombre Irony Xlite Red Attack",
+      "price": 160,
+      "quantity": 1,
+    },
+
+    {
+      "image": "images/Irony_Chrono_New_YVB416_bonfire.png",
+      "name": "Irony Chrono New YVB416 bonfire",
+      "price": 250,
+      "quantity": 1,
+    },
+
+    {
+      "image": "images/Irony_pour_homme.png",
+      "name": "Irony pour homme",
+      "price": 270,
+      "quantity": 1,
+    },
+
+    {
+      "image": "images/Mens_Irony_Chronograph.png",
+      "name": "Mens Irony Chronograph",
+      "price": 320,
+      "quantity": 1
+    },
+
+    {
+      "image": "images/Mens_Swiss_SY23S413.png",
+      "name": "Mens Swiss SY23S413",
+      "price": 220,
+      "quantity": 1,
+    },
+
+    {
+      "image": "images/Sport_Swatch.png",
+      "name": "Sport Swatch",
+      "price": 145,
+      "quantity": 1,
+    },
+
+    { 
+      "image": "images/Swatchour_YVS426G.png",
+      "name": "Swatchour YVS426G",
+      "price": 305,
+      "quantity": 1},
+    {
+      "image": "images/SYXG110G.png",
+      "name": "SYXG110G", 
+      "price": 245,
+      "quantity": 1,
+     },
+
+    {
+      "image": "images/Unisex_Chronographe_Quartz.png",
+      "name": "Unisex Chronographe Quartz",
+      "price": 105,
+      "quantity": 1,
+    },
+    {
+      "image": "images/YCS590G.png",
+      "name": "YCS590G",
+      "price": 115,
+      "quantity": 1,
+    },
+
+    {
+      "image": "images/YWS420G_Menichelli.png",
+      "name": "YWS420G Menichelli",
+      "price": 45,
+      "quantity": 1,
+    },
   ];
 
-  // حساب الإجمالي
+            // حساب الإجمالي
+
   double getTotal() {
-    return cartItems.fold(0, (sum, item) => sum + (item['price'] * item['quantity']));
+    return cartItems.fold(
+      0, (sum, item) =>
+       sum + (item['price'] * item['quantity']),
+       );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("Shopping Cart")),
+        title: const Center(
+
+          child: Text(
+            "Shopping Cart"
+            ),
+
+            ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+
+          icon: const Icon(
+            Icons.arrow_back
+            ),
+
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const HomeScreen()),
+              MaterialPageRoute(
+                builder: (context) => const HomeScreen()
+                ),
             );
           },
         ),
       ),
+
       body: Column(
         children: [
+
           // عرض قائمة المنتجات
+
           Expanded(
             child: cartItems.isNotEmpty
                 ? ListView.builder(
@@ -59,34 +167,50 @@ class _CardScreenState extends State<CardScreen> {
                     itemBuilder: (context, index) {
                       final item = cartItems[index];
                       return Card(
-                        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                        margin: const EdgeInsets.symmetric(
+                          vertical: 8,
+                          horizontal: 16,
+                          ),
                         child: Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Row(
                             children: [
+
                               // صورة المنتج
+
                               Container(
                                 height: 80,
                                 width: 80,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(8),
                                   image: DecorationImage(
-                                    image: AssetImage(item['image']),
+                                    image: AssetImage(
+                                      item['image']
+                                      ),
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
+
                               const SizedBox(width: 16),
+
                               // تفاصيل المنتج
+
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+
                                     Text(
                                       item['name'],
-                                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        ),
                                     ),
+
                                     const SizedBox(height: 8),
+
                                     Text(
                                       "${item['price']} Euro",
                                       style: TextStyle(
@@ -98,11 +222,16 @@ class _CardScreenState extends State<CardScreen> {
                                   ],
                                 ),
                               ),
+
                               // التحكم في الكمية
+
                               Row(
                                 children: [
                                   IconButton(
-                                    icon: const Icon(Icons.remove),
+                                    icon: const Icon(
+                                      Icons.remove
+                                      ),
+
                                     onPressed: () {
                                       setState(() {
                                         if (item['quantity'] > 1) {
@@ -110,19 +239,25 @@ class _CardScreenState extends State<CardScreen> {
                                         } else {
                                           cartItems.removeAt(index);
                                         }
-                                      });
+                                      }
+                                      );
                                     },
                                   ),
+
                                   Text(
                                     "${item['quantity']}",
-                                    style: const TextStyle(fontSize: 18),
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      ),
                                   ),
+
                                   IconButton(
                                     icon: const Icon(Icons.add),
                                     onPressed: () {
                                       setState(() {
                                         item['quantity']++;
-                                      });
+                                      }
+                                      );
                                     },
                                   ),
                                 ],
@@ -136,11 +271,16 @@ class _CardScreenState extends State<CardScreen> {
                 : const Center(
                     child: Text(
                       "Your cart is empty!",
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        ),
                     ),
                   ),
           ),
+
           // عرض الإجمالي وزر الدفع
+
           Container(
             padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
@@ -150,6 +290,7 @@ class _CardScreenState extends State<CardScreen> {
                 topRight: Radius.circular(16),
               ),
             ),
+
             child: Column(
               children: [
                 Row(
@@ -157,33 +298,51 @@ class _CardScreenState extends State<CardScreen> {
                   children: [
                     const Text(
                       "Total:",
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        ),
                     ),
+
                     Text(
                       "${getTotal().toStringAsFixed(2)} Euro",
-                      style: const TextStyle(fontSize: 18, color: Colors.deepOrange, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                        fontSize: 18,
+                        color: Colors.deepOrange,
+                        fontWeight: FontWeight.bold,
+                        ),
                     ),
                   ],
                 ),
+
                 const SizedBox(height: 16),
+
                 ElevatedButton(
                   onPressed: cartItems.isNotEmpty
                       ? () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const PaymentScreen()),
+                            MaterialPageRoute(
+                              builder: (context) => const PaymentScreen()
+                              ),
                           );
                         }
                       : null,
                   style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12,
+                      horizontal: 24,
+                      ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
                   child: const Text(
                     "Proceed to Payment",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      ),
                   ),
                 ),
               ],

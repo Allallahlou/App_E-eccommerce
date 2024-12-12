@@ -8,73 +8,85 @@ class FavoritesScreen extends StatelessWidget {
       "image": "Images/Analogique.png",
       "name": " Analogique",
       "price": "\$100"
-      },
+    },
+
     {
       "image": "Images/Apple_Swatch_Black.png",
       "name": "Apple Swatch Black",
       "price": "\$280"
-      },
+    },
+
     {
       "image": "Images/Apple_Swatch.png",
       "name": "Apple Swatch",
       "price": "\$300"
-      },
+    },
+
     {
       "image": "Images/Bijoux_Jewelry.png",
       "name": "Bijoux Jewelry",
       "price": "\$400"
-      },
+    },
+
     {
       "image": "Images/Hombre_Irony_Xlite_Red_Attack.png",
       "name": "Hombre Irony Xlite Red Attack", 
       "price": "\$160"
-      },
+    },
+
     {
       "image": "Images/Irony_Chrono_New_YVB416_bonfire.png",
       "name": "Irony Chrono New YVB416 bonfire",
       "price": "\$250"
-      },
+    },
+
     {
       "image": "Images/Irony_pour_homme.png",
       "name": "Irony pour homme ",
       "price": "\$270"
-      },
+    },
+
     {
       "image": "Images/Mens_Irony_Chronograph.png",
       "name": "Mens Irony Chronograph",
       "price": "\$320"
-      },
+    },
+
     {
       "image": "Images/Mens_Swiss_SY23S413.png",
       "name": "Mens Swiss SY23S413",
       "price": "\$220"
-      },
+    },
+
     {
       "image": "Images/Sport_Swatch.png",
       "name": "Sport Swatch",
       "price": "\$145"
-      },
-       {
+    },
+
+    {
       "image": "Images/Swatchour_YVS426G.png",
       "name": "Swatchour YVS426G",
       "price": "\$305"
-      },
-       {
+    },
+
+    {
       "image": "Images/SYXG110G.png",
       "name": "SYXG110G",
       "price": "\$245"
-      },
-       {
+    },
+
+    {
       "image": "Images/Unisex_Chronographe_Quartz.png",
       "name": "Unisex Chronographe Quartz",
       "price": "\$105"
-      },
+    },
      
-       {
+    {
       "image": "Images/YWS420G_Menichelli.png",
       "name": "YWS420G Menichelli",
       "price": "\$45"
-      },
+    },
 
   ];
 
@@ -85,24 +97,44 @@ class FavoritesScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-  title: const Center(child: Text("Favorites")),
+      title: const Center(
+
+    child: Text(
+      "Favorites"
+      ),
+
+      ),
+
   leading: IconButton(
-    icon: const Icon(Icons.arrow_back),
+
+    icon: const Icon(
+      Icons.arrow_back,
+      ),
+
     onPressed: () {
       Navigator.push(
         context, MaterialPageRoute(
           builder: (context) =>  const HomeScreen(),
           ),
-          ); // الرجوع إلى الشاشة السابقة
+
+          );
+          
+           // الرجوع إلى الشاشة السابقة
     },
   ),
 
         actions: [
-          const Text("Search"),
+          const Text(
+
+            "Search"
+
+            ),
+
           IconButton(
             icon: const Icon(
               Icons.search
               ),
+
             onPressed: (){
               showSearch(
           context: context,
@@ -119,16 +151,22 @@ class FavoritesScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+
                   const Text(
-                    "لم تقم بإضافة أي ساعة إلى المفضلة بعد!",
-                    style: TextStyle(fontSize: 18),
+                          "You haven't added any watches to your favorites yet!",
+                          style: TextStyle(fontSize: 18),
                   ),
+
                   const SizedBox(height: 10),
+
                   ElevatedButton(
                     onPressed: () {
                       // Action to browse watches
                     },
-                    child: const Text("تصفح الساعات"),
+
+                    child: const Text(
+                      "Browse the hours"
+                      ),
                   ),
                 ],
               ),
@@ -137,17 +175,21 @@ class FavoritesScreen extends StatelessWidget {
           : GridView.builder(
               padding: const EdgeInsets.all(10),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+
                 crossAxisCount: 2,
                 childAspectRatio: 2 / 3,
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
               ),
+
               itemCount: favoriteWatches.length,
               itemBuilder: (ctx, index) {
+              
                 final watch = favoriteWatches[index];
                 return Card(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10)
+                    ),
                   elevation: 4,
                   
                   child: Column(
@@ -156,14 +198,15 @@ class FavoritesScreen extends StatelessWidget {
                       Image.asset(
                        watch['image'],
                        fit: BoxFit.cover,
-                       height: 120),
+                       height: 120,
+                       ),
 
                       const SizedBox(height: 10),
 
                       Text(
                         watch['name'],
                         style: const TextStyle(
-                          fontWeight: FontWeight.bold
+                          fontWeight: FontWeight.bold,
                           ),
                       ),
 

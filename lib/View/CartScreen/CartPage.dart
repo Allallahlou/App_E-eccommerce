@@ -15,10 +15,19 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("Cart")),
+        title: const Center(
+          child: Text(
+            "Cart"
+            ),
+            ),
       ),
+
       body: cartItems.isEmpty
-          ? const Center(child: Text("Your cart is empty!"))
+          ? const Center(
+            child: Text(
+              "Your cart is empty!"
+              ),
+              )
           : Column(
               children: [
                 Expanded(
@@ -33,8 +42,12 @@ class CartPage extends StatelessWidget {
                           height: 50,
                           fit: BoxFit.cover,
                         ),
-                        title: Text(product.name),
-                        subtitle: Text("\$${product.price.toStringAsFixed(2)}"),
+                        title: Text(
+                          product.name
+                          ),
+                        subtitle: Text(
+                          "\$${product.price.toStringAsFixed(2)}"
+                          ),
                       );
                     },
                   ),
@@ -48,15 +61,22 @@ class CartPage extends StatelessWidget {
                         children: [
                           const Text(
                             "Total:",
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              ),
                           ),
                           Text(
                             "\$${getTotalPrice().toStringAsFixed(2)}",
-                            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              ),
                           ),
                         ],
                       ),
                       const SizedBox(height: 16),
+
                       ElevatedButton(
                         onPressed: () {
                           Navigator.push(
@@ -65,9 +85,14 @@ class CartPage extends StatelessWidget {
                           );
                         },
                         style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 12,
+                            horizontal: 24,
+                            ),
                         ),
-                        child: const Text("Proceed to Payment"),
+                        child: const Text(
+                          "Proceed to Payment"
+                          ),
                       ),
                     ],
                   ),

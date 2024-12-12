@@ -1,6 +1,7 @@
 import 'package:app_e_ecommerce/View/Account/LanguageInfo.dart';
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
 import 'package:app_e_ecommerce/View/CartScreen/MainPage.dart';
+import 'package:app_e_ecommerce/View/Drawer/Share/share.dart';
 import 'package:app_e_ecommerce/View/Drawer/Support/Support.dart';
 import 'package:app_e_ecommerce/View/Drawer/Help/Help.dart';
 import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
@@ -55,18 +56,23 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+
         backgroundColor: Colors.grey,
         title:  Center(
           child: Text(
+
             "App E Commerce",
              style: GoogleFonts.adamina(
+
                textStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.pinkAccent.shade400,
                 letterSpacing:.5
-                ),),
+                ),
+                ),
               ),
               ),
+
         actions: [
           
             Container(
@@ -81,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                     );
               },
 
-              child:  Icon(
+              child: Icon(
                 Icons.shopping_cart,
                 color: Colors.grey.shade900,
                 size: 30,
@@ -104,10 +110,10 @@ class HomeScreen extends StatelessWidget {
               child:  Icon(
                 Icons.notification_add_sharp,
                 color: Colors.grey.shade900,
-
                 size: 30,
               ),
             ),
+
           ),
         ],
       ),
@@ -123,7 +129,11 @@ class HomeScreen extends StatelessWidget {
             UserAccountsDrawerHeader(
 
                 accountName: const Text(
-                  'Application Ecommerce',style: TextStyle(color: Colors.white),
+                  'Application Ecommerce',
+                  style: TextStyle(
+                    
+                    color: Colors.white,
+                    ),
                   ),
                 accountEmail:const Text(
                   'Support.App@gmail.com'
@@ -162,8 +172,8 @@ class HomeScreen extends StatelessWidget {
               onChanged: (value) {
                 Provider.of<ModeProvider>(context, listen: false)
                     .chaneMode(); 
-                    // تغيير الوضع
-              },
+                  // Change mode
+                                },
             ),
           ),
 
@@ -171,8 +181,13 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(
                 Icons.delivery_dining
                 ),
-              title: const Text('Delivery Service'),
+
+              title: const Text(
+                'Delivery Service'
+                ),
+
               onTap:() => Navigator.push(
+
                 context, MaterialPageRoute(
                   builder: (context) =>
                    const DeliveryProfileScreen()
@@ -184,14 +199,17 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(
                 Icons.production_quantity_limits
                 ),
+
               title: const Text(
                 'Product Information'
                 ),
+
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) =>  
                   FavoritesScreen()
                   ),
+
                   ),
             ),
 
@@ -199,9 +217,11 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(
                 Icons.language
                 ),
+
               title: const Text(
                 'Language'
                 ),
+
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) =>
@@ -214,14 +234,17 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(
                 Icons.notification_add
                 ),
+
               title: const Text(
                 'Notifications'
                 ),
+
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) => 
                   const NoificationScreen()
                   ),
+
                   ),
             ),
 
@@ -229,14 +252,17 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(
                 Icons.work
                 ),
+
               title: const Text(
                 'Offers'
                 ),
+
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) =>
                    const Offers_Screen()
                    ),
+
                    ),
             ),
             
@@ -244,24 +270,29 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(
                 Icons.payment
                 ),
+
               title: const Text(
                 'Payments'
                 ),
+
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) =>
                     const PaymentScreen()
                     ),
                     ),
+
             ),
 
             ListTile(
               leading: const Icon(
                 Icons.message
                 ),
+
               title: const Text(
                 'Chat Server'
                 ),
+
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) =>
@@ -274,13 +305,15 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(
                 Icons.share
                 ),
+
               title: const Text(
                 'share'
                 ),
+
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) =>
-                   const HelpScreen()
+                   Share_Screen()
                    ),
                    ),
             ),
@@ -289,9 +322,11 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(
                 Icons.help
                 ),
+
               title: const Text(
                 'Help'
                 ),
+
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) =>
@@ -307,9 +342,11 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(
                 Icons.settings
                 ),
+
               title: const Text(
                 'Settings'
                 ),
+
               onTap:() => Navigator.push(
                   context, MaterialPageRoute(
                   builder: (context) => const Settings_Screen()
@@ -321,14 +358,17 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(
                 Icons.logout
                 ),
+
               title: const Text(
                 'Logout'
                 ),
+
               onTap: () => Navigator.push( context,
                  MaterialPageRoute(
                   builder: (context) =>
                   const login_screen()
                   ),
+
                   ),
             ),
           ],
@@ -352,29 +392,39 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
               ),
             ),
-             const Padding(
+              Padding(
               padding: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
 
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Hello Dear",
-                    style: TextStyle(
-                      fontSize: 29,
-                      fontWeight: FontWeight.bold,
-                    ),
+
+                Text(
+                  " Hello Dear",
+                  style: GoogleFonts.adamina(
+                     textStyle: TextStyle(
+                     fontWeight: FontWeight.bold,
+                     color: Colors.black,
+                     fontSize: 24,
+                     letterSpacing:.5
                   ),
+                  ),
+                ),
 
                   SizedBox(height: 0),
 
                   Text(
-                    "Lets shop something",
-                    style: TextStyle(
-                      fontSize: 23,
-                      color: Colors.deepOrange,
-                    ),
+                  "Lets shop something",
+                  style: GoogleFonts.adamina(
+                     textStyle: TextStyle(
+                     fontWeight: FontWeight.bold,
+                     color: Colors.orangeAccent.shade700,
+                     fontSize: 25,
+                     letterSpacing:.5
+                    
                   ),
+                  ),
+                ),
                 ],
               ),
             ),
@@ -389,10 +439,14 @@ class HomeScreen extends StatelessWidget {
                   for (int i = 0; i < 3; i++)
 
                     Container(
-                      margin: const EdgeInsets.only(right: 10),
-                      padding: const EdgeInsets.only(left: 10),
-                      width: MediaQuery.of(context).size.width / 1.4,
-                      height: MediaQuery.of(context).size.height / 5.5,
+                      margin:
+                       const EdgeInsets.only(right: 10),
+                      padding:
+                       const EdgeInsets.only(left: 10),
+                      width:
+                       MediaQuery.of(context).size.width / 1.4,
+                      height:
+                       MediaQuery.of(context).size.height / 5.5,
 
                       decoration: BoxDecoration(
                         color: Cars[i],
@@ -404,36 +458,49 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment:
+                               MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment:
+                               CrossAxisAlignment.start,
                               children: [
-                                const Text(
-                                  "30 off on winter Collection",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 22,
-                                  ),
+                                 Text(
+                                   "30 off on winter Collection",
+                                   style: GoogleFonts.adamina(
+                                   textStyle: TextStyle(
+                                   fontWeight: FontWeight.bold,
+                                   color: Colors.black,
+                                   fontSize: 21,
+                                   letterSpacing:.5
+                    
+                                 ),
                                 ),
+                             ),
+
                                 Padding(
                                   padding:  const EdgeInsets.all(16.0),
                                   child: ElevatedButton.icon(
                                     onPressed: (){
                                        Navigator.push(
                                     context, MaterialPageRoute(
-                                    builder: (context) => const CardScreen()
+                                    builder: (context) =>
+                                     const CardScreen()
                                    ),
                                   );
                                   },
+
                                     icon:const Icon(Icons.shop),
-                                    label: const Text(
+                                    label:  Text(
                                       "Shop New",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.pink
-                                        ),
-                                      ),),
-                                )
+                                       style: GoogleFonts.adamina(
+                                        textStyle: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.pinkAccent.shade400,
+                                        letterSpacing:.5
+                                      ),
+                                    ),
+                                  ),
+                                      ),
+                                ),
                                 ],
                             ),
                           ),
@@ -445,16 +512,20 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                    )
+                    ),
                 ],
               ),
             ),
+
             const SizedBox(height: 20),
 
              Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15,
+                ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment:
+                 MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
                     "Top Categories",
@@ -464,33 +535,49 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-        style: TextButton.styleFrom(
-          foregroundColor: Colors.deepOrange,
-        ),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(
-              builder: (context) =>  FavoritesScreen()
+                      style: TextButton.styleFrom(
+                      foregroundColor: Colors.deepOrange,
+                  ),
+
+                  onPressed: () {
+                  Navigator.push(
+                  context, MaterialPageRoute(
+                  builder: (context) =>  FavoritesScreen()
+                  ),
+                );
+              },
+
+               child: Text(
+                  "See All",
+                  style: GoogleFonts.adamina(
+                     textStyle: TextStyle(
+                     fontWeight: FontWeight.bold,
+                     color: Colors.pinkAccent.shade400,
+                     letterSpacing:.5
+                  ),
+                  ),
+                ),
+
               ),
-            );
-        },
-        child:  const Text('See All'),
-      ),
                 ],
               ),
             ),
+
             const SizedBox(height: 20),
+
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Padding(
-                padding: const EdgeInsets.only(left: 10),
+                padding:
+                 const EdgeInsets.only(left: 10),
                 child: Row(
                   children: [
                     for (var i = 0; i < 10; i++)
                       Container(
                         height: 50,
                         width: 50,
-                        margin: const EdgeInsets.all(8),
+                        margin:
+                         const EdgeInsets.all(8),
                         decoration: BoxDecoration(
                           color: const Color(0xFFD4ECF7),
                           borderRadius: BorderRadius.circular(10),
@@ -502,9 +589,12 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ],
                         ),
+
                         child: Padding(
                           padding: const EdgeInsets.all(8),
-                          child: Image.asset(iconImageList[i]),
+                          child: Image.asset(
+                            iconImageList[i]
+                            ),
                         ),
                       ),
                   ],
@@ -513,6 +603,7 @@ class HomeScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 10),
+            
             GridItems(6),
           ],
         ),

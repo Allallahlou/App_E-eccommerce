@@ -7,7 +7,9 @@ class PrivacyPolicyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("الخصوصية والأمان"),
+        title: const Text(
+            "Privacy and Security"   
+                   ),
         centerTitle: true,
       ),
       body: const Padding(
@@ -16,13 +18,18 @@ class PrivacyPolicyScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "سياسة الخصوصية",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              "privacy policy",        
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  ),
             ),
+
             SizedBox(height: 10),
+
             Text(
-              "نحترم خصوصيتك ونلتزم بحماية بياناتك. يتم استخدام المعلومات فقط لتحسين تجربة المستخدم.",
-            ),
+              "We respect your privacy and are committed to protecting your data."
+              "The information is used only to improve user experience."),
           ],
         ),
       ),

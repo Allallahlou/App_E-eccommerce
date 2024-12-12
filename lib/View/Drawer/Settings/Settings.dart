@@ -7,6 +7,7 @@ class Settings_Screen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar());
+      appBar: AppBar()
+      );
   }
 }

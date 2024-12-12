@@ -8,10 +8,10 @@ void main() {
   runApp(
     ChangeNotifierProvider(
       create: (context) => ModeProvider(),
-    child: const MyApp())
+    child: const MyApp()
+    ),
     );
 }
-
 class MyApp extends StatefulWidget {
 
   const MyApp(

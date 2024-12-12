@@ -14,12 +14,15 @@ class ItemScreen extends StatelessWidget {
 
       body: SafeArea(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment:
+           CrossAxisAlignment.start,
           children: [
 
             Container(
-              height: MediaQuery.of(context).size.height / 2,
-              width: MediaQuery.of(context).size.width,
+              height:
+               MediaQuery.of(context).size.height / 2,
+              width:
+               MediaQuery.of(context).size.width,
               decoration:  const BoxDecoration(
                 color: Color(0x0fd4ecf7),
                 borderRadius: BorderRadius.only(
@@ -33,19 +36,25 @@ class ItemScreen extends StatelessWidget {
                    const Center(
                     child: ProductImagesSlider(),
                   ),
+
                   Padding(
-                    padding:   const EdgeInsets.only(left: 15, top: 20),
+                    padding:const EdgeInsets.only(
+                      left: 15,
+                      top: 20,
+                      ),
+
                     child: InkWell(
                       onTap: () {
                         Navigator.pop(context);
                       },
 
-                      child:   const Icon(
+                      child: const Icon(
                         Icons.arrow_back_ios_new,
                         size: 25,
                       ),
                     ),
                   ),
+
                 ],
               ),
             ),
@@ -53,9 +62,11 @@ class ItemScreen extends StatelessWidget {
              const SizedBox(height: 10),
 
             Padding(
-              padding:  const EdgeInsets.all(20),
+              padding:
+                const EdgeInsets.all(20),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment:
+                 CrossAxisAlignment.start,
                 children: [
                    const Text(
                     "Apple watch Series 6",
@@ -76,13 +87,14 @@ class ItemScreen extends StatelessWidget {
                         allowHalfRating: true,
                         itemCount: 5,
                         itemSize: 25,
-                        itemBuilder: (context, _) =>  const Icon(
+                        itemBuilder: (context, _) =>
+                          const Icon(
                           Icons.star,
                           color: Colors.purpleAccent,
                         ),
                         
                         // ignore: non_constant_identifier_names
-                        onRatingUpdate: (Rating) {},
+                      onRatingUpdate: (Rating) {},
                       ),
                        const SizedBox(width: 5),
                        const Text("(450)"),
@@ -116,7 +128,12 @@ class ItemScreen extends StatelessWidget {
                     const SizedBox(height: 20),
 
                     const Text(
-                    "Our store offers a wide selection of luxury and casual watches for both men and women. We carry renowned brands known for their craftsmanship, precision, and style. Whether you are looking for a timeless classic or a modern design, we have the perfect watch for every occasion. Our knowledgeable staff is here to assist you in finding the ideal timepiece that matches your style and needs. Visit us for the finest collection of wristwatches and exceptional customer service.",
+                    "Our store offers a wide selection of luxury and casual watches for both men and women."
+                    " We carry renowned brands known for their craftsmanship,"
+                    " precision, and style. Whether you are looking for a timeless classic or a modern design, "
+                    "we have the perfect watch for every occasion."
+                    " Our knowledgeable staff is here to assist you in finding the ideal timepiece that matches your style and needs."
+                    " Visit us for the finest collection of wristwatches and exceptional customer service.",
                     style: TextStyle(fontSize: 16),
                     textAlign: TextAlign.justify,
                   ),
@@ -129,19 +146,25 @@ class ItemScreen extends StatelessWidget {
 
       bottomNavigationBar: Container(
         height: 70,
-        margin:  const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        margin:  const EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 20,
+          ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: 
+          MainAxisAlignment.spaceBetween,
           children: [
+          
             InkWell(
               onTap: () {
                 Navigator.push(
-                            context, 
-                            MaterialPageRoute(
-                              builder:(context)=>  const PaymentScreen()
-                              ),
-                              );
-              },
+                     context, 
+                     MaterialPageRoute(
+                     builder:(context)=>  const PaymentScreen()
+              ),
+          );
+        },
+
               child: Container(
                 height: 60,
                 width: MediaQuery.of(context).size.width / 1.5,
@@ -180,6 +203,7 @@ class ItemScreen extends StatelessWidget {
                     size: 30,
                   ),
                 ),
+                
               ),
             ),
           ],

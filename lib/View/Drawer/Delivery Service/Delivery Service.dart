@@ -12,13 +12,16 @@ class DeliveryProfileScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.teal,
         title: const Center(
+
           child: Text(
             "Delivery Service",
             style: TextStyle(
               color: Colors.white,
-              fontSize: 20),
+              fontSize: 20
+              ),
           ),
         ),
+
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back, 
@@ -33,6 +36,7 @@ class DeliveryProfileScreen extends StatelessWidget {
           },
         ),
       ),
+
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -44,6 +48,7 @@ class DeliveryProfileScreen extends StatelessWidget {
                 vertical: 20,
                  horizontal: 15
                  ),
+
               decoration: const BoxDecoration(
                 color: Colors.teal,
                 borderRadius: BorderRadius.only(
@@ -166,16 +171,24 @@ class DeliveryProfileScreen extends StatelessWidget {
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.teal),
+                        borderSide: const BorderSide(
+                          color: Colors.teal,
+                          ),
                       ),
-                      suffixIcon: const Icon(Icons.search, color: Colors.teal),
+
+                      suffixIcon: const Icon(
+                        Icons.search,
+                        color: Colors.teal),
                     ),
                   ),
+
                   const SizedBox(height: 20),
+
                   ElevatedButton(
                     onPressed: () {
                       // Add tracking functionality
                     },
+
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.teal,
                       padding: const EdgeInsets.symmetric(
@@ -186,6 +199,7 @@ class DeliveryProfileScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
+
                     child: const Text(
                       "Track Now",
                       style: TextStyle(
@@ -204,11 +218,16 @@ class DeliveryProfileScreen extends StatelessWidget {
   }
 
   // ويدجت لعرض بطاقة الخدمة
-  Widget serviceCard({
+
+  Widget serviceCard(
+    {
     required IconData icon,
     required String title,
     required String description,
-  }) {
+  }
+  )
+
+   {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
@@ -223,14 +242,20 @@ class DeliveryProfileScreen extends StatelessWidget {
           ),
         ],
       ),
+
       child: Row(
         children: [
           CircleAvatar(
             radius: 25,
             backgroundColor: Colors.teal.shade100,
-            child: Icon(icon, size: 30, color: Colors.teal),
+            child: Icon(
+              icon, size: 30,
+              color: Colors.teal,
+              ),
           ),
+
           const SizedBox(width: 15),
+
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -243,7 +268,9 @@ class DeliveryProfileScreen extends StatelessWidget {
                     color: Colors.black87,
                   ),
                 ),
+
                 const SizedBox(height: 5),
+                
                 Text(
                   description,
                   style: const TextStyle(
