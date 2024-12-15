@@ -6,6 +6,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   emoji_picker_flutter
   media_kit_libs_linux
   media_kit_video
+  smart_auth
   url_launcher_linux
 )
 

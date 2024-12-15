@@ -60,7 +60,10 @@ class login_screen extends StatelessWidget {
                       BoxShadow(
                         color: Color(0xFFE7EEF8),
                         blurRadius: 1.0,
-                        offset: Offset(2.6, 2.6),
+                        offset: Offset(
+                          2.6,
+                          2.6
+                          ),
                       ),
                     ],
                   ),
@@ -79,7 +82,9 @@ class login_screen extends StatelessWidget {
                 const SizedBox(height: 30,),
 
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    ),
                   padding:  const EdgeInsets.only(
                     left: 20,
                     right: 15,
@@ -91,12 +96,18 @@ class login_screen extends StatelessWidget {
                       topRight: Radius.circular(45),
                       bottomLeft: Radius.circular(45),
                     ),
-                    border: Border.all(color: Colors.indigo, width: 1.5),
+                    border: Border.all(
+                      color: Colors.indigo,
+                      width: 1.5,
+                      ),
                     boxShadow:  const [
                       BoxShadow(
                         color: Color(0xFFE7EEF8),
                         blurRadius: 1.0,
-                        offset: Offset(2.6, 2.6),
+                        offset: Offset(
+                          2.6,
+                          2.6
+                          ),
                       ),
                     ],
                   ),
@@ -125,7 +136,8 @@ class login_screen extends StatelessWidget {
                           context,
                          MaterialPageRoute(
                           builder:(context)=> const HomeScreen(),
-                          ));
+                          ),
+                          );
                       },
 
                       child: Container(

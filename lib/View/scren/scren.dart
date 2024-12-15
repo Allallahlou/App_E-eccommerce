@@ -1,6 +1,6 @@
 import 'package:app_e_ecommerce/View/Account/LanguageInfo.dart';
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
-import 'package:app_e_ecommerce/View/Drawer/Help/SettingsScreen.dart';
+import 'package:app_e_ecommerce/View/Drawer/About/SettingsScreen.dart';
 import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/Settings.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Favorite/favorite_screen.dart';

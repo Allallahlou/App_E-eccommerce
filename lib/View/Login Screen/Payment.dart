@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 
@@ -63,15 +64,21 @@ class _PaymentScreenState extends State<PaymentScreen> {
       backgroundColor: Colors.grey.shade400,
       appBar: AppBar(
         backgroundColor: Colors.grey.shade400,
-        title: const Center(
+        title:  Center(
           
           child: Text(
-          "Payment",
-           style: TextStyle(
-            color: Colors.black,
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-            ),),),
+
+            "Payment",
+             style: GoogleFonts.adamina(
+
+               textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.pinkAccent.shade400,
+                letterSpacing:.5
+                ),
+                ),
+              ),
+          ),
 
       ),
 

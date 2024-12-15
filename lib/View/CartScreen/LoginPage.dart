@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Login_PageScreen extends StatelessWidget {
   const Login_PageScreen({Key? key}) : super(key: key);
@@ -7,11 +8,21 @@ class Login_PageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text(
-            "Login"
+        title:  Center(
+          child:  Text(
+
+            "Login",
+             style: GoogleFonts.adamina(
+
+               textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.pinkAccent.shade400,
+                letterSpacing:.5
+                ),
+                ),
+              ),
             ),
-            ),
+            
       ),
       body: Center(
         child: ElevatedButton(

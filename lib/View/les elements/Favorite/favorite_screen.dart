@@ -1,6 +1,7 @@
 import 'package:app_e_ecommerce/View/les%20elements/Favorite/FavoriteSearchDelegate.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Home/home_scren.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FavoritesScreen extends StatelessWidget {
   final List<Map<String, dynamic>> favoriteWatches = [
@@ -97,12 +98,20 @@ class FavoritesScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-      title: const Center(
+      title:  Center(
 
     child: Text(
-      "Favorites"
-      ),
 
+            "Favorites",
+             style: GoogleFonts.adamina(
+
+               textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.pinkAccent.shade400,
+                letterSpacing:.5
+                ),
+                ),
+              ),
       ),
 
   leading: IconButton(

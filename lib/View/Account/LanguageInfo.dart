@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LanguageInfoScreen extends StatelessWidget {
   const LanguageInfoScreen({Key? key}) : super(key: key);
@@ -6,11 +7,21 @@ class LanguageInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar (
 
-        title: const Text(
-          'Language Information'
-          ),
+        title: Text(
+
+            "Language Information",
+             style: GoogleFonts.adamina(
+
+               textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.pinkAccent.shade400,
+                letterSpacing:.5
+                ),
+                ),
+              ),
+
 
         centerTitle: true,
       ),

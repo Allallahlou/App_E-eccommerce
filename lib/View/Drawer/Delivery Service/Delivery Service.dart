@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Home/home_scren.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DeliveryProfileScreen extends StatelessWidget {
   const DeliveryProfileScreen({Key? key}) : super(key: key);
@@ -11,15 +12,20 @@ class DeliveryProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal,
-        title: const Center(
+        title: Center(
 
-          child: Text(
+          child:Text(
+
             "Delivery Service",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20
+             style: GoogleFonts.adamina(
+
+               textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.pinkAccent.shade400,
+                letterSpacing:.5
+                ),
+                ),
               ),
-          ),
         ),
 
         leading: IconButton(

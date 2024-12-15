@@ -1,6 +1,7 @@
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Home/home_scren.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CardScreen extends StatefulWidget {
   const CardScreen({Key? key}) : super(key: key);
@@ -131,11 +132,20 @@ class _CardScreenState extends State<CardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
+        title:  Center(
 
           child: Text(
-            "Shopping Cart"
-            ),
+
+            "Shopping Cart",
+             style: GoogleFonts.adamina(
+
+               textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.pinkAccent.shade400,
+                letterSpacing:.5
+                ),
+                ),
+              ),
 
             ),
         leading: IconButton(

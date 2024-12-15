@@ -1,6 +1,7 @@
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:flutter/material.dart';
 import 'package:app_e_ecommerce/View/CartScreen/ProductPage.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CartPage extends StatelessWidget {
   final List<Product> cartItems;
@@ -15,10 +16,19 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
+        title:  Center(
           child: Text(
-            "Cart"
-            ),
+
+            "Cart",
+             style: GoogleFonts.adamina(
+
+               textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.pinkAccent.shade400,
+                letterSpacing:.5
+                ),
+                ),
+              ),
             ),
       ),
 

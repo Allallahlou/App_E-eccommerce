@@ -1,6 +1,7 @@
 import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Home/home_scren.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class sighupScreen extends StatelessWidget {
   const sighupScreen({Key? key}) : super(key: key);
@@ -26,16 +27,20 @@ class sighupScreen extends StatelessWidget {
             
              const SizedBox(height: 10),
 
-             Text(
-              "Caret Your Account",
-              style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.grey[700],
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1
-              ),
-            ),
+            Text(
 
+            "Caret Your Account",
+             style: GoogleFonts.adamina(
+
+               textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.grey[700],
+                fontSize: 30,
+                letterSpacing:.1
+                ),
+                ),
+              ),
+            
             const SizedBox(height: 30,),
 
             Container(

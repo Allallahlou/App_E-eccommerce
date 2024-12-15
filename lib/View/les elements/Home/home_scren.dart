@@ -1,9 +1,10 @@
 import 'package:app_e_ecommerce/View/Account/LanguageInfo.dart';
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
 import 'package:app_e_ecommerce/View/CartScreen/MainPage.dart';
+import 'package:app_e_ecommerce/View/Drawer/App%20Rating/app%20rating.dart';
 import 'package:app_e_ecommerce/View/Drawer/Share/share.dart';
 import 'package:app_e_ecommerce/View/Drawer/Support/Support.dart';
-import 'package:app_e_ecommerce/View/Drawer/Help/Help.dart';
+import 'package:app_e_ecommerce/View/Drawer/About/About.dart';
 import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/Settings.dart';
 import 'package:app_e_ecommerce/View/Drawer/Delivery%20Service/Delivery%20Service.dart';
@@ -318,19 +319,37 @@ class HomeScreen extends StatelessWidget {
                    ),
             ),
 
-            ListTile(
+             ListTile(
               leading: const Icon(
-                Icons.help
+                Icons.reviews_rounded
                 ),
 
               title: const Text(
-                'Help'
+                'App Rating'
                 ),
 
               onTap:() => Navigator.push(
                 context, MaterialPageRoute(
                   builder: (context) =>
-                   const HelpScreen()
+                   AppRatingScreen()
+                   ),
+                   ),
+            ),
+
+
+            ListTile(
+              leading: const Icon(
+                Icons.help_rounded
+                ),
+
+              title: const Text(
+                'About'
+                ),
+
+              onTap:() => Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (context) =>
+                   const AboutAppScreen()
                    ),
                    ),
             ),

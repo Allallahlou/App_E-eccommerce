@@ -76,8 +76,7 @@ class GridItems extends StatelessWidget {
                                 builder: (context) =>  FavoritesScreen()
                                 ),
                                 ),
-                                );
-                    }
+                                ); }
                   }
                   ),
                     ],

@@ -1,6 +1,7 @@
 import 'package:app_e_ecommerce/View/CartScreen/CartPage.dart';
 import 'package:app_e_ecommerce/View/CartScreen/ProductPage.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -24,11 +25,20 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
+        title:  Center(
 
           child: Text(
-            "App E-Commerce"
-            ),
+
+            "App E-Commerce",
+             style: GoogleFonts.adamina(
+
+               textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.pinkAccent.shade400,
+                letterSpacing:.5
+                ),
+                ),
+              ),
             ),
 
         actions: [

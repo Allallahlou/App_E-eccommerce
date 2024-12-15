@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -52,11 +53,20 @@ class _ChatScreenState extends State<ChatScreen> {
 
       appBar:  AppBar(
 
-        title: const Center(
+        title: Center(
 
           child: Text(
-            'Support'
-            ),
+
+            "Support",
+             style: GoogleFonts.adamina(
+
+               textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.pinkAccent.shade400,
+                letterSpacing:.5
+                ),
+                ),
+              ),
         ),
         ),
 
