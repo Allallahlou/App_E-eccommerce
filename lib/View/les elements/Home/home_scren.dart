@@ -8,9 +8,9 @@ import 'package:app_e_ecommerce/View/Drawer/About/About.dart';
 import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/Settings.dart';
 import 'package:app_e_ecommerce/View/Drawer/Delivery%20Service/Delivery%20Service.dart';
+import 'package:app_e_ecommerce/View/Login%20Screen/LoginScreen.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Favorite/favorite_screen.dart';
-import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:app_e_ecommerce/View/Offers/Offers.dart';
 import 'package:app_e_ecommerce/View/widgets/grid_items.dart';
 import 'package:app_e_ecommerce/provider/mode_provider.dart';
@@ -385,7 +385,7 @@ class HomeScreen extends StatelessWidget {
               onTap: () => Navigator.push( context,
                  MaterialPageRoute(
                   builder: (context) =>
-                  const login_screen()
+                  const LoginScreen()
                   ),
 
                   ),

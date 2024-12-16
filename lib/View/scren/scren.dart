@@ -1,11 +1,10 @@
 import 'package:app_e_ecommerce/View/Account/LanguageInfo.dart';
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
-import 'package:app_e_ecommerce/View/Drawer/About/SettingsScreen.dart';
 import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/Settings.dart';
+import 'package:app_e_ecommerce/View/Login%20Screen/LoginScreen.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Favorite/favorite_screen.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Home/home_scren.dart';
-import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import '../Offers/Offers.dart';
@@ -25,7 +24,7 @@ class _ScreensState extends State<scren> {
     const CardScreen(),
      FavoritesScreen(),
      Settings_Screen(),
-    const login_screen(),
+    const LoginScreen(),
     const Offers_Screen(),
     const LanguageInfoScreen(),
     const NoificationScreen(),
