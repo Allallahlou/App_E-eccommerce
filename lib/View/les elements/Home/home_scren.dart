@@ -16,6 +16,7 @@ import 'package:app_e_ecommerce/View/widgets/grid_items.dart';
 import 'package:app_e_ecommerce/provider/mode_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -177,6 +178,25 @@ class HomeScreen extends StatelessWidget {
                                 },
             ),
           ),
+
+            
+           ListTile(
+              leading: const Icon(
+                Icons.person
+                ),
+
+              title: const Text(
+                'Account'
+                ),
+
+              onTap:() => Navigator.push(
+
+                context, MaterialPageRoute(
+                  builder: (context) =>
+                   const LoginScreen()
+                   ),
+                   ),
+            ),
 
             ListTile(
               leading: const Icon(
@@ -421,7 +441,7 @@ class HomeScreen extends StatelessWidget {
                 Text(
                   " Hello Dear",
                   style: GoogleFonts.adamina(
-                     textStyle: TextStyle(
+                     textStyle: const TextStyle(
                      fontWeight: FontWeight.bold,
                      color: Colors.black,
                      fontSize: 24,
@@ -430,14 +450,14 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
 
-                  SizedBox(height: 0),
+                  const SizedBox(height: 0),
 
                   Text(
                   "Lets shop something",
                   style: GoogleFonts.adamina(
-                     textStyle: TextStyle(
+                     textStyle: const TextStyle(
                      fontWeight: FontWeight.bold,
-                     color: Colors.orangeAccent.shade700,
+                     color: Colors.pink,
                      fontSize: 25,
                      letterSpacing:.5
                     

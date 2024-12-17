@@ -11,20 +11,26 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      
       body: Stack(
         children: [
-          
+
+           
           Image.asset(
               'images/eco.png', 
               fit: BoxFit.cover,
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
             ),
+         
           
           SingleChildScrollView(
             child: SafeArea(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20
+                  ),
+
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -125,16 +131,20 @@ class LoginScreen extends StatelessWidget {
                         
                          Navigator.push(
                            context, MaterialPageRoute(
-                           builder: (context) =>  const SignUpScreen()
+                           builder: (context) =>
+                             const SignUpScreen()
                          ),
                       );
                       },
                       isSecondary: true,
                     ),
 
-                    const SizedBox(height: 40),
+                    const SizedBox(
+                      height: 40
+                      ),
 
-                    // تسجيل الدخول عبر جوجل وفيسبوك
+                    // Log in via Google and Facebook
+                    //                    
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -145,6 +155,7 @@ class LoginScreen extends StatelessWidget {
                         }),
 
                         const SizedBox(width: 20),
+
                         _buildSocialButton(
                           "images/facebook_icon.png", () {
                           // وظيفة تسجيل الدخول عبر فيسبوك
@@ -162,6 +173,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   // حقل الإدخال
+
   Widget _buildTextField({
     required String hintText,
     required IconData icon,

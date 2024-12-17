@@ -10,7 +10,10 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import '../Offers/Offers.dart';
 
 class scren extends StatefulWidget {
-  const scren({Key? key, required Null Function(ThemeMode mode) onThemeChanged}) : super(key: key);
+  const scren({
+    Key? key, required Null Function(ThemeMode mode) onThemeChanged
+    }) 
+  : super(key: key);
 
   @override
   State<scren> createState() => _ScreensState();
@@ -23,8 +26,7 @@ class _ScreensState extends State<scren> {
     const HomeScreen(),
     const CardScreen(),
      FavoritesScreen(),
-     Settings_Screen(),
-    const LoginScreen(),
+     const Settings_Screen(),
     const Offers_Screen(),
     const LanguageInfoScreen(),
     const NoificationScreen(),
@@ -57,7 +59,10 @@ class _ScreensState extends State<scren> {
                 activeColor: Colors.white,
                 iconSize: 24,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 12
+                      ),
                 duration:  const Duration(microseconds: 400),
                 tabBackgroundColor: Colors.pinkAccent,
                 color: Colors.black,
@@ -66,7 +71,6 @@ class _ScreensState extends State<scren> {
                   GButton(icon: Icons.shopping_bag, text: 'Cart'),
                   GButton(icon: Icons.favorite, text: 'Favorite'),
                   GButton(icon: Icons.settings, text: 'Settings'),
-                  GButton(icon: Icons.person, text: 'Account'),
                 ],
                 selectedIndex: _selectedIndex,
                 onTabChange: (index) {
