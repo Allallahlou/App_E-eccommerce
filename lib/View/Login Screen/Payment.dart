@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({Key? key}) : super(key: key);
 
@@ -27,14 +25,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
       return;
     }
 
-    // تنفيذ منطق الدفع هنا (تكامل مع Stripe أو أي نظام آخر)
-   
-
-    // عرض رسالة نجاح بعد إتمام الدفع
-    
     _showDialog(
       "Congratulations!", 
-      "Payment has been made successfully and the watch has been purchased.");
+      "Payment has been made successfully and the watch has been purchased.",
+    );
   }
 
   void _showDialog(String title, String content) {
@@ -60,104 +54,124 @@ class _PaymentScreenState extends State<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      backgroundColor: Colors.grey.shade400,
+      backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
-        backgroundColor: Colors.grey.shade400,
-        title:  Center(
-          
+        elevation: 0,
+        backgroundColor: Colors.grey.shade200,
+        title: Center(
           child: Text(
-
             "Payment",
-             style: GoogleFonts.adamina(
-
-               textStyle: TextStyle(
+            style: GoogleFonts.adamina(
+              textStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.pinkAccent.shade400,
-                letterSpacing:.5
-                ),
-                ),
+                fontSize: 24,
+                letterSpacing: .5,
               ),
+            ),
           ),
-
+        ),
+        iconTheme: IconThemeData(color: Colors.pinkAccent.shade400),
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            
-          const Image(  
-                height: 260,
-                width: 600,
-                image: AssetImage("images/Payments.png"),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 200,),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
                 ),
-
-            const SizedBox(height: 80),
-            TextField(
-              controller: _cardNumberController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                labelText: "Card number",
-                border: OutlineInputBorder(),
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      const Image(
+                        height: 180,
+                        width: double.infinity,
+                        image: AssetImage("images/Payments.png"),
+                      ),
+                      const SizedBox(height: 20),
+                      _buildTextField(
+                        controller: _cardNumberController,
+                        label: "Card Number",
+                        icon: Icons.credit_card,
+                        keyboardType: TextInputType.number,
+                      ),
+                      const SizedBox(height: 15),
+                      _buildTextField(
+                        controller: _nameoncardController,
+                        label: "Name on Card",
+                        icon: Icons.person,
+                        keyboardType: TextInputType.name,
+                      ),
+                      const SizedBox(height: 15),
+                      _buildTextField(
+                        controller: _expiryDateController,
+                        label: "Expiry Date (MM/YY)",
+                        icon: Icons.date_range,
+                        keyboardType: TextInputType.datetime,
+                      ),
+                      const SizedBox(height: 15),
+                      _buildTextField(
+                        controller: _cvvController,
+                        label: "CVV",
+                        icon: Icons.lock,
+                        keyboardType: TextInputType.number,
+                        obscureText: true,
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-
-            const SizedBox(height: 20),
-
-            TextField(
-              controller: _nameoncardController,
-              keyboardType: TextInputType.name,
-              decoration: const InputDecoration(
-                labelText: "Name On Card",
-                border: OutlineInputBorder(),
-              ),
-            ),
-
-            const SizedBox(height: 20),
-
-            TextField(
-              controller: _expiryDateController,
-              keyboardType: TextInputType.datetime,
-              decoration: const InputDecoration(
-                labelText: "Expiry date (MM/YY)",
-                border: OutlineInputBorder(),
-              ),
-            ),
-
-            const SizedBox(height: 20),
-
-            TextField(
-              controller: _cvvController,
-              keyboardType: TextInputType.number,
-              obscureText: true,
-              decoration: const InputDecoration(
-                labelText: "CVV",
-                border: OutlineInputBorder(),
-              ),
-            ),
-
-            const SizedBox(height: 20),
-
-            ElevatedButton.icon(
-
-              onPressed:  processPayment,
-
-              icon:const Icon(
-                Icons.payment,size: 30),
-
-              label: const Text(
-                "Complete payment",
+              const SizedBox(height: 30),
+              ElevatedButton.icon(
+                onPressed: processPayment,
+                icon: const Icon(Icons.payment, size: 28),
+                label: const Text(
+                  "Complete Payment",
                   style: TextStyle(
-                    fontStyle: FontStyle.normal,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Colors.pink
-                    ),
-                    ),
-                    ),
-          ],
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  backgroundColor: Colors.pinkAccent.shade400,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTextField({
+    required TextEditingController controller,
+    required String label,
+    required IconData icon,
+    TextInputType keyboardType = TextInputType.text,
+    bool obscureText = false,
+  }) {
+    return TextField(
+      controller: controller,
+      keyboardType: keyboardType,
+      obscureText: obscureText,
+      decoration: InputDecoration(
+        labelText: label,
+        prefixIcon: Icon(icon, color: Colors.pinkAccent.shade400),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.pinkAccent.shade400, width: 2),
         ),
       ),
     );

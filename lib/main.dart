@@ -1,5 +1,5 @@
 import 'package:app_e_ecommerce/View/Drawer/Theme%20Mode/theme_mode.dart';
-import 'package:app_e_ecommerce/View/scren/scren.dart';
+import 'package:app_e_ecommerce/View/les%20elements/Home/home_scren.dart';
 import 'package:app_e_ecommerce/provider/mode_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -33,9 +33,9 @@ class _MyAppState extends State<MyApp> {
       ModeTheme.lightMode: ModeTheme.darkMode,
       debugShowCheckedModeBanner: false,
       title: 'Online Store Watches ',
-      home: scren(
-        onThemeChanged: (ThemeMode){}
-        ),
+
+      home: HomeScreen()
+
     );
   }
 }

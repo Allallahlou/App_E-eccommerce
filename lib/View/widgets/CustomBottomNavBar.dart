@@ -2,24 +2,23 @@ import 'package:app_e_ecommerce/View/Account/LanguageInfo.dart';
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
 import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/Settings.dart';
-import 'package:app_e_ecommerce/View/Login%20Screen/LoginScreen.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Favorite/favorite_screen.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Home/home_scren.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import '../Offers/Offers.dart';
 
-class scren extends StatefulWidget {
-  const scren({
-    Key? key, required Null Function(ThemeMode mode) onThemeChanged
+class CustomBottomNavBar extends StatefulWidget {
+  const CustomBottomNavBar({
+    Key? key, required Null Function(ThemeMode mode) onThemeChanged, required int selectedIndex, required void Function(int index) onTabChange
     }) 
   : super(key: key);
 
   @override
-  State<scren> createState() => _ScreensState();
+  State<CustomBottomNavBar> createState() => _ScreensState();
 }
 
-class _ScreensState extends State<scren> {
+class _ScreensState extends State<CustomBottomNavBar> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[

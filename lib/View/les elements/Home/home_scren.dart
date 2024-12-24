@@ -1,23 +1,12 @@
-import 'package:app_e_ecommerce/View/Account/LanguageInfo.dart';
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
 import 'package:app_e_ecommerce/View/CartScreen/MainPage.dart';
-import 'package:app_e_ecommerce/View/Drawer/App%20Rating/app%20rating.dart';
-import 'package:app_e_ecommerce/View/Drawer/Share/share.dart';
-import 'package:app_e_ecommerce/View/Drawer/Support/Support.dart';
-import 'package:app_e_ecommerce/View/Drawer/About/About.dart';
+import 'package:app_e_ecommerce/View/Drawer/CustomDrawer.dart';
 import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
-import 'package:app_e_ecommerce/View/Drawer/Settings/Settings.dart';
-import 'package:app_e_ecommerce/View/Drawer/Delivery%20Service/Delivery%20Service.dart';
-import 'package:app_e_ecommerce/View/Login%20Screen/LoginScreen.dart';
-import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:app_e_ecommerce/View/les%20elements/Favorite/favorite_screen.dart';
-import 'package:app_e_ecommerce/View/Offers/Offers.dart';
 import 'package:app_e_ecommerce/View/widgets/grid_items.dart';
-import 'package:app_e_ecommerce/provider/mode_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:provider/provider.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -57,6 +46,7 @@ class HomeScreen extends StatelessWidget {
     ];
 
     return Scaffold(
+
       appBar: AppBar(
 
         backgroundColor: Colors.grey,
@@ -90,7 +80,7 @@ class HomeScreen extends StatelessWidget {
               },
 
               child: Icon(
-                Icons.shopping_cart,
+                Icons.shop,
                 color: Colors.grey.shade900,
                 size: 30,
               ),
@@ -120,301 +110,7 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
 
-      ///////////////////////////////Drawer ////////////////////////////////
-
-      drawer: Drawer(
-
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-
-            UserAccountsDrawerHeader(
-
-                accountName: const Text(
-                  'Application Ecommerce',
-                  style: TextStyle(
-                    
-                    color: Colors.white,
-                    ),
-                  ),
-                accountEmail:const Text(
-                  'Support.App@gmail.com'
-                  ),
-
-              currentAccountPicture: CircleAvatar(
-                child: ClipOval(
-                  child: Image.asset(
-                    'images/drawer.png'
-                    ),
-                    ),
-                    ),
-
-              decoration: const BoxDecoration(
-                color: Colors.purpleAccent,
-                image: DecorationImage(
-                    image: AssetImage(
-                      'images/pex.png'
-                      ),
-                    fit: BoxFit.cover
-                ),
-                ),
-                ),
-
-            ListTile(
-            leading: const Icon(
-              Icons.brightness_6
-              ),
-
-            title: const Text(
-              "Night mode "
-              ),
-
-            trailing: Switch(
-              value: Provider.of<ModeProvider>(context).lightModeEnable,
-              onChanged: (value) {
-                Provider.of<ModeProvider>(context, listen: false)
-                    .chaneMode(); 
-                  // Change mode
-                                },
-            ),
-          ),
-
-            
-           ListTile(
-              leading: const Icon(
-                Icons.person
-                ),
-
-              title: const Text(
-                'Account'
-                ),
-
-              onTap:() => Navigator.push(
-
-                context, MaterialPageRoute(
-                  builder: (context) =>
-                   const LoginScreen()
-                   ),
-                   ),
-            ),
-
-            ListTile(
-              leading: const Icon(
-                Icons.delivery_dining
-                ),
-
-              title: const Text(
-                'Delivery Service'
-                ),
-
-              onTap:() => Navigator.push(
-
-                context, MaterialPageRoute(
-                  builder: (context) =>
-                   const DeliveryProfileScreen()
-                   ),
-                   ),
-            ),
-
-             ListTile(
-              leading: const Icon(
-                Icons.production_quantity_limits
-                ),
-
-              title: const Text(
-                'Product Information'
-                ),
-
-              onTap:() => Navigator.push(
-                context, MaterialPageRoute(
-                  builder: (context) =>  
-                  FavoritesScreen()
-                  ),
-
-                  ),
-            ),
-
-            ListTile(
-              leading: const Icon(
-                Icons.language
-                ),
-
-              title: const Text(
-                'Language'
-                ),
-
-              onTap:() => Navigator.push(
-                context, MaterialPageRoute(
-                  builder: (context) =>
-                   const LanguageInfoScreen()
-                   ),
-                   ),
-            ),
-
-            ListTile(
-              leading: const Icon(
-                Icons.notification_add
-                ),
-
-              title: const Text(
-                'Notifications'
-                ),
-
-              onTap:() => Navigator.push(
-                context, MaterialPageRoute(
-                  builder: (context) => 
-                  const NoificationScreen()
-                  ),
-
-                  ),
-            ),
-
-            ListTile(
-              leading: const Icon(
-                Icons.work
-                ),
-
-              title: const Text(
-                'Offers'
-                ),
-
-              onTap:() => Navigator.push(
-                context, MaterialPageRoute(
-                  builder: (context) =>
-                   const Offers_Screen()
-                   ),
-
-                   ),
-            ),
-            
-             ListTile(
-              leading: const Icon(
-                Icons.payment
-                ),
-
-              title: const Text(
-                'Payments'
-                ),
-
-              onTap:() => Navigator.push(
-                context, MaterialPageRoute(
-                  builder: (context) =>
-                    const PaymentScreen()
-                    ),
-                    ),
-
-            ),
-
-            ListTile(
-              leading: const Icon(
-                Icons.message
-                ),
-
-              title: const Text(
-                'Chat Server'
-                ),
-
-              onTap:() => Navigator.push(
-                context, MaterialPageRoute(
-                  builder: (context) =>
-                   const ChatScreen()
-                   ),
-                   ),
-            ),
-
-            ListTile(
-              leading: const Icon(
-                Icons.share
-                ),
-
-              title: const Text(
-                'share'
-                ),
-
-              onTap:() => Navigator.push(
-                context, MaterialPageRoute(
-                  builder: (context) =>
-                   Share_Screen()
-                   ),
-                   ),
-            ),
-
-             ListTile(
-              leading: const Icon(
-                Icons.reviews_rounded
-                ),
-
-              title: const Text(
-                'App Rating'
-                ),
-
-              onTap:() => Navigator.push(
-                context, MaterialPageRoute(
-                  builder: (context) =>
-                   AppRatingScreen()
-                   ),
-                   ),
-            ),
-
-
-            ListTile(
-              leading: const Icon(
-                Icons.help_rounded
-                ),
-
-              title: const Text(
-                'About'
-                ),
-
-              onTap:() => Navigator.push(
-                context, MaterialPageRoute(
-                  builder: (context) =>
-                   const AboutAppScreen()
-                   ),
-                   ),
-            ),
-
-
-            const Divider(),
-
-            ListTile(
-              leading: const Icon(
-                Icons.settings
-                ),
-
-              title: const Text(
-                'Settings'
-                ),
-
-              onTap:() => Navigator.push(
-                  context, MaterialPageRoute(
-                  builder: (context) => const Settings_Screen()
-              ),
-              ),
-            ),
-
-            ListTile(
-              leading: const Icon(
-                Icons.logout
-                ),
-
-              title: const Text(
-                'Logout'
-                ),
-
-              onTap: () => Navigator.push( context,
-                 MaterialPageRoute(
-                  builder: (context) =>
-                  const LoginScreen()
-                  ),
-
-                  ),
-            ),
-          ],
-        ),
-      ),
-
-
+      drawer: const CustomDrawer(),
 
       body: SingleChildScrollView(
         child: Column(
@@ -432,7 +128,10 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
               Padding(
-              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+              padding: const EdgeInsets.symmetric(
+                vertical: 8,
+                 horizontal: 15
+                 ),
 
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -505,7 +204,7 @@ class HomeScreen extends StatelessWidget {
                                  Text(
                                    "30 off on winter Collection",
                                    style: GoogleFonts.adamina(
-                                   textStyle: TextStyle(
+                                   textStyle: const TextStyle(
                                    fontWeight: FontWeight.bold,
                                    color: Colors.black,
                                    fontSize: 21,
@@ -647,6 +346,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      
     );
   }
 }
