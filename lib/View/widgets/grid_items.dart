@@ -1,8 +1,8 @@
-import 'package:app_e_ecommerce/View/les%20elements/Favorite/favorite_screen.dart';
+import 'package:app_e_ecommerce/View/les_elements/Favorite/favorite_screen.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../les elements/Item/ItemScreen.dart';
+import '../les_elements/Item/ItemScreen.dart';
 
 class GridItems extends StatelessWidget {
 

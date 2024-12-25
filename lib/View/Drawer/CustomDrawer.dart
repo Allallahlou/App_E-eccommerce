@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 import '../Account/LanguageInfo.dart';
 import '../Login Screen/Payment.dart';
 import '../Offers/Offers.dart';
-import '../les elements/Favorite/favorite_screen.dart';
+import '../les_elements/Favorite/favorite_screen.dart';
 import 'About/About.dart';
 import 'Delivery Service/Delivery Service.dart';
 import 'Settings/Settings.dart';
