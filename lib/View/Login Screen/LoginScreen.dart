@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
 
            
           Image.asset(
-              'images/eco.png', 
+              'images/ecom.png', 
               fit: BoxFit.cover,
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
@@ -97,7 +97,7 @@ class LoginScreen extends StatelessWidget {
                         child: const Text(
                           "Forgot Password?",
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontSize: 14,
                           ),
                         ),
