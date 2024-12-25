@@ -5,6 +5,7 @@ import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/Settings.dart';
 import 'package:app_e_ecommerce/View/les_elements/Favorite/favorite_screen.dart';
 import 'package:app_e_ecommerce/View/widgets/grid_items.dart';
+import 'package:appbar_dropdown/appbar_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,9 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   // List of screen widgets
+
   final List<Widget> _screens = [
     const HomeScreen(),
-     FavoritesScreen(),
+    FavoritesScreen(),
     const CardScreen(),
     const NoificationScreen(),
   ];
@@ -30,30 +32,40 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       _selectedIndex = index;
     });
+
     // Navigate to the corresponding screen when an item is tapped
+
     switch (index) {
       case 0:
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          MaterialPageRoute(
+            builder: (context) => const HomeScreen()
+          ),
         );
         break;
       case 1:
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) =>  CardScreen()),
+          MaterialPageRoute(
+            builder: (context) =>  const CardScreen()
+          ),
         );
         break;
       case 2:
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) =>  FavoritesScreen()),
+          MaterialPageRoute(
+            builder: (context) =>  FavoritesScreen()
+            ),
         );
         break;
       case 3:
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const Settings_Screen()),
+          MaterialPageRoute(
+            builder: (context) => const Settings_Screen()
+            ),
         );
         break;
     }
@@ -88,6 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
+         
         backgroundColor: Colors.grey,
         title: Center(
           child: Text(
@@ -101,6 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
+        
         actions: [
           Container(
             margin: const EdgeInsets.all(10),
@@ -113,6 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               },
+
               child: Icon(
                 Icons.shop,
                 color: Colors.grey.shade900,
@@ -120,6 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+
           Container(
             margin: const EdgeInsets.all(10),
             child: InkWell(
@@ -131,6 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               },
+
               child: Icon(
                 Icons.notification_add_sharp,
                 color: Colors.grey.shade900,
@@ -138,13 +155,18 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+
+          
         ],
       ),
+
       drawer: const CustomDrawer(),
+
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
             const Padding(
               padding: EdgeInsets.only(
                 top: 3,
@@ -155,11 +177,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
               ),
             ),
+
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+
                   Text(
                     "Hello Dear",
                     style: GoogleFonts.adamina(
@@ -171,7 +195,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
+
                   const SizedBox(height: 0),
+
                   Text(
                     "Let's shop something",
                     style: GoogleFonts.adamina(
@@ -186,13 +212,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
+
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.only(left: 15),
               child: Row(
                 children: [
+
                   for (int i = 0; i < 3; i++)
                     Container(
+
                       margin: const EdgeInsets.only(right: 10),
                       padding: const EdgeInsets.only(left: 10),
                       width: MediaQuery.of(context).size.width / 1.4,
@@ -201,6 +230,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Cars[i],
                         borderRadius: BorderRadius.circular(10),
                       ),
+
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -209,6 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+
                                 Text(
                                   "30% off on Winter Collection",
                                   style: GoogleFonts.adamina(
@@ -220,6 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                 ),
+
                                 Padding(
                                   padding: const EdgeInsets.all(16.0),
                                   child: ElevatedButton.icon(
@@ -259,7 +291,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
+
             const SizedBox(height: 20),
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Row(
@@ -298,7 +332,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
+
             const SizedBox(height: 20),
+
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Padding(
@@ -335,30 +371,36 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+
       bottomNavigationBar: BottomNavigationBar(
     
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items:   [
+
           BottomNavigationBarItem(
             icon: const Icon(Icons.home),
             backgroundColor: Colors.grey.shade600,
             label: 'Home',
           ),
+
           const BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),
             label: 'Cart',
           ),
+
           const BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: 'Favorites',
           ),
+
           const BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Settings',
           ),
         ],
       ),
+
     );
   }
 }
