@@ -1,50 +1,54 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class LanguageInfoScreen extends StatelessWidget {
   const LanguageInfoScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final languageProvider = Provider.of<LanguageProvider>(context);
+
     return Scaffold(
-      appBar: AppBar (
-
+      appBar: AppBar(
         title: Text(
-
-            "Language Information",
-             style: GoogleFonts.adamina(
-
-               textStyle: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.pinkAccent.shade400,
-                letterSpacing:.5
-                ),
-                ),
-              ),
-
-
+          languageProvider.currentLocale.languageCode == 'en'
+              ? "Language Information"
+              : "معلومات اللغة",
+          style: GoogleFonts.adamina(
+            textStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.pinkAccent.shade400,
+              letterSpacing: .5,
+            ),
+          ),
+        ),
         centerTitle: true,
       ),
-
-      body: const Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.language,
-              size: 100,
-              color: Colors.blue,
-            ),
-
-            SizedBox(height: 20),
-
+            const Icon(Icons.language, size: 100, color: Colors.blue),
+            const SizedBox(height: 20),
             Text(
-              'Welcome to the Language Information Screen!',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                ),
+              languageProvider.currentLocale.languageCode == 'en'
+                  ? 'Welcome to the Language Information Screen!'
+                  : 'مرحبًا بك في شاشة معلومات اللغة!',
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 40),
+            ElevatedButton(
+              onPressed: () {
+                languageProvider.toggleLanguage();
+              },
+              child: Text(
+                languageProvider.currentLocale.languageCode == 'en'
+                    ? 'Switch to Arabic'
+                    : 'التبديل إلى الإنجليزية',
+              ),
             ),
           ],
         ),

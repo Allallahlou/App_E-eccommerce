@@ -1,3 +1,4 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
 import 'package:app_e_ecommerce/View/CartScreen/MainPage.dart';
 import 'package:app_e_ecommerce/View/Drawer/CustomDrawer.dart';
@@ -5,9 +6,9 @@ import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/Settings.dart';
 import 'package:app_e_ecommerce/View/les_elements/Favorite/favorite_screen.dart';
 import 'package:app_e_ecommerce/View/widgets/grid_items.dart';
-import 'package:appbar_dropdown/appbar_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -73,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final languageProvider = Provider.of<LanguageProvider>(context);
     List<Color> Cars = [
       const Color.fromARGB(255, 139, 149, 149),
       const Color.fromARGB(255, 139, 149, 149),
@@ -104,7 +106,9 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.grey,
         title: Center(
           child: Text(
-            "App E Commerce",
+            languageProvider.currentLocale.languageCode == 'en'
+              ? "App ECommerce"
+              : " تطبيق التجارة الإلكترونية",
             style: GoogleFonts.adamina(
               textStyle: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -185,7 +189,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
 
                   Text(
-                    "Hello Dear",
+                    languageProvider.currentLocale.languageCode == 'en'
+                    ? "Welcome To Our Store"
+                    : "مرحبا بكم في متجرنا",
                     style: GoogleFonts.adamina(
                       textStyle: const TextStyle(
                         fontWeight: FontWeight.bold,
@@ -199,7 +205,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 0),
 
                   Text(
-                    "Let's shop something",
+                     languageProvider.currentLocale.languageCode == 'en'
+                    ? "Let's shop something"
+                    : "  دعونا نتسوق شيئا ما ",
                     style: GoogleFonts.adamina(
                       textStyle: const TextStyle(
                         fontWeight: FontWeight.bold,
@@ -241,7 +249,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
 
                                 Text(
-                                  "30% off on Winter Collection",
+                                  languageProvider.currentLocale.languageCode == 'en'
+                                  ? "30% off on Winter Collection"
+                                  : "خصم 30% على مجموعة الشتاء",
                                   style: GoogleFonts.adamina(
                                     textStyle: const TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -266,7 +276,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     },
                                     icon: const Icon(Icons.shop),
                                     label: Text(
-                                      "Shop New",
+                                      languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Shop New"
+                                    : "تسوق الأن",
                                       style: GoogleFonts.adamina(
                                         textStyle: TextStyle(
                                           fontWeight: FontWeight.bold,
@@ -299,9 +311,11 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "Top Categories",
-                    style: TextStyle(
+                  Text(
+                    languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Top Categories"
+                                    : " أفضل الفئات",
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
@@ -319,7 +333,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     },
                     child: Text(
-                      "See All",
+                       languageProvider.currentLocale.languageCode == 'en'
+                                    ? "See All"
+                                    : " انظر الكل",
                       style: GoogleFonts.adamina(
                         textStyle: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -381,22 +397,30 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: const Icon(Icons.home),
             backgroundColor: Colors.grey.shade600,
-            label: 'Home',
+            label: languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Home"
+                                    : "الرئيسية",
           ),
 
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Cart',
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.shopping_cart),
+            label: languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Cart"
+                                    : "عربة التسوق",
           ),
 
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorites',
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.favorite),
+            label:  languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Favorites"
+                                    : "المفضلة",
           ),
 
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.settings),
+            label: languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Settings"
+                                    : "إعدادات",
           ),
         ],
       ),

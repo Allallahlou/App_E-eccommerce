@@ -1,7 +1,9 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:flutter/material.dart';
 import 'package:app_e_ecommerce/View/CartScreen/ProductPage.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
   final List<Product> cartItems;
@@ -14,12 +16,16 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  final languageProvider = Provider.of<LanguageProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title:  Center(
           child: Text(
 
-            "Cart",
+             languageProvider.currentLocale.languageCode == 'en'
+              ? "Cart"
+              : "عربة التسوق",
              style: GoogleFonts.adamina(
 
                textStyle: TextStyle(
@@ -33,9 +39,11 @@ class CartPage extends StatelessWidget {
       ),
 
       body: cartItems.isEmpty
-          ? const Center(
+          ?  Center(
             child: Text(
-              "Your cart is empty!"
+               languageProvider.currentLocale.languageCode == 'en'
+              ? "Your cart is empty!"
+              : " !سلة التسوق الخاصة بك فارغة ",
               ),
               )
           : Column(
@@ -69,9 +77,11 @@ class CartPage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            "Total:",
-                            style: TextStyle(
+                           Text(
+                            languageProvider.currentLocale.languageCode == 'en'
+                            ? "Total"
+                            : "مجموع",
+                            style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                               ),
@@ -100,8 +110,10 @@ class CartPage extends StatelessWidget {
                             horizontal: 24,
                             ),
                         ),
-                        child: const Text(
-                          "Proceed to Payment"
+                        child:  Text(
+                           languageProvider.currentLocale.languageCode == 'en'
+                            ? "Proceed to Payment"
+                            : "انتقل إلى الدفع",
                           ),
                       ),
                     ],

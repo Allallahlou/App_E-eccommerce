@@ -1,7 +1,9 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/home_scren.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class CardScreen extends StatefulWidget {
   const CardScreen({Key? key}) : super(key: key);
@@ -130,13 +132,17 @@ class _CardScreenState extends State<CardScreen> {
 
   @override
   Widget build(BuildContext context) {
+  final languageProvider = Provider.of<LanguageProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title:  Center(
 
           child: Text(
 
-            "Shopping Cart",
+            languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Shopping Cart"
+                                    : "عربة التسوق",
              style: GoogleFonts.adamina(
 
                textStyle: TextStyle(
@@ -278,10 +284,12 @@ class _CardScreenState extends State<CardScreen> {
                       );
                     },
                   )
-                : const Center(
+                : Center(
                     child: Text(
-                      "Your cart is empty!",
-                      style: TextStyle(
+                       languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Your cart is empty! "
+                                    : "سلة التسوق الخاصة بك فارغة! ",
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         ),
@@ -306,9 +314,11 @@ class _CardScreenState extends State<CardScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      "Total:",
-                      style: TextStyle(
+                    Text(
+                       languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Total "
+                                    : "مجموع ",
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         ),
@@ -347,9 +357,11 @@ class _CardScreenState extends State<CardScreen> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: const Text(
-                    "Proceed to Payment",
-                    style: TextStyle(
+                  child:  Text(
+                     languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Proceed To Payment"
+                                    : "انتقل إلى الدفع",
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       ),
