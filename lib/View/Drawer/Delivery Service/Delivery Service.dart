@@ -1,12 +1,15 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/home_scren.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class DeliveryProfileScreen extends StatelessWidget {
   const DeliveryProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final languageProvider = Provider.of<LanguageProvider>(context);
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -15,8 +18,10 @@ class DeliveryProfileScreen extends StatelessWidget {
         title: Center(
 
           child:Text(
-
-            "Delivery Service",
+             languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Delivery Service"
+                                    : "  خدمة التوصيل",
+            
              style: GoogleFonts.adamina(
 
                textStyle: TextStyle(
@@ -63,32 +68,38 @@ class DeliveryProfileScreen extends StatelessWidget {
                 ),
               ),
 
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.local_shipping,
                     size: 60,
                     color: Colors.white,
                   ),
                   
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   Text(
-                    "Fast & Reliable Delivery",
-                    style: TextStyle(
+                     languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Fast & Reliable Delivery"
+                                    : "  تسليم سريع وموثوق",
+                    
+                    style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                   ),
 
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   Text(
-                    "Get your orders delivered safely and on time to your doorstep.",
+                     languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Get your orders delivered safely and on time to your doorstep."
+                                    : "  . احصل على طلباتك بأمان وفي الوقت المحدد إلى باب منزلك ",
+                    
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       color: Colors.white70,
                     ),
@@ -107,26 +118,42 @@ class DeliveryProfileScreen extends StatelessWidget {
                 children: [
                   serviceCard(
                     icon: Icons.access_time,
-                    title: "Delivery Time",
-                    description: "Your package will be delivered within 1-2 days for local shipments.",
+                    title: languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Delivery Time"
+                                    : " موعد التسليم ", 
+                    description: languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Your package will be delivered within 1-2 days for local shipments."
+                                    : " سيتم تسليم الطرد الخاص بك خلال 1-2 يومًا للشحنات المحلية. ", 
                   ),
                   const SizedBox(height: 15),
                   serviceCard(
                     icon: Icons.location_on,
-                    title: "Coverage Area",
-                    description: "Our service covers over 50 cities across the country.",
+                    title:  languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Coverage Area"
+                                    : "  منطقة التغطية",
+                    description:  languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Our service covers over 50 cities across the country."
+                                    : "  تغطي خدمتنا أكثر من 50 مدينة في جميع أنحاء البلاد.",
                   ),
                   const SizedBox(height: 15),
                   serviceCard(
                     icon: Icons.support_agent,
-                    title: "Customer Support",
-                    description: "Available 24/7 to assist you with your delivery inquiries.",
+                    title:  languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Customer Support"
+                                    : "  دعم العملاء",
+                    description:  languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Available 24/7 to assist you with your delivery inquiries."
+                                    : "  متاح على مدار الساعة طوال أيام الأسبوع لمساعدتك في استفسارات التسليم الخاصة بك.",
                   ),
                   const SizedBox(height: 15),
                   serviceCard(
                     icon: Icons.security,
-                    title: "Safe Handling",
-                    description: "We ensure your packages are handled with utmost care and security.",
+                    title:  languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Safe Handling"
+                                    : "  التعامل الآمن",
+                    description:  languageProvider.currentLocale.languageCode == 'en'
+                                    ? " We ensure your packages are handled with utmost care and security."
+                                    : " نحن نضمن أن يتم التعامل مع الطرود الخاصة بك بأقصى درجات العناية والأمان. ",
                   ),
                 ],
               ),
@@ -148,9 +175,11 @@ class DeliveryProfileScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
 
-                  const Text(
-                    "Track Your Delivery",
-                    style: TextStyle(
+                   Text(
+                     languageProvider.currentLocale.languageCode == 'en'
+                        ? " LogTrack Your Deliveryin"
+                        : "تتبع تسليمك",
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.black87,
@@ -159,10 +188,12 @@ class DeliveryProfileScreen extends StatelessWidget {
 
                   const SizedBox(height: 10),
 
-                  const Text(
-                    "Enter your tracking ID below to get the latest updates on your shipment.",
+                   Text(
+                     languageProvider.currentLocale.languageCode == 'en'
+                       ? " Enter your tracking ID below to get the latest updates on your shipment."
+                       : "  أدخل معرف التتبع الخاص بك أدناه للحصول على آخر التحديثات المتعلقة بشحنتك.",
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 14,
                       color: Colors.black54,
                     ),
@@ -172,7 +203,9 @@ class DeliveryProfileScreen extends StatelessWidget {
                   
                   TextField(
                     decoration: InputDecoration(
-                      hintText: "Enter Tracking ID",
+                      hintText:  languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Enter Tracking ID"
+                                    : "  أدخل معرف التتبع",
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
@@ -206,9 +239,12 @@ class DeliveryProfileScreen extends StatelessWidget {
                       ),
                     ),
 
-                    child: const Text(
-                      "Track Now",
-                      style: TextStyle(
+                    child:  Text(
+                       languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Track Now"
+                                    : "  تتبع الآن",
+                    
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 16,
                       ),

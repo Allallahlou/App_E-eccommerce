@@ -1,7 +1,9 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/CartPage.dart';
 import 'package:app_e_ecommerce/View/CartScreen/ProductPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -23,13 +25,16 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+  final languageProvider = Provider.of<LanguageProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title:  Center(
 
           child: Text(
-
-            "App E-Commerce",
+            languageProvider.currentLocale.languageCode == 'en'
+                                    ? " App E-Commerce"
+                                    : "تطبيق التجارة الإلكترونية",
              style: GoogleFonts.adamina(
 
                textStyle: TextStyle(

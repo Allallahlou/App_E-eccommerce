@@ -1,8 +1,10 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -49,6 +51,8 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
+      final languageProvider = Provider.of<LanguageProvider>(context);
+
     return Scaffold(
 
       appBar:  AppBar(
@@ -56,8 +60,9 @@ class _ChatScreenState extends State<ChatScreen> {
         title: Center(
 
           child: Text(
-
-            "Support",
+             languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Support"
+                                    : "  يدعم",
              style: GoogleFonts.adamina(
 
                textStyle: TextStyle(
@@ -121,8 +126,10 @@ class _ChatScreenState extends State<ChatScreen> {
             Expanded(
               child: TextField(
                 controller: _controller,
-                decoration: const InputDecoration(
-                  hintText: 'Type a message',
+                decoration:  InputDecoration(
+                  hintText: languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Type a message"
+                                    : " اكتب رسالة ", 
                   ),
                 onSubmitted: (text) => _sendMessage(text),
               ),

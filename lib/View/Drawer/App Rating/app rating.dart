@@ -1,14 +1,24 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:provider/provider.dart';
 
 class AppRatingScreen extends StatelessWidget {
   const AppRatingScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+  final languageProvider = Provider.of<LanguageProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: const Text('Help Screen')),
+        title:  Center(
+          child: Text(
+             languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Help Screen"
+                                    : " شاشة المساعدة",
+          ),
+          ),
         backgroundColor: Colors.blue,
       ),
       body: Padding(
@@ -17,10 +27,12 @@ class AppRatingScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 380),
-            const Center(
+             Center(
               child: Text(
-                'How was your experience with our app?',
-                style: TextStyle(
+                 languageProvider.currentLocale.languageCode == 'en'
+                                    ? " How was your experience with our app?"
+                                    :   "كيف كانت تجربتك مع تطبيقنا؟",
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
                 ),
@@ -48,12 +60,20 @@ class AppRatingScreen extends StatelessWidget {
               onPressed: () {
                 // Action when submitted
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Thank you for your feedback!'),
+                   SnackBar(
+                    content: Text(
+                       languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Thank you for your feedback!"
+                                    : "! شكرا لتعليقاتك  ",
+                    ),
                   ),
                 );
               },
-              child: const Text('Submit Feedback'),
+              child: Text(
+                 languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Submit Feedback"
+                                    : "  إرسال التعليقات",
+                ),
             ),
           ],
         ),

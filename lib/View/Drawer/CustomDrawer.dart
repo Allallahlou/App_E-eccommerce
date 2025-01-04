@@ -1,3 +1,4 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:app_e_ecommerce/View/Drawer/App%20Rating/app%20rating.dart';
 import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:app_e_ecommerce/View/Drawer/Share/share.dart';
@@ -12,13 +13,14 @@ import '../Offers/Offers.dart';
 import '../les_elements/Favorite/favorite_screen.dart';
 import 'About/About.dart';
 import 'Delivery Service/Delivery Service.dart';
-import 'Settings/Settings.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final languageProvider = Provider.of<LanguageProvider>(context);
+
     return Align(
         alignment: Alignment.centerLeft,
       child: Container(
@@ -28,9 +30,12 @@ class CustomDrawer extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: [
             UserAccountsDrawerHeader(
-              accountName: const Text(
-                'Application Ecommerce',
-                style: TextStyle(
+              accountName:  Text(
+                 languageProvider.currentLocale.languageCode == 'en'
+                                    ? " LoApplication Ecommercegin"
+                                    : "تطبيق التجارة الإلكترونية",
+                
+                style: const TextStyle(
                   color: Colors.white,
                 ),
               ),
@@ -50,7 +55,11 @@ class CustomDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.brightness_6),
-              title: const Text("Night mode"),
+              title:  Text(
+                 languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Night mode"
+                                    : " الوضع الليلي ",
+                ),
               trailing: Switch(
                 value: Provider.of<ModeProvider>(context).lightModeEnable,
                 onChanged: (value) {
@@ -63,8 +72,10 @@ class CustomDrawer extends StatelessWidget {
                     Icons.person
                     ),
         
-                  title: const Text(
-                    'Account'
+                  title:  Text(
+                     languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Account"
+                                    : "  حساب",
                     ),
         
                   onTap:() => Navigator.push(
@@ -81,8 +92,10 @@ class CustomDrawer extends StatelessWidget {
                     Icons.delivery_dining
                     ),
         
-                  title: const Text(
-                    'Delivery Service'
+                  title:  Text(
+                     languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Delivery Service"
+                                    : "  خدمة التوصيل",
                     ),
         
                   onTap:() => Navigator.push(
@@ -99,8 +112,10 @@ class CustomDrawer extends StatelessWidget {
                     Icons.production_quantity_limits
                     ),
         
-                  title: const Text(
-                    'Product Information'
+                  title:  Text(
+                     languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Product Information"
+                                    : "  معلومات المنتج",
                     ),
         
                   onTap:() => Navigator.push(
@@ -117,8 +132,10 @@ class CustomDrawer extends StatelessWidget {
                     Icons.language
                     ),
         
-                  title: const Text(
-                    'Language'
+                  title:  Text(
+                     languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Language"
+                                    : "  لغة",
                     ),
         
                   onTap:() => Navigator.push(
@@ -134,8 +151,10 @@ class CustomDrawer extends StatelessWidget {
                     Icons.notification_add
                     ),
         
-                  title: const Text(
-                    'Notifications'
+                  title:  Text(
+                     languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Notifications"
+                                    : "  إشعارات",
                     ),
         
                   onTap:() => Navigator.push(
@@ -152,8 +171,10 @@ class CustomDrawer extends StatelessWidget {
                     Icons.work
                     ),
         
-                  title: const Text(
-                    'Offers'
+                  title:  Text(
+                     languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Offers"
+                                    : "  العروض",
                     ),
         
                   onTap:() => Navigator.push(
@@ -170,8 +191,10 @@ class CustomDrawer extends StatelessWidget {
                     Icons.payment
                     ),
         
-                  title: const Text(
-                    'Payments'
+                  title:  Text(
+                     languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Payments "
+                                    : " المدفوعات ",
                     ),
         
                   onTap:() => Navigator.push(
@@ -188,8 +211,10 @@ class CustomDrawer extends StatelessWidget {
                     Icons.message
                     ),
         
-                  title: const Text(
-                    'Chat Server'
+                  title:  Text(
+                     languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Chat Server"
+                                    : "  خادم الدردشة",
                     ),
         
                   onTap:() => Navigator.push(
@@ -205,8 +230,10 @@ class CustomDrawer extends StatelessWidget {
                     Icons.share
                     ),
         
-                  title: const Text(
-                    'share'
+                  title:  Text(
+                     languageProvider.currentLocale.languageCode == 'en'
+                                    ? " share"
+                                    : "مشاركة",
                     ),
         
                   onTap:() => Navigator.push(
@@ -222,8 +249,10 @@ class CustomDrawer extends StatelessWidget {
                     Icons.reviews_rounded
                     ),
         
-                  title: const Text(
-                    'App Rating'
+                  title:  Text(
+                     languageProvider.currentLocale.languageCode == 'en'
+                                    ? " LogiApp Ratingn"
+                                    : " تقييم التطبيق ",
                     ),
         
                   onTap:() => Navigator.push(
@@ -245,8 +274,10 @@ class CustomDrawer extends StatelessWidget {
                     Icons.help_rounded
                     ),
         
-                  title: const Text(
-                    'About'
+                  title:  Text(
+                     languageProvider.currentLocale.languageCode == 'en'
+                                    ? " About"
+                                    : "  عن",
                     ),
         
                   onTap:() => Navigator.push(
@@ -260,7 +291,11 @@ class CustomDrawer extends StatelessWidget {
             // باقي العناصر هنا بنفس الطريقة
             ListTile(
               leading: const Icon(Icons.logout),
-              title: const Text('Logout'),
+              title:  Text(
+                 languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Logout"
+                                    : " تسجيل الخروج ",
+                ),
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const LoginScreen()),

@@ -1,16 +1,21 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class PrivacyPolicyScreen extends StatelessWidget {
   const PrivacyPolicyScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final languageProvider = Provider.of<LanguageProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-
-            "Privacy and Security",
+          languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Privacy and Security"
+                                    : "  الخصوصية والأمان",
              style: GoogleFonts.adamina(
 
                textStyle: TextStyle(
@@ -22,24 +27,30 @@ class PrivacyPolicyScreen extends StatelessWidget {
               ),
         centerTitle: true,
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
+      body:  Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "privacy policy",        
-                style: TextStyle(
+              languageProvider.currentLocale.languageCode == 'en'
+                                    ? " privacy policy"
+                                    : "سياسة الخصوصية",      
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   ),
             ),
 
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
 
             Text(
-              "We respect your privacy and are committed to protecting your data."
-              "The information is used only to improve user experience."),
+              languageProvider.currentLocale.languageCode == 'en'
+             ? "We respect your privacy and are committed to protecting your data."
+              "The information is used only to improve user experience."
+             : "نحن نحترم خصوصيتك ونلتزم بحماية بياناتك."
+             "يتم استخدام المعلومات فقط لتحسين تجربة المستخدم."
+              ),
           ],
         ),
       ),

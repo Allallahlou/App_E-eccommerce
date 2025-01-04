@@ -8,10 +8,15 @@ import 'package:provider/provider.dart';
 class CartPage extends StatelessWidget {
   final List<Product> cartItems;
 
-  const CartPage({Key? key, required this.cartItems}) : super(key: key);
+  const CartPage({
+    Key? key,
+    required this.cartItems
+    }) : super(key: key);
 
   double getTotalPrice() {
-    return cartItems.fold(0, (total, item) => total + item.price);
+    return cartItems.fold
+    (0, (total, item)
+     => total + item.price);
   }
 
   @override
