@@ -1,5 +1,7 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class FavoriteSearchDelegate extends SearchDelegate {
 
@@ -123,6 +125,7 @@ class FavoriteSearchDelegate extends SearchDelegate {
   @override
   Widget buildLeading(BuildContext context) {
 
+
   // Back button in search screen
 
     return IconButton(
@@ -142,6 +145,8 @@ class FavoriteSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
+          final languageProvider = Provider.of<LanguageProvider>(context);
+
 
     // Search results
 
@@ -155,11 +160,12 @@ class FavoriteSearchDelegate extends SearchDelegate {
         .toList();
 
     return results.isEmpty
-        ? const Center(
+        ?  Center(
             child: Text(
-
-              "No matching results found.",
-              style: TextStyle(
+                languageProvider.currentLocale.languageCode == 'en'
+                                    ? " No matching results found."
+                                    : "  لم يتم العثور على نتائج مطابقة",
+              style: const TextStyle(
                 fontSize: 18,
                 ),
 

@@ -1,6 +1,8 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:provider/provider.dart';
 import '../../widgets/product_images_slider.dart';
 
 class ItemScreen extends StatelessWidget {
@@ -9,6 +11,8 @@ class ItemScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final languageProvider = Provider.of<LanguageProvider>(context);
+
 
     return Scaffold(
 
@@ -68,9 +72,12 @@ class ItemScreen extends StatelessWidget {
                 crossAxisAlignment:
                  CrossAxisAlignment.start,
                 children: [
-                   const Text(
-                    "Apple watch Series 6",
-                    style: TextStyle(
+                    Text(
+                         languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Apple watch Series 6"
+                                    : "  ساعة ابل سيريس 6",
+                    
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 22,
                     ),
@@ -127,13 +134,21 @@ class ItemScreen extends StatelessWidget {
 
                     const SizedBox(height: 20),
 
-                    const Text(
-                    "Our store offers a wide selection of luxury and casual watches for both men and women."
+                     Text(
+                         languageProvider.currentLocale.languageCode == 'en'
+                        ? " Our store offers a wide selection of luxury and casual watches for both men and women."
                     " We carry renowned brands known for their craftsmanship,"
                     " precision, and style. Whether you are looking for a timeless classic or a modern design, "
                     "we have the perfect watch for every occasion."
                     " Our knowledgeable staff is here to assist you in finding the ideal timepiece that matches your style and needs."
-                    " Visit us for the finest collection of wristwatches and exceptional customer service.",
+                    " Visit us for the finest collection of wristwatches and exceptional customer service."
+                    :"يقدم متجرنا مجموعة واسعة من الساعات الفاخرة والعصرية للرجال والنساء على حد سواء."
+                    "نحمل علامات تجارية شهيرة معروفة بحرفيتها،"
+                    "الدقة والأناقة. سواء كنت تبحث عن ساعة كلاسيكية خالدة أو تصميم عصري،"
+                    "لدينا الساعة المثالية لكل مناسبة."
+                    "طاقمنا المتمرس موجود لمساعدتك في العثور على الساعة المثالية التي تناسب أسلوبك واحتياجاتك."
+                    "قم بزيارتنا للحصول على أفضل مجموعة من ساعات اليد وخدمة عملاء استثنائية.",
+                 
                     style: TextStyle(fontSize: 16),
                     textAlign: TextAlign.justify,
                   ),
@@ -173,10 +188,12 @@ class ItemScreen extends StatelessWidget {
                   color: Colors.pinkAccent,
                 ),
 
-                child:  const Center(
+                child:   Center(
                   child: Text(
-                    "ADD TO CART",
-                    style: TextStyle(
+                       languageProvider.currentLocale.languageCode == 'en'
+                                    ? " LoADD TO CART"
+                                    : "  أضف إلى السلة",
+                    style: const TextStyle(
                       fontSize: 16,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

@@ -1,11 +1,15 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+      final languageProvider = Provider.of<LanguageProvider>(context);
+
     return Scaffold(
       body: Stack(
         children: [
@@ -33,7 +37,10 @@ class ForgotPasswordScreen extends StatelessWidget {
 
                     
                     Text(
-                      "Forgot Password?",
+                        languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Forgot Password?"
+                                    : "هل نسيت كلمة السر؟",
+                      
                       style: GoogleFonts.adamina(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -44,7 +51,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                     const SizedBox(height: 10),
 
                     Text(
-                      "Enter your email to reset your password",
+                      languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Enter your email to reset your password"
+                                    : "أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور الخاصة بك",
                       style: GoogleFonts.adamina(
                         fontSize: 16,
                         color: Colors.black,
@@ -57,7 +66,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                      //Email field
 
                     _buildTextField(
-                      hintText: "Email",
+                      hintText:languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Email"
+                                    : "بريد إلكتروني",
                       icon: Icons.email,
                     ),
 
@@ -67,7 +78,9 @@ class ForgotPasswordScreen extends StatelessWidget {
 
                     _buildButton(
                       context: context,
-                      label: "Send Reset Link",
+                      label:languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Send Reset Link"
+                                    : "إرسال رابط إعادة الضبط", 
                       onPressed: () {
                         // أضف هنا وظيفة إرسال الرابط
                       },
@@ -81,9 +94,11 @@ class ForgotPasswordScreen extends StatelessWidget {
                         Navigator.pop(context);
                       },
 
-                      child: const Text(
-                        "Back to Login",
-                        style: TextStyle(
+                      child:  Text(
+                        languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Back to Login"
+                                    : " العودة إلى تسجيل الدخول ",
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 16,
                         ),

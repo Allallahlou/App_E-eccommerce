@@ -1,6 +1,8 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
+import 'package:provider/provider.dart';
 import 'package:smart_auth/smart_auth.dart';
 
 
@@ -33,6 +35,7 @@ class _OTPInputScreenState extends State<OTPInputScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final languageProvider = Provider.of<LanguageProvider>(context);
     const focusedBorderColor = Color(0xFF17AB90);
     const borderColor = Color(0xFFAAAAAA);
 
@@ -53,8 +56,9 @@ class _OTPInputScreenState extends State<OTPInputScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-
-            "Enter OTP",
+            languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Enter OTP"
+                                    : " أدخل كلمة المرور لمرة واحدة ",
              style: GoogleFonts.adamina(
 
                textStyle: TextStyle(
@@ -76,8 +80,10 @@ class _OTPInputScreenState extends State<OTPInputScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  "Please enter the OTP sent to your phone",
+                 Text(
+                    languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Please enter the OTP sent to your phone"
+                                    : "الرجاء إدخال رمز OTP المرسل إلى هاتفك",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
@@ -123,8 +129,10 @@ class _OTPInputScreenState extends State<OTPInputScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  child: const Text(
-                    "Verify OTP",
+                  child:  Text(
+                      languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Verify OTP"
+                                    : " التحقق من كلمة المرور لمرة واحدة ",
                     style: TextStyle(fontSize: 16),
                   ),
                 ),

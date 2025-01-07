@@ -1,7 +1,9 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:app_e_ecommerce/View/les_elements/Favorite/FavoriteSearchDelegate.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/home_scren.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class FavoritesScreen extends StatelessWidget {
   final List<Map<String, dynamic>> favoriteWatches = [
@@ -95,14 +97,18 @@ class FavoritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final languageProvider = Provider.of<LanguageProvider>(context);
+
 
     return Scaffold(
       appBar: AppBar(
       title:  Center(
 
     child: Text(
-
-            "Favorites",
+       languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Favorites"
+                                    : " المفضلة ",
+          
              style: GoogleFonts.adamina(
 
                textStyle: TextStyle(
@@ -133,9 +139,10 @@ class FavoritesScreen extends StatelessWidget {
   ),
 
         actions: [
-          const Text(
-
-            "Search"
+           Text(
+             languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Search"
+                                    : " بحث "
 
             ),
 
@@ -161,8 +168,10 @@ class FavoritesScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
 
-                  const Text(
-                          "You haven't added any watches to your favorites yet!",
+                   Text(
+                       languageProvider.currentLocale.languageCode == 'en'
+                                    ? " You haven't added any watches to your favorites yet!"
+                                    : " لم تقم بإضافة أي ساعات إلى مفضلتك بعد! ",
                           style: TextStyle(fontSize: 18),
                   ),
 
@@ -173,8 +182,10 @@ class FavoritesScreen extends StatelessWidget {
                       // Action to browse watches
                     },
 
-                    child: const Text(
-                      "Browse the hours"
+                    child:  Text(
+                         languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Browse the hours"
+                                    : "  تصفح الساعات",
                       ),
                   ),
                 ],

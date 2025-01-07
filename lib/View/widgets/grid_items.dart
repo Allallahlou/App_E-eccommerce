@@ -1,7 +1,9 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:app_e_ecommerce/View/les_elements/Favorite/favorite_screen.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../les_elements/Item/ItemScreen.dart';
 
 class GridItems extends StatelessWidget {
@@ -26,6 +28,8 @@ class GridItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final languageProvider = Provider.of<LanguageProvider>(context);
+
     return GridView.builder(
       
         itemCount: pNames.length,
@@ -58,9 +62,11 @@ class GridItems extends StatelessWidget {
                    Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children:  [
-                      const Text(
-                        "30% off",
-                        style: TextStyle(
+                       Text(
+                           languageProvider.currentLocale.languageCode == 'en'
+                                    ? " 30% off"
+                                    : " خصم 30%",
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 12,
                         ),
@@ -130,6 +136,7 @@ class GridItems extends StatelessWidget {
               ),
             ),
           );
-        });
+        }
+        );
   }
 }

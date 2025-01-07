@@ -1,41 +1,73 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AppBarDropdownPage extends StatelessWidget {
   const AppBarDropdownPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+      final languageProvider = Provider.of<LanguageProvider>(context);
+
     return  Scaffold(
       appBar: AppBar(
-        title: Text("AppBar with Dropdown"),
+        title:  Text(
+          languageProvider.currentLocale.languageCode == 'en'
+                                    ? " AppBar with Dropdown"
+                                    : "  شريط التطبيقات مع القائمة المنسدلة",
+          ),
         actions: [
           DropdownButton<String>(
             underline: Container(),
-            icon: Icon(Icons.more_vert, color: Colors.white),
-            items: const [
+            icon: const Icon(Icons.more_vert, color: Colors.white),
+            items:  [
               DropdownMenuItem(
-                child: Text('فئة الرجال'),
                 value: 'men',
+                child: Text(
+                  languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Men's category  "
+                                    : " فئة الرجال",
+                  ),
               ),
               DropdownMenuItem(
-                child: Text('فئة النساء'),
                 value: 'women',
+                child: Text(
+                   languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Women's category  "
+                                    : " فئة النساء",
+                  ),
               ),
               DropdownMenuItem(
-                child: Text('فئة الأطفال'),
                 value: 'children',
+                child: Text(
+                   languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Children's category "
+                                    : "فئة الأطفال",
+                  ),
               ),
               DropdownMenuItem(
-                child: Text('فئة البنات'),
                 value: 'girls',
+                child: Text(
+                   languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Girls category "
+                                    : "فئة البنات ",
+                ),
               ),
               DropdownMenuItem(
-                child: Text('فئة الساعات الرياضية'),
                 value: 'sportsWatches',
+                child: Text(
+                    languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Sports Watches Category "
+                                    : "فئة الساعات الرياضية  ",
+                  ),
               ),
               DropdownMenuItem(
-                child: Text('الساعات العمل'),
                 value: 'workWatches',
+                child: Text(
+                   languageProvider.currentLocale.languageCode == 'en'
+                                    ? "Working hours "
+                                    : "الساعات العمل     ",
+                  ),
               ),
             ],
             onChanged: (value) {
@@ -51,8 +83,12 @@ class AppBarDropdownPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Text("اختر فئة من القائمة العلوية"),
+      body:  Center(
+        child: Text(
+           languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Select a category from the top menu. "
+                                    : "اختر فئة من القائمة العلوية",
+          ),
       ),
     );
   }
@@ -65,12 +101,18 @@ class CategoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+          final languageProvider = Provider.of<LanguageProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(category),
       ),
       body: Center(
-        child: Text("صفحة الفئة: $category"),
+        child: Text(
+           languageProvider.currentLocale.languageCode == 'en'
+                                    ? "   Category Page: $category"
+                                    : " صفحة الفئة: $category",
+         ),
       ),
     );
   }

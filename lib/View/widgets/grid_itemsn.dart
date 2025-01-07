@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
 class grid_itemsn extends StatelessWidget {
   final int index;
 

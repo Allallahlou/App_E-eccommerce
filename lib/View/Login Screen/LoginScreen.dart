@@ -1,14 +1,18 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/ForgotPasswordScreen.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/SignUpScreen.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/home_scren.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+      final languageProvider = Provider.of<LanguageProvider>(context);
+
 
     return Scaffold(
       
@@ -38,7 +42,10 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(height: 100),
                     
                     Text(
-                      "Welcome Back!",
+                      languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Welcome Back!"
+                                    : "! مرحبًا بعودتك",
+                      
                       style: GoogleFonts.adamina(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -49,7 +56,9 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(height: 10),
 
                     Text(
-                      "Login to your account",
+                        languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Login to your account"
+                                    : "تسجيل الدخول إلى حسابك",
                       style: GoogleFonts.adamina(
                         fontSize: 16,
                         color: Colors.black,
@@ -61,7 +70,9 @@ class LoginScreen extends StatelessWidget {
                      //Email field
 
                     _buildTextField(
-                      hintText: "Email",
+                      hintText:  languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Email"
+                                    : " بريد إلكتروني", 
                       icon: Icons.email,
                     ),
 
@@ -70,7 +81,9 @@ class LoginScreen extends StatelessWidget {
                      //Password field
 
                     _buildTextField(
-                      hintText: "Password",
+                      hintText: languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Password"
+                                    : " كلمة المرور ", 
                       icon: Icons.lock,
                       obscureText: true,
                     ),
@@ -94,9 +107,11 @@ class LoginScreen extends StatelessWidget {
 
                         },
 
-                        child: const Text(
-                          "Forgot Password?",
-                          style: TextStyle(
+                        child:  Text(         
+            languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Forgot Password?"
+                                    : " هل نسيت كلمة السر؟ ",
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 14,
                           ),
@@ -110,7 +125,10 @@ class LoginScreen extends StatelessWidget {
                     
                     _buildButton(
                       context: context,
-                      label: "Login",
+                      label: 
+            languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Login"
+                                    : " تسجيل الدخول ",
                       onPressed: () {
                          Navigator.push(
                             context,
@@ -126,7 +144,10 @@ class LoginScreen extends StatelessWidget {
                     
                     _buildButton(
                       context: context,
-                      label: "Sign up",
+                      label:
+            languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Sign up"
+                                    : "قم بالتسجيل", 
                       onPressed: () {
                         
                          Navigator.push(

@@ -1,11 +1,15 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/LoginScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+      final languageProvider = Provider.of<LanguageProvider>(context);
+
     return Scaffold(
       body: Stack(
         children: [
@@ -34,9 +38,11 @@ class SignUpScreen extends StatelessWidget {
                     height: 40,
                     ),
 
-                  const Text(
-                    "Create Account",
-                    style: TextStyle(
+                   Text(
+                      languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Create Account"
+                                    : " إنشاء حساب ",
+                    style: const TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -60,27 +66,35 @@ class SignUpScreen extends StatelessWidget {
                         children: [
 
                           _buildInputField(
-                            hintText: "Full Name",
+                            hintText:  languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Full Name"
+                                    : " الاسم الكامل", 
                             icon: Icons.person,
                           ),
                           const SizedBox(height: 15),
 
                           _buildInputField(
-                            hintText: "Phone Number",
+                            hintText:  languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Phone Number"
+                                    : " رقم الهاتف ",
                             icon: Icons.phone,
                           ),
 
                           const SizedBox(height: 15),
 
                           _buildInputField(
-                            hintText: "Email",
+                            hintText:  languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Email"
+                                    : "بريد إلكتروني", 
                             icon: Icons.email,
                           ),
 
                           const SizedBox(height: 15),
 
                           _buildInputField(
-                            hintText: "Password",
+                            hintText:  languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Password"
+                                    : "  كلمة المرور",
                             icon: Icons.lock,
                             isPassword: true,
                           ),
@@ -88,7 +102,9 @@ class SignUpScreen extends StatelessWidget {
                           const SizedBox(height: 15),
 
                           _buildInputField(
-                            hintText: "Confirm Password",
+                            hintText:  languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Confirm Password"
+                                    : "  تأكيد كلمة المرور", 
                             icon: Icons.lock,
                             isPassword: true,
                           ),
@@ -127,10 +143,12 @@ class SignUpScreen extends StatelessWidget {
                         ],
                       ),
 
-                      child: const Center(
+                      child:  Center(
                         child: Text(
-                          "Sign Up",
-                          style: TextStyle(
+                            languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Sign Up"
+                                    : "  قم بالتسجيل",
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -147,9 +165,14 @@ class SignUpScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
-                        "Already have an account?",
-                        style: TextStyle(color: Colors.white),
+                       Text(
+                          languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Already have an account?"
+                                    : "هل لديك حساب بالفعل؟",
+
+                        style: const TextStyle(
+                          color: Colors.white,
+                          ),
                       ),
                       TextButton(
                         onPressed: () {
@@ -159,9 +182,11 @@ class SignUpScreen extends StatelessWidget {
                          ),
                       );
                         },
-                        child: const Text(
-                          "Log In",
-                          style: TextStyle(
+                        child:  Text(
+                            languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Log In"
+                                    : " تسجيل الدخول",
+                          style: const TextStyle(
                             color: Colors.yellowAccent,
                             fontWeight: FontWeight.bold,
                           ),

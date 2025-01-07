@@ -31,7 +31,9 @@ class MyApp extends StatelessWidget {
           ? ModeTheme.lightMode
           : ModeTheme.darkMode,
       debugShowCheckedModeBanner: false,
-      title: 'Online Store Watches',
+      title: languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Watch Shop"
+                                    : " متجر الساعات ", 
       locale: languageProvider.currentLocale,
       supportedLocales: const [
         Locale('en', ''), // English

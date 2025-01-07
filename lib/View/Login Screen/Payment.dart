@@ -1,5 +1,7 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({Key? key}) : super(key: key);
@@ -32,9 +34,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
   }
 
   void _showDialog(String title, String content) {
+
     showDialog(
       context: context,
       builder: (context) {
+              final languageProvider = Provider.of<LanguageProvider>(context);
+
         return AlertDialog(
           title: Text(title),
           content: Text(content),
@@ -43,7 +48,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text("Agree"),
+              child:Text(
+                 languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Agree"
+                                    : " يوافق ",
+                ),
             ),
           ],
         );
@@ -53,6 +62,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   @override
   Widget build(BuildContext context) {
+          final languageProvider = Provider.of<LanguageProvider>(context);
+
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
@@ -60,7 +71,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
         backgroundColor: Colors.grey.shade200,
         title: Center(
           child: Text(
-            "Payment",
+             languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Payment"
+                                    : "الدفع",
             style: GoogleFonts.adamina(
               textStyle: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -96,28 +109,36 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       const SizedBox(height: 20),
                       _buildTextField(
                         controller: _cardNumberController,
-                        label: "Card Number",
+                        label: languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Card Number"
+                                    : "  رقم البطاقة", 
                         icon: Icons.credit_card,
                         keyboardType: TextInputType.number,
                       ),
                       const SizedBox(height: 15),
                       _buildTextField(
                         controller: _nameoncardController,
-                        label: "Name on Card",
+                        label: languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Name on Card"
+                                    : " الاسم على البطاقة ", 
                         icon: Icons.person,
                         keyboardType: TextInputType.name,
                       ),
                       const SizedBox(height: 15),
                       _buildTextField(
                         controller: _expiryDateController,
-                        label: "Expiry Date (MM/YY)",
+                        label: languageProvider.currentLocale.languageCode == 'en'
+                                    ? " Expiry Date (MM/YY)"
+                                    : " (MM/YY) تاريخ انتهاء الصلاحية ", 
                         icon: Icons.date_range,
                         keyboardType: TextInputType.datetime,
                       ),
                       const SizedBox(height: 15),
                       _buildTextField(
                         controller: _cvvController,
-                        label: "CVV",
+                        label: languageProvider.currentLocale.languageCode == 'en'
+                                    ? " CVV"
+                                    : "رمز التحقق ",
                         icon: Icons.lock,
                         keyboardType: TextInputType.number,
                         obscureText: true,
@@ -130,9 +151,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ElevatedButton.icon(
                 onPressed: processPayment,
                 icon: const Icon(Icons.payment, size: 28),
-                label: const Text(
-                  "Complete Payment",
-                  style: TextStyle(
+                label:  Text(
+                   languageProvider.currentLocale.languageCode == 'en'
+                                    ? "  Payment"
+                                    : "  الدفع ",
+                  
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
