@@ -62,7 +62,7 @@ class _ChatScreenState extends State<ChatScreen> {
           child: Text(
              languageProvider.currentLocale.languageCode == 'en'
                                     ? " Support"
-                                    : "  يدعم",
+                                    : "دعم",
              style: GoogleFonts.adamina(
 
                textStyle: TextStyle(

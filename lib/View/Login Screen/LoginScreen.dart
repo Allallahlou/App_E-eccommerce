@@ -43,8 +43,8 @@ class LoginScreen extends StatelessWidget {
                     
                     Text(
                       languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Welcome Back!"
-                                    : "! مرحبًا بعودتك",
+                                    ? " Welcome To Our Application"
+                                    : "مرحبا بكم في تطبيقنا",
                       
                       style: GoogleFonts.adamina(
                         fontSize: 30,

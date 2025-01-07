@@ -30,16 +30,7 @@ class CustomDrawer extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: [
             UserAccountsDrawerHeader(
-              accountName:  Text(
-                 languageProvider.currentLocale.languageCode == 'en'
-                                    ? " LoApplication Ecommercegin"
-                                    : "تطبيق التجارة الإلكترونية",
-                
-                style: const TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-              accountEmail: const Text('Support.App@gmail.com'),
+              
               currentAccountPicture: CircleAvatar(
                 child: ClipOval(
                   child: Image.asset('images/drawer.png'),
@@ -51,7 +42,7 @@ class CustomDrawer extends StatelessWidget {
                   image: AssetImage('images/pex.png'),
                   fit: BoxFit.cover,
                 ),
-              ),
+              ), accountName: null, accountEmail: null,
             ),
             ListTile(
               leading: const Icon(Icons.brightness_6),
