@@ -172,7 +172,7 @@ class FavoritesScreen extends StatelessWidget {
                        languageProvider.currentLocale.languageCode == 'en'
                                     ? " You haven't added any watches to your favorites yet!"
                                     : " لم تقم بإضافة أي ساعات إلى مفضلتك بعد! ",
-                          style: TextStyle(fontSize: 18),
+                          style: const TextStyle(fontSize: 18),
                   ),
 
                   const SizedBox(height: 10),
