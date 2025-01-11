@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
 import 'package:app_e_ecommerce/View/CartScreen/MainPage.dart';
@@ -26,8 +20,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  // List of screen widgets
-
   final List<Widget> _screens = [
     const HomeScreen(),
     FavoritesScreen(),
@@ -40,39 +32,29 @@ class _HomeScreenState extends State<HomeScreen> {
       _selectedIndex = index;
     });
 
-    // Navigate to the corresponding screen when an item is tapped
-
     switch (index) {
       case 0:
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-            builder: (context) => const HomeScreen()
-          ),
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
         );
         break;
       case 1:
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-            builder: (context) =>  const CardScreen()
-          ),
+          MaterialPageRoute(builder: (context) => const CardScreen()),
         );
         break;
       case 2:
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-            builder: (context) =>  FavoritesScreen()
-            ),
+          MaterialPageRoute(builder: (context) => FavoritesScreen()),
         );
         break;
       case 3:
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-            builder: (context) => const Settings_Screen()
-            ),
+          MaterialPageRoute(builder: (context) => const Settings_Screen()),
         );
         break;
     }
@@ -108,13 +90,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-         
         backgroundColor: Colors.grey,
         title: Center(
           child: Text(
             languageProvider.currentLocale.languageCode == 'en'
-              ? "App ECommerce"
-              : " تطبيق التجارة الإلكترونية",
+                ? "App ECommerce"
+                : " تطبيق التجارة الإلكترونية",
             style: GoogleFonts.adamina(
               textStyle: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -124,7 +105,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        
         actions: [
           Container(
             margin: const EdgeInsets.all(10),
@@ -137,7 +117,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               },
-
               child: Icon(
                 Icons.shop,
                 color: Colors.grey.shade900,
@@ -145,7 +124,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-
           Container(
             margin: const EdgeInsets.all(10),
             child: InkWell(
@@ -157,7 +135,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               },
-
               child: Icon(
                 Icons.notification_add_sharp,
                 color: Colors.grey.shade900,
@@ -165,18 +142,13 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-
-          
         ],
       ),
-
       drawer: const CustomDrawer(),
-
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             const Padding(
               padding: EdgeInsets.only(
                 top: 3,
@@ -187,17 +159,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
                   Text(
                     languageProvider.currentLocale.languageCode == 'en'
-                    ? "Welcome To Our Store"
-                    : "مرحبا بكم في متجرنا",
+                        ? "Welcome To Our Store"
+                        : "مرحبا بكم في متجرنا",
                     style: GoogleFonts.adamina(
                       textStyle: const TextStyle(
                         fontWeight: FontWeight.bold,
@@ -207,13 +177,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-
                   const SizedBox(height: 0),
-
                   Text(
-                     languageProvider.currentLocale.languageCode == 'en'
-                    ? "Let's shop something"
-                    : "  دعونا نتسوق شيئا ما ",
+                    languageProvider.currentLocale.languageCode == 'en'
+                        ? "Let's shop something"
+                        : "  دعونا نتسوق شيئا ما ",
                     style: GoogleFonts.adamina(
                       textStyle: const TextStyle(
                         fontWeight: FontWeight.bold,
@@ -226,25 +194,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.only(left: 15),
               child: Row(
                 children: [
-
                   for (int i = 0; i < 3; i++)
                     Container(
-
                       margin: const EdgeInsets.only(right: 10),
                       padding: const EdgeInsets.only(left: 10),
                       width: MediaQuery.of(context).size.width / 1.4,
-                      height: MediaQuery.of(context).size.height / 5.5,
+                      height: MediaQuery.of(context).size.height / 4.5, // تكبير الحاوية
                       decoration: BoxDecoration(
                         color: Cars[i],
                         borderRadius: BorderRadius.circular(10),
                       ),
-
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -253,11 +217,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-
                                 Text(
                                   languageProvider.currentLocale.languageCode == 'en'
-                                  ? "30% off on Winter Collection"
-                                  : "خصم 30% على مجموعة الشتاء",
+                                      ? "30% off on Winter Collection"
+                                      : "خصم 30% على مجموعة الشتاء",
                                   style: GoogleFonts.adamina(
                                     textStyle: const TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -267,7 +230,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                 ),
-
                                 Padding(
                                   padding: const EdgeInsets.all(16.0),
                                   child: ElevatedButton.icon(
@@ -275,17 +237,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) =>
-                                              const CardScreen(),
+                                          builder: (context) => const CardScreen(),
                                         ),
                                       );
                                     },
                                     icon: const Icon(Icons.shop),
                                     label: Text(
                                       languageProvider.currentLocale.languageCode == 'en'
-                                    ? "Shop New"
-                                    : "تسوق الأن",
-                                      style: GoogleFonts.adamina(
+                                          ? "Shop New"
+                                          : "تسوق الأن",
+                                       style: GoogleFonts.adamina(
                                         textStyle: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.pinkAccent.shade400,
@@ -300,8 +261,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Image.asset(
                             imageList[i],
-                            height: 100,
-                            width: 110,
+                            height: 200,
+                            width: 200,
                           ),
                         ],
                       ),
@@ -365,8 +326,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     for (var i = 0; i < 10; i++)
                       Container(
-                        height: 50,
-                        width: 50,
+                        height: 80,
+                        width: 80,
                         margin: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
                           color: const Color(0xFFD4ECF7),

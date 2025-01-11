@@ -10,8 +10,8 @@ class GridItems extends StatelessWidget {
 
   var pNames = [
     "Irony_pour_homme",
-    "YCS590G",
     "Unisex_Chronographe_Quartz",
+    "Analogique",
     "YWS420G_Menichelli",
     "Mens_Swiss_SY23S413",
     "Mens_Irony_Chronograph",
@@ -19,7 +19,7 @@ class GridItems extends StatelessWidget {
     "SYXG110G",
     "Bijoux_Jewelry",
     "Hombre_Irony_Xlite_Red_Attack",
-    "Analogique",
+    "YCS590G",
     "Irony_Chrono_New_YVB416_bonfire",
   ];
 
@@ -58,7 +58,7 @@ class GridItems extends StatelessWidget {
               padding:  const EdgeInsets.all(10),
               child: Column(
                 children: [
-                  const SizedBox(height: 5,),
+                  
                    Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children:  [
@@ -71,7 +71,7 @@ class GridItems extends StatelessWidget {
                           fontSize: 12,
                         ),
                       ),
-                      const SizedBox(height: 60,),
+                      
                       FavoriteButton(
                   isFavorite: false,
                   valueChanged: (isFavorite) {
@@ -88,9 +88,7 @@ class GridItems extends StatelessWidget {
                     ],
                   ),
 
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  
 
                   Padding(
                     padding:  const EdgeInsets.all(10),
@@ -106,13 +104,13 @@ class GridItems extends StatelessWidget {
                       },
                       child: Image.asset(
                         "images/${pNames[index]}.png",
-                        height: 120,
-                        width: 300,
+                        height: 181,
+                        width: 181,
                       ),
                     ),
                   ),
 
-                   const SizedBox(height: 20),
+                   
 
                   Padding(
                     padding:  const EdgeInsets.all(8),
