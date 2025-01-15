@@ -1,4 +1,7 @@
 import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/CartScreen/LoginPage.dart';
+import 'package:app_e_ecommerce/View/Login%20Screen/SignUpScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +25,18 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
+  void initState() {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        print(
+            '================================= User is currently signed out!');
+      } else {
+        print('================================= User is signed in!');
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final modeProvider = Provider.of<ModeProvider>(context);
     final languageProvider = Provider.of<LanguageProvider>(context);
@@ -32,8 +47,8 @@ class MyApp extends StatelessWidget {
           : ModeTheme.darkMode,
       debugShowCheckedModeBanner: false,
       title: languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Watch Shop"
-                                    : " متجر الساعات ", 
+          ? " Watch Shop"
+          : " متجر الساعات ",
       locale: languageProvider.currentLocale,
       supportedLocales: const [
         Locale('en', ''), // English
@@ -43,6 +58,11 @@ class MyApp extends StatelessWidget {
         ...GlobalMaterialLocalizations.delegates,
       ],
       home: const HomeScreen(),
+      routes: {
+        "signup": (context) => const SignUpScreen(),
+        "login": (context) => const Login_PageScreen(),
+        "homepage": (context) => const HomeScreen()
+      },
     );
   }
 }

@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 class Login_PageScreen extends StatelessWidget {
 
-   Login_PageScreen({Key? key}) : super(key: key);
+   const Login_PageScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

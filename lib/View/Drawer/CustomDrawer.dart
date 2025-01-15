@@ -3,7 +3,7 @@ import 'package:app_e_ecommerce/View/Drawer/App%20Rating/app%20rating.dart';
 import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:app_e_ecommerce/View/Drawer/Share/share.dart';
 import 'package:app_e_ecommerce/View/Drawer/Support/Support.dart';
-import 'package:app_e_ecommerce/View/Login%20Screen/LoginScreen.dart';
+import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:app_e_ecommerce/provider/mode_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -230,7 +230,7 @@ class CustomDrawer extends StatelessWidget {
                   onTap:() => Navigator.push(
                     context, MaterialPageRoute(
                       builder: (context) =>
-                       Share_Screen()
+                       const Share_Screen()
                        ),
                        ),
                 ),
@@ -249,7 +249,7 @@ class CustomDrawer extends StatelessWidget {
                   onTap:() => Navigator.push(
                     context, MaterialPageRoute(
                       builder: (context) =>
-                       AppRatingScreen()
+                       const AppRatingScreen()
                        ),
                        ),
                 ),

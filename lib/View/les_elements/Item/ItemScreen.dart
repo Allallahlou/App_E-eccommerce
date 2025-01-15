@@ -23,11 +23,11 @@ class ItemScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 color: Colors.purple.shade100,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30),
                 ),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Colors.black26,
                     blurRadius: 10,
@@ -130,7 +130,7 @@ class ItemScreen extends StatelessWidget {
                     "طاقمنا المتمرس موجود لمساعدتك في العثور على الساعة المثالية التي تناسب أسلوبك واحتياجاتك."
                     "قم بزيارتنا للحصول على أفضل مجموعة من ساعات اليد وخدمة عملاء استثنائية.",
                  
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                     textAlign: TextAlign.justify,
                 ),
                 ],
@@ -168,7 +168,7 @@ class ItemScreen extends StatelessWidget {
                     BoxShadow(
                       color: Colors.pinkAccent.shade100,
                       blurRadius: 8,
-                      offset: Offset(0, 4),
+                      offset: const Offset(0, 4),
                     ),
                   ],
                 ),

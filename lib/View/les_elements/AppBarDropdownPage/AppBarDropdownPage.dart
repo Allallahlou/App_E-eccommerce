@@ -97,7 +97,7 @@ class AppBarDropdownPage extends StatelessWidget {
 // صفحة الفئة المختارة
 class CategoryPage extends StatelessWidget {
   final String category;
-  CategoryPage({required this.category});
+  const CategoryPage({Key? key, required this.category}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -51,7 +51,8 @@ class _MainPageState extends State<MainPage> {
             alignment: Alignment.topRight,
             children: [
               IconButton(
-                icon: const Icon(Icons.shopping_cart),
+                // ignore: prefer_const_constructors
+                icon:  Icon(Icons.shopping_cart),
                 onPressed: () {
                   Navigator.push(
                     context,

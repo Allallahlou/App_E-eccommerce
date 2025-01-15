@@ -76,6 +76,8 @@ dependencies:
   appbar_dropdown: ^0.0.4
   flutter_localizations:
     sdk: flutter
+  firebase_messaging: ^14.9.4
+  google_sign_in: ^6.2.2
 
 
 

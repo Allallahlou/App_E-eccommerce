@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class Product {
@@ -112,7 +114,7 @@ class _ProductPageState extends State<ProductPage> {
         context, index) {
         final product = products[index];
         return Card(
-          margin: const EdgeInsets.all(8),
+          margin:  EdgeInsets.all(8),
           child: ListTile(
 
             leading: Image.asset(

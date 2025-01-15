@@ -7,6 +7,8 @@ import 'package:smart_auth/smart_auth.dart';
 
 
 class OTPInputScreen extends StatefulWidget {
+  const OTPInputScreen({Key? key}) : super(key: key);
+
   @override
   _OTPInputScreenState createState() => _OTPInputScreenState();
 }
@@ -85,7 +87,7 @@ class _OTPInputScreenState extends State<OTPInputScreen> {
                                     ? " Please enter the OTP sent to your phone"
                                     : "الرجاء إدخال رمز OTP المرسل إلى هاتفك",
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
                 const SizedBox(height: 20),
                 Pinput(
@@ -133,7 +135,7 @@ class _OTPInputScreenState extends State<OTPInputScreen> {
                       languageProvider.currentLocale.languageCode == 'en'
                                     ? " Verify OTP"
                                     : " التحقق من كلمة المرور لمرة واحدة ",
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
                 ),
               ],
