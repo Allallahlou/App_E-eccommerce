@@ -8,19 +8,67 @@ import 'package:provider/provider.dart';
 class FavoritesScreen extends StatelessWidget {
   final List<Map<String, dynamic>> favoriteWatches = [
     {"image": "Images/Analogique.png", "name": "Analogique", "price": "\$100"},
-    {"image": "Images/Apple_Swatch_Black.png", "name": "Apple Swatch Black", "price": "\$280"},
-    {"image": "Images/Apple_Swatch.png", "name": "Apple Swatch", "price": "\$300"},
-    {"image": "Images/Bijoux_Jewelry.png", "name": "Bijoux Jewelry", "price": "\$400"},
-    {"image": "Images/Hombre_Irony_Xlite_Red_Attack.png", "name": "Hombre Irony Xlite Red Attack", "price": "\$160"},
-    {"image": "Images/Irony_Chrono_New_YVB416_bonfire.png", "name": "Irony Chrono New YVB416 bonfire", "price": "\$250"},
-    {"image": "Images/Irony_pour_homme.png", "name": "Irony pour homme", "price": "\$270"},
-    {"image": "Images/Mens_Irony_Chronograph.png", "name": "Mens Irony Chronograph", "price": "\$320"},
-    {"image": "Images/Mens_Swiss_SY23S413.png", "name": "Mens Swiss SY23S413", "price": "\$220"},
-    {"image": "Images/Sport_Swatch.png", "name": "Sport Swatch", "price": "\$145"},
-    {"image": "Images/Swatchour_YVS426G.png", "name": "Swatchour YVS426G", "price": "\$305"},
+    {
+      "image": "Images/Apple_Swatch_Black.png",
+      "name": "Apple Swatch Black",
+      "price": "\$280"
+    },
+    {
+      "image": "Images/Apple_Swatch.png",
+      "name": "Apple Swatch",
+      "price": "\$300"
+    },
+    {
+      "image": "Images/Bijoux_Jewelry.png",
+      "name": "Bijoux Jewelry",
+      "price": "\$400"
+    },
+    {
+      "image": "Images/Hombre_Irony_Xlite_Red_Attack.png",
+      "name": "Hombre Irony Xlite Red Attack",
+      "price": "\$160"
+    },
+    {
+      "image": "Images/Irony_Chrono_New_YVB416_bonfire.png",
+      "name": "Irony Chrono New YVB416 bonfire",
+      "price": "\$250"
+    },
+    {
+      "image": "Images/Irony_pour_homme.png",
+      "name": "Irony pour homme",
+      "price": "\$270"
+    },
+    {
+      "image": "Images/Mens_Irony_Chronograph.png",
+      "name": "Mens Irony Chronograph",
+      "price": "\$320"
+    },
+    {
+      "image": "Images/Mens_Swiss_SY23S413.png",
+      "name": "Mens Swiss SY23S413",
+      "price": "\$220"
+    },
+    {
+      "image": "Images/Sport_Swatch.png",
+      "name": "Sport Swatch",
+      "price": "\$145"
+    },
+    {
+      "image": "Images/Swatchour_YVS426G.png",
+      "name": "Swatchour YVS426G",
+      "price": "\$305"
+    },
     {"image": "Images/SYXG110G.png", "name": "SYXG110G", "price": "\$245"},
-    {"image": "Images/Unisex_Chronographe_Quartz.png", "name": "Unisex Chronographe Quartz", "price": "\$105"},
-    {"image": "Images/YWS420G_Menichelli.png", "name": "YWS420G Menichelli", "price": "\$45"},
+    {
+      "image": "Images/Unisex_Chronographe_Quartz.png",
+      "name": "Unisex Chronographe Quartz",
+      "price": "\$105"
+    },
+    {
+      "image": "Images/YWS420G_Menichelli.png",
+      "name": "YWS420G Menichelli",
+      "price": "\$45"
+    },
   ];
 
   FavoritesScreen({Key? key}) : super(key: key);
@@ -129,7 +177,8 @@ class FavoritesScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ProductInformationScreen(watch: watch),
+                              builder: (context) =>
+                                  ProductInformationScreen(watch: watch),
                             ),
                           );
                         },
@@ -151,7 +200,8 @@ class FavoritesScreen extends StatelessWidget {
 class ProductInformationScreen extends StatelessWidget {
   final Map<String, dynamic> watch;
 
-  const ProductInformationScreen({Key? key, required this.watch}) : super(key: key);
+  const ProductInformationScreen({Key? key, required this.watch})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

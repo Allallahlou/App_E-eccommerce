@@ -90,16 +90,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.white,
         title: Center(
           child: Text(
             languageProvider.currentLocale.languageCode == 'en'
-                ? "App ECommerce"
-                : " تطبيق التجارة الإلكترونية",
+                ? "Watch Shop"
+                : "متجر الساعات",
             style: GoogleFonts.adamina(
-              textStyle: TextStyle(
+              textStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.pinkAccent.shade400,
+                color: Colors.black,
                 letterSpacing: .5,
               ),
             ),
@@ -172,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       textStyle: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
-                        fontSize: 24,
+                        fontSize: 22,
                         letterSpacing: .5,
                       ),
                     ),
@@ -186,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       textStyle: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.pink,
-                        fontSize: 25,
+                        fontSize: 22,
                         letterSpacing: .5,
                       ),
                     ),
@@ -204,7 +204,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       margin: const EdgeInsets.only(right: 10),
                       padding: const EdgeInsets.only(left: 10),
                       width: MediaQuery.of(context).size.width / 1.4,
-                      height: MediaQuery.of(context).size.height / 4.5, // تكبير الحاوية
+                      height: MediaQuery.of(context).size.height /
+                          4.5, // تكبير الحاوية
                       decoration: BoxDecoration(
                         color: Cars[i],
                         borderRadius: BorderRadius.circular(10),
@@ -218,7 +219,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  languageProvider.currentLocale.languageCode == 'en'
+                                  languageProvider.currentLocale.languageCode ==
+                                          'en'
                                       ? "30% off on Winter Collection"
                                       : "خصم 30% على مجموعة الشتاء",
                                   style: GoogleFonts.adamina(
@@ -237,16 +239,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => const CardScreen(),
+                                          builder: (context) =>
+                                              const CardScreen(),
                                         ),
                                       );
                                     },
                                     icon: const Icon(Icons.shop),
                                     label: Text(
-                                      languageProvider.currentLocale.languageCode == 'en'
+                                      languageProvider
+                                                  .currentLocale.languageCode ==
+                                              'en'
                                           ? "Shop New"
                                           : "تسوق الأن",
-                                       style: GoogleFonts.adamina(
+                                      style: GoogleFonts.adamina(
                                         textStyle: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.pinkAccent.shade400,
@@ -270,9 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-
             const SizedBox(height: 20),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Row(
@@ -280,8 +283,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Text(
                     languageProvider.currentLocale.languageCode == 'en'
-                                    ? "Top Categories"
-                                    : " أفضل الفئات",
+                        ? "Top Categories"
+                        : " أفضل الفئات",
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -300,9 +303,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     },
                     child: Text(
-                       languageProvider.currentLocale.languageCode == 'en'
-                                    ? "See All"
-                                    : " انظر الكل",
+                      languageProvider.currentLocale.languageCode == 'en'
+                          ? "See All"
+                          : " انظر الكل",
                       style: GoogleFonts.adamina(
                         textStyle: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -315,9 +318,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-
             const SizedBox(height: 20),
-
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Padding(
@@ -354,44 +355,37 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-
       bottomNavigationBar: BottomNavigationBar(
-    
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        items:   [
-
+        items: [
           BottomNavigationBarItem(
             icon: const Icon(Icons.home),
             backgroundColor: Colors.grey.shade600,
             label: languageProvider.currentLocale.languageCode == 'en'
-                                    ? "Home"
-                                    : "الرئيسية",
+                ? "Home"
+                : "الرئيسية",
           ),
-
           BottomNavigationBarItem(
             icon: const Icon(Icons.shopping_cart),
             label: languageProvider.currentLocale.languageCode == 'en'
-                                    ? "Cart"
-                                    : "عربة التسوق",
+                ? "Cart"
+                : "عربة التسوق",
           ),
-
           BottomNavigationBarItem(
             icon: const Icon(Icons.favorite),
-            label:  languageProvider.currentLocale.languageCode == 'en'
-                                    ? "Favorites"
-                                    : "المفضلة",
+            label: languageProvider.currentLocale.languageCode == 'en'
+                ? "Favorites"
+                : "المفضلة",
           ),
-
           BottomNavigationBarItem(
             icon: const Icon(Icons.settings),
             label: languageProvider.currentLocale.languageCode == 'en'
-                                    ? "Settings"
-                                    : "إعدادات",
+                ? "Settings"
+                : "إعدادات",
           ),
         ],
       ),
-
     );
   }
 }
