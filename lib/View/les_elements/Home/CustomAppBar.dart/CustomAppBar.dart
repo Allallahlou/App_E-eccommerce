@@ -1,0 +1,56 @@
+import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/CartScreen/MainPage.dart';
+import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
+  Widget build(BuildContext context) {
+    final languageProvider = Provider.of<LanguageProvider>(context);
+
+    return AppBar(
+      backgroundColor: Colors.grey.shade500,
+      title: Center(
+        child: Text(
+          languageProvider.currentLocale.languageCode == 'en'
+              ? "Watch Shop"
+              : "متجر الساعات",
+          style: GoogleFonts.adamina(
+            textStyle: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              letterSpacing: .5,
+            ),
+          ),
+        ),
+      ),
+      actions: [
+        IconButton(
+          icon: Icon(Icons.shop, color: Colors.grey.shade900, size: 30),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MainPage()),
+            );
+          },
+        ),
+        IconButton(
+          icon: Icon(Icons.notification_add_sharp,
+              color: Colors.grey.shade900, size: 30),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const NoificationScreen()),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}

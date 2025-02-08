@@ -129,9 +129,16 @@ class _CardScreenState extends State<CardScreen> {
         backgroundColor: Colors.deepPurple,
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomeScreen())),
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomeScreen(),
+            ),
+          ),
         ),
       ),
       body: Column(
@@ -146,7 +153,8 @@ class _CardScreenState extends State<CardScreen> {
                         margin: const EdgeInsets.symmetric(
                             vertical: 8, horizontal: 16),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12)),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                         elevation: 5,
                         child: Padding(
                           padding: const EdgeInsets.all(12.0),
@@ -162,15 +170,20 @@ class _CardScreenState extends State<CardScreen> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(item['name'],
-                                        style: GoogleFonts.lato(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold)),
+                                    Text(
+                                      item['name'],
+                                      style: GoogleFonts.lato(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                     const SizedBox(height: 5),
-                                    Text("${item['price']} Euro",
-                                        style: const TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.deepPurple)),
+                                    Text(
+                                      "${item['price']} Euro",
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.deepPurple,
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -190,13 +203,18 @@ class _CardScreenState extends State<CardScreen> {
                                       });
                                     },
                                   ),
-                                  Text("${item['quantity']}",
-                                      style: const TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold)),
+                                  Text(
+                                    "${item['quantity']}",
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
                                   IconButton(
-                                    icon: const Icon(Icons.add_circle_outline,
-                                        color: Colors.green),
+                                    icon: const Icon(
+                                      Icons.add_circle_outline,
+                                      color: Colors.green,
+                                    ),
                                     onPressed: () =>
                                         setState(() => item['quantity']++),
                                   ),
@@ -232,23 +250,31 @@ class _CardScreenState extends State<CardScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(isEnglish ? "Total" : "المجموع",
-                        style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
-                    Text("${getTotal().toStringAsFixed(2)} Euro",
-                        style: const TextStyle(
-                            fontSize: 18,
-                            color: Colors.deepPurple,
-                            fontWeight: FontWeight.bold)),
+                    Text(
+                      isEnglish ? "Total" : "المجموع",
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "${getTotal().toStringAsFixed(2)} Euro",
+                      style: const TextStyle(
+                        fontSize: 18,
+                        color: Colors.deepPurple,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: cartItems.isNotEmpty
                       ? () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const PaymentScreen()))
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const PaymentScreen()),
+                          )
                       : null,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepPurple,
