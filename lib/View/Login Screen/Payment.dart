@@ -11,48 +11,61 @@ class PaymentScreen extends StatefulWidget {
 }
 
 class _PaymentScreenState extends State<PaymentScreen> {
-  final TextEditingController _cardNumberController = TextEditingController();
-  final TextEditingController _nameoncardController = TextEditingController();
-  final TextEditingController _expiryDateController = TextEditingController();
-  final TextEditingController _cvvController = TextEditingController();
+  final _cardNumberController = TextEditingController();
+  final _nameOnCardController = TextEditingController();
+  final _expiryDateController = TextEditingController();
+  final _cvvController = TextEditingController();
+
+  @override
+  void dispose() {
+    _cardNumberController.dispose();
+    _nameOnCardController.dispose();
+    _expiryDateController.dispose();
+    _cvvController.dispose();
+    super.dispose();
+  }
 
   void processPayment() {
-    String cardNumber = _cardNumberController.text.trim();
-    String nameoncard = _nameoncardController.text.trim();
-    String expiryDate = _expiryDateController.text.trim();
-    String cvv = _cvvController.text.trim();
-
-    if (cardNumber.isEmpty || expiryDate.isEmpty || cvv.isEmpty) {
-      _showDialog("Error", "Please fill in all fields.");
+    if (_cardNumberController.text.isEmpty ||
+        _expiryDateController.text.isEmpty ||
+        _cvvController.text.isEmpty ||
+        _nameOnCardController.text.isEmpty) {
+      _showDialog("❌ Error", "Please fill in all fields.");
       return;
     }
 
     _showDialog(
-      "Congratulations!", 
+      "🎉 Congratulations!",
       "Payment has been made successfully and the watch has been purchased.",
     );
+
+    // إعادة تعيين الحقول بعد الدفع
+    setState(() {
+      _cardNumberController.clear();
+      _nameOnCardController.clear();
+      _expiryDateController.clear();
+      _cvvController.clear();
+    });
   }
 
   void _showDialog(String title, String content) {
-
     showDialog(
       context: context,
       builder: (context) {
-              final languageProvider = Provider.of<LanguageProvider>(context);
+        final languageProvider = Provider.of<LanguageProvider>(context);
 
         return AlertDialog(
           title: Text(title),
           content: Text(content),
           actions: [
             TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child:Text(
-                 languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Agree"
-                                    : " يوافق ",
-                ),
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text(
+                languageProvider.currentLocale.languageCode == 'en'
+                    ? "OK"
+                    : "موافق",
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         );
@@ -62,7 +75,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   @override
   Widget build(BuildContext context) {
-          final languageProvider = Provider.of<LanguageProvider>(context);
+    final languageProvider = Provider.of<LanguageProvider>(context);
+    final isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
@@ -71,9 +85,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         backgroundColor: Colors.grey.shade200,
         title: Center(
           child: Text(
-             languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Payment"
-                                    : "الدفع",
+            isEnglish ? "Payment" : "الدفع",
             style: GoogleFonts.adamina(
               textStyle: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -91,11 +103,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 200,),
+              const SizedBox(height: 200),
               Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
+                    borderRadius: BorderRadius.circular(16)),
                 elevation: 5,
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -109,36 +120,30 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       const SizedBox(height: 20),
                       _buildTextField(
                         controller: _cardNumberController,
-                        label: languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Card Number"
-                                    : "  رقم البطاقة", 
+                        label: isEnglish ? "Card Number" : "رقم البطاقة",
                         icon: Icons.credit_card,
                         keyboardType: TextInputType.number,
                       ),
                       const SizedBox(height: 15),
                       _buildTextField(
-                        controller: _nameoncardController,
-                        label: languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Name on Card"
-                                    : " الاسم على البطاقة ", 
+                        controller: _nameOnCardController,
+                        label: isEnglish ? "Name on Card" : "الاسم على البطاقة",
                         icon: Icons.person,
                         keyboardType: TextInputType.name,
                       ),
                       const SizedBox(height: 15),
                       _buildTextField(
                         controller: _expiryDateController,
-                        label: languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Expiry Date (MM/YY)"
-                                    : " (MM/YY) تاريخ انتهاء الصلاحية ", 
+                        label: isEnglish
+                            ? "Expiry Date (MM/YY)"
+                            : "(MM/YY) تاريخ انتهاء الصلاحية",
                         icon: Icons.date_range,
                         keyboardType: TextInputType.datetime,
                       ),
                       const SizedBox(height: 15),
                       _buildTextField(
                         controller: _cvvController,
-                        label: languageProvider.currentLocale.languageCode == 'en'
-                                    ? " CVV"
-                                    : "رمز التحقق ",
+                        label: isEnglish ? "CVV" : "رمز التحقق",
                         icon: Icons.lock,
                         keyboardType: TextInputType.number,
                         obscureText: true,
@@ -151,18 +156,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ElevatedButton.icon(
                 onPressed: processPayment,
                 icon: const Icon(Icons.payment, size: 28),
-                label:  Text(
-                   languageProvider.currentLocale.languageCode == 'en'
-                                    ? "  Payment"
-                                    : "  الدفع ",
-                  
+                label: Text(
+                  isEnglish ? "Make Payment" : "إتمام الدفع",
                   style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                   backgroundColor: Colors.pinkAccent.shade400,
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
