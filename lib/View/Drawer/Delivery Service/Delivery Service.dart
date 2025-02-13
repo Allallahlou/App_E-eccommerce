@@ -1,6 +1,5 @@
-import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:app_e_ecommerce/View/les_elements/Home/home_scren.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -10,96 +9,62 @@ class DeliveryProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final languageProvider = Provider.of<LanguageProvider>(context);
-    Size size = MediaQuery.of(context).size;
+    final bool isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.blueAccent.shade700,
         title: Center(
-
-          child:Text(
-             languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Delivery Service"
-                                    : "  خدمة التوصيل",
-            
-             style: GoogleFonts.adamina(
-
-               textStyle: TextStyle(
+          child: Text(
+            isEnglish ? " Delivery Service " : " خدمة التوصيل",
+            style: GoogleFonts.lato(
+              textStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.pinkAccent.shade400,
-                letterSpacing:.5
-                ),
-                ),
+                color: Colors.white,
+                fontSize: 22,
               ),
-        ),
-
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back, 
-            color: Colors.white),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const HomeScreen(),
-              ),
-            );
-          },
+            ),
+          ),
         ),
       ),
-
       body: SingleChildScrollView(
         child: Column(
           children: [
-
-            // رأس الشاشة مع أيقونات 
-
+            // Header Section
             Container(
-              padding: const EdgeInsets.symmetric(
-                vertical: 20,
-                 horizontal: 15
-                 ),
-
-              decoration: const BoxDecoration(
-                color: Colors.teal,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(25),
-                  bottomRight: Radius.circular(25),
+              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 15),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.blueAccent.shade700, Colors.purpleAccent],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(30),
                 ),
               ),
-
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Icon(
-                    Icons.local_shipping,
-                    size: 60,
-                    color: Colors.white,
-                  ),
-                  
-                  const SizedBox(height: 10),
-
+                  const Icon(Icons.local_shipping,
+                      size: 80, color: Colors.white),
+                  const SizedBox(height: 15),
                   Text(
-                     languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Fast & Reliable Delivery"
-                                    : "  تسليم سريع وموثوق",
-                    
-                    style: const TextStyle(
-                      fontSize: 22,
+                    isEnglish ? "Fast and safe delivery!" : "توصيل سريع وآمن!",
+                    style: GoogleFonts.cairo(
+                      fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                   ),
-
                   const SizedBox(height: 10),
-
                   Text(
-                     languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Get your orders delivered safely and on time to your doorstep."
-                                    : "  . احصل على طلباتك بأمان وفي الوقت المحدد إلى باب منزلك ",
-                    
+                    isEnglish
+                        ? "Get your orders as quickly and safely as possible!"
+                        : "احصل على طلباتك بأسرع وقت وبأقصى أمان!",
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
+                    style: GoogleFonts.cairo(
                       fontSize: 16,
                       color: Colors.white70,
                     ),
@@ -108,142 +73,113 @@ class DeliveryProfileScreen extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
 
-            // أقسام الخدمة
-
+            // Service Features
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: Column(
                 children: [
                   serviceCard(
-                    icon: Icons.access_time,
-                    title: languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Delivery Time"
-                                    : " موعد التسليم ", 
-                    description: languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Your package will be delivered within 1-2 days for local shipments."
-                                    : " سيتم تسليم الطرد الخاص بك خلال 1-2 يومًا للشحنات المحلية. ", 
-                  ),
-                  const SizedBox(height: 15),
+                      Icons.access_time,
+                      isEnglish ? "⏳ Delivery date" : "⏳ موعد التسليم",
+                      isEnglish
+                          ? "Delivery within 24-48 hours locally."
+                          : "التوصيل خلال 24-48 ساعة محليًا."),
                   serviceCard(
-                    icon: Icons.location_on,
-                    title:  languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Coverage Area"
-                                    : "  منطقة التغطية",
-                    description:  languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Our service covers over 50 cities across the country."
-                                    : "  تغطي خدمتنا أكثر من 50 مدينة في جميع أنحاء البلاد.",
-                  ),
-                  const SizedBox(height: 15),
+                      Icons.map,
+                      isEnglish ? "🌍 Coverage range" : "🌍 نطاق التغطية",
+                      isEnglish
+                          ? "The service covers more than 50 cities!"
+                          : "تشمل الخدمة أكثر من 50 مدينة!"),
                   serviceCard(
-                    icon: Icons.support_agent,
-                    title:  languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Customer Support"
-                                    : "  دعم العملاء",
-                    description:  languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Available 24/7 to assist you with your delivery inquiries."
-                                    : "  متاح على مدار الساعة طوال أيام الأسبوع لمساعدتك في استفسارات التسليم الخاصة بك.",
-                  ),
-                  const SizedBox(height: 15),
+                      Icons.support_agent,
+                      isEnglish ? "📞 Customer Support" : "📞 دعم العملاء",
+                      isEnglish
+                          ? "Available 24/7 to help you!"
+                          : "متوفر 24/7 لمساعدتك!"),
                   serviceCard(
-                    icon: Icons.security,
-                    title:  languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Safe Handling"
-                                    : "  التعامل الآمن",
-                    description:  languageProvider.currentLocale.languageCode == 'en'
-                                    ? " We ensure your packages are handled with utmost care and security."
-                                    : " نحن نضمن أن يتم التعامل مع الطرود الخاصة بك بأقصى درجات العناية والأمان. ",
-                  ),
+                      Icons.security,
+                      isEnglish
+                          ? "🔒 Protection and Security"
+                          : "🔒 حماية وأمان",
+                      isEnglish
+                          ? "Guarantee your order will be delivered with the utmost care!"
+                          : "ضمان تسليم الطلب بأقصى درجات العناية!"),
                 ],
               ),
             ),
 
             const SizedBox(height: 20),
 
-            // تتبع التوصيل
-
+            // Tracking Section
             Container(
               padding: const EdgeInsets.all(20),
               margin: const EdgeInsets.symmetric(horizontal: 15),
               decoration: BoxDecoration(
-                color: Colors.teal.shade100,
-                borderRadius: BorderRadius.circular(15),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.blueAccent.shade100.withOpacity(0.5),
+                    blurRadius: 10,
+                    spreadRadius: 2,
+                  ),
+                ],
               ),
-
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-
-                   Text(
-                     languageProvider.currentLocale.languageCode == 'en'
-                        ? " LogTrack Your Deliveryin"
-                        : "تتبع تسليمك",
-                    style: const TextStyle(
-                      fontSize: 18,
+                  Text(
+                    isEnglish ? "📍Track your shipment" : "📍 تتبع شحنتك",
+                    style: GoogleFonts.cairo(
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black87,
+                      color: Colors.blueAccent.shade700,
                     ),
                   ),
-
                   const SizedBox(height: 10),
-
-                   Text(
-                     languageProvider.currentLocale.languageCode == 'en'
-                       ? " Enter your tracking ID below to get the latest updates on your shipment."
-                       : "  أدخل معرف التتبع الخاص بك أدناه للحصول على آخر التحديثات المتعلقة بشحنتك.",
+                  Text(
+                    isEnglish
+                        ? "Enter tracking number for live updates!"
+                        : "أدخل رقم التتبع للحصول على تحديثات مباشرة!",
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
+                    style: GoogleFonts.cairo(
                       fontSize: 14,
                       color: Colors.black54,
                     ),
                   ),
-
                   const SizedBox(height: 15),
-                  
                   TextField(
                     decoration: InputDecoration(
-                      hintText:  languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Enter Tracking ID"
-                                    : "  أدخل معرف التتبع",
+                      hintText: isEnglish
+                          ? "🔢 Enter tracking number"
+                          : "🔢 أدخل رقم التتبع",
                       filled: true,
-                      fillColor: Colors.white,
+                      fillColor: Colors.grey.shade100,
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                          color: Colors.teal,
-                          ),
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide.none,
                       ),
-
-                      suffixIcon: const Icon(
-                        Icons.search,
-                        color: Colors.teal),
+                      suffixIcon:
+                          Icon(Icons.search, color: Colors.blueAccent.shade700),
                     ),
                   ),
-
                   const SizedBox(height: 20),
-
                   ElevatedButton(
-                    onPressed: () {
-                      // Add tracking functionality
-                    },
-
+                    onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.teal,
+                      backgroundColor: Colors.blueAccent.shade700,
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 30,
+                        horizontal: 40,
                         vertical: 15,
                       ),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(30),
                       ),
                     ),
-
-                    child:  Text(
-                       languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Track Now"
-                                    : "  تتبع الآن",
-                    
+                    child: Text(
+                      isEnglish ? "🔍 Track Now" : "🔍 تتبع الآن",
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 16,
@@ -253,69 +189,54 @@ class DeliveryProfileScreen extends StatelessWidget {
                 ],
               ),
             ),
+
+            const SizedBox(height: 30),
           ],
         ),
       ),
     );
   }
 
-  // ويدجت لعرض بطاقة الخدمة
-
-  Widget serviceCard(
-    {
-    required IconData icon,
-    required String title,
-    required String description,
-  }
-  )
-
-   {
+  Widget serviceCard(IconData icon, String title, String description) {
     return Container(
+      margin: const EdgeInsets.only(bottom: 15),
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.blueAccent.shade100.withOpacity(0.3),
             spreadRadius: 3,
-            blurRadius: 5,
+            blurRadius: 8,
             offset: const Offset(0, 3),
           ),
         ],
       ),
-
       child: Row(
         children: [
           CircleAvatar(
-            radius: 25,
-            backgroundColor: Colors.teal.shade100,
-            child: Icon(
-              icon, size: 30,
-              color: Colors.teal,
-              ),
+            radius: 28,
+            backgroundColor: Colors.blueAccent.shade100,
+            child: Icon(icon, size: 30, color: Colors.blueAccent.shade700),
           ),
-
           const SizedBox(width: 15),
-
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
+                  style: GoogleFonts.cairo(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.black87,
                   ),
                 ),
-
                 const SizedBox(height: 5),
-                
                 Text(
                   description,
-                  style: const TextStyle(
+                  style: GoogleFonts.cairo(
                     fontSize: 14,
                     color: Colors.black54,
                     height: 1.5,

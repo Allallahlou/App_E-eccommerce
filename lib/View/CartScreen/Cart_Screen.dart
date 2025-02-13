@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
-import 'package:app_e_ecommerce/View/les_elements/Home/home_scren.dart';
+import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 
 class CardScreen extends StatefulWidget {
   const CardScreen({Key? key}) : super(key: key);
@@ -151,7 +151,9 @@ class _CardScreenState extends State<CardScreen> {
                       final item = cartItems[index];
                       return Card(
                         margin: const EdgeInsets.symmetric(
-                            vertical: 8, horizontal: 16),
+                          vertical: 8,
+                          horizontal: 16,
+                        ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
@@ -162,8 +164,12 @@ class _CardScreenState extends State<CardScreen> {
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
-                                child: Image.asset(item['image'],
-                                    width: 80, height: 80, fit: BoxFit.cover),
+                                child: Image.asset(
+                                  item['image'],
+                                  width: 80,
+                                  height: 80,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                               const SizedBox(width: 16),
                               Expanded(
@@ -191,8 +197,9 @@ class _CardScreenState extends State<CardScreen> {
                                 children: [
                                   IconButton(
                                     icon: const Icon(
-                                        Icons.remove_circle_outline,
-                                        color: Colors.redAccent),
+                                      Icons.remove_circle_outline,
+                                      color: Colors.redAccent,
+                                    ),
                                     onPressed: () {
                                       setState(() {
                                         if (item['quantity'] > 1) {
@@ -232,9 +239,10 @@ class _CardScreenState extends State<CardScreen> {
                           ? "Your cart is empty!"
                           : "سلة التسوق الخاصة بك فارغة!",
                       style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
+                      ),
                     ),
                   ),
           ),
@@ -242,8 +250,9 @@ class _CardScreenState extends State<CardScreen> {
             padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
               color: Colors.deepPurple.shade50,
-              borderRadius:
-                  const BorderRadius.vertical(top: Radius.circular(16)),
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(16),
+              ),
             ),
             child: Column(
               children: [
@@ -273,13 +282,16 @@ class _CardScreenState extends State<CardScreen> {
                       ? () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const PaymentScreen()),
+                              builder: (context) => const PaymentScreen(),
+                            ),
                           )
                       : null,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepPurple,
                     padding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 24),
+                      vertical: 12,
+                      horizontal: 24,
+                    ),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)),
                   ),

@@ -1,4 +1,4 @@
-import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/MainPage.dart';
 import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:flutter/material.dart';
@@ -12,14 +12,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final languageProvider = Provider.of<LanguageProvider>(context);
+    final bool isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
     return AppBar(
       backgroundColor: Colors.grey.shade500,
       title: Center(
         child: Text(
-          languageProvider.currentLocale.languageCode == 'en'
-              ? "Watch Shop"
-              : "متجر الساعات",
+          isEnglish ? "Watch Shop" : "متجر الساعات",
           style: GoogleFonts.adamina(
             textStyle: const TextStyle(
               fontWeight: FontWeight.bold,

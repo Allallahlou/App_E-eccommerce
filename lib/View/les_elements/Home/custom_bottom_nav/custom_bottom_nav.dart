@@ -1,4 +1,4 @@
-import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +15,7 @@ class CustomBottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final languageProvider = Provider.of<LanguageProvider>(context);
+    final bool isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
     return BottomNavigationBar(
       currentIndex: currentIndex,
@@ -26,27 +27,19 @@ class CustomBottomNav extends StatelessWidget {
       items: [
         BottomNavigationBarItem(
           icon: const Icon(Icons.home),
-          label: languageProvider.currentLocale.languageCode == 'en'
-              ? "Home"
-              : "الرئيسية",
+          label: isEnglish ? "Home" : "الرئيسية",
         ),
         BottomNavigationBarItem(
           icon: const Icon(Icons.shopping_cart),
-          label: languageProvider.currentLocale.languageCode == 'en'
-              ? "Cart"
-              : "عربة التسوق",
+          label: isEnglish ? "Cart" : "عربة التسوق",
         ),
         BottomNavigationBarItem(
           icon: const Icon(Icons.favorite),
-          label: languageProvider.currentLocale.languageCode == 'en'
-              ? "Favorites"
-              : "المفضلة",
+          label: isEnglish ? "Favorites" : "المفضلة",
         ),
         BottomNavigationBarItem(
-          icon: const Icon(Icons.settings),
-          label: languageProvider.currentLocale.languageCode == 'en'
-              ? "Settings"
-              : "إعدادات",
+          icon: const Icon(Icons.person),
+          label: isEnglish ? "Account" : "حساب",
         ),
       ],
     );

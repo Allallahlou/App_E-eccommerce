@@ -1,4 +1,4 @@
-import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/les_elements/Favorite/favorite_screen.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/foundation.dart';
@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 import '../les_elements/Item/ItemScreen.dart';
 
 class GridItems extends StatelessWidget {
-
   var pNames = [
     "Irony_pour_homme",
     "Unisex_Chronographe_Quartz",
@@ -23,30 +22,27 @@ class GridItems extends StatelessWidget {
     "Irony_Chrono_New_YVB416_bonfire",
   ];
 
-  GridItems (int index, {Key? key}) : super(key: key);
-  
+  GridItems(int index, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-      final languageProvider = Provider.of<LanguageProvider>(context);
+    final languageProvider = Provider.of<LanguageProvider>(context);
 
     return GridView.builder(
-      
         itemCount: pNames.length,
-        physics:  const NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
-        gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           childAspectRatio: 0.7,
           crossAxisCount: 2,
         ),
-
         itemBuilder: (context, index) {
           return Container(
-            margin:  const EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: Colors.grey.shade400,
-              boxShadow:  const [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black87,
                   blurRadius: 4,
@@ -55,52 +51,45 @@ class GridItems extends StatelessWidget {
               ],
             ),
             child: Padding(
-              padding:  const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 children: [
-                  
-                   Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children:  [
-                       Text(
-                           languageProvider.currentLocale.languageCode == 'en'
-                                    ? " 30% off"
-                                    : " خصم 30%",
+                    children: [
+                      Text(
+                        languageProvider.currentLocale.languageCode == 'en'
+                            ? " 30% off"
+                            : " خصم 30%",
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 12,
                         ),
                       ),
-                      
                       FavoriteButton(
-                  isFavorite: false,
-                  valueChanged: (isFavorite) {
-                    if (kDebugMode) {
-                      print(Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>  FavoritesScreen()
+                          isFavorite: false,
+                          valueChanged: (isFavorite) {
+                            if (kDebugMode) {
+                              print(
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => FavoritesScreen()),
                                 ),
-                                ),
-                                ); }
-                  }
-                  ),
+                              );
+                            }
+                          }),
                     ],
                   ),
-
-                  
-
                   Padding(
-                    padding:  const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: InkWell(
                       onTap: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                  const ItemScreen()
-                                  ),
-                                  );
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ItemScreen()),
+                        );
                       },
                       child: Image.asset(
                         "images/${pNames[index]}.png",
@@ -109,11 +98,8 @@ class GridItems extends StatelessWidget {
                       ),
                     ),
                   ),
-
-                   
-
                   Padding(
-                    padding:  const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -125,8 +111,6 @@ class GridItems extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-
-                         
                       ],
                     ),
                   ),
@@ -134,7 +118,6 @@ class GridItems extends StatelessWidget {
               ),
             ),
           );
-        }
-        );
+        });
   }
 }

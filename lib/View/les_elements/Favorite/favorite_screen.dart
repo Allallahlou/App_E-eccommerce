@@ -1,6 +1,6 @@
-import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/les_elements/Favorite/FavoriteSearchDelegate.dart';
-import 'package:app_e_ecommerce/View/les_elements/Home/home_scren.dart';
+import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';

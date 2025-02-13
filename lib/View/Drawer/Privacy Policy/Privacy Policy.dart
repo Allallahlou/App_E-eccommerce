@@ -1,4 +1,4 @@
-import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -14,43 +14,37 @@ class PrivacyPolicyScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Privacy and Security"
-                                    : "  الخصوصية والأمان",
-             style: GoogleFonts.adamina(
-
-               textStyle: TextStyle(
+              ? " Privacy and Security"
+              : "  الخصوصية والأمان",
+          style: GoogleFonts.adamina(
+            textStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.pinkAccent.shade400,
-                letterSpacing:.5
-                ),
-                ),
-              ),
+                letterSpacing: .5),
+          ),
+        ),
         centerTitle: true,
       ),
-      body:  Padding(
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               languageProvider.currentLocale.languageCode == 'en'
-                                    ? " privacy policy"
-                                    : "سياسة الخصوصية",      
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  ),
-            ),
-
-            const SizedBox(height: 10),
-
-            Text(
-              languageProvider.currentLocale.languageCode == 'en'
-             ? "We respect your privacy and are committed to protecting your data."
-              "The information is used only to improve user experience."
-             : "نحن نحترم خصوصيتك ونلتزم بحماية بياناتك."
-             "يتم استخدام المعلومات فقط لتحسين تجربة المستخدم."
+                  ? " privacy policy"
+                  : "سياسة الخصوصية",
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
               ),
+            ),
+            const SizedBox(height: 10),
+            Text(languageProvider.currentLocale.languageCode == 'en'
+                ? "We respect your privacy and are committed to protecting your data."
+                    "The information is used only to improve user experience."
+                : "نحن نحترم خصوصيتك ونلتزم بحماية بياناتك."
+                    "يتم استخدام المعلومات فقط لتحسين تجربة المستخدم."),
           ],
         ),
       ),

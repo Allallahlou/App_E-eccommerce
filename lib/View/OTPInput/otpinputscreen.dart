@@ -1,10 +1,9 @@
-import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_auth/smart_auth.dart';
-
 
 class OTPInputScreen extends StatefulWidget {
   const OTPInputScreen({Key? key}) : super(key: key);
@@ -58,19 +57,16 @@ class _OTPInputScreenState extends State<OTPInputScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Enter OTP"
-                                    : " أدخل كلمة المرور لمرة واحدة ",
-             style: GoogleFonts.adamina(
-
-               textStyle: TextStyle(
+          languageProvider.currentLocale.languageCode == 'en'
+              ? " Enter OTP"
+              : " أدخل كلمة المرور لمرة واحدة ",
+          style: GoogleFonts.adamina(
+            textStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.pinkAccent.shade400,
-                letterSpacing:.5
-                ),
-                ),
-              ),
-              
+                letterSpacing: .5),
+          ),
+        ),
         centerTitle: true,
         backgroundColor: Colors.teal,
       ),
@@ -82,12 +78,13 @@ class _OTPInputScreenState extends State<OTPInputScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                 Text(
-                    languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Please enter the OTP sent to your phone"
-                                    : "الرجاء إدخال رمز OTP المرسل إلى هاتفك",
+                Text(
+                  languageProvider.currentLocale.languageCode == 'en'
+                      ? " Please enter the OTP sent to your phone"
+                      : "الرجاء إدخال رمز OTP المرسل إلى هاتفك",
                   textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.w500),
                 ),
                 const SizedBox(height: 20),
                 Pinput(
@@ -131,10 +128,10 @@ class _OTPInputScreenState extends State<OTPInputScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  child:  Text(
-                      languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Verify OTP"
-                                    : " التحقق من كلمة المرور لمرة واحدة ",
+                  child: Text(
+                    languageProvider.currentLocale.languageCode == 'en'
+                        ? " Verify OTP"
+                        : " التحقق من كلمة المرور لمرة واحدة ",
                     style: const TextStyle(fontSize: 16),
                   ),
                 ),

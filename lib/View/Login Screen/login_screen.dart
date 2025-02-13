@@ -1,4 +1,4 @@
-import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_button.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_text_field.dart';
 import 'package:flutter/material.dart';

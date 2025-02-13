@@ -1,4 +1,4 @@
-import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/CartPage.dart';
 import 'package:app_e_ecommerce/View/CartScreen/ProductPage.dart';
 import 'package:flutter/material.dart';
@@ -25,34 +25,29 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-  final languageProvider = Provider.of<LanguageProvider>(context);
+    final languageProvider = Provider.of<LanguageProvider>(context);
+    final isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
     return Scaffold(
       appBar: AppBar(
-        title:  Center(
-
+        title: Center(
           child: Text(
-            languageProvider.currentLocale.languageCode == 'en'
-                                    ? " App E-Commerce"
-                                    : "تطبيق التجارة الإلكترونية",
-             style: GoogleFonts.adamina(
-
-               textStyle: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.pinkAccent.shade400,
-                letterSpacing:.5
-                ),
-                ),
-              ),
+            isEnglish ? " App E-Commerce" : "تطبيق التجارة الإلكترونية",
+            style: GoogleFonts.adamina(
+              textStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.pinkAccent.shade400,
+                  letterSpacing: .5),
             ),
-
+          ),
+        ),
         actions: [
           Stack(
             alignment: Alignment.topRight,
             children: [
               IconButton(
                 // ignore: prefer_const_constructors
-                icon:  Icon(Icons.shopping_cart),
+                icon: Icon(Icons.shopping_cart),
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -62,7 +57,6 @@ class _MainPageState extends State<MainPage> {
                   );
                 },
               ),
-
               if (cartItems.isNotEmpty)
                 Positioned(
                   right: 8,
@@ -73,13 +67,12 @@ class _MainPageState extends State<MainPage> {
                       color: Colors.red,
                       shape: BoxShape.circle,
                     ),
-
                     child: Text(
                       '${cartItems.length}',
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 12,
-                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -87,9 +80,7 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
-      body: ProductPage(
-        onAddToCart: _addToCart
-        ),
+      body: ProductPage(onAddToCart: _addToCart),
     );
   }
 }

@@ -1,4 +1,5 @@
-import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/Drawer/Settings/SettingsScreen.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/Drawer/App%20Rating/app%20rating.dart';
 import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:app_e_ecommerce/View/Drawer/Share/share.dart';
@@ -7,7 +8,7 @@ import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:app_e_ecommerce/provider/mode_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../Account/LanguageInfo.dart';
+import '../language/LanguageInfo.dart';
 import '../Login Screen/Payment.dart';
 import '../Offers/Offers.dart';
 import '../les_elements/Favorite/favorite_screen.dart';
@@ -47,10 +48,14 @@ class CustomDrawer extends StatelessWidget {
               accountEmail: null,
             ),
             ListTile(
-              leading: const Icon(Icons.brightness_6),
+              leading: const Icon(
+                Icons.brightness_6,
+                color: Colors.black,
+              ),
               title: Text(
                 isEnglish ? "Night mode" : "الوضع الليلي",
               ),
+              textColor: Colors.black,
               trailing: Switch(
                 value: Provider.of<ModeProvider>(context).lightModeEnable,
                 onChanged: (value) {
@@ -59,20 +64,14 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.person),
-              title: Text(
-                isEnglish ? "Account" : "حساب",
+              leading: const Icon(
+                Icons.delivery_dining,
+                color: Colors.red,
               ),
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginScreen()),
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.delivery_dining),
               title: Text(
                 isEnglish ? "Delivery Service" : "خدمة التوصيل",
               ),
+              textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -80,20 +79,28 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.production_quantity_limits),
-              title: Text(
-                isEnglish ? "Product Information" : "معلومات المنتج",
+              leading: const Icon(
+                Icons.shopping_bag,
+                color: Colors.pink,
               ),
+              title: Text(
+                isEnglish ? "Products " : " المنتجات",
+              ),
+              textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => FavoritesScreen()),
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.language),
+              leading: const Icon(
+                Icons.language,
+                color: Colors.blue,
+              ),
               title: Text(
                 isEnglish ? "Language" : "لغة",
               ),
+              textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -101,10 +108,14 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.notification_add),
+              leading: const Icon(
+                Icons.notification_add,
+                color: Colors.grey,
+              ),
               title: Text(
                 isEnglish ? "Notifications" : "إشعارات",
               ),
+              textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -112,50 +123,70 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.work),
+              leading: const Icon(
+                Icons.work,
+                color: Colors.cyan,
+              ),
               title: Text(
                 isEnglish ? "Offers" : "العروض",
               ),
+              textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const Offers_Screen()),
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.payment),
+              leading: const Icon(
+                Icons.payment,
+                color: Colors.purple,
+              ),
               title: Text(
                 isEnglish ? "Payments" : "المدفوعات",
               ),
+              textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const PaymentScreen()),
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.message),
+              leading: const Icon(
+                Icons.message,
+                color: Colors.green,
+              ),
               title: Text(
                 isEnglish ? "Chat Server" : "خادم الدردشة",
               ),
+              textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const ChatScreen()),
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.share),
+              leading: const Icon(
+                Icons.share,
+                color: Colors.lime,
+              ),
               title: Text(
                 isEnglish ? "Share" : "مشاركة",
               ),
+              textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const Share_Screen()),
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.reviews_rounded),
+              leading: const Icon(
+                Icons.reviews_rounded,
+                color: Colors.deepOrange,
+              ),
               title: Text(
                 isEnglish ? "App Rating" : "تقييم التطبيق",
               ),
+              textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -164,20 +195,42 @@ class CustomDrawer extends StatelessWidget {
             ),
             const Divider(),
             ListTile(
-              leading: const Icon(Icons.help_rounded),
+              leading: const Icon(
+                Icons.settings,
+                color: Colors.grey,
+              ),
+              title: Text(
+                isEnglish ? "Settings" : "إعدادات",
+              ),
+              textColor: Colors.black,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.help_rounded,
+                color: Colors.black,
+              ),
               title: Text(
                 isEnglish ? "About" : "عن",
               ),
+              textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const AboutAppScreen()),
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.logout),
+              leading: const Icon(
+                Icons.logout,
+                color: Colors.black,
+              ),
               title: Text(
                 isEnglish ? "Logout" : "تسجيل الخروج",
               ),
+              textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const LoginScreen()),

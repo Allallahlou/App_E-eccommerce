@@ -1,4 +1,4 @@
-import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
@@ -8,17 +8,17 @@ class AppRatingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  final languageProvider = Provider.of<LanguageProvider>(context);
+    final languageProvider = Provider.of<LanguageProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
-        title:  Center(
+        title: Center(
           child: Text(
-             languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Help Screen"
-                                    : " شاشة المساعدة",
+            languageProvider.currentLocale.languageCode == 'en'
+                ? " Help Screen"
+                : " شاشة المساعدة",
           ),
-          ),
+        ),
         backgroundColor: Colors.blue,
       ),
       body: Padding(
@@ -27,11 +27,11 @@ class AppRatingScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 380),
-             Center(
+            Center(
               child: Text(
-                 languageProvider.currentLocale.languageCode == 'en'
-                                    ? " How was your experience with our app?"
-                                    :   "كيف كانت تجربتك مع تطبيقنا؟",
+                languageProvider.currentLocale.languageCode == 'en'
+                    ? " How was your experience with our app?"
+                    : "كيف كانت تجربتك مع تطبيقنا؟",
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
@@ -60,20 +60,20 @@ class AppRatingScreen extends StatelessWidget {
               onPressed: () {
                 // Action when submitted
                 ScaffoldMessenger.of(context).showSnackBar(
-                   SnackBar(
+                  SnackBar(
                     content: Text(
-                       languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Thank you for your feedback!"
-                                    : "! شكرا لتعليقاتك  ",
+                      languageProvider.currentLocale.languageCode == 'en'
+                          ? " Thank you for your feedback!"
+                          : "! شكرا لتعليقاتك  ",
                     ),
                   ),
                 );
               },
               child: Text(
-                 languageProvider.currentLocale.languageCode == 'en'
-                                    ? " Submit Feedback"
-                                    : "  إرسال التعليقات",
-                ),
+                languageProvider.currentLocale.languageCode == 'en'
+                    ? " Submit Feedback"
+                    : "  إرسال التعليقات",
+              ),
             ),
           ],
         ),

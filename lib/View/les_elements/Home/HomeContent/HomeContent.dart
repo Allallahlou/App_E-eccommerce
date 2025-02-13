@@ -1,4 +1,4 @@
-import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
 import 'package:app_e_ecommerce/View/les_elements/Favorite/favorite_screen.dart';
 import 'package:app_e_ecommerce/View/widgets/grid_items.dart';

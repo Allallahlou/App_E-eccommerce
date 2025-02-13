@@ -1,4 +1,4 @@
-import 'package:app_e_ecommerce/View/Account/language_provider/language_provider.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/LoginPage.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/SignUpScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -7,7 +7,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'provider/mode_provider.dart';
 import 'View/Drawer/Theme%20Mode/theme_mode.dart';
-import 'View/les_elements/Home/home_scren.dart';
+import 'View/les_elements/Home/Home_scren.dart';
 
 void main() {
   runApp(
