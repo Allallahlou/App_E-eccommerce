@@ -10,6 +10,7 @@ class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final languageProvider = Provider.of<LanguageProvider>(context);
+    bool isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
     List<Color> Cars = [
       const Color.fromARGB(255, 139, 149, 149),
@@ -46,9 +47,7 @@ class HomeContent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  languageProvider.currentLocale.languageCode == 'en'
-                      ? "Welcome To Our Store"
-                      : "مرحبا بكم في متجرنا",
+                  isEnglish ? "Welcome To Our Store" : "مرحبا بكم في متجرنا",
                   style: GoogleFonts.adamina(
                     textStyle: const TextStyle(
                       fontWeight: FontWeight.bold,
@@ -59,9 +58,7 @@ class HomeContent extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  languageProvider.currentLocale.languageCode == 'en'
-                      ? "Let's shop something"
-                      : " دعونا نتسوق شيئا ما ",
+                  isEnglish ? "Let's shop something" : " دعونا نتسوق شيئا ما ",
                   style: GoogleFonts.adamina(
                     textStyle: const TextStyle(
                       fontWeight: FontWeight.bold,
@@ -98,8 +95,7 @@ class HomeContent extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                languageProvider.currentLocale.languageCode ==
-                                        'en'
+                                isEnglish
                                     ? "30% off on Winter Collection"
                                     : "خصم 30% على مجموعة الشتاء",
                                 style: GoogleFonts.adamina(
@@ -125,11 +121,7 @@ class HomeContent extends StatelessWidget {
                                   },
                                   icon: const Icon(Icons.shopping_basket),
                                   label: Text(
-                                    languageProvider
-                                                .currentLocale.languageCode ==
-                                            'en'
-                                        ? "Shop"
-                                        : "تسوق الأن",
+                                    isEnglish ? "Shop" : "تسوق الأن",
                                     style: GoogleFonts.abel(
                                       textStyle: TextStyle(
                                         fontSize: 20,
@@ -163,9 +155,7 @@ class HomeContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  languageProvider.currentLocale.languageCode == 'en'
-                      ? "Top Categories"
-                      : "أفضل الفئات",
+                  isEnglish ? "Top Categories" : "أفضل الفئات",
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
@@ -184,9 +174,7 @@ class HomeContent extends StatelessWidget {
                     );
                   },
                   child: Text(
-                    languageProvider.currentLocale.languageCode == 'en'
-                        ? "See All"
-                        : "انظر الكل",
+                    isEnglish ? "See All" : "انظر الكل",
                     style: GoogleFonts.adamina(
                       textStyle: TextStyle(
                         fontWeight: FontWeight.bold,

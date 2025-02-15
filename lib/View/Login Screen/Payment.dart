@@ -53,6 +53,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
       context: context,
       builder: (context) {
         final languageProvider = Provider.of<LanguageProvider>(context);
+        bool isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
         return AlertDialog(
           title: Text(title),
@@ -61,9 +62,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
               child: Text(
-                languageProvider.currentLocale.languageCode == 'en'
-                    ? "OK"
-                    : "موافق",
+                isEnglish ? "OK" : "موافق",
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
@@ -78,103 +77,124 @@ class _PaymentScreenState extends State<PaymentScreen> {
     final languageProvider = Provider.of<LanguageProvider>(context);
     final isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
-    return Scaffold(
-      backgroundColor: Colors.grey.shade200,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.grey.shade200,
-        title: Center(
-          child: Text(
-            isEnglish ? "Payment" : "الدفع",
-            style: GoogleFonts.adamina(
-              textStyle: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.pinkAccent.shade400,
-                fontSize: 24,
-                letterSpacing: .5,
+    return Stack(
+      children: [
+        // الخلفية
+        Positioned.fill(
+          child: Image.asset(
+            "images/ecom.png", // تأكد من أن الصورة موجودة في مجلد assets
+            fit: BoxFit.cover,
+          ),
+        ),
+        Scaffold(
+          backgroundColor: Colors.transparent, // لضمان ظهور الخلفية
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.grey, // لون شفاف قليلاً
+            title: Center(
+              child: Text(
+                isEnglish ? "Payment" : "الدفع",
+                style: GoogleFonts.adamina(
+                  textStyle: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    fontSize: 20,
+                    letterSpacing: .5,
+                  ),
+                ),
+              ),
+            ),
+            iconTheme: const IconThemeData(color: Colors.black),
+          ),
+          body: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SizedBox(height: 100),
+                  Card(
+                    color: Colors.white.withOpacity(0.9), // شفافية للكارد
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16)),
+                    elevation: 5,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          const Image(
+                            height: 280,
+                            width: double.infinity,
+                            image: AssetImage("images/Payments.png"),
+                          ),
+                          const SizedBox(height: 20),
+                          _buildTextField(
+                            controller: _cardNumberController,
+                            label: isEnglish ? "Card Number" : "رقم البطاقة",
+                            icon: Icons.credit_card,
+                            keyboardType: TextInputType.number,
+                          ),
+                          const SizedBox(height: 15),
+                          _buildTextField(
+                            controller: _nameOnCardController,
+                            label: isEnglish
+                                ? "Name on Card"
+                                : "الاسم على البطاقة",
+                            icon: Icons.person,
+                            keyboardType: TextInputType.name,
+                          ),
+                          const SizedBox(height: 15),
+                          _buildTextField(
+                            controller: _expiryDateController,
+                            label: isEnglish
+                                ? "Expiry Date (MM/YY)"
+                                : "(MM/YY) تاريخ انتهاء الصلاحية",
+                            icon: Icons.date_range,
+                            keyboardType: TextInputType.datetime,
+                          ),
+                          const SizedBox(height: 15),
+                          _buildTextField(
+                            controller: _cvvController,
+                            label: isEnglish ? "CVV" : "رمز التحقق",
+                            icon: Icons.lock,
+                            keyboardType: TextInputType.number,
+                            obscureText: true,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  ElevatedButton.icon(
+                    onPressed: processPayment,
+                    icon: const Icon(
+                      Icons.payment,
+                      size: 28,
+                    ),
+                    label: Text(
+                      isEnglish ? "Make Payment" : "إتمام الدفع",
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 30,
+                        vertical: 15,
+                      ),
+                      backgroundColor: Colors.black,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
         ),
-        iconTheme: IconThemeData(color: Colors.pinkAccent.shade400),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(height: 200),
-              Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16)),
-                elevation: 5,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    children: [
-                      const Image(
-                        height: 180,
-                        width: double.infinity,
-                        image: AssetImage("images/Payments.png"),
-                      ),
-                      const SizedBox(height: 20),
-                      _buildTextField(
-                        controller: _cardNumberController,
-                        label: isEnglish ? "Card Number" : "رقم البطاقة",
-                        icon: Icons.credit_card,
-                        keyboardType: TextInputType.number,
-                      ),
-                      const SizedBox(height: 15),
-                      _buildTextField(
-                        controller: _nameOnCardController,
-                        label: isEnglish ? "Name on Card" : "الاسم على البطاقة",
-                        icon: Icons.person,
-                        keyboardType: TextInputType.name,
-                      ),
-                      const SizedBox(height: 15),
-                      _buildTextField(
-                        controller: _expiryDateController,
-                        label: isEnglish
-                            ? "Expiry Date (MM/YY)"
-                            : "(MM/YY) تاريخ انتهاء الصلاحية",
-                        icon: Icons.date_range,
-                        keyboardType: TextInputType.datetime,
-                      ),
-                      const SizedBox(height: 15),
-                      _buildTextField(
-                        controller: _cvvController,
-                        label: isEnglish ? "CVV" : "رمز التحقق",
-                        icon: Icons.lock,
-                        keyboardType: TextInputType.number,
-                        obscureText: true,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 30),
-              ElevatedButton.icon(
-                onPressed: processPayment,
-                icon: const Icon(Icons.payment, size: 28),
-                label: Text(
-                  isEnglish ? "Make Payment" : "إتمام الدفع",
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                style: ElevatedButton.styleFrom(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                  backgroundColor: Colors.pinkAccent.shade400,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      ],
     );
   }
 
