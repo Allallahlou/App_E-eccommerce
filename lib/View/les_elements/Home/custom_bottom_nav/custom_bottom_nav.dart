@@ -2,11 +2,11 @@ import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class CustomBottomNav extends StatelessWidget {
+class Custom_Bottom_Nav extends StatelessWidget {
   final int currentIndex;
   final Function(int) onItemTapped;
 
-  const CustomBottomNav({
+  const Custom_Bottom_Nav({
     Key? key,
     required this.currentIndex,
     required this.onItemTapped,

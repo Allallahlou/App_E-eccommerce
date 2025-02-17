@@ -1,18 +1,18 @@
-import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
+import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/les_elements/Favorite/favorite_screen.dart';
 import 'package:app_e_ecommerce/View/widgets/grid_items.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class HomeContent extends StatelessWidget {
+class Home_Content extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final languageProvider = Provider.of<LanguageProvider>(context);
     bool isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
-    List<Color> Cars = [
+    List<Color> Crs = [
       const Color.fromARGB(255, 139, 149, 149),
       const Color.fromARGB(255, 139, 149, 149),
       const Color.fromARGB(255, 139, 149, 149),
@@ -83,7 +83,7 @@ class HomeContent extends StatelessWidget {
                     width: MediaQuery.of(context).size.width / 1.4,
                     height: MediaQuery.of(context).size.height / 4.5,
                     decoration: BoxDecoration(
-                      color: Cars[i],
+                      color: Crs[i],
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Row(
@@ -115,7 +115,7 @@ class HomeContent extends StatelessWidget {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            const CardScreen(),
+                                            const Card_Screen(),
                                       ),
                                     );
                                   },

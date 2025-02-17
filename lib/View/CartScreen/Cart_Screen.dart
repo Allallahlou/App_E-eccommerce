@@ -5,14 +5,14 @@ import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 
-class CardScreen extends StatefulWidget {
-  const CardScreen({Key? key}) : super(key: key);
+class Card_Screen extends StatefulWidget {
+  const Card_Screen({Key? key}) : super(key: key);
 
   @override
-  _CardScreenState createState() => _CardScreenState();
+  _Card_ScreenState createState() => _Card_ScreenState();
 }
 
-class _CardScreenState extends State<CardScreen> {
+class _Card_ScreenState extends State<Card_Screen> {
   final List<Map<String, dynamic>> cartItems = [
     {
       "image": "images/Analogique.png",
@@ -136,7 +136,7 @@ class _CardScreenState extends State<CardScreen> {
           onPressed: () => Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const HomeScreen(),
+              builder: (context) => const Home_Screen(),
             ),
           ),
         ),

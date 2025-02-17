@@ -1,11 +1,10 @@
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/MainPage.dart';
-import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class Custom_AppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 

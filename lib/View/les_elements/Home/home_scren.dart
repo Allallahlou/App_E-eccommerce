@@ -2,20 +2,20 @@ import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
 import 'package:app_e_ecommerce/View/Drawer/CustomDrawer.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:app_e_ecommerce/View/les_elements/Favorite/favorite_screen.dart';
-import 'package:app_e_ecommerce/View/les_elements/Home/CustomAppBar.dart/CustomAppBar.dart';
-import 'package:app_e_ecommerce/View/les_elements/Home/HomeContent/HomeContent.dart';
+import 'package:app_e_ecommerce/View/les_elements/Home/CustomAppBar.dart/custom_appbar.dart';
+import 'package:app_e_ecommerce/View/les_elements/Home/HomeContent/Home_Content.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/custom_bottom_nav/custom_bottom_nav.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class Home_Screen extends StatefulWidget {
+  const Home_Screen({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<Home_Screen> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -27,13 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
       case 0:
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          MaterialPageRoute(builder: (context) => const Home_Screen()),
         );
         break;
       case 1:
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const CardScreen()),
+          MaterialPageRoute(builder: (context) => const Card_Screen()),
         );
         break;
       case 2:
@@ -54,10 +54,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
-      body: HomeContent(),
+      appBar: Custom_AppBar(),
+      body: Home_Content(),
       drawer: const CustomDrawer(),
-      bottomNavigationBar: CustomBottomNav(
+      bottomNavigationBar: Custom_Bottom_Nav(
         currentIndex: _selectedIndex,
         onItemTapped: _onItemTapped,
       ),
