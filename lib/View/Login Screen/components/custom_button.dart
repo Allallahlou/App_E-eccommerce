@@ -20,17 +20,17 @@ class CustomButton extends StatelessWidget {
         width: double.infinity,
         height: 50,
         decoration: BoxDecoration(
-          color: isSecondary ? Colors.white : Colors.pinkAccent,
+          color: isSecondary ? Colors.orange : Colors.pinkAccent,
           borderRadius: BorderRadius.circular(30),
           border: isSecondary
               ? Border.all(
-                  color: Colors.pinkAccent,
+                  color: Colors.orange,
                   width: 1.5,
                 )
               : null,
           boxShadow: const [
             BoxShadow(
-              color: Colors.black26,
+              color: Colors.white,
               blurRadius: 6.0,
               offset: Offset(0, 3),
             ),
@@ -40,7 +40,7 @@ class CustomButton extends StatelessWidget {
           child: Text(
             label,
             style: TextStyle(
-              color: isSecondary ? Colors.pinkAccent : Colors.white,
+              color: isSecondary ? Colors.white : Colors.white,
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),

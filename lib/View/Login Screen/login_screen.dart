@@ -13,71 +13,88 @@ class LoginScreen extends StatelessWidget {
     final bool isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              children: [
-                const SizedBox(height: 150),
-                Text(
-                  isEnglish
-                      ? "LOGIN TO YOUR ACCOUNT"
-                      : "تسجيل الدخول إلى حسابك",
-                  style: const TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("images/ecom.png"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  Image.asset(
+                    "images/FF.png",
+                    width: MediaQuery.of(context).size.width / 2.5,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 35),
-                CustomTextField(
-                  hintText: isEnglish ? "Email" : "البريد الإلكتروني",
-                  icon: Icons.email,
-                ),
-                const SizedBox(height: 20),
-                CustomTextField(
-                  hintText: isEnglish ? "Password" : "كلمة المرور",
-                  icon: Icons.lock,
-                  obscureText: true,
-                ),
-                const SizedBox(height: 10),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {
-                      // Navigating to Forgot Password Screen
-                    },
-                    child: Text(
-                      isEnglish ? "Forgot Password?" : "هل نسيت كلمة السر؟",
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
+                  const SizedBox(height: 10),
+                  Text(
+                    isEnglish
+                        ? "LOGIN TO YOUR ACCOUNT"
+                        : "تسجيل الدخول إلى حسابك",
+                    style: const TextStyle(
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 30),
+                  CustomTextField(
+                    hintText: isEnglish ? "Email" : "البريد الإلكتروني",
+                    icon: Icons.email,
+                  ),
+                  const SizedBox(height: 20),
+                  CustomTextField(
+                    hintText: isEnglish ? "Password" : "كلمة المرور",
+                    icon: Icons.lock,
+                    obscureText: true,
+                  ),
+                  const SizedBox(height: 10),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {
+                        // Navigating to Forgot Password Screen
+                      },
+                      child: Text(
+                        isEnglish ? "Forgot Password?" : "هل نسيت كلمة السر؟",
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                CustomButton(
-                  label: isEnglish ? "Login" : "تسجيل الدخول",
-                  onPressed: () {
-                    Navigator.pushNamed(context, "homepage");
-                  },
-                ),
-                const SizedBox(height: 20),
-                CustomButton(
-                  label: isEnglish ? "Sign Up" : "قم بالتسجيل",
-                  onPressed: () {
-                    Navigator.pushNamed(context, "signup");
-                  },
-                  isSecondary: true,
-                ),
-              ],
+                  const SizedBox(height: 20),
+                  CustomButton(
+                    label: isEnglish ? "Login" : "تسجيل الدخول",
+                    onPressed: () {
+                      Navigator.pushNamed(context, "homepage");
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  CustomButton(
+                    label: isEnglish ? "Sign Up" : "قم بالتسجيل",
+                    onPressed: () {
+                      Navigator.pushNamed(context, "signup");
+                    },
+                    isSecondary: true,
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }

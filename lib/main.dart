@@ -1,3 +1,4 @@
+import 'package:app_e_ecommerce/View/Drawer/Settings/SettingsScreen.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/LoginPage.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/SignUpScreen.dart';

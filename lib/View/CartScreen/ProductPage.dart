@@ -81,7 +81,7 @@ class _ProductPageState extends State<ProductPage> {
       itemBuilder: (context, index) {
         final product = products[index];
         return Card(
-          margin: EdgeInsets.all(8),
+          margin: const EdgeInsets.all(8),
           child: ListTile(
             leading: Image.asset(
               product.imagePath,
