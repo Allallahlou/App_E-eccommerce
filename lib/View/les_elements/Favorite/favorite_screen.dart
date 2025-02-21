@@ -76,14 +76,13 @@ class FavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final languageProvider = Provider.of<LanguageProvider>(context);
+    bool isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
     return Scaffold(
       appBar: AppBar(
         title: Center(
           child: Text(
-            languageProvider.currentLocale.languageCode == 'en'
-                ? "Favorites"
-                : "المفضلة",
+            isEnglish ? "Favorites" : "المفضلة",
             style: GoogleFonts.adamina(
               textStyle: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -98,7 +97,9 @@ class FavoritesScreen extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const Home_Screen()),
+              MaterialPageRoute(
+                builder: (context) => const Home_Screen(),
+              ),
             );
           },
         ),
@@ -120,7 +121,7 @@ class FavoritesScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    languageProvider.currentLocale.languageCode == 'en'
+                    isEnglish
                         ? "You haven't added any watches to your favorites yet!"
                         : "لم تقم بإضافة أي ساعات إلى مفضلتك بعد!",
                     style: const TextStyle(fontSize: 18),
@@ -130,9 +131,7 @@ class FavoritesScreen extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {},
                     child: Text(
-                      languageProvider.currentLocale.languageCode == 'en'
-                          ? "Browse the watches"
-                          : "تصفح الساعات",
+                      isEnglish ? "Browse the watches" : "تصفح الساعات",
                     ),
                   ),
                 ],
@@ -183,9 +182,7 @@ class FavoritesScreen extends StatelessWidget {
                           );
                         },
                         child: Text(
-                          languageProvider.currentLocale.languageCode == 'en'
-                              ? "Product Information"
-                              : "معلومات المنتج",
+                          isEnglish ? "Product Information" : "معلومات المنتج",
                         ),
                       ),
                     ],

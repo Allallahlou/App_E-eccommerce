@@ -2,6 +2,7 @@ import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_button.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -64,10 +65,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           const SizedBox(height: 10),
                           Text(
                             isEnglish ? "Create Account" : "إنشاء حساب",
-                            style: const TextStyle(
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                            style: isEnglish
+                                ? GoogleFonts.montserrat(
+                                    // خط إنجليزي حديث ومغلق
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.w700,
+                                    color:
+                                        Colors.black, // واضح في النهار والليل
+                                  )
+                                : GoogleFonts.cairo(
+                                    // خط عربي مغلق وأنيق
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(height: 30),

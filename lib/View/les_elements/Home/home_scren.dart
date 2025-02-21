@@ -11,51 +11,33 @@ class Home_Screen extends StatefulWidget {
   const Home_Screen({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<Home_Screen> {
-  int _selectedIndex = 0;
+  final int _selectedIndex = 0;
+
+  final List<Widget> _screens = [
+    const Home_Screen(),
+    const Card_Screen(),
+    FavoritesScreen(),
+    const LoginScreen(),
+  ];
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
-    switch (index) {
-      case 0:
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const Home_Screen()),
-        );
-        break;
-      case 1:
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const Card_Screen()),
-        );
-        break;
-      case 2:
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => FavoritesScreen()),
-        );
-        break;
-      case 3:
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const LoginScreen()),
-        );
-        break;
+    if (index != _selectedIndex) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => _screens[index]),
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Custom_AppBar(),
-      body: Home_Content(),
+      appBar: const Custom_AppBar(),
+      body: const Home_Content(),
       drawer: const CustomDrawer(),
       bottomNavigationBar: Custom_Bottom_Nav(
         currentIndex: _selectedIndex,

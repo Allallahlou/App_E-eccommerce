@@ -2,6 +2,7 @@ import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_button.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -40,10 +41,12 @@ class LoginScreen extends StatelessWidget {
                     isEnglish
                         ? "LOGIN TO YOUR ACCOUNT"
                         : "تسجيل الدخول إلى حسابك",
-                    style: const TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                    style: GoogleFonts.poppins(
+                      // استخدم Montserrat للإنجليزية
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700, // خط مغلق Bold
+                      color: Colors
+                          .orange.shade900, // لون أسود مناسب للنهار والليل
                     ),
                     textAlign: TextAlign.center,
                   ),

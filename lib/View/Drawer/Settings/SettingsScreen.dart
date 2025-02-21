@@ -1,3 +1,12 @@
+import 'package:app_e_ecommerce/View/Drawer/Settings/AddUser/AddUser.dart';
+import 'package:app_e_ecommerce/View/Drawer/Settings/ChangePassword/ChangePassword.dart';
+import 'package:app_e_ecommerce/View/Drawer/Settings/DeleteAccount/DeleteAccount.dart';
+import 'package:app_e_ecommerce/View/Drawer/Settings/ManageUsers/ManageUsers.dart';
+import 'package:app_e_ecommerce/View/Drawer/Settings/OrdersPaymentSettings/OrdersPaymentSettings';
+import 'package:app_e_ecommerce/View/Drawer/Settings/ProductInventorySettings/ProductInventorySettings.dart';
+import 'package:app_e_ecommerce/View/Drawer/Settings/StoreSettings/StoreSettings.dart';
+import 'package:app_e_ecommerce/View/Drawer/Settings/UpdateProfile/UpdateProfile.dart';
+import 'package:app_e_ecommerce/View/Drawer/Settings/UserRoles/UserRoles.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,88 +32,179 @@ class SettingsScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // عنوان قسم الحساب
-            Text(
-              isEnglish ? "Account Settings" : "إعدادات الحساب",
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          // عنوان قسم الحساب
+          Text(
+            isEnglish ? "Account Settings" : "إعدادات الحساب",
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
             ),
-            const SizedBox(height: 10),
+          ),
+          const SizedBox(height: 10),
 
-            _buildSettingsOption(
-              icon: Icons.person,
-              text: isEnglish ? "Profile" : " المعلومات الشخصية",
-              onTap: () {
-                // توجيه المستخدم إلى شاشة  الحساب
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LoginScreen()),
-                );
-              },
+          _buildSettingsOption(
+            icon: Icons.person,
+            text: isEnglish ? "Profile" : " المعلومات الشخصية",
+            onTap: () {
+              // توجيه المستخدم إلى شاشة  الحساب
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LoginScreen(),
+                ),
+              );
+            },
+          ),
+          // زر تحديث المعلومات الشخصية
+          _buildSettingsOption(
+            icon: Icons.update,
+            text: isEnglish ? "Update Profile" : "تحديث المعلومات الشخصية",
+            onTap: () {
+              // توجيه المستخدم إلى شاشة تحديث الحساب
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const UpdateProfileScreen(),
+                ),
+              );
+            },
+          ),
+
+          // زر تغيير كلمة المرور
+          _buildSettingsOption(
+            icon: Icons.lock,
+            text: isEnglish ? "Change Password" : "تغيير كلمة المرور",
+            onTap: () {
+              // توجيه المستخدم إلى شاشة تغيير كلمة المرور
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ChangePasswordScreen(),
+                ),
+              );
+            },
+          ),
+
+          // زر حذف الحساب
+          _buildSettingsOption(
+            icon: Icons.delete_forever,
+            text: isEnglish ? "Delete Account" : "حذف الحساب",
+            onTap: () {
+              // تأكيد وحذف الحساب
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const DeleteAccountScreen(),
+                ),
+              );
+            },
+          ),
+
+          const SizedBox(height: 20),
+
+          // عنوان قسم إدارة الصلاحيات
+          Text(
+            isEnglish ? "User Permissions" : "إدارة الصلاحيات",
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
             ),
-            // زر تحديث المعلومات الشخصية
-            _buildSettingsOption(
-              icon: Icons.person,
-              text: isEnglish ? "Update Profile" : "تحديث المعلومات الشخصية",
-              onTap: () {
-                // توجيه المستخدم إلى شاشة تحديث الحساب
-              },
+          ),
+          const SizedBox(height: 10),
+
+          // زر إضافة مستخدم جديد
+          _buildSettingsOption(
+            icon: Icons.group_add,
+            text: isEnglish ? "Add New User" : "إضافة مستخدم جديد",
+            onTap: () {
+              // فتح شاشة إضافة مستخدم بصلاحيات معينة
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AddUserScreen(),
+                ),
+              );
+            },
+          ),
+
+          // زر إدارة المستخدمين الحاليين
+          _buildSettingsOption(
+            icon: Icons.manage_accounts,
+            text: isEnglish ? "Manage Users" : "إدارة المستخدمين",
+            onTap: () {
+              // فتح شاشة إدارة المستخدمين
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ManageUsersScreen(),
+                ),
+              );
+            },
+          ),
+
+          const SizedBox(height: 20),
+
+          // عنوان قسم إدارة الصلاحيات
+          Text(
+            isEnglish
+                ? "User Roles & Permissions"
+                : "إدارة الأدوار والصلاحيات للمستخدمين ",
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
             ),
-
-            // زر تغيير كلمة المرور
-            _buildSettingsOption(
-              icon: Icons.lock,
-              text: isEnglish ? "Change Password" : "تغيير كلمة المرور",
-              onTap: () {
-                // توجيه المستخدم إلى شاشة تغيير كلمة المرور
-              },
-            ),
-
-            // زر حذف الحساب
-            _buildSettingsOption(
-              icon: Icons.delete_forever,
-              text: isEnglish ? "Delete Account" : "حذف الحساب",
-              onTap: () {
-                // تأكيد وحذف الحساب
-              },
-            ),
-
-            const SizedBox(height: 20),
-
-            // عنوان قسم إدارة الصلاحيات
-            Text(
-              isEnglish ? "User Permissions" : "إدارة الصلاحيات",
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 10),
-
-            // زر إضافة مستخدم جديد
-            _buildSettingsOption(
-              icon: Icons.group_add,
-              text: isEnglish ? "Add New User" : "إضافة مستخدم جديد",
-              onTap: () {
-                // فتح شاشة إضافة مستخدم بصلاحيات معينة
-              },
-            ),
-
-            // زر إدارة المستخدمين الحاليين
-            _buildSettingsOption(
+          ),
+          _buildSettingsOption(
               icon: Icons.manage_accounts,
-              text: isEnglish ? "Manage Users" : "إدارة المستخدمين",
+              text: isEnglish
+                  ? "User Roles "
+                  : "إدارة الأدوار والصلاحيات للمستخدمين ",
               onTap: () {
                 // فتح شاشة إدارة المستخدمين
-              },
-            ),
-          ],
-        ),
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const UserRolesScreen(),
+                  ),
+                );
+              }),
+          _buildSettingsOption(
+              icon: Icons.store,
+              text: isEnglish ? "Store " : " المتجر",
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const StoreSettingsScreen(),
+                  ),
+                );
+              }),
+          _buildSettingsOption(
+              icon: Icons.inventory,
+              text: isEnglish ? "Product Inventory" : " المنتج والمخزون",
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const ProductInventorySettingsScreen(),
+                  ),
+                );
+              }),
+          _buildSettingsOption(
+              icon: Icons.payment,
+              text: isEnglish ? " Orders Payment" : "  الطلبات والدفع ",
+              onTap: () {
+                //
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const OrdersPaymentSettingsScreen(),
+                  ),
+                );
+              }),
+        ]),
       ),
     );
   }
