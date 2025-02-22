@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, camel_case_types, library_private_types_in_public_api
+
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
 import 'package:app_e_ecommerce/View/Drawer/CustomDrawer.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';

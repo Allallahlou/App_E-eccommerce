@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, camel_case_types, non_constant_identifier_names
+
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/les_elements/Favorite/favorite_screen.dart';

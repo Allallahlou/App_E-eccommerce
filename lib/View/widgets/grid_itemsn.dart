@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 
 class grid_itemsn extends StatelessWidget {
@@ -7,9 +9,7 @@ class grid_itemsn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
-
       padding: const EdgeInsets.symmetric(vertical: 50),
       decoration: BoxDecoration(
         boxShadow: const [
@@ -19,19 +19,17 @@ class grid_itemsn extends StatelessWidget {
             offset: Offset(4.5, 4.5),
           ),
         ],
-
         color: Colors.white,
-        border: Border.all(
-          color: Colors.indigo,
-          width: 1.5
-          ),
-        borderRadius: index == 0 || index % 3 == 0 ? const BorderRadius.only(
-          topRight: Radius.circular(100),
-          bottomLeft: Radius.circular(100),
-        ) : const BorderRadius.only(
-          topLeft: Radius.circular(100),
-          bottomRight: Radius.circular(100),
-        ),
+        border: Border.all(color: Colors.indigo, width: 1.5),
+        borderRadius: index == 0 || index % 3 == 0
+            ? const BorderRadius.only(
+                topRight: Radius.circular(100),
+                bottomLeft: Radius.circular(100),
+              )
+            : const BorderRadius.only(
+                topLeft: Radius.circular(100),
+                bottomRight: Radius.circular(100),
+              ),
       ),
       child: const Column(),
     );
