@@ -5,13 +5,16 @@ import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 
+// ignore: camel_case_types
 class Card_Screen extends StatefulWidget {
   const Card_Screen({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _Card_ScreenState createState() => _Card_ScreenState();
 }
 
+// ignore: camel_case_types
 class _Card_ScreenState extends State<Card_Screen> {
   final List<Map<String, dynamic>> cartItems = [
     {

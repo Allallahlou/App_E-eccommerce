@@ -46,7 +46,7 @@ dependencies:
   badges: ^3.0.1
   dropdown_button2: ^2.3.9
   custom_clippers: ^2.0.0
-  flutter_bloc: ^8.1.5
+  flutter_bloc: ^9.0.0
   firebase_storage: ^11.6.9
   firebase_core: ^2.32.0
   firebase_auth: ^4.0.0
@@ -78,6 +78,16 @@ dependencies:
     sdk: flutter
   firebase_messaging: ^14.9.4
   google_sign_in: ^6.2.2
+  lottie: ^3.0.0
+  flutter_launcher_icons: ^0.14.3
+
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "images/logo.png"  # ضع مسار صورة الأيقونة هنا
+  adaptive_icon_background: "#000000"  # للخلفية في أندرويد (يمكن أن تكون صورة)
+  adaptive_icon_foreground: "images/logo.png"  # أيقونة مخصصة لأندرويد  
 
 
 
