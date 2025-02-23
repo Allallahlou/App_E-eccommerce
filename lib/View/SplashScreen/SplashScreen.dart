@@ -1,6 +1,8 @@
+// ignore_for_file: file_names, library_private_types_in_public_api
 import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'dart:async';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -9,86 +11,113 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _fadeAnimation;
+class _SplashScreenState extends State<SplashScreen> {
+  int _currentIndex = 0;
+  final List<String> animations = [
+    'images/yyy.json',
+    'images/k.json',
+    'images/ddl.json'
+  ];
+  final List<String> messages = [
+    "Welcome to our app!",
+    "Discover our best watches!",
+    "Quality and style at your fingertips!"
+  ];
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 3),
-    );
-    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
+    _startAnimationSequence();
+  }
 
-    _controller.forward();
-
-    Future.delayed(const Duration(seconds: 4), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const Home_Screen()),
-      );
-    });
+  void _startAnimationSequence() {
+    for (int i = 0; i < animations.length; i++) {
+      Timer(Duration(seconds: (i + 1) * 4), () {
+        if (mounted) {
+          setState(() => _currentIndex = i);
+        }
+        if (i == animations.length - 1) {
+          Timer(const Duration(seconds: 4), () {
+            if (mounted) {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => const Home_Screen()),
+              );
+            }
+          });
+        }
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Center(
-        child: FadeTransition(
-          opacity: _fadeAnimation,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade800,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black54,
-                      blurRadius: 10,
-                      spreadRadius: 2,
-                    ),
-                  ],
-                ),
-                child: Lottie.asset(
-                  'images/yyy.json',
-                  width: 250,
-                  height: 250,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                "Welcome to the Watch Store",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1.2,
-                ),
-              ),
-              const SizedBox(height: 10),
-              const Text(
-                "Get your luxury watch now!",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white70,
-                  fontSize: 16,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-              const SizedBox(height: 30),
-              const CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-              ),
-            ],
+      body: AnimatedSwitcher(
+        duration: const Duration(seconds: 1),
+        child: AnimationScreen(
+          key: ValueKey<int>(_currentIndex),
+          animationPath: animations[_currentIndex],
+          message: messages[_currentIndex],
+        ),
+      ),
+    );
+  }
+}
+
+class AnimationScreen extends StatelessWidget {
+  final String animationPath;
+  final String message;
+
+  const AnimationScreen(
+      {Key? key, required this.animationPath, required this.message})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: 350,
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.purple.shade900, Colors.pink.shade700],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.pinkAccent.withOpacity(0.5),
+              blurRadius: 20,
+              spreadRadius: 5,
+            ),
+          ],
+          border: Border.all(color: Colors.white.withOpacity(0.3), width: 2),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Lottie.asset(animationPath, width: 300, height: 300),
+            const SizedBox(height: 20),
+            Text(
+              message,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                shadows: [
+                  Shadow(
+                    color: Colors.black45,
+                    blurRadius: 5,
+                    offset: Offset(2, 2),
+                  ),
+                ],
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       ),
     );
