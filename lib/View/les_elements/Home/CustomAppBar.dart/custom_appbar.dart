@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/MainPage.dart';
 import 'package:flutter/material.dart';

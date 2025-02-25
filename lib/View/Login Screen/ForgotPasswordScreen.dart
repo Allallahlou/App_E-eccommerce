@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // إضافة مكتبة Firebase Auth
 import 'package:flutter/material.dart';
@@ -8,6 +10,7 @@ class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _ForgotPasswordScreenState createState() => _ForgotPasswordScreenState();
 }
 
@@ -45,7 +48,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     showDialog(
       context: context,
       builder: (context) {
-        final languageProvider = Provider.of<LanguageProvider>(context);
+        Provider.of<LanguageProvider>(context);
 
         return AlertDialog(
           title: Text(title),
@@ -67,7 +70,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final languageProvider = Provider.of<LanguageProvider>(context);
+    Provider.of<LanguageProvider>(context);
 
     return Scaffold(
       body: Stack(

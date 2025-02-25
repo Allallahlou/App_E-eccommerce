@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:app_e_ecommerce/View/Drawer/Settings/SettingsScreen.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/Drawer/App%20Rating/app%20rating.dart';

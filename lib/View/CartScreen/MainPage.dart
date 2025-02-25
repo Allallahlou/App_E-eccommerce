@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, library_private_types_in_public_api
+
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/CartPage.dart';
 import 'package:app_e_ecommerce/View/CartScreen/ProductPage.dart';
