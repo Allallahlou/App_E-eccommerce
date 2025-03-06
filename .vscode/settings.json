@@ -9,5 +9,6 @@
         "scren",
         "signup"
     ],
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "cmake.sourceDirectory": "C:/Users/ALLAL LAHLOU/Desktop/ALLAL LAHLOU INFO/cross platform/app_e_ecommerce/windows/flutter"
 }
