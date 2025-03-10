@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tap_to_expand/tap_to_expand.dart';
 
 class WatchTypesScreen extends StatelessWidget {
+  const WatchTypesScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

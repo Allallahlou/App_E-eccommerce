@@ -1,5 +1,4 @@
 // ignore_for_file: file_names, library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 
 class Product {
@@ -18,7 +17,6 @@ class Product {
 
 class ProductPage extends StatefulWidget {
   final Function(Product) onAddToCart;
-
   const ProductPage({Key? key, required this.onAddToCart}) : super(key: key);
 
   @override
@@ -102,7 +100,6 @@ class _ProductPageState extends State<ProductPage> {
                 setState(() {
                   product.isFavorite = !product.isFavorite;
                 });
-
                 if (product.isFavorite) {
                   widget.onAddToCart(product);
                 }

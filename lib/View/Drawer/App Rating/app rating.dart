@@ -1,5 +1,4 @@
 // ignore_for_file: file_names
-
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -11,14 +10,13 @@ class AppRatingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final languageProvider = Provider.of<LanguageProvider>(context);
+    final isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
     return Scaffold(
       appBar: AppBar(
         title: Center(
           child: Text(
-            languageProvider.currentLocale.languageCode == 'en'
-                ? " Help Screen"
-                : " شاشة المساعدة",
+            isEnglish ? " Help Screen" : " شاشة المساعدة",
           ),
         ),
         backgroundColor: Colors.blue,
@@ -31,7 +29,7 @@ class AppRatingScreen extends StatelessWidget {
             const SizedBox(height: 380),
             Center(
               child: Text(
-                languageProvider.currentLocale.languageCode == 'en'
+                isEnglish
                     ? " How was your experience with our app?"
                     : "كيف كانت تجربتك مع تطبيقنا؟",
                 style: const TextStyle(
@@ -64,7 +62,7 @@ class AppRatingScreen extends StatelessWidget {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                      languageProvider.currentLocale.languageCode == 'en'
+                      isEnglish
                           ? " Thank you for your feedback!"
                           : "! شكرا لتعليقاتك  ",
                     ),
@@ -72,9 +70,7 @@ class AppRatingScreen extends StatelessWidget {
                 );
               },
               child: Text(
-                languageProvider.currentLocale.languageCode == 'en'
-                    ? " Submit Feedback"
-                    : "  إرسال التعليقات",
+                isEnglish ? " Submit Feedback" : "  إرسال التعليقات",
               ),
             ),
           ],

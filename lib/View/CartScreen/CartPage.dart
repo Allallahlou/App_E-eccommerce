@@ -1,5 +1,4 @@
 // ignore_for_file: file_names
-
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,6 @@ import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
   final List<Product> cartItems;
-
   const CartPage({Key? key, required this.cartItems}) : super(key: key);
 
   double getTotalPrice() {

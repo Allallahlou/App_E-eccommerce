@@ -1,5 +1,4 @@
 // ignore_for_file: file_names
-
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,13 +10,12 @@ class PrivacyPolicyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final languageProvider = Provider.of<LanguageProvider>(context);
+    final isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          languageProvider.currentLocale.languageCode == 'en'
-              ? " Privacy and Security"
-              : "  الخصوصية والأمان",
+          isEnglish ? " Privacy and Security" : "  الخصوصية والأمان",
           style: GoogleFonts.adamina(
             textStyle: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -33,16 +31,14 @@ class PrivacyPolicyScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              languageProvider.currentLocale.languageCode == 'en'
-                  ? " privacy policy"
-                  : "سياسة الخصوصية",
+              isEnglish ? " privacy policy" : "سياسة الخصوصية",
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 10),
-            Text(languageProvider.currentLocale.languageCode == 'en'
+            Text(isEnglish
                 ? "We respect your privacy and are committed to protecting your data."
                     "The information is used only to improve user experience."
                 : "نحن نحترم خصوصيتك ونلتزم بحماية بياناتك."

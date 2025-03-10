@@ -1,5 +1,4 @@
 // ignore_for_file: file_names
-
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 import 'package:flutter/material.dart';
@@ -103,7 +102,9 @@ class AboutAppScreen extends StatelessWidget {
                       child: Text(
                         isEnglish ? "Start Exploring" : "ابدأ الاستكشاف",
                         style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -174,8 +175,11 @@ class AboutAppScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
           child: ListTile(
-            leading:
-                Icon(feature['icon'], size: 30, color: Colors.green.shade700),
+            leading: Icon(
+              feature['icon'],
+              size: 30,
+              color: Colors.green.shade700,
+            ),
             title: Text(
               feature['title'],
               style: GoogleFonts.lato(
@@ -186,7 +190,10 @@ class AboutAppScreen extends StatelessWidget {
             ),
             subtitle: Text(
               feature['description'],
-              style: GoogleFonts.lato(fontSize: 14, color: Colors.black87),
+              style: GoogleFonts.lato(
+                fontSize: 14,
+                color: Colors.black87,
+              ),
             ),
           ),
         );

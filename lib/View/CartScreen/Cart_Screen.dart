@@ -1,5 +1,4 @@
 // ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -112,7 +111,9 @@ class _Card_ScreenState extends State<Card_Screen> {
   ];
 
   double getTotal() => cartItems.fold(
-      0, (sum, item) => sum + (item['price'] * item['quantity']));
+        0,
+        (sum, item) => sum + (item['price'] * item['quantity']),
+      );
 
   @override
   Widget build(BuildContext context) {

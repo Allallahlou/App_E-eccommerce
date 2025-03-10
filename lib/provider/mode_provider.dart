@@ -12,7 +12,6 @@ class ModeProvider with ChangeNotifier {
   chaneMode() {
     if (_lightModeEnable == true) {
       _lightModeEnable = false;
-
       notifyListeners();
     } else if (_lightModeEnable == false) {
       _lightModeEnable = true;

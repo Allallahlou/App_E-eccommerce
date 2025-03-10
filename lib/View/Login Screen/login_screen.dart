@@ -1,12 +1,20 @@
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
-import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_button.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:lottie/lottie.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool isLoginPressed = false;
+  bool isSignUpPressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -14,90 +22,153 @@ class LoginScreen extends StatelessWidget {
     final bool isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("images/ecom.png"),
-                  fit: BoxFit.cover,
-                ),
-              ),
+      body: SingleChildScrollView(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 223, 135, 3),
+                Color.fromARGB(255, 236, 14, 136)
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
             ),
           ),
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                children: [
-                  const SizedBox(height: 20),
-                  Image.asset(
-                    "images/FF.png",
-                    width: MediaQuery.of(context).size.width / 2.5,
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(height: 20),
+                Lottie.asset(
+                  "images/lo.json",
+                  width: 400,
+                  height: 400,
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  isEnglish
+                      ? "LOGIN TO YOUR ACCOUNT"
+                      : "تسجيل الدخول إلى حسابك",
+                  style: GoogleFonts.poppins(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w800,
+                    color: Colors.white,
                   ),
-                  const SizedBox(height: 10),
-                  Text(
-                    isEnglish
-                        ? "LOGIN TO YOUR ACCOUNT"
-                        : "تسجيل الدخول إلى حسابك",
-                    style: GoogleFonts.poppins(
-                      // استخدم Montserrat للإنجليزية
-                      fontSize: 30,
-                      fontWeight: FontWeight.w700, // خط مغلق Bold
-                      color: Colors
-                          .orange.shade900, // لون أسود مناسب للنهار والليل
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 30),
-                  CustomTextField(
-                    hintText: isEnglish ? "Email" : "البريد الإلكتروني",
-                    icon: Icons.email,
-                  ),
-                  const SizedBox(height: 20),
-                  CustomTextField(
-                    hintText: isEnglish ? "Password" : "كلمة المرور",
-                    icon: Icons.lock,
-                    obscureText: true,
-                  ),
-                  const SizedBox(height: 10),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {
-                        // Navigating to Forgot Password Screen
-                      },
-                      child: Text(
-                        isEnglish ? "Forgot Password?" : "هل نسيت كلمة السر؟",
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 30),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Column(
+                    children: [
+                      CustomTextField(
+                        hintText: isEnglish ? "Email" : "البريد الإلكتروني",
+                        icon: Icons.email,
+                      ),
+                      const SizedBox(height: 20),
+                      CustomTextField(
+                        hintText: isEnglish ? "Password" : "كلمة المرور",
+                        icon: Icons.lock,
+                        obscureText: true,
+                      ),
+                      const SizedBox(height: 15),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            isEnglish
+                                ? "Forgot Password?"
+                                : "هل نسيت كلمة السر؟",
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      const SizedBox(height: 25),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 300),
+                            width: 140,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: isLoginPressed
+                                  ? Colors.deepPurple
+                                  : Colors.white,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  isLoginPressed = true;
+                                  isSignUpPressed = false;
+                                });
+                                Future.delayed(
+                                    const Duration(milliseconds: 300), () {
+                                  Navigator.pushNamed(context, "homepage");
+                                });
+                              },
+                              child: Text(
+                                isEnglish ? "Login" : "تسجيل الدخول",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: isLoginPressed
+                                      ? Colors.white
+                                      : Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 20),
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 300),
+                            width: 140,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: isSignUpPressed
+                                  ? Colors.orange
+                                  : Colors.white,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  isSignUpPressed = true;
+                                  isLoginPressed = false;
+                                });
+                                Future.delayed(
+                                    const Duration(milliseconds: 300), () {
+                                  Navigator.pushNamed(context, "signup");
+                                });
+                              },
+                              child: Text(
+                                isEnglish ? "Sign Up" : "قم بالتسجيل",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: isSignUpPressed
+                                      ? Colors.white
+                                      : Colors.lightBlue,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: 20),
-                  CustomButton(
-                    label: isEnglish ? "Login" : "تسجيل الدخول",
-                    onPressed: () {
-                      Navigator.pushNamed(context, "homepage");
-                    },
-                  ),
-                  const SizedBox(height: 20),
-                  CustomButton(
-                    label: isEnglish ? "Sign Up" : "قم بالتسجيل",
-                    onPressed: () {
-                      Navigator.pushNamed(context, "signup");
-                    },
-                    isSecondary: true,
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }

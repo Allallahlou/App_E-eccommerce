@@ -1,5 +1,4 @@
 // ignore_for_file: file_names
-
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,10 +33,16 @@ class DeliveryProfileScreen extends StatelessWidget {
           children: [
             // Header Section
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 15),
+              padding: const EdgeInsets.symmetric(
+                vertical: 25,
+                horizontal: 15,
+                ),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.blueAccent.shade700, Colors.purpleAccent],
+                  colors: [
+                    Colors.blueAccent.shade700,
+                    Colors.purpleAccent,
+                    ],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
@@ -49,8 +54,11 @@ class DeliveryProfileScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Icon(Icons.local_shipping,
-                      size: 80, color: Colors.white),
+                  const Icon(
+                    Icons.local_shipping,
+                      size: 80,
+                      color: Colors.white,
+                      ),
                   const SizedBox(height: 15),
                   Text(
                     isEnglish ? "Fast and safe delivery!" : "توصيل سريع وآمن!",
@@ -123,6 +131,7 @@ class DeliveryProfileScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
+                    // ignore: deprecated_member_use
                     color: Colors.blueAccent.shade100.withOpacity(0.5),
                     blurRadius: 10,
                     spreadRadius: 2,
@@ -208,6 +217,7 @@ class DeliveryProfileScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
+            // ignore: deprecated_member_use
             color: Colors.blueAccent.shade100.withOpacity(0.3),
             spreadRadius: 3,
             blurRadius: 8,
