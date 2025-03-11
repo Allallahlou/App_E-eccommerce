@@ -1,5 +1,4 @@
 // ignore_for_file: camel_case_types
-
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/MainPage.dart';
 import 'package:flutter/material.dart';
@@ -32,14 +31,37 @@ class Custom_AppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
-        IconButton(
-          icon: const Icon(Icons.shopping_cart, color: Colors.purple, size: 30),
-          onPressed: () {
+        InkWell(
+          onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const MainPage()),
             );
           },
+          borderRadius: BorderRadius.circular(40),
+          // ignore: deprecated_member_use
+          splashColor: Colors.orangeAccent.withOpacity(0.7),
+          // ignore: deprecated_member_use
+          highlightColor: Colors.orangeAccent.withOpacity(0.3),
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.grey.shade400,
+              borderRadius: BorderRadius.circular(30),
+              border:
+                  Border.all(color: Colors.white, width: 2), // إضافة حد أبيض
+              boxShadow: [
+                BoxShadow(
+                  // ignore: deprecated_member_use
+                  color: Colors.orange.withOpacity(0.7),
+                  blurRadius: 15,
+                  spreadRadius: 4,
+                ),
+              ],
+            ),
+            child:
+                const Icon(Icons.shopping_cart, color: Colors.white, size: 20),
+          ),
         ),
       ],
     );

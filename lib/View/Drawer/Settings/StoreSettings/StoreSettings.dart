@@ -1,5 +1,3 @@
-// ignore_for_file: file_names, library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 
 class StoreSettingsScreen extends StatefulWidget {
@@ -90,9 +88,10 @@ class _StoreSettingsScreenState extends State<StoreSettingsScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         children: [
           _buildSectionTitle("Store Information"),
-          _buildTextField("Store Name", _storeNameController),
-          _buildTextField("Store Description", _storeDescriptionController),
-          _buildTextField("Contact Info", _contactController),
+          _buildTextField("Store Name", _storeNameController, Colors.black),
+          _buildTextField(
+              "Store Description", _storeDescriptionController, Colors.black),
+          _buildTextField("Contact Info", _contactController, Colors.black),
           _buildSectionTitle("Categories"),
           _buildList(categories, _addCategory, Icons.category),
           _buildSectionTitle("Brands"),
@@ -100,9 +99,10 @@ class _StoreSettingsScreenState extends State<StoreSettingsScreen> {
           _buildSectionTitle("Shipping & Delivery"),
           ListTile(
             title: const Text("Shipping Cost",
-                style: TextStyle(fontWeight: FontWeight.bold)),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.black)),
             trailing: Text("\$${shippingCost.toStringAsFixed(2)}",
-                style: const TextStyle(fontSize: 16)),
+                style: const TextStyle(fontSize: 16, color: Colors.black)),
             onTap: () => _showNumberDialog(
               title: "Shipping Cost",
               value: shippingCost,
@@ -113,8 +113,10 @@ class _StoreSettingsScreenState extends State<StoreSettingsScreen> {
           _buildSectionTitle("Taxes & Currency"),
           ListTile(
             title: const Text("Tax Rate",
-                style: TextStyle(fontWeight: FontWeight.bold)),
-            trailing: Text("$taxRate%", style: const TextStyle(fontSize: 16)),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.black)),
+            trailing: Text("$taxRate%",
+                style: const TextStyle(fontSize: 16, color: Colors.black)),
             onTap: () => _showNumberDialog(
               title: "Tax Rate",
               value: taxRate,
@@ -123,12 +125,16 @@ class _StoreSettingsScreenState extends State<StoreSettingsScreen> {
           ),
           ListTile(
             title: const Text("Currency",
-                style: TextStyle(fontWeight: FontWeight.bold)),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.black)),
             trailing: DropdownButton<String>(
               value: selectedCurrency,
               onChanged: (value) => setState(() => selectedCurrency = value!),
               items: ["USD", "EUR", "MAD"].map((currency) {
-                return DropdownMenuItem(value: currency, child: Text(currency));
+                return DropdownMenuItem(
+                    value: currency,
+                    child:
+                        Text(currency, style: TextStyle(color: Colors.black)));
               }).toList(),
             ),
           ),
@@ -146,13 +152,16 @@ class _StoreSettingsScreenState extends State<StoreSettingsScreen> {
     );
   }
 
-  Widget _buildTextField(String label, TextEditingController controller) {
+  Widget _buildTextField(
+      String label, TextEditingController controller, Color textColor) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: TextField(
         controller: controller,
+        style: TextStyle(color: textColor), // تحديد لون النص هنا
         decoration: InputDecoration(
           labelText: label,
+          labelStyle: TextStyle(color: textColor), // تغيير اللون هنا أيضًا
           border: const OutlineInputBorder(),
           contentPadding:
               const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
@@ -166,7 +175,8 @@ class _StoreSettingsScreenState extends State<StoreSettingsScreen> {
       children: [
         ...items.map((item) => ListTile(
               leading: Icon(icon, color: Colors.black),
-              title: Text(item),
+              title: Text(item,
+                  style: TextStyle(color: Colors.black)), // تغيير اللون
             )),
         ElevatedButton.icon(
           onPressed: onAdd,

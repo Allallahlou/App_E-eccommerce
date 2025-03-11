@@ -1,11 +1,12 @@
 // ignore_for_file: file_names
-
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_button.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:lottie/lottie.dart';
+import 'dart:async';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -16,20 +17,49 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController fullNameController = TextEditingController();
-  final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
-      TextEditingController();
+      TextEditingController(); // متغير لتأكيد كلمة المرور
+  Color _buttonColor = Colors.deepPurple;
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _startColorAnimation();
+  }
+
+  void _startColorAnimation() {
+    _timer = Timer.periodic(const Duration(seconds: 2), (timer) {
+      setState(() {
+        _buttonColor = Color((0xFF000000 + (timer.tick * 0x100000)) % 0xFFFFFF)
+            // ignore: deprecated_member_use
+            .withOpacity(1.0);
+      });
+    });
+  }
 
   @override
   void dispose() {
+    _timer.cancel();
     fullNameController.dispose();
-    phoneNumberController.dispose();
     emailController.dispose();
     passwordController.dispose();
-    confirmPasswordController.dispose();
+    confirmPasswordController.dispose(); // التخلص من المتغير الجديد
     super.dispose();
+  }
+
+  void _onSignUpPressed() {
+    // التحقق من تطابق كلمة المرور وكلمة المرور المؤكدة
+    if (passwordController.text == confirmPasswordController.text) {
+      // تنفيذ عملية التسجيل هنا
+    } else {
+      // عرض رسالة خطأ في حالة عدم تطابق كلمات المرور
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('كلمات المرور غير متطابقة')),
+      );
+    }
   }
 
   @override
@@ -40,23 +70,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          Positioned.fill(
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("images/ecom.png"),
-                  fit: BoxFit.cover,
-                ),
+          AnimatedContainer(
+            duration: const Duration(seconds: 2),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.purple.shade900, Colors.blue.shade900],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
             ),
           ),
           SafeArea(
             child: Column(
               children: [
-                const SizedBox(height: 20),
-                Image.asset(
-                  "images/SignUp.png",
-                  width: MediaQuery.of(context).size.width / 1,
+                Lottie.asset(
+                  "Json/signup.json",
+                  width: MediaQuery.of(context).size.width / 1.5,
                 ),
                 Expanded(
                   child: SingleChildScrollView(
@@ -64,30 +93,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
                         children: [
-                          const SizedBox(height: 10),
                           Text(
                             isEnglish ? "Create Account" : "إنشاء حساب",
                             style: isEnglish
                                 ? GoogleFonts.montserrat(
-                                    // خط إنجليزي حديث ومغلق
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.w700,
-                                    color:
-                                        Colors.black, // واضح في النهار والليل
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
                                   )
                                 : GoogleFonts.cairo(
-                                    // خط عربي مغلق وأنيق
                                     fontSize: 40,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black,
+                                    color: Colors.white,
                                   ),
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(height: 30),
                           Card(
-                            elevation: 8,
+                            // ignore: deprecated_member_use
+                            color: Colors.white.withOpacity(0.9),
+                            elevation: 15,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(25),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(20.0),
@@ -114,16 +141,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     icon: Icons.lock,
                                     obscureText: true,
                                   ),
+                                  const SizedBox(height: 15),
+                                  // إضافة حقل تأكيد كلمة المرور
+                                  CustomTextField(
+                                    controller: confirmPasswordController,
+                                    hintText: isEnglish
+                                        ? "Confirm Password"
+                                        : "تأكيد كلمة المرور",
+                                    icon: Icons.lock,
+                                    obscureText: true,
+                                  ),
                                 ],
                               ),
                             ),
                           ),
                           const SizedBox(height: 30),
-                          CustomButton(
-                            label: isEnglish ? "Sign Up" : "قم بالتسجيل",
-                            onPressed: () {
-                              // تنفيذ عملية التسجيل هنا
-                            },
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 500),
+                            child: SizedBox(
+                              width: 150,
+                              height: 45,
+                              child: CustomButton(
+                                label: isEnglish ? "Sign Up" : "قم بالتسجيل",
+                                color: _buttonColor,
+                                onPressed:
+                                    _onSignUpPressed, // ربط التحقق عند الضغط على الزر
+                              ),
+                            ),
                           ),
                           const SizedBox(height: 20),
                         ],

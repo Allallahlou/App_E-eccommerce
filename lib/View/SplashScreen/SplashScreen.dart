@@ -14,9 +14,9 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   int _currentIndex = 0;
   final List<String> animations = [
-    'images/yyy.json',
-    'images/k.json',
-    'images/ddl.json'
+    'Json/yyy.json',
+    'Json/k.json',
+    'Json/ddl.json'
   ];
   final List<String> messages = [
     "Welcome to our app!",

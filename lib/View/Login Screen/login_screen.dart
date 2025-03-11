@@ -1,3 +1,4 @@
+import 'package:app_e_ecommerce/View/Login%20Screen/ForgotPasswordScreen.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 const SizedBox(height: 20),
                 Lottie.asset(
-                  "images/lo.json",
+                  "Json/lo.json",
                   width: 400,
                   height: 400,
                 ),
@@ -76,7 +77,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const ForgotPasswordScreen(),
+                              ),
+                            );
+                          },
                           child: Text(
                             isEnglish
                                 ? "Forgot Password?"
