@@ -25,16 +25,15 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id '$flutterRoot/packages/flutter_tools/gradle/flutter.gradle'
-    id 'com.google.gms.google-services' // إذا كنت تستخدم Firebase
+    id 'com.google.gms.google-services'
 }
 
 
 android {
-    namespace 'com.example.app_e_ecommerce' // ضع الباكيج نيم الصحيح هنا
+    namespace 'com.example.app_e_ecommerce'
     compileSdkVersion 34
 
     compileOptions {
-@@ -46,21 +50,21 @@
         applicationId "com.example.app_e_ecommerce"
         minSdkVersion 21
         targetSdkVersion 34
@@ -55,5 +54,5 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation platform("com.google.firebase:firebase-bom:33.1.1")
+    implementation platform("com.google.firebase:firebase-bom:33.10.0")
 }
