@@ -30,34 +30,43 @@ class LanguageInfoScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: Consumer<LanguageProvider>(
-          builder: (context, languageProvider, child) {
-            bool isEnglish =
-                languageProvider.currentLocale.languageCode == 'en';
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.language, size: 100, color: Colors.blue),
-                const SizedBox(height: 20),
-                Text(
-                  isEnglish
-                      ? 'Welcome to the Language Information Screen!'
-                      : 'مرحبًا بك في شاشة معلومات اللغة!',
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 40),
-                ElevatedButton(
-                  onPressed: languageProvider.toggleLanguage,
-                  child: Text(
-                    isEnglish ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية',
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+                "images/rt.png"), // تأكد من وضع الصورة في المجلد الصحيح
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: Consumer<LanguageProvider>(
+            builder: (context, languageProvider, child) {
+              bool isEnglish =
+                  languageProvider.currentLocale.languageCode == 'en';
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.language, size: 100, color: Colors.blue),
+                  const SizedBox(height: 20),
+                  Text(
+                    isEnglish
+                        ? 'Welcome to the Language Information Screen!'
+                        : 'مرحبًا بك في شاشة معلومات اللغة!',
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
                   ),
-                ),
-              ],
-            );
-          },
+                  const SizedBox(height: 40),
+                  ElevatedButton(
+                    onPressed: languageProvider.toggleLanguage,
+                    child: Text(
+                      isEnglish ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية',
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
