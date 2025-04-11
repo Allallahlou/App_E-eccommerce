@@ -1,9 +1,12 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class StoreSettingsScreen extends StatefulWidget {
   const StoreSettingsScreen({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _StoreSettingsScreenState createState() => _StoreSettingsScreenState();
 }
 
@@ -134,7 +137,7 @@ class _StoreSettingsScreenState extends State<StoreSettingsScreen> {
                 return DropdownMenuItem(
                     value: currency,
                     child:
-                        Text(currency, style: TextStyle(color: Colors.black)));
+                        Text(currency, style: const TextStyle(color: Colors.black)));
               }).toList(),
             ),
           ),
@@ -176,7 +179,7 @@ class _StoreSettingsScreenState extends State<StoreSettingsScreen> {
         ...items.map((item) => ListTile(
               leading: Icon(icon, color: Colors.black),
               title: Text(item,
-                  style: TextStyle(color: Colors.black)), // تغيير اللون
+                  style: const TextStyle(color: Colors.black)), // تغيير اللون
             )),
         ElevatedButton.icon(
           onPressed: onAdd,

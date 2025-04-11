@@ -115,6 +115,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 children: [
                   const SizedBox(height: 100),
                   Card(
+                    // ignore: deprecated_member_use
                     color: Colors.white.withOpacity(0.9), // شفافية للكارد
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16)),

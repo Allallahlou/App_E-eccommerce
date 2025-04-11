@@ -88,11 +88,13 @@ class AnimationScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
+              // ignore: deprecated_member_use
               color: Colors.pinkAccent.withOpacity(0.5),
               blurRadius: 20,
               spreadRadius: 5,
             ),
           ],
+          // ignore: deprecated_member_use
           border: Border.all(color: Colors.white.withOpacity(0.3), width: 2),
         ),
         child: Column(

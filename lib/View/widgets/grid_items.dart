@@ -109,6 +109,7 @@ class GridItems extends StatelessWidget {
                           pNames[index],
                           style: TextStyle(
                             fontSize: 20,
+                            // ignore: deprecated_member_use
                             color: Colors.black.withOpacity(0.8),
                             fontWeight: FontWeight.bold,
                           ),

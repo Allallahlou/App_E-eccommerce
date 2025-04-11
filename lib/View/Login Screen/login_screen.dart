@@ -10,6 +10,7 @@ class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _LoginScreenState createState() => _LoginScreenState();
 }
 
@@ -120,6 +121,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 });
                                 Future.delayed(
                                     const Duration(milliseconds: 300), () {
+                                  // ignore: use_build_context_synchronously
                                   Navigator.pushNamed(context, "homepage");
                                 });
                               },
@@ -154,6 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 });
                                 Future.delayed(
                                     const Duration(milliseconds: 300), () {
+                                  // ignore: use_build_context_synchronously
                                   Navigator.pushNamed(context, "signup");
                                 });
                               },
