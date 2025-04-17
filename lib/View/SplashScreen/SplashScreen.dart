@@ -19,9 +19,9 @@ class _SplashScreenState extends State<SplashScreen> {
     'Json/ddl.json'
   ];
   final List<String> messages = [
-    "Welcome to our app!",
-    "Discover our best watches!",
-    "Quality and style at your fingertips!"
+    "Welcome To Our App ",
+    "Discover Our Best Watches ",
+    "Quality And Style At Your Fingertips"
   ];
 
   @override

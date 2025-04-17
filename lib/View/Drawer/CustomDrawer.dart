@@ -76,8 +76,7 @@ class CustomDrawer extends StatelessWidget {
               textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => const DeliveryProfileScreen()),
+                MaterialPageRoute(builder: (context) => DeliveryScreen()),
               ),
             ),
             ListTile(
