@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: const [
         ...GlobalMaterialLocalizations.delegates,
       ],
-      home:  const SplashScreen(),
+      home: const SplashScreen(),
       routes: {
         "signup": (context) => const SignUpScreen(),
         "login": (context) => const Login_PageScreen(),

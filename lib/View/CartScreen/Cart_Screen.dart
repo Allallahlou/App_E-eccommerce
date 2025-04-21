@@ -1,20 +1,20 @@
 // ignore_for_file: file_names
+import 'package:app_e_ecommerce/View/les_elements/Favorite/favorite_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
-import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
-// ignore: camel_case_types
+
 class Card_Screen extends StatefulWidget {
   const Card_Screen({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _Card_ScreenState createState() => _Card_ScreenState();
 }
-// ignore: camel_case_types
+
 class _Card_ScreenState extends State<Card_Screen> {
+  final List<Map<String, dynamic>> favoriteItems = [];
   final List<Map<String, dynamic>> cartItems = [
     {
       "image": "images/Analogique.png",
@@ -144,6 +144,51 @@ class _Card_ScreenState extends State<Card_Screen> {
             ),
           ),
         ),
+        actions: [
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              IconButton(
+                icon: const Icon(Icons.badge),
+                tooltip: isEnglish ? 'View Favorites' : 'عرض المفضلة',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => FavoriteScreen(
+                        favoriteItems: favoriteItems,
+                        onRemoveItem: (item) {},
+                      ),
+                    ),
+                  );
+                },
+              ),
+              if (favoriteItems.isNotEmpty)
+                Positioned(
+                  right: 8,
+                  top: 8,
+                  child: Container(
+                    padding: const EdgeInsets.all(4),
+                    decoration: const BoxDecoration(
+                      color: Colors.red,
+                      shape: BoxShape.circle,
+                    ),
+                    constraints:
+                        const BoxConstraints(minWidth: 20, minHeight: 20),
+                    child: Text(
+                      '${favoriteItems.length}',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -229,6 +274,26 @@ class _Card_ScreenState extends State<Card_Screen> {
                                     onPressed: () =>
                                         setState(() => item['quantity']++),
                                   ),
+                                  IconButton(
+                                    icon: const Icon(
+                                      Icons.favorite,
+                                      color: Colors.pinkAccent,
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        favoriteItems.add(item);
+                                        cartItems.removeAt(index);
+                                      });
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                        content: Text(isEnglish
+                                            ? "Moved to Favorites"
+                                            : "تم النقل إلى المفضلة"),
+                                        duration:
+                                            const Duration(milliseconds: 1500),
+                                      ));
+                                    },
+                                  ),
                                 ],
                               ),
                             ],
@@ -249,66 +314,6 @@ class _Card_ScreenState extends State<Card_Screen> {
                       ),
                     ),
                   ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              color: Colors.deepPurple.shade50,
-              borderRadius: const BorderRadius.vertical(
-                top: Radius.circular(16),
-              ),
-            ),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      isEnglish ? "Total" : "المجموع",
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "${getTotal().toStringAsFixed(2)} Euro",
-                      style: const TextStyle(
-                        fontSize: 18,
-                        color: Colors.deepPurple,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: cartItems.isNotEmpty
-                      ? () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const PaymentScreen(),
-                            ),
-                          )
-                      : null,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple,
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12,
-                      horizontal: 24,
-                    ),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8)),
-                  ),
-                  child: Text(
-                    isEnglish ? "Proceed To Payment" : "انتقل إلى الدفع",
-                    style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
-                ),
-              ],
-            ),
           ),
         ],
       ),

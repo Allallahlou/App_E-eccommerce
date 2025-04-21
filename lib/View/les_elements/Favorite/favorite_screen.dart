@@ -1,236 +1,154 @@
-import 'package:app_e_ecommerce/View/language/language_provider.dart';
-import 'package:app_e_ecommerce/View/les_elements/Favorite/FavoriteSearchDelegate.dart';
-import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
+import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
-class FavoritesScreen extends StatelessWidget {
-  final List<Map<String, dynamic>> favoriteWatches = [
-    {"image": "Images/Analogique.png", "name": "Analogique", "price": "\$100"},
-    {
-      "image": "Images/Apple_Swatch_Black.png",
-      "name": "Apple Swatch Black",
-      "price": "\$280"
-    },
-    {
-      "image": "Images/Apple_Swatch.png",
-      "name": "Apple Swatch",
-      "price": "\$300"
-    },
-    {
-      "image": "Images/Bijoux_Jewelry.png",
-      "name": "Bijoux Jewelry",
-      "price": "\$400"
-    },
-    {
-      "image": "Images/Hombre_Irony_Xlite_Red_Attack.png",
-      "name": "Hombre Irony Xlite Red Attack",
-      "price": "\$160"
-    },
-    {
-      "image": "Images/Irony_Chrono_New_YVB416_bonfire.png",
-      "name": "Irony Chrono New YVB416 bonfire",
-      "price": "\$250"
-    },
-    {
-      "image": "Images/Irony_pour_homme.png",
-      "name": "Irony pour homme",
-      "price": "\$270"
-    },
-    {
-      "image": "Images/Mens_Irony_Chronograph.png",
-      "name": "Mens Irony Chronograph",
-      "price": "\$320"
-    },
-    {
-      "image": "Images/Mens_Swiss_SY23S413.png",
-      "name": "Mens Swiss SY23S413",
-      "price": "\$220"
-    },
-    {
-      "image": "Images/Sport_Swatch.png",
-      "name": "Sport Swatch",
-      "price": "\$145"
-    },
-    {
-      "image": "Images/Swatchour_YVS426G.png",
-      "name": "Swatchour YVS426G",
-      "price": "\$305"
-    },
-    {"image": "Images/SYXG110G.png", "name": "SYXG110G", "price": "\$245"},
-    {
-      "image": "Images/Unisex_Chronographe_Quartz.png",
-      "name": "Unisex Chronographe Quartz",
-      "price": "\$105"
-    },
-    {
-      "image": "Images/YWS420G_Menichelli.png",
-      "name": "YWS420G Menichelli",
-      "price": "\$45"
-    },
-  ];
+class FavoriteScreen extends StatefulWidget {
+  final List<Map<String, dynamic>> favoriteItems;
 
-  FavoritesScreen({Key? key}) : super(key: key);
+  const FavoriteScreen(
+      {Key? key,
+      required this.favoriteItems,
+      required Null Function(dynamic item) onRemoveItem})
+      : super(key: key);
+
+  @override
+  State<FavoriteScreen> createState() => _FavoriteScreenState();
+}
+
+class _FavoriteScreenState extends State<FavoriteScreen> {
+  List<Map<String, dynamic>> get favoriteItems => widget.favoriteItems;
+
+  void removeItem(Map<String, dynamic> item) {
+    setState(() {
+      favoriteItems.remove(item);
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text("Item removed from favorites"),
+        duration: Duration(milliseconds: 1500),
+      ),
+    );
+  }
+
+  double getTotal() {
+    return favoriteItems.fold(
+      0,
+      (sum, item) => sum + (item['price'] * item['quantity']),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    final languageProvider = Provider.of<LanguageProvider>(context);
-    bool isEnglish = languageProvider.currentLocale.languageCode == 'en';
-
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            isEnglish ? "Favorites" : "المفضلة",
-            style: GoogleFonts.adamina(
-              textStyle: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.pinkAccent.shade400,
-                letterSpacing: .5,
-              ),
-            ),
-          ),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const Home_Screen(),
-              ),
-            );
-          },
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              showSearch(
-                context: context,
-                delegate: FavoriteSearchDelegate(),
-              );
-            },
-          ),
-        ],
+        title: const Text("Favorites"),
+        backgroundColor: Colors.pinkAccent,
       ),
-      body: favoriteWatches.isEmpty
-          ? Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    isEnglish
-                        ? "You haven't added any watches to your favorites yet!"
-                        : "لم تقم بإضافة أي ساعات إلى مفضلتك بعد!",
-                    style: const TextStyle(fontSize: 18),
-                    textAlign: TextAlign.center,
+      body: favoriteItems.isEmpty
+          ? const Center(child: Text("No favorites yet!"))
+          : Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: favoriteItems.length,
+                    itemBuilder: (context, index) {
+                      final item = favoriteItems[index];
+                      return ListTile(
+                        leading: Image.asset(item['image'], width: 50),
+                        title: Text(item['name']),
+                        subtitle: Text("${item['price']} €"),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            // زر الحذف
+                            IconButton(
+                              icon: const Icon(Icons.delete, color: Colors.red),
+                              onPressed: () {
+                                removeItem(item);
+                              },
+                            ),
+                            // زر الخلاص (الدفع)
+                            IconButton(
+                              icon: const Icon(Icons.payments_outlined,
+                                  color: Colors.green),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const PaymentScreen()));
+                              },
+                            ),
+                          ],
+                        ),
+                      );
+                    },
                   ),
-                  const SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      isEnglish ? "Browse the watches" : "تصفح الساعات",
+                ),
+                Container(
+                  padding: const EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple.shade50,
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(16),
                     ),
                   ),
-                ],
-              ),
-            )
-          : GridView.builder(
-              padding: const EdgeInsets.all(10),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 2 / 3,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-              ),
-              itemCount: favoriteWatches.length,
-              itemBuilder: (ctx, index) {
-                final watch = favoriteWatches[index];
-                return Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  elevation: 4,
                   child: Column(
                     children: [
-                      Expanded(
-                        child: Image.asset(
-                          watch['image'],
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        watch['name'],
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      Text(watch['price']),
-                      const SizedBox(height: 10),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  ProductInformationScreen(watch: watch),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            "Total",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
                             ),
-                          );
-                        },
-                        child: Text(
-                          isEnglish ? "Product Information" : "معلومات المنتج",
+                          ),
+                          Text(
+                            "${getTotal().toStringAsFixed(2)} €",
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: favoriteItems.isNotEmpty
+                            ? () {
+                                // Proceed to pay all
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const PaymentScreen()));
+                              }
+                            : null,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.deepPurple,
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 12,
+                            horizontal: 24,
+                          ),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                        ),
+                        child: const Text(
+                          "Proceed To Payment",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
                         ),
                       ),
                     ],
                   ),
-                );
-              },
+                ),
+              ],
             ),
-    );
-  }
-}
-
-class ProductInformationScreen extends StatelessWidget {
-  final Map<String, dynamic> watch;
-
-  const ProductInformationScreen({Key? key, required this.watch})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(watch['name']),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Image.asset(watch['image'], height: 250),
-            const SizedBox(height: 20),
-            Text(
-              watch['name'],
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              watch['price'],
-              style: const TextStyle(
-                fontSize: 20,
-                color: Colors.grey,
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

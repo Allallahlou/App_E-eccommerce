@@ -76,7 +76,10 @@ class GridItems extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => FavoritesScreen()),
+                                      builder: (context) => FavoriteScreen(
+                                            favoriteItems: [],
+                                            onRemoveItem: (item) {},
+                                          )),
                                 ),
                               );
                             }

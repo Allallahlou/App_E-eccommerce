@@ -90,7 +90,7 @@ class CustomDrawer extends StatelessWidget {
               textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => FavoritesScreen()),
+                MaterialPageRoute(builder: (context) => FavoriteScreen(favoriteItems: [], onRemoveItem: (item){  },)),
               ),
             ),
             ListTile(
