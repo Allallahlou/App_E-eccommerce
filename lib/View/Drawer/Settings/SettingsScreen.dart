@@ -4,7 +4,7 @@ import 'package:app_e_ecommerce/View/Drawer/Settings/AddUser/AddUser.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/ChangePassword/ChangePassword.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/DeleteAccount/DeleteAccount.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/ManageUsers/ManageUsers.dart';
-import 'package:app_e_ecommerce/View/Drawer/Settings/OrdersPaymentSettings/OrdersPaymentSettings';
+import 'package:app_e_ecommerce/View/Drawer/Settings/OrdersPaymentSettings/OrdersPaymentSettings.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/ProductInventorySettings/ProductInventorySettings.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/StoreSettings/StoreSettings.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/UpdateProfile/UpdateProfile.dart';
