@@ -5,7 +5,7 @@ class DiscountScreen extends StatelessWidget {
 
   final List<Map<String, dynamic>> discountItems = [
     {
-      'name': 'ساعة فاخرة رجالية',
+      'name': 'ury mens watch',
       'image': 'images/watch1.png',
       'price': 200.0,
       'discount': 150.0,
@@ -18,7 +18,7 @@ class DiscountScreen extends StatelessWidget {
     },
     {
       'name': 'نظارات شمسية',
-      'image': 'assets/images/glasses.jpg',
+      'image': 'images/glasses.jpg',
       'price': 80.0,
       'discount': 60.0,
     },
