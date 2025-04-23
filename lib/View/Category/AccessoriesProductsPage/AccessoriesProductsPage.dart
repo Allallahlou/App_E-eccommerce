@@ -1,3 +1,4 @@
+import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:flutter/material.dart';
 
 class AccessoriesProductsPage extends StatelessWidget {
@@ -5,28 +6,61 @@ class AccessoriesProductsPage extends StatelessWidget {
 
   final List<Map<String, dynamic>> accessoriesProducts = [
     {
-      'name': 'سوار معدني أنيق',
-      'image': 'assets/images/accessory_metal_1.png',
+      'name': 'كاسك أنيق  ',
+      'image': 'images/ggg.png',
       'price': 29.99,
     },
     {
-      'name': 'حزام جلدي فاخر',
-      'image': 'assets/images/accessory_leather_2.png',
+      'name': 'سوار معدني أنيق',
+      'image': 'images/ll.png',
       'price': 39.99,
     },
-    // أضف المزيد من منتجات الاكسسوارات هنا...
+    {
+      'name': 'حزام جلدي فاخر',
+      'image': 'images/uuu.png',
+      'price': 39.99,
+    },
+    {
+      'name': ' حقيبة سفر جلدية',
+      'image': 'images/ii.png',
+      'price': 49.99,
+    },
+    {
+      'name': 'حقيبة الظهر الرياضية',
+      'image': 'images/ooo.png',
+      'price': 49.99,
+    },
+    {
+      'name': 'حقيبة يد جلدية',
+      'image': 'images/ppp.png',
+      'price': 59.99,
+    }
   ];
+
+  double getTotalPrice() {
+    return accessoriesProducts.fold(
+      0,
+      (sum, item) => sum + (item['price'] as double),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    double total = getTotalPrice();
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const PaymentScreen()),
+            );
+          },
         ),
         title: const Text(
-          'الاكسسوارات',
+          'Accessories',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.pinkAccent,
@@ -35,7 +69,7 @@ class AccessoriesProductsPage extends StatelessWidget {
       body: accessoriesProducts.isEmpty
           ? const Center(
               child: Text(
-                'لا توجد منتجات حالياً',
+                'There are currently no products',
                 style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
             )
@@ -47,7 +81,7 @@ class AccessoriesProductsPage extends StatelessWidget {
                   crossAxisCount: 2,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
-                  childAspectRatio: 0.7,
+                  childAspectRatio: 0.75,
                 ),
                 itemBuilder: (context, index) {
                   final accessory = accessoriesProducts[index];
@@ -83,15 +117,44 @@ class AccessoriesProductsPage extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Text(
-                            "\${accessory['price']} €",
-                            style: TextStyle(
+                            "${accessory['price']} €",
+                            style: const TextStyle(
                               fontSize: 14,
                               color: Colors.pinkAccent,
                               fontWeight: FontWeight.bold,
                             ),
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.pinkAccent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              minimumSize: const Size.fromHeight(36),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const PaymentScreen()),
+                              );
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                      'تم اختيار ${accessory['name']} للدفع!'),
+                                ),
+                              );
+                            },
+                            child: const Text('Pay'),
                           ),
                         ),
                         const SizedBox(height: 8),
@@ -99,6 +162,35 @@ class AccessoriesProductsPage extends StatelessWidget {
                     ),
                   );
                 },
+              ),
+            ),
+      bottomNavigationBar: accessoriesProducts.isEmpty
+          ? null
+          : Container(
+              padding: const EdgeInsets.all(16),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 6)],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Total:',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    '${total.toStringAsFixed(2)} €',
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.pinkAccent,
+                    ),
+                  ),
+                ],
               ),
             ),
     );

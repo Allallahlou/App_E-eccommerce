@@ -5,30 +5,48 @@ class BagsProductsPage extends StatelessWidget {
 
   final List<Map<String, dynamic>> bagsProducts = [
     {
-      'name': 'حقيبة نسائية أنيقة',
-      'image': 'assets/images/bag_1.jpg',
+      'name': 'Elegant womens bag',
+      'image': 'images/bag_1.png',
       'price': 120.0,
     },
     {
-      'name': 'حقيبة يد فاخرة',
-      'image': 'assets/images/bag_2.jpg',
+      'name': 'luxury handbag',
+      'image': 'images/bag_2.png',
       'price': 180.0,
     },
     {
-      'name': 'حقيبة نسائية أنيقة',
-      'image': 'assets/images/bag_1.jpg',
-      'price': 120.0,
+      'name': 'Stylish backpack',
+      'image': 'images/bag_3.png',
+      'price': 150.0,
     },
     {
-      'name': 'حقيبة يد فاخرة',
-      'image': 'assets/images/bag_2.jpg',
-      'price': 180.0,
+      'name': 'Trendy crossbody bag',
+      'image': 'images/bag_4.png',
+      'price': 90.0,
     },
-    // أضف المزيد من المنتجات هنا...
+    {
+      'name': 'Classic tote bag',
+      'image': 'images/bag_5.png',
+      'price': 110.0,
+    },
+    {
+      'name': 'Chic shoulder bag',
+      'image': 'images/bag_6.png',
+      'price': 130.0,
+    }
   ];
+
+  double getTotalPrice() {
+    return bagsProducts.fold(
+      0,
+      (sum, item) => sum + (item['price'] as double),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    double total = getTotalPrice();
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -36,7 +54,7 @@ class BagsProductsPage extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
-          "الحقائب",
+          "Bags",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.pinkAccent,
@@ -45,7 +63,7 @@ class BagsProductsPage extends StatelessWidget {
       body: bagsProducts.isEmpty
           ? const Center(
               child: Text(
-                "لا توجد حقائب حالياً",
+                "There are no bags at the moment",
                 style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
             )
@@ -57,7 +75,7 @@ class BagsProductsPage extends StatelessWidget {
                   crossAxisCount: 2,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
-                  childAspectRatio: 0.7,
+                  childAspectRatio: 0.75,
                 ),
                 itemBuilder: (context, index) {
                   final product = bagsProducts[index];
@@ -68,8 +86,7 @@ class BagsProductsPage extends StatelessWidget {
                     elevation: 6,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        // 1. الصورة تأخذ المساحة المتبقية
+                      children: [
                         Expanded(
                           child: ClipRRect(
                             borderRadius: const BorderRadius.vertical(
@@ -81,7 +98,6 @@ class BagsProductsPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        // 2. اسم المنتج
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
@@ -94,7 +110,6 @@ class BagsProductsPage extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                        // 3. السعر
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Text(
@@ -106,11 +121,62 @@ class BagsProductsPage extends StatelessWidget {
                             ),
                           ),
                         ),
+                        const SizedBox(height: 6),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.pinkAccent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              minimumSize: const Size.fromHeight(36),
+                            ),
+                            onPressed: () {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                      'Selected${product['name']} To pay!'),
+                                ),
+                              );
+                            },
+                            child: const Text('Pay'),
+                          ),
+                        ),
                         const SizedBox(height: 8),
                       ],
                     ),
                   );
                 },
+              ),
+            ),
+      bottomNavigationBar: bagsProducts.isEmpty
+          ? null
+          : Container(
+              padding: const EdgeInsets.all(16),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 6)],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'The total:',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    '${total.toStringAsFixed(2)} €',
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.pinkAccent,
+                    ),
+                  ),
+                ],
               ),
             ),
     );
