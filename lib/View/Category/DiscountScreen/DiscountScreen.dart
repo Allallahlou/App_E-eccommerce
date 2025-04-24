@@ -1,3 +1,5 @@
+import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
+import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 import 'package:flutter/material.dart';
 
 class DiscountScreen extends StatelessWidget {
@@ -5,62 +7,62 @@ class DiscountScreen extends StatelessWidget {
 
   final List<Map<String, dynamic>> discountItems = [
     {
-      'name': 'ury mens watch',
+      'name': 'Luxury men\'s watch',
       'image': 'images/watch1.png',
       'price': 200.0,
       'discount': 150.0,
     },
     {
-      'name': 'ساعة نسائية أنيقة',
+      'name': 'Elegant women\'s watch',
       'image': 'images/watch2.png',
       'price': 180.0,
       'discount': 120.0,
     },
     {
-      'name': 'نظارات شمسية',
-      'image': 'images/glasses.jpg',
+      'name': 'Sunglasses',
+      'image': 'images/glasses.png',
       'price': 80.0,
       'discount': 60.0,
     },
     {
-      'name': 'سوار جلدي',
-      'image': 'assets/images/bracelet.jpg',
+      'name': 'Ride fast bracelet',
+      'image': 'images/bracelet.png',
       'price': 40.0,
       'discount': 30.0,
     },
     {
-      'name': 'حقيبة يد نسائية',
-      'image': 'assets/images/bag_1.jpg',
+      'name': 'Women\'s handbag',
+      'image': 'images/bag_1.png',
       'price': 150.0,
       'discount': 110.0,
     },
     {
-      'name': 'حقيبة ظهر رجالية',
-      'image': 'assets/images/bag_2.jpg',
+      'name': 'Men\'s Backpack',
+      'image': 'images/bag_2.png',
       'price': 140.0,
       'discount': 90.0,
     },
     {
-      'name': 'قبعة صيفية',
-      'image': 'assets/images/hat.jpg',
+      'name': 'Summer hat',
+      'image': 'images/hat.png',
       'price': 30.0,
       'discount': 20.0,
     },
     {
-      'name': 'محفظة جلدية',
-      'image': 'assets/images/wallet.jpg',
+      'name': 'Wallet',
+      'image': 'images/wallet.png',
       'price': 60.0,
       'discount': 45.0,
     },
     {
-      'name': 'عطر فاخر',
-      'image': 'assets/images/perfume.jpg',
+      'name': 'Perfume',
+      'image': 'images/perfume.png',
       'price': 100.0,
       'discount': 70.0,
     },
     {
-      'name': 'سماعات بلوتوث',
-      'image': 'assets/images/headphones.jpg',
+      'name': 'Bluetooth headphones',
+      'image': 'images/headphones.png',
       'price': 90.0,
       'discount': 65.0,
     },
@@ -70,6 +72,17 @@ class DiscountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Home_Screen()),
+            );
+          },
+        ),
         title: const Center(child: Text("Discounts")),
         backgroundColor: Colors.pinkAccent,
       ),
@@ -80,7 +93,7 @@ class DiscountScreen extends StatelessWidget {
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 0.62,
+                  childAspectRatio: 0.65,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                 ),
@@ -98,11 +111,14 @@ class DiscountScreen extends StatelessWidget {
                         ClipRRect(
                           borderRadius: const BorderRadius.vertical(
                               top: Radius.circular(12)),
-                          child: Image.asset(
-                            item['image'],
-                            height: 140,
-                            width: double.infinity,
-                            fit: BoxFit.cover,
+                          child: Container(
+                            height: 160,
+                            color: Colors.grey[200],
+                            child: Image.asset(
+                              item['image'],
+                              fit: BoxFit.contain,
+                              width: double.infinity,
+                            ),
                           ),
                         ),
                         Padding(
@@ -110,7 +126,9 @@ class DiscountScreen extends StatelessWidget {
                           child: Text(
                             item['name'],
                             style: const TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -140,20 +158,35 @@ class DiscountScreen extends StatelessWidget {
                           ),
                         ),
                         const Spacer(),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: IconButton(
-                            icon: const Icon(Icons.favorite_border,
-                                color: Colors.red),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.pinkAccent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              minimumSize: const Size.fromHeight(36),
+                            ),
                             onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const PaymentScreen()),
+                              );
+
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                    content: Text(
-                                        '${item['name']} تمت إضافته للمفضلة')),
+                                  content: Text(
+                                      'You selected ${item['name']} to pay!'),
+                                ),
                               );
                             },
+                            child: const Text('Pay'),
                           ),
                         ),
+                        const SizedBox(height: 8),
                       ],
                     ),
                   );

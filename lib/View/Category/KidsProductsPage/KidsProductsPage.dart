@@ -5,36 +5,35 @@ class KidsProductsPage extends StatelessWidget {
 
   final List<Map<String, dynamic>> kidsProducts = [
     {
-      'name': 'ساعة أطفال ملونة',
-      'image': 'assets/images/kid_watch_1.png',
+      'name': 'Colorful childrens watch',
+      'image': 'images/kid_watch.png',
       'price': 49.99,
     },
     {
-      'name': 'ساعة طفل ذكية',
-      'image': 'assets/images/kid_watch_2.png',
+      'name': 'smart kids watch',
+      'image': 'images/kid_watchi.png',
       'price': 59.99,
     },
     {
-      'name': 'ساعة أطفال ملونة',
-      'image': 'assets/images/kid_watch_1.png',
-      'price': 49.99,
+      'name': 'Kids sports watches',
+      'image': 'images/kid_watchiii.png',
+      'price': 39.99,
     },
     {
-      'name': 'ساعة طفل ذكية',
-      'image': 'assets/images/kid_watch_2.png',
-      'price': 59.99,
+      'name': 'Rotary design childrens watch',
+      'image': 'images/kid_watchii.png',
+      'price': 69.99,
     },
     {
-      'name': 'ساعة أطفال ملونة',
-      'image': 'assets/images/kid_watch_1.png',
-      'price': 49.99,
+      'name': 'Unique childrens watch',
+      'image': 'images/kid_watcho.png',
+      'price': 79.99,
     },
     {
-      'name': 'ساعة طفل ذكية',
-      'image': 'assets/images/kid_watch_2.png',
-      'price': 59.99,
-    },
-    // أضف المزيد من منتجات الأطفال هنا...
+      'name': 'Modern design childrens watch',
+      'image': 'images/kid_watchoo.png',
+      'price': 89.99,
+    }
   ];
 
   @override
@@ -67,7 +66,7 @@ class KidsProductsPage extends StatelessWidget {
                   crossAxisCount: 2,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
-                  childAspectRatio: 0.7,
+                  childAspectRatio: 0.72,
                 ),
                 itemBuilder: (context, index) {
                   final product = kidsProducts[index];
@@ -87,7 +86,7 @@ class KidsProductsPage extends StatelessWidget {
                             child: Image.asset(
                               product['image'],
                               width: double.infinity,
-                              fit: BoxFit.cover,
+                              fit: BoxFit.contain,
                             ),
                           ),
                         ),
@@ -103,15 +102,39 @@ class KidsProductsPage extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Text(
-                            "\${product['price']} €",
-                            style: TextStyle(
+                            "${product['price']} €",
+                            style: const TextStyle(
                               fontSize: 14,
                               color: Colors.pinkAccent,
                               fontWeight: FontWeight.bold,
                             ),
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.pinkAccent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              minimumSize: const Size.fromHeight(36),
+                            ),
+                            onPressed: () {
+                              // منطق الدفع
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                      "تم اختيار ${product['name']} للدفع"),
+                                ),
+                              );
+                            },
+                            icon: const Icon(Icons.payment, size: 18),
+                            label: const Text("Pay"),
                           ),
                         ),
                         const SizedBox(height: 8),

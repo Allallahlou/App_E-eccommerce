@@ -1,6 +1,5 @@
-import 'package:app_e_ecommerce/View/Category/AccessoriesProductsPage/AccessoriesProductsPage.dart';
-import 'package:app_e_ecommerce/View/Category/BagsProductsPage/BagsProductsPage.dart';
-import 'package:app_e_ecommerce/View/Category/DiscountScreen/DiscountScreen.dart';
+import 'package:app_e_ecommerce/View/Category/KidsProductsPage/KidsProductsPage.dart';
+import 'package:app_e_ecommerce/View/Category/PerfumeProductsPage/PerfumeProductsPage.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/LoginPage.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/SignUpScreen.dart';
@@ -46,7 +45,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: const [
         ...GlobalMaterialLocalizations.delegates,
       ],
-      home: DiscountScreen(),
+      home: PerfumeProductsPage(),
       routes: {
         "signup": (context) => const SignUpScreen(),
         "login": (context) => const Login_PageScreen(),
