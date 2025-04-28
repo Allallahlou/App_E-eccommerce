@@ -1,3 +1,4 @@
+import 'package:app_e_ecommerce/View/Category/CategoryScreen.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:flutter/material.dart';
 
@@ -6,32 +7,32 @@ class AccessoriesProductsPage extends StatelessWidget {
 
   final List<Map<String, dynamic>> accessoriesProducts = [
     {
-      'name': 'كاسك أنيق  ',
+      'name': 'elegant cap',
       'image': 'images/ggg.png',
       'price': 29.99,
     },
     {
-      'name': 'سوار معدني أنيق',
+      'name': 'Stylish metal bracelet',
       'image': 'images/ll.png',
       'price': 39.99,
     },
     {
-      'name': 'حزام جلدي فاخر',
+      'name': 'luxury leather belt',
       'image': 'images/uuu.png',
       'price': 39.99,
     },
     {
-      'name': ' حقيبة سفر جلدية',
+      'name': 'leather travel bag',
       'image': 'images/ii.png',
       'price': 49.99,
     },
     {
-      'name': 'حقيبة الظهر الرياضية',
+      'name': 'sports backpack',
       'image': 'images/ooo.png',
       'price': 49.99,
     },
     {
-      'name': 'حقيبة يد جلدية',
+      'name': 'leather handbag',
       'image': 'images/ppp.png',
       'price': 59.99,
     }
@@ -55,7 +56,9 @@ class AccessoriesProductsPage extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const PaymentScreen()),
+              MaterialPageRoute(
+                builder: (context) =>  CategoryScreen(),
+              ),
             );
           },
         ),
@@ -143,14 +146,14 @@ class AccessoriesProductsPage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const PaymentScreen()),
+                                  builder: (context) => const PaymentScreen(),
+                                ),
                               );
-
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
-                                      'تم اختيار ${accessory['name']} للدفع!'),
+                                    'Selected ${accessory['name']} to pay!',
+                                  ),
                                 ),
                               );
                             },

@@ -1,3 +1,4 @@
+import 'package:app_e_ecommerce/View/Category/CategoryScreen.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +57,7 @@ class DiscountScreen extends StatelessWidget {
     },
     {
       'name': 'Perfume',
-      'image': 'images/perfume.png',
+      'image': 'images/perfume_1.png',
       'price': 100.0,
       'discount': 70.0,
     },
@@ -70,6 +71,10 @@ class DiscountScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // نحسب Total ديال التخفيضات
+    double totalDiscount = discountItems.fold(
+        0, (sum, item) => sum + (item['discount'] as double));
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -79,7 +84,7 @@ class DiscountScreen extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const Home_Screen()),
+              MaterialPageRoute(builder: (context) =>  CategoryScreen()),
             );
           },
         ),
@@ -88,110 +93,133 @@ class DiscountScreen extends StatelessWidget {
       ),
       body: discountItems.isEmpty
           ? const Center(child: Text("There are no discounts currently!"))
-          : Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.65,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                ),
-                itemCount: discountItems.length,
-                itemBuilder: (context, index) {
-                  final item = discountItems[index];
-                  return Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    elevation: 5,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ClipRRect(
-                          borderRadius: const BorderRadius.vertical(
-                              top: Radius.circular(12)),
-                          child: Container(
-                            height: 160,
-                            color: Colors.grey[200],
-                            child: Image.asset(
-                              item['image'],
-                              fit: BoxFit.contain,
-                              width: double.infinity,
-                            ),
+          : Column(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 0.65,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
+                      ),
+                      itemCount: discountItems.length,
+                      itemBuilder: (context, index) {
+                        final item = discountItems[index];
+                        return Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            item['name'],
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Row(
+                          elevation: 5,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "${item['discount']} €",
-                                style: const TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.pinkAccent,
+                              ClipRRect(
+                                borderRadius: const BorderRadius.vertical(
+                                    top: Radius.circular(12)),
+                                child: Container(
+                                  height: 160,
+                                  color: Colors.grey[200],
+                                  child: Image.asset(
+                                    item['image'],
+                                    fit: BoxFit.contain,
+                                    width: double.infinity,
+                                  ),
                                 ),
                               ),
-                              const SizedBox(width: 6),
-                              Text(
-                                "${item['price']} €",
-                                style: const TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.grey,
-                                  decoration: TextDecoration.lineThrough,
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  item['name'],
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "${item['discount']} €",
+                                      style: const TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.pinkAccent,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 6),
+                                    Text(
+                                      "${item['price']} €",
+                                      style: const TextStyle(
+                                        fontSize: 13,
+                                        color: Colors.grey,
+                                        decoration: TextDecoration.lineThrough,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const Spacer(),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.pinkAccent,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    minimumSize: const Size.fromHeight(36),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const PaymentScreen()),
+                                    );
+
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                            'You selected ${item['name']} to pay!'),
+                                      ),
+                                    );
+                                  },
+                                  child: const Text('Pay'),
+                                ),
+                              ),
+                              const SizedBox(height: 8),
                             ],
                           ),
-                        ),
-                        const Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.pinkAccent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              minimumSize: const Size.fromHeight(36),
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const PaymentScreen()),
-                              );
-
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                      'You selected ${item['name']} to pay!'),
-                                ),
-                              );
-                            },
-                            child: const Text('Pay'),
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                      ],
+                        );
+                      },
                     ),
-                  );
-                },
-              ),
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  color: Colors.white,
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    "Total: ${totalDiscount.toStringAsFixed(2)} €",
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.pinkAccent,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
             ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:app_e_ecommerce/View/Category/CategoryScreen.dart';
 import 'package:flutter/material.dart';
 
 class PerfumeProductsPage extends StatelessWidget {
@@ -34,10 +35,30 @@ class PerfumeProductsPage extends StatelessWidget {
     },
   ];
 
+  double getTotalPrice() {
+    return perfumesProducts.fold(
+      0,
+      (sum, item) => sum + (item['price'] as double),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    double total = getTotalPrice();
+
     return Scaffold(
       appBar: AppBar(
+         leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+             Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>  CategoryScreen(),
+              ),
+            );
+          },
+        ),
         title: const Text("عطور زايروس"),
         backgroundColor: Colors.pinkAccent,
         centerTitle: true,
@@ -74,7 +95,7 @@ class PerfumeProductsPage extends StatelessWidget {
                           imagePath,
                           height: 120,
                           width: double.infinity,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.cover, // Change this to BoxFit.cover
                         ),
                       ),
                       Padding(
@@ -126,6 +147,35 @@ class PerfumeProductsPage extends StatelessWidget {
                   ),
                 );
               },
+            ),
+      bottomNavigationBar: perfumesProducts.isEmpty
+          ? null
+          : Container(
+              padding: const EdgeInsets.all(16),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 6)],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Total:',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    '${total.toStringAsFixed(2)} درهم',
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.pinkAccent,
+                    ),
+                  ),
+                ],
+              ),
             ),
     );
   }

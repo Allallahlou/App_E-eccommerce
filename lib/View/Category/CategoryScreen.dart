@@ -1,115 +1,96 @@
-import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
+import 'package:app_e_ecommerce/View/Category/AccessoriesProductsPage/AccessoriesProductsPage.dart';
+import 'package:app_e_ecommerce/View/Category/BagsProductsPage/BagsProductsPage.dart';
+import 'package:app_e_ecommerce/View/Category/DiscountScreen/DiscountScreen.dart';
+import 'package:app_e_ecommerce/View/Category/GiftsProductsPage/GiftsProductsPage.dart';
+import 'package:app_e_ecommerce/View/Category/KidsProductsPage/KidsProductsPage.dart';
+import 'package:app_e_ecommerce/View/Category/PerfumeProductsPage/PerfumeProductsPage.dart';
+import 'package:app_e_ecommerce/View/Category/WomensProductsPage/WomensProductsPage.dart';
 import 'package:flutter/material.dart';
 
-class CategoryScreen extends StatefulWidget {
-  @override
-  State<CategoryScreen> createState() => _CategoryScreenState();
-}
-
-class _CategoryScreenState extends State<CategoryScreen> {
+class CategoryScreen extends StatelessWidget {
   final List<String> categories = [
-    "تخفيضات",
-    "النساء",
-    "الرجال",
-    "الأطفال",
-    "الساعات",
-    "الاكسسوارات",
-    "الحقائب",
-    "هدايا",
-    "عطور ",
-    "منتجات رجالية اخترناها لك"
+    "Discounts",
+    "Women",
+    "Kids",
+    "Accessories",
+    "Bags",
+    "Gifts",
+    "Perfumes",
   ];
-
-  String selectedCategory = "تخفيضات";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Home_Screen()));
-          },
-        ),
-        title: const Text(
-          "التصنيفات",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
+        title: const Text("Categories"),
         centerTitle: true,
         backgroundColor: Colors.pinkAccent,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 12),
-          SizedBox(
-            height: 50,
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              itemCount: categories.length,
-              separatorBuilder: (context, index) => const SizedBox(width: 8),
-              itemBuilder: (context, index) {
-                final category = categories[index];
-                final isSelected = category == selectedCategory;
-
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedCategory = category;
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 10),
-                    decoration: BoxDecoration(
-                      color:
-                          isSelected ? Colors.pinkAccent : Colors.grey.shade200,
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: isSelected
-                            ? Colors.pinkAccent
-                            : Colors.grey.shade400,
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        category,
-                        style: TextStyle(
-                          color:
-                              isSelected ? Colors.white : Colors.pink.shade800,
-                          fontWeight:
-                              isSelected ? FontWeight.bold : FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ),
-                );
+      body: ListView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: categories.length,
+        itemBuilder: (context, index) {
+          final category = categories[index];
+          return Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            elevation: 3,
+            margin: const EdgeInsets.only(bottom: 16),
+            child: ListTile(
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              title: Text(
+                category,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              trailing:
+                  const Icon(Icons.arrow_forward_ios, color: Colors.pinkAccent),
+              onTap: () {
+                if (category == "Discounts") {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DiscountScreen()));
+                } else if (category == "Women") {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => WomensProductsPage()));
+                } else if (category == "Kids") {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => KidsProductsPage()));
+                } else if (category == "Accessories") {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AccessoriesProductsPage()));
+                } else if (category == "Bags") {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BagsProductsPage()));
+                } else if (category == "Gifts") {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => GiftsProductsPage()));
+                } else if (category == "Perfumes") {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PerfumeProductsPage()));
+                }
               },
             ),
-          ),
-          const SizedBox(height: 24),
-          Center(
-            child: Text(
-              "العرض حسب التصنيف: $selectedCategory",
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-                color: Colors.black87,
-              ),
-            ),
-          ),
-          const SizedBox(height: 12),
-          const Center(
-            child: Text(
-              "✨ يمكنك عرض المنتجات هنا حسب الفئة المختارة",
-              style: TextStyle(color: Colors.grey),
-            ),
-          ),
-        ],
+          );
+        },
       ),
     );
   }

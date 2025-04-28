@@ -1,3 +1,4 @@
+import 'package:app_e_ecommerce/View/Category/CategoryScreen.dart';
 import 'package:flutter/material.dart';
 
 class BagsProductsPage extends StatelessWidget {
@@ -51,7 +52,14 @@ class BagsProductsPage extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () {
+             Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>  CategoryScreen(),
+              ),
+            );
+          },
         ),
         title: const Text(
           "Bags",
