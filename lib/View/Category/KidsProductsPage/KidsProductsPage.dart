@@ -53,16 +53,16 @@ class KidsProductsPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-             Navigator.push(
+            Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) =>  CategoryScreen(),
+                builder: (context) => CategoryScreen(),
               ),
             );
           },
         ),
         title: const Text(
-          'منتجات الأطفال',
+          'Childrens products',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.pinkAccent,
@@ -71,7 +71,7 @@ class KidsProductsPage extends StatelessWidget {
       body: kidsProducts.isEmpty
           ? const Center(
               child: Text(
-                'لا توجد منتجات حالياً',
+                'There are no products currently available.',
                 style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
             )
@@ -142,11 +142,10 @@ class KidsProductsPage extends StatelessWidget {
                               minimumSize: const Size.fromHeight(36),
                             ),
                             onPressed: () {
-                              // منطق الدفع
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
-                                      "تم اختيار ${product['name']} للدفع"),
+                                      "Selected${product['name']} To pay"),
                                 ),
                               );
                             },

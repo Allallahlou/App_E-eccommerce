@@ -35,6 +35,8 @@ class PerfumeProductsPage extends StatelessWidget {
     },
   ];
 
+  PerfumeProductsPage({Key? key}) : super(key: key);
+
   double getTotalPrice() {
     return perfumesProducts.fold(
       0,
@@ -48,23 +50,24 @@ class PerfumeProductsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-         leading: IconButton(
+        leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-             Navigator.push(
+            Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) =>  CategoryScreen(),
+                builder: (context) => CategoryScreen(),
               ),
             );
           },
         ),
-        title: const Text("عطور زايروس"),
+        title: const Text("Zairos Perfumes"),
         backgroundColor: Colors.pinkAccent,
         centerTitle: true,
       ),
       body: perfumesProducts.isEmpty
-          ? const Center(child: Text("لا توجد عطور حالياً"))
+          ? const Center(
+              child: Text("There are no perfumes currently available."))
           : GridView.builder(
               padding: const EdgeInsets.all(10),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -114,7 +117,7 @@ class PerfumeProductsPage extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Text(
-                          "$productPrice درهم",
+                          "$productPrice €",
                           style: const TextStyle(
                             fontSize: 14,
                             color: Colors.deepPurple,
@@ -128,7 +131,7 @@ class PerfumeProductsPage extends StatelessWidget {
                           onPressed: () {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text("تم اختيار $productName للدفع"),
+                                content: Text("Selected $productName To pay"),
                               ),
                             );
                           },
@@ -167,7 +170,7 @@ class PerfumeProductsPage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '${total.toStringAsFixed(2)} درهم',
+                    '${total.toStringAsFixed(2)} €',
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,

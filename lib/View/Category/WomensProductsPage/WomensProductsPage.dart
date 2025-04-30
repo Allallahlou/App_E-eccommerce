@@ -73,7 +73,7 @@ class WomensProductsPage extends StatelessWidget {
           },
         ),
         title: const Text(
-          'منتجات النساء',
+          ' Womens Products',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.pinkAccent,
@@ -82,7 +82,7 @@ class WomensProductsPage extends StatelessWidget {
       body: womenProducts.isEmpty
           ? const Center(
               child: Text(
-                'لا توجد منتجات حالياً',
+                'There are no products currently available.',
                 style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
             )
@@ -107,12 +107,12 @@ class WomensProductsPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          height: 160, // تحديد الارتفاع للصورة
+                          height: 160,
                           padding: const EdgeInsets.all(8),
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
-                            borderRadius: const BorderRadius.vertical(
-                                top: Radius.circular(16)),
+                            borderRadius:
+                                BorderRadius.vertical(top: Radius.circular(16)),
                           ),
                           child: Image.asset(
                             product['image'],
@@ -164,7 +164,7 @@ class WomensProductsPage extends StatelessWidget {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
-                                      'تم اختيار ${product['name']} للدفع!'),
+                                      ' Selected ${product['name']} To pay!'),
                                 ),
                               );
                             },

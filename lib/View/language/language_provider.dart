@@ -16,4 +16,6 @@ class LanguageProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
+
+  void setLocale(Locale locale) {}
 }
