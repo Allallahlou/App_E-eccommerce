@@ -5,6 +5,7 @@ import 'package:app_e_ecommerce/View/Category/GiftsProductsPage/GiftsProductsPag
 import 'package:app_e_ecommerce/View/Category/KidsProductsPage/KidsProductsPage.dart';
 import 'package:app_e_ecommerce/View/Category/PerfumeProductsPage/PerfumeProductsPage.dart';
 import 'package:app_e_ecommerce/View/Category/WomensProductsPage/WomensProductsPage.dart';
+import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 import 'package:flutter/material.dart';
 
 class CategoryScreen extends StatelessWidget {
@@ -23,6 +24,17 @@ class CategoryScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Home_Screen()),
+            );
+          },
+        ),
         title: const Text("Categories"),
         centerTitle: true,
         backgroundColor: Colors.pinkAccent,

@@ -1,4 +1,5 @@
 // ignore_for_file: file_names, library_private_types_in_public_api
+import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -40,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Timer(const Duration(seconds: 4), () {
             if (mounted) {
               Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => const Home_Screen()),
+                MaterialPageRoute(builder: (context) => LoginScreen()),
               );
             }
           });

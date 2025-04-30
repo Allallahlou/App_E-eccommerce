@@ -1,4 +1,5 @@
 // ignore_for_file: file_names
+import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_button.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_text_field.dart';
@@ -20,7 +21,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
-      TextEditingController(); // متغير لتأكيد كلمة المرور
+      TextEditingController();
   Color _buttonColor = Colors.deepPurple;
   late Timer _timer;
 
@@ -34,7 +35,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     _timer = Timer.periodic(const Duration(seconds: 2), (timer) {
       setState(() {
         _buttonColor = Color((0xFF000000 + (timer.tick * 0x100000)) % 0xFFFFFF)
-            // ignore: deprecated_member_use
             .withOpacity(1.0);
       });
     });
@@ -46,18 +46,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
     fullNameController.dispose();
     emailController.dispose();
     passwordController.dispose();
-    confirmPasswordController.dispose(); // التخلص من المتغير الجديد
+    confirmPasswordController.dispose();
     super.dispose();
   }
 
   void _onSignUpPressed() {
-    // التحقق من تطابق كلمة المرور وكلمة المرور المؤكدة
     if (passwordController.text == confirmPasswordController.text) {
-      // تنفيذ عملية التسجيل هنا
+      // عملية التسجيل هنا
     } else {
-      // عرض رسالة خطأ في حالة عدم تطابق كلمات المرور
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('كلمات المرور غير متطابقة')),
+        const SnackBar(content: Text('Passwords do not match')),
       );
     }
   }
@@ -83,6 +81,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
           SafeArea(
             child: Column(
               children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreen()),
+                        );
+                      },
+                    ),
+                  ),
+                ),
                 Lottie.asset(
                   "Json/signup.json",
                   width: MediaQuery.of(context).size.width / 1.5,
@@ -110,7 +124,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                           const SizedBox(height: 30),
                           Card(
-                            // ignore: deprecated_member_use
                             color: Colors.white.withOpacity(0.9),
                             elevation: 15,
                             shape: RoundedRectangleBorder(
@@ -142,7 +155,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     obscureText: true,
                                   ),
                                   const SizedBox(height: 15),
-                                  // إضافة حقل تأكيد كلمة المرور
                                   CustomTextField(
                                     controller: confirmPasswordController,
                                     hintText: isEnglish
@@ -164,8 +176,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: CustomButton(
                                 label: isEnglish ? "Sign Up" : "قم بالتسجيل",
                                 color: _buttonColor,
-                                onPressed:
-                                    _onSignUpPressed, // ربط التحقق عند الضغط على الزر
+                                onPressed: _onSignUpPressed,
                               ),
                             ),
                           ),
