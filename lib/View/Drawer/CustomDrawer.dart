@@ -1,5 +1,4 @@
-// ignore_for_file: file_names
-
+import 'package:app_e_ecommerce/View/CartScreen/MainPage.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/SettingsScreen.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/Drawer/App%20Rating/app%20rating.dart';
@@ -10,10 +9,8 @@ import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:app_e_ecommerce/provider/mode_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../language/LanguageInfo.dart';
 import '../Login Screen/Payment.dart';
 import '../Offers/Offers.dart';
-import '../les_elements/Favorite/favorite_screen.dart';
 import 'About/About.dart';
 import 'Delivery Service/Delivery Service.dart';
 
@@ -81,31 +78,16 @@ class CustomDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(
-                Icons.shopping_bag,
-                color: Colors.pink,
+                Icons.card_travel,
+                color: Colors.deepPurple,
               ),
               title: Text(
-                isEnglish ? "Products " : " المنتجات",
+                isEnglish ? "Cart" : "عربة التسوق",
               ),
               textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => FavoriteScreen(favoriteItems: [], onRemoveItem: (item){  },)),
-              ),
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.language,
-                color: Colors.blue,
-              ),
-              title: Text(
-                isEnglish ? "Language" : "لغة",
-              ),
-              textColor: Colors.black,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const LanguageInfoScreen()),
+                MaterialPageRoute(builder: (context) => const MainPage()),
               ),
             ),
             ListTile(

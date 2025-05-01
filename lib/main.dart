@@ -1,4 +1,3 @@
-import 'package:app_e_ecommerce/View/SplashScreen/SplashScreen.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/LoginPage.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/SignUpScreen.dart';
@@ -47,7 +46,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      home: const SplashScreen(),
+      home: const Home_Screen(),
       routes: {
         "signup": (context) => const SignUpScreen(),
         "login": (context) => const Login_PageScreen(),
