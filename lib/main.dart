@@ -1,4 +1,3 @@
-import 'package:app_e_ecommerce/View/Category/CategoryScreen.dart';
 import 'package:app_e_ecommerce/View/SplashScreen/SplashScreen.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/CartScreen/LoginPage.dart';
@@ -11,6 +10,7 @@ import 'View/Drawer/Theme%20Mode/theme_mode.dart';
 import 'View/les_elements/Home/Home_scren.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MultiProvider(
       providers: [
@@ -36,16 +36,18 @@ class MyApp extends StatelessWidget {
           ? ModeTheme.lightMode
           : ModeTheme.darkMode,
       debugShowCheckedModeBanner: false,
-      title: isEnglish ? " Watch Shop" : " متجر الساعات ",
+      title: isEnglish ? "Watch Shop" : "متجر الساعات",
       locale: languageProvider.currentLocale,
       supportedLocales: const [
         Locale('en', ''), // English
         Locale('ar', ''), // Arabic
       ],
       localizationsDelegates: const [
-        ...GlobalMaterialLocalizations.delegates,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
-      home: SplashScreen(),
+      home: const SplashScreen(),
       routes: {
         "signup": (context) => const SignUpScreen(),
         "login": (context) => const Login_PageScreen(),

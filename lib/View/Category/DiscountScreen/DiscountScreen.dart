@@ -1,6 +1,5 @@
 import 'package:app_e_ecommerce/View/Category/CategoryScreen.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
-import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 import 'package:flutter/material.dart';
 
 class DiscountScreen extends StatelessWidget {
