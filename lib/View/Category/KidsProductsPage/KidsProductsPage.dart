@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:app_e_ecommerce/View/Category/CategoryScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -56,7 +58,7 @@ class KidsProductsPage extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CategoryScreen(),
+                builder: (context) => const CategoryScreen(),
               ),
             );
           },

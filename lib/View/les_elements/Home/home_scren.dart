@@ -24,8 +24,8 @@ class _HomeScreenState extends State<Home_Screen> {
     const Home_Screen(),
     const Card_Screen(),
     const NoificationScreen(),
-    CategoryScreen(),
-    const LoginScreen(),
+    const CategoryScreen(),
+    const Login_Screen(),
   ];
 
   void _onItemTapped(int index) {

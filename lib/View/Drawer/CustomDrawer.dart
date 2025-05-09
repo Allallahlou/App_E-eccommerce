@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:app_e_ecommerce/View/CartScreen/MainPage.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/SettingsScreen.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
@@ -73,7 +75,7 @@ class CustomDrawer extends StatelessWidget {
               textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => DeliveryScreen()),
+                MaterialPageRoute(builder: (context) => const DeliveryScreen()),
               ),
             ),
             ListTile(
@@ -216,7 +218,7 @@ class CustomDrawer extends StatelessWidget {
               textColor: Colors.black,
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const LoginScreen()),
+                MaterialPageRoute(builder: (context) => const Login_Screen()),
               ),
             ),
           ],

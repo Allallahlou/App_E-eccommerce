@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Timer(const Duration(seconds: 4), () {
             if (mounted) {
               Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => const LoginScreen()),
+                MaterialPageRoute(builder: (context) => const Login_Screen()),
               );
             }
           });

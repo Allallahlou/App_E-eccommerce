@@ -173,7 +173,7 @@ class Home_Content extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => FavoriteScreen(favoriteItems:[], onRemoveItem: (item){  },),
+                        builder: (context) => FavoriteScreen(favoriteItems:const [], onRemoveItem: (item){  },),
                       ),
                     );
                   },

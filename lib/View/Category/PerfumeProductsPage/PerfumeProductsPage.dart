@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:app_e_ecommerce/View/Category/CategoryScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -56,7 +58,7 @@ class PerfumeProductsPage extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CategoryScreen(),
+                builder: (context) => const CategoryScreen(),
               ),
             );
           },
@@ -69,12 +71,12 @@ class PerfumeProductsPage extends StatelessWidget {
           ? const Center(
               child: Text("There are no perfumes currently available."))
           : GridView.builder(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(12),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 0.72,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
+                childAspectRatio: 0.65, // More space for image and text
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
               ),
               itemCount: perfumesProducts.length,
               itemBuilder: (context, index) {
@@ -85,29 +87,31 @@ class PerfumeProductsPage extends StatelessWidget {
 
                 return Card(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(15),
                   ),
-                  elevation: 5,
+                  elevation: 4,
+                  shadowColor: Colors.black26,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ClipRRect(
                         borderRadius: const BorderRadius.vertical(
-                            top: Radius.circular(12)),
+                          top: Radius.circular(15),
+                        ),
                         child: Image.asset(
                           imagePath,
-                          height: 120,
+                          height: 160, // Bigger height for image
                           width: double.infinity,
-                          fit: BoxFit.cover, // Change this to BoxFit.cover
+                          fit: BoxFit.cover,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 6),
+                            horizontal: 10, vertical: 8),
                         child: Text(
                           productName,
                           style: const TextStyle(
-                            fontSize: 15,
+                            fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                           maxLines: 2,
@@ -115,18 +119,18 @@ class PerfumeProductsPage extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Text(
                           "$productPrice €",
                           style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.deepPurple,
+                            fontSize: 15,
+                            color: Colors.pink,
                           ),
                         ),
                       ),
                       const Spacer(),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(10),
                         child: ElevatedButton.icon(
                           onPressed: () {
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -139,7 +143,7 @@ class PerfumeProductsPage extends StatelessWidget {
                           label: const Text("Pay"),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.pinkAccent,
-                            minimumSize: const Size.fromHeight(36),
+                            minimumSize: const Size.fromHeight(40),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),

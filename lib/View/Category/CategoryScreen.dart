@@ -1,7 +1,17 @@
+// ignore_for_file: library_private_types_in_public_api, file_names
+
+import 'package:app_e_ecommerce/View/Category/AccessoriesProductsPage/AccessoriesProductsPage.dart';
+import 'package:app_e_ecommerce/View/Category/BagsProductsPage/BagsProductsPage.dart';
+import 'package:app_e_ecommerce/View/Category/GiftsProductsPage/GiftsProductsPage.dart';
+import 'package:app_e_ecommerce/View/Category/KidsProductsPage/KidsProductsPage.dart';
+import 'package:app_e_ecommerce/View/Category/PerfumeProductsPage/PerfumeProductsPage.dart';
+import 'package:app_e_ecommerce/View/Category/WomensProductsPage/WomensProductsPage.dart';
 import 'package:flutter/material.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 
 class CategoryScreen extends StatefulWidget {
+  const CategoryScreen({Key? key}) : super(key: key);
+
   @override
   _CategoryScreenState createState() => _CategoryScreenState();
 }
@@ -12,37 +22,37 @@ class _CategoryScreenState extends State<CategoryScreen> {
       "title": "Women",
       "icon": Icons.woman,
       "color": Colors.pinkAccent,
-      "page": Placeholder(), // غيّريها بالصفحة المناسبة
+      "page": WomensProductsPage(),
     },
     {
       "title": "Kids",
       "icon": Icons.child_care,
       "color": Colors.lightBlueAccent,
-      "page": Placeholder(),
+      "page": KidsProductsPage(),
     },
     {
       "title": "Accessories",
       "icon": Icons.watch,
       "color": Colors.teal,
-      "page": Placeholder(),
+      "page": AccessoriesProductsPage(),
     },
     {
       "title": "Bags",
       "icon": Icons.shopping_bag,
       "color": Colors.brown,
-      "page": Placeholder(),
+      "page": BagsProductsPage(),
     },
     {
       "title": "Gifts",
       "icon": Icons.card_giftcard,
       "color": Colors.purpleAccent,
-      "page": Placeholder(),
+      "page": GiftsProductsPage(),
     },
     {
       "title": "Perfumes",
       "icon": Icons.spa,
       "color": Colors.indigoAccent,
-      "page": Placeholder(),
+      "page": PerfumeProductsPage(),
     },
   ];
 
@@ -62,7 +72,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Home_Screen()),
+              MaterialPageRoute(builder: (context) => const Home_Screen()),
             );
           },
         ),
@@ -131,7 +141,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 },
               ),
               const SizedBox(height: 30),
-              // واجهة الاقتراح
+              //Suggestion interface
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -148,7 +158,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 child: Column(
                   children: [
                     const Text(
-                      "لم تجد الساعة التي أعجبتك؟",
+                      "Didn't find the watch you liked?",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -159,7 +169,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     TextField(
                       controller: titleController,
                       decoration: const InputDecoration(
-                        labelText: "العنوان",
+                        labelText: "Address",
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -168,7 +178,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       controller: priceController,
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
-                        labelText: "الثمن",
+                        labelText: "Price",
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -176,7 +186,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     TextField(
                       controller: imageUrlController,
                       decoration: const InputDecoration(
-                        labelText: "رابط الصورة",
+                        labelText: "Image link",
                         border: OutlineInputBorder(),
                       ),
                     ),
