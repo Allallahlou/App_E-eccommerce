@@ -140,7 +140,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   CustomTextField(
                                     controller: lastNameController,
                                     hintText: isEnglish ? "Last Name" : "النسب",
-                                    icon: Icons.person_outline,
+                                    icon: Icons.person_pin,
                                   ),
                                   const SizedBox(height: 15),
                                   CustomTextField(
