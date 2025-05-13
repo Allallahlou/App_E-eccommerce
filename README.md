@@ -47,7 +47,7 @@
 - 🗺️ Integration: Maps, Notifications, Uploads  
 - 🧼 Clean & Maintainable Code
 
-🧠 **Personality Traits**: Curious, Meticulous, Organized
+🧠 **Personality Traits**: Meticulous, Organized
 
 📧 **Gmail**: Allal.lahlou5@gmail.com
 
