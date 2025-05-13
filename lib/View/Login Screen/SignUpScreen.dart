@@ -1,4 +1,5 @@
 // ignore_for_file: file_names, deprecated_member_use
+
 import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_button.dart';
@@ -17,11 +18,13 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  final TextEditingController fullNameController = TextEditingController();
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
+
   Color _buttonColor = Colors.deepPurple;
   late Timer _timer;
 
@@ -43,7 +46,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   void dispose() {
     _timer.cancel();
-    fullNameController.dispose();
+    firstNameController.dispose();
+    lastNameController.dispose();
     emailController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
@@ -134,9 +138,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: Column(
                                 children: [
                                   CustomTextField(
-                                    controller: fullNameController,
+                                    controller: lastNameController,
+                                    hintText: isEnglish ? "Last Name" : "النسب",
+                                    icon: Icons.person_outline,
+                                  ),
+                                  const SizedBox(height: 15),
+                                  CustomTextField(
+                                    controller: firstNameController,
                                     hintText:
-                                        isEnglish ? "Username" : "الاسم الكامل",
+                                        isEnglish ? "First Name" : "الاسم",
                                     icon: Icons.person,
                                   ),
                                   const SizedBox(height: 15),
@@ -176,7 +186,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: CustomButton(
                                 label: isEnglish ? "Sign Up" : "قم بالتسجيل",
                                 color: _buttonColor,
-                                onPressed: _onSignUpPressed,
+                                onPressed: () {
+                                  _onSignUpPressed(); // تم تفعيله هنا
+                                },
                               ),
                             ),
                           ),
