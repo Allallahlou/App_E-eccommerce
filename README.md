@@ -83,7 +83,6 @@
 <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" width="40" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" width="40" />
 <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" width="40" />
-<img src="https://www.vectorlogo.zone/logos/postman/postman-icon.svg" width="40" />
 <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" width="40" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="40" />
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" width="40" />
