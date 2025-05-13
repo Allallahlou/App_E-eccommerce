@@ -1,70 +1,37 @@
-# app_e_ecommerce
+<h1 align="center">Hi 👋, I'm Allal Lahlou</h1>
+<h3 align="center">Developer Mobile (Flutter / dart) from Morocco</h3>
 
-Watch Selling Application
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=allallahlou&label=Profile%20views&color=0e75b6&style=flat" alt="allallahlou" /> </p>
 
-This project is a mobile application designed to provide users with an exceptional platform for buying and exploring high-quality watches. 
-Built using Flutter, the application integrates modern UI/UX principles with robust functionality to deliver an efficient, user-friendly, and visually appealing experience.
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=allallahlou" alt="allallahlou" /></a> </p>
 
-Key Features
-Elegant User Interface
+- The first project [Watch selling app](https://github.com/Allallahlou/App_E-eccommerce)
 
-A sleek, minimalist design inspired by premium watch stores, offering a professional and luxury feel.
-Optimized for seamless navigation with intuitive layouts and responsive elements.
-Comprehensive Product Showcase
+- The second project [Colors game application](https://github.com/Allallahlou/Color_Screen)
 
-A visually engaging gallery displaying watches with high-resolution images, categorized for effortless browsing.
-Detailed product pages featuring specifications, price, and availability.
-Multi-Language Support
+- The third project [calculator](https://github.com/Allallahlou/CalculatrisApp)
 
-Users can switch between English and Arabic dynamically to cater to a diverse audience.
-Implemented with the intl package, ensuring accurate localization for text and layouts.
-Custom Seller Information Section
+- 💬 About Me **✅ Mobile app developer using Flutter and Dart with over two years of experience ✅ Proficient in back-end development using Node.js and Express I am proficient in developing high-quality mobile applications using Flutter, with a focus on user experience, performance, and modern design. I also have practical experience building robust back-ends using Node.js and Express, enabling me to develop integrated solutions that span the user interface and server-side. I work efficiently in agile environments and am adept at transforming ideas into seamless, responsive, and feature-rich applications. 🔧 Key Skills: Flutter & Dart – Develop Android and iOS apps from a single codebase Node.js & Express – Develop flexible and scalable backends Design attractive and flexible interfaces (Responsive UI) Work with local and cloud databases (Firebase, SQLite) Consume and develop REST APIs Manage state using Provider, Bloc, or Riverpod Integrate with external services (maps, notifications, file uploads, etc.) Write clean, organized, and maintainable code 🧠 Personality Traits: Curious, meticulous, and organized. I keep up with new developments in Flutter and Node.js technologies and always strive to innovate, improve user experience, and develop high-quality solutions from the front end to the server.**
 
-A dedicated screen to introduce the seller, their expertise in watches, and their commitment to quality.
-Includes a personalized welcome message and details about the store’s offerings.
-Advanced Payment Integration (Future Scope)
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://dev.to/https://dev.to/allal_lahlou_4f7feb0e549a" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/devto.svg" alt="https://dev.to/allal_lahlou_4f7feb0e549a" height="30" width="40" /></a>
+<a href="https://twitter.com/samil28864" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="samil28864" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/https://www.linkedin.com/in/allallahlouofficiel/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/allallahlouofficiel/" height="30" width="40" /></a>
+<a href="https://stackoverflow.com/users/https://stackoverflow.com/users/26385108/allal-lahlou" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="https://stackoverflow.com/users/26385108/allal-lahlou" height="30" width="40" /></a>
+<a href="https://fb.com/https://web.facebook.com/allallahlouofficiel1/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="https://web.facebook.com/allallahlouofficiel1/" height="30" width="40" /></a>
+<a href="https://instagram.com/https://www.instagram.com/allallahlouofficiel/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="https://www.instagram.com/allallahlouofficiel/" height="30" width="40" /></a>
+<a href="https://dribbble.com/https://dribbble.com/account/profile" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/dribbble.svg" alt="https://dribbble.com/account/profile" height="30" width="40" /></a>
+<a href="https://medium.com/@allal.lahlou5" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg" alt="@allal.lahlou5" height="30" width="40" /></a>
+<a href="https://www.youtube.com/c/https://www.youtube.com/@allallahlouofficial" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="https://www.youtube.com/@allallahlouofficial" height="30" width="40" /></a>
+<a href="https://discord.gg/https://discord.com/channels/@me" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="https://discord.com/channels/@me" height="30" width="40" /></a>
+</p>
 
-Placeholder for secure payment gateways to enable seamless online transactions.
-Planned support for multiple payment methods like credit cards, wallets, and bank transfers.
-Responsiveness
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://developer.android.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://dart.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="dart" width="40" height="40"/> </a> <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a> <a href="https://flutter.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="flutter" width="40" height="40"/> </a> <a href="https://www.framer.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/framer/framer-icon.svg" alt="framer" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://heroku.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" alt="heroku" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://kotlinlang.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg" alt="kotlin" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://www.photoshop.com/en" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg" alt="photoshop" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://www.sqlite.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40" height="40"/> </a> <a href="https://developer.apple.com/swift/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/swift/swift-original.svg" alt="swift" width="40" height="40"/> </a> </p>
 
-Fully optimized for both iOS and Android devices, providing a consistent experience across screen sizes.
-Localization-Ready Design
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=allallahlou&show_icons=true&locale=en&layout=compact" alt="allallahlou" /></p>
 
-All textual and visual elements are structured to support language customization and future expansions.
-Technical Highlights
-Stack Implementation
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=allallahlou&show_icons=true&locale=en" alt="allallahlou" /></p>
 
-Combines multiple widgets like Stack, Padding, and Card to create a layered and polished user experience.
-Integrated animations for smooth transitions between pages.
-Scalability and Modularity
-
-Follows clean code practices with modularized components for easier updates and maintenance.
-Future-ready architecture to integrate advanced features such as user accounts, cart management, and notifications.
-Dynamic Theme and Design
-
-Components styled dynamically for dark and light themes, making the app visually adaptive.
-Localization
-
-Leveraged flutter_localizations and intl to provide multi-language support for all static and dynamic content.
-Future Enhancements
-Real-Time Search: A feature to let users search for watches based on brand, price, or features.
-Wishlist Functionality: Allow users to save their favorite watches for easy access later.
-In-App Chat: Direct communication between buyers and the seller for personalized recommendations.
-Secure Payments: Integrating third-party payment gateways like Stripe or PayPal for smooth transactions.
-This watch-selling application is designed to bridge the gap between customers seeking luxury watches and sellers offering premium timepieces.
-It stands as a perfect example of how modern technology can elevate traditional retail to a global platform.
-Let me know if you need help refining this or making it more specific!
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=allallahlou&" alt="allallahlou" /></p>
