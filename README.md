@@ -1,5 +1,5 @@
 <h1 align="center">👋 Hi, I'm Allal Lahlou</h1>
-<h3 align="center">💙 Flutter & Dart Developer || 📱 Mobile App Developer</h3>
+<h3 align="center"> Flutter & Dart Developer || 📱 Mobile App Developer</h3>
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=allallahlou&label=Profile%20views&color=0e75b6&style=flat" alt="allallahlou" />
