@@ -1,5 +1,3 @@
-
-
 <h1 align="center">👋 Hi, I'm Allal Lahlou</h1>
 <h3 align="center"> 💻 Mobile App Developer using Flutter & Dart</h3>
 
