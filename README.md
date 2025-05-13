@@ -1,8 +1,9 @@
 
 
 <h1 align="center">👋 Hi, I'm Allal Lahlou</h1>
-<h3 align="center"> Flutter & Dart Developer || 📱 Mobile App Developer</h3>
+<h3 align="center"> 💻 Mobile App Developer using Flutter & Dart</h3>
 
+## 🏆 Achievements & Certifications
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=allallahlou&label=Profile%20views&color=0e75b6&style=flat" alt="allallahlou" />
 </p>
@@ -101,14 +102,6 @@
   <img src="https://github-readme-stats.vercel.app/api?username=allallahlou&show_icons=true&locale=en" alt="allallahlou stats" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=allallahlou&show_icons=true&locale=en&layout=compact" alt="Top Languages" />
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=allallahlou&" alt="GitHub Streak" />
-</p>
-
----
-
-## 🏆 Achievements & Certifications
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=allallahlou" alt="Trophies" />
 </p>
 
 ---
