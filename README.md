@@ -1,70 +1,110 @@
-# app_e_ecommerce
+<h1 align="center">👋 Hi, I'm Allal Lahlou</h1>
+<h3 align="center"> 💻 Mobile App Developer using Flutter & Dart</h3>
 
-Watch Selling Application
+## 🏆 Achievements & Certifications
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=allallahlou&label=Profile%20views&color=0e75b6&style=flat" alt="allallahlou" />
+</p>
 
-This project is a mobile application designed to provide users with an exceptional platform for buying and exploring high-quality watches. 
-Built using Flutter, the application integrates modern UI/UX principles with robust functionality to deliver an efficient, user-friendly, and visually appealing experience.
+<p align="center">
+  <a href="https://github.com/ryo-ma/github-profile-trophy">
+    <img src="https://github-profile-trophy.vercel.app/?username=allallahlou" alt="Trophies" />
+  </a>
+</p>
 
-Key Features
-Elegant User Interface
+<p align="center">
+  <a href="https://twitter.com/samil28864" target="blank">
+    <img src="https://img.shields.io/twitter/follow/samil28864?logo=twitter&style=for-the-badge" alt="Twitter" />
+  </a>
+</p>
 
-A sleek, minimalist design inspired by premium watch stores, offering a professional and luxury feel.
-Optimized for seamless navigation with intuitive layouts and responsive elements.
-Comprehensive Product Showcase
+---
 
-A visually engaging gallery displaying watches with high-resolution images, categorized for effortless browsing.
-Detailed product pages featuring specifications, price, and availability.
-Multi-Language Support
+### 🚀 Projects
 
-Users can switch between English and Arabic dynamically to cater to a diverse audience.
-Implemented with the intl package, ensuring accurate localization for text and layouts.
-Custom Seller Information Section
+- 🕰️ **[Watch Selling App](https://github.com/Allallahlou/App_E-eccommerce)**
+- 🎨 **[Colors Game Application](https://github.com/Allallahlou/Color_Screen)**
+- 🧮 **[Calculator](https://github.com/Allallahlou/CalculatrisApp)**
 
-A dedicated screen to introduce the seller, their expertise in watches, and their commitment to quality.
-Includes a personalized welcome message and details about the store’s offerings.
-Advanced Payment Integration (Future Scope)
+🌐 All of my projects are available at: [https://allaldev.odoo.com/](https://allaldev.odoo.com/)
 
-Placeholder for secure payment gateways to enable seamless online transactions.
-Planned support for multiple payment methods like credit cards, wallets, and bank transfers.
-Responsiveness
+---
 
-Fully optimized for both iOS and Android devices, providing a consistent experience across screen sizes.
-Localization-Ready Design
+### 💬 About Me
 
-All textual and visual elements are structured to support language customization and future expansions.
-Technical Highlights
-Stack Implementation
+✅ **Mobile app developer** using **Flutter & Dart** with **+2 years experience**  
+✅ Back-end skills using **Node.js & Express**  
+🎯 Focused on **UX**, performance, and clean architecture  
+🧠 Always learning, always improving
 
-Combines multiple widgets like Stack, Padding, and Card to create a layered and polished user experience.
-Integrated animations for smooth transitions between pages.
-Scalability and Modularity
+** 🛠️ Key Skills:**
 
-Follows clean code practices with modularized components for easier updates and maintenance.
-Future-ready architecture to integrate advanced features such as user accounts, cart management, and notifications.
-Dynamic Theme and Design
+- ⚙️ Flutter & Dart – Cross-platform apps (Android & iOS)  
+- 🌐 Node.js & Express – Robust backend APIs  
+- 🎨 Responsive UI & Modern Design  
+- ☁️ Firebase, SQLite – Local & Cloud storage  
+- 🔗 REST API consumption & creation  
+- 🔄 State management: Provider, Bloc, Riverpod  
+- 🗺️ Integration: Maps, Notifications, Uploads  
+- 🧼 Clean & Maintainable Code
 
-Components styled dynamically for dark and light themes, making the app visually adaptive.
-Localization
+🧠 **Personality Traits**: Meticulous, Organized
 
-Leveraged flutter_localizations and intl to provide multi-language support for all static and dynamic content.
-Future Enhancements
-Real-Time Search: A feature to let users search for watches based on brand, price, or features.
-Wishlist Functionality: Allow users to save their favorite watches for easy access later.
-In-App Chat: Direct communication between buyers and the seller for personalized recommendations.
-Secure Payments: Integrating third-party payment gateways like Stripe or PayPal for smooth transactions.
-This watch-selling application is designed to bridge the gap between customers seeking luxury watches and sellers offering premium timepieces.
-It stands as a perfect example of how modern technology can elevate traditional retail to a global platform.
-Let me know if you need help refining this or making it more specific!
+📧 **Gmail**: Allal.lahlou5@gmail.com
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+### 🤝 Connect with Me
 
-A few resources to get you started if this is your first Flutter project:
+<p align="left">
+<a href="https://dev.to/allal_lahlou_4f7feb0e549a" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/devto.svg" width="30" /></a>
+<a href="https://twitter.com/samil28864" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" width="30" /></a>
+<a href="https://www.linkedin.com/in/allallahlouofficiel/" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" width="30" /></a>
+<a href="https://stackoverflow.com/users/26385108/allal-lahlou" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" width="30" /></a>
+<a href="https://web.facebook.com/allallahlouofficiel1/" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" width="30" /></a>
+<a href="https://www.instagram.com/allallahlouofficiel/" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" width="30" /></a>
+<a href="https://dribbble.com/account/profile" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/dribbble.svg" width="30" /></a>
+<a href="https://medium.com/@allal.lahlou5" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg" width="30" /></a>
+<a href="https://www.youtube.com/@allallahlouofficial" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" width="30" /></a>
+<a href="https://discord.com/channels/@me" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" width="30" /></a>
+</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 🛠️ Languages and Tools
+
+<p align="left">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg" width="40" />
+<img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" width="40" />
+<img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" width="40" />
+<img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" width="40" />
+<img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" width="40" />
+<img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="40" />
+<img src="https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/swift/swift-original.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg" width="40" />
+</p>
+
+---
+
+## 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=allallahlou&show_icons=true&locale=en" alt="allallahlou stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=allallahlou&show_icons=true&locale=en&layout=compact" alt="Top Languages" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=allallahlou&" alt="GitHub Streak" />
+</p>
+
+---
+## 📺 YouTube Channel
+
+- 🎥 [Allal Lahlou Official](https://www.youtube.com/@allallahlouofficial)
+
+---
