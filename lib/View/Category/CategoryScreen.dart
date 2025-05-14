@@ -59,7 +59,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
       "title": "Submit Your Product",
       "icon": Icons.add_box,
       "color": Colors.orangeAccent,
-      "page": SubmitProductPage(),
+      "page": const SubmitProductPage(),
     }
   ];
 

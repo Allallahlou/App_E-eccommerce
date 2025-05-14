@@ -3,7 +3,6 @@
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
 import 'package:app_e_ecommerce/View/Category/CategoryScreen.dart';
 import 'package:app_e_ecommerce/View/Drawer/CustomDrawer.dart';
-import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/CustomAppBar.dart/custom_appbar.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/HomeContent/Home_Content.dart';

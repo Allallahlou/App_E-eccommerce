@@ -1,9 +1,12 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class SubmitProductPage extends StatefulWidget {
   const SubmitProductPage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _SubmitProductPageState createState() => _SubmitProductPageState();
 }
 
@@ -116,9 +119,9 @@ class _SubmitProductPageState extends State<SubmitProductPage> {
                   );
                 }
               },
-              child: const Text('Add Product'),
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orangeAccent),
+              child: const Text('Add Product'),
             ),
             const SizedBox(height: 30),
             // عرض المنتجات المضافة مؤقتًا في نفس الصفحة (أو يمكنك تنقل لصفحة أخرى)
