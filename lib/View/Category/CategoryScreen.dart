@@ -5,6 +5,7 @@ import 'package:app_e_ecommerce/View/Category/BagsProductsPage/BagsProductsPage.
 import 'package:app_e_ecommerce/View/Category/GiftsProductsPage/GiftsProductsPage.dart';
 import 'package:app_e_ecommerce/View/Category/KidsProductsPage/KidsProductsPage.dart';
 import 'package:app_e_ecommerce/View/Category/PerfumeProductsPage/PerfumeProductsPage.dart';
+import 'package:app_e_ecommerce/View/Category/SubmitProductPage/SubmitProductPage.dart';
 import 'package:app_e_ecommerce/View/Category/WomensProductsPage/WomensProductsPage.dart';
 import 'package:flutter/material.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
@@ -54,13 +55,13 @@ class _CategoryScreenState extends State<CategoryScreen> {
       "color": Colors.indigoAccent,
       "page": PerfumeProductsPage(),
     },
+    {
+      "title": "Submit Your Product",
+      "icon": Icons.add_box,
+      "color": Colors.orangeAccent,
+      "page": SubmitProductPage(),
+    }
   ];
-
-  final TextEditingController titleController = TextEditingController();
-  final TextEditingController priceController = TextEditingController();
-  final TextEditingController imageUrlController = TextEditingController();
-  int quantity = 1;
-  bool isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
@@ -139,95 +140,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     ),
                   );
                 },
-              ),
-              const SizedBox(height: 30),
-              //Suggestion interface
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 6,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    const Text(
-                      "Didn't find the watch you liked?",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.pinkAccent,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    TextField(
-                      controller: titleController,
-                      decoration: const InputDecoration(
-                        labelText: "Address",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    TextField(
-                      controller: priceController,
-                      keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(
-                        labelText: "Price",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    TextField(
-                      controller: imageUrlController,
-                      decoration: const InputDecoration(
-                        labelText: "Image link",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.remove_circle,
-                              color: Colors.red),
-                          onPressed: () {
-                            setState(() {
-                              if (quantity > 1) quantity--;
-                            });
-                          },
-                        ),
-                        Text('$quantity', style: const TextStyle(fontSize: 18)),
-                        IconButton(
-                          icon:
-                              const Icon(Icons.add_circle, color: Colors.green),
-                          onPressed: () {
-                            setState(() {
-                              quantity++;
-                            });
-                          },
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            isFavorite ? Icons.favorite : Icons.favorite_border,
-                            color: Colors.pink,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              isFavorite = !isFavorite;
-                            });
-                          },
-                        ),
-                      ],
-                    )
-                  ],
-                ),
               ),
             ],
           ),

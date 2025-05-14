@@ -4,7 +4,6 @@ import 'package:app_e_ecommerce/View/Drawer/Notification/notification_provider/n
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-
 import 'provider/mode_provider.dart';
 import 'View/language/language_provider.dart';
 import 'View/CartScreen/LoginPage.dart';
