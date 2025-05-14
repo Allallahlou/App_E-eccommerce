@@ -104,7 +104,7 @@ class CustomDrawer extends StatelessWidget {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const NoificationScreen()),
+                    builder: (context) => const NotificationScreen()),
               ),
             ),
             ListTile(

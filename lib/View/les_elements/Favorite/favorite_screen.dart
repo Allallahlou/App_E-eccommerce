@@ -1,14 +1,16 @@
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
+import 'package:app_e_ecommerce/View/notification_provider/notification_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class FavoriteScreen extends StatefulWidget {
   final List<Map<String, dynamic>> favoriteItems;
 
-  const FavoriteScreen(
-      {Key? key,
-      required this.favoriteItems,
-      required Null Function(dynamic item) onRemoveItem})
-      : super(key: key);
+  const FavoriteScreen({
+    Key? key,
+    required this.favoriteItems,
+    required Null Function(dynamic item) onRemoveItem,
+  }) : super(key: key);
 
   @override
   State<FavoriteScreen> createState() => _FavoriteScreenState();
@@ -37,6 +39,31 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
     );
   }
 
+  void proceedToPayment() {
+    double total = getTotal();
+
+    // تكوين لائحة أسماء المنتجات والكمية
+    String productDetails = favoriteItems.map((item) {
+      return "${item['name']} x${item['quantity']}";
+    }).join(", ");
+
+    // إرسال الإشعار
+    final notification = {
+      "title": "Order Confirmed",
+      "body": "Products: $productDetails\nTotal: ${total.toStringAsFixed(2)} €",
+      "time": "Now",
+    };
+
+    Provider.of<NotificationProvider>(context, listen: false)
+        .addNotification(notification['title']!, notification['body']!);
+
+    // الانتقال لصفحة الدفع
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const PaymentScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,24 +87,16 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            // زر الحذف
                             IconButton(
                               icon: const Icon(Icons.delete, color: Colors.red),
                               onPressed: () {
                                 removeItem(item);
                               },
                             ),
-                            // زر الخلاص (الدفع)
                             IconButton(
                               icon: const Icon(Icons.payments_outlined,
                                   color: Colors.green),
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const PaymentScreen()));
-                              },
+                              onPressed: proceedToPayment,
                             ),
                           ],
                         ),
@@ -117,16 +136,8 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                       ),
                       const SizedBox(height: 16),
                       ElevatedButton(
-                        onPressed: favoriteItems.isNotEmpty
-                            ? () {
-                                // Proceed to pay all
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const PaymentScreen()));
-                              }
-                            : null,
+                        onPressed:
+                            favoriteItems.isNotEmpty ? proceedToPayment : null,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.deepPurple,
                           padding: const EdgeInsets.symmetric(
@@ -134,7 +145,8 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                             horizontal: 24,
                           ),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8)),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
                         ),
                         child: const Text(
                           "Proceed To Payment",

@@ -36,10 +36,6 @@ class Custom_Bottom_Nav extends StatelessWidget {
           label: isEnglish ? "Cart" : "عربة التسوق",
         ),
         BottomNavigationBarItem(
-          icon: const Icon(Icons.notifications),
-          label: isEnglish ? "Notification" : "الإشعارات",
-        ),
-        BottomNavigationBarItem(
           icon: const Icon(Icons.category_sharp),
           label: isEnglish ? "Categories" : "التصنيفات",
         ),

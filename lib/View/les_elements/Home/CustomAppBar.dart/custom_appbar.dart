@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class Custom_AppBar extends StatelessWidget implements PreferredSizeWidget {
-  const Custom_AppBar({Key? key}) : super(key: key);
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomAppBar({Key? key}) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -17,18 +17,25 @@ class Custom_AppBar extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       backgroundColor: Colors.grey.shade500,
-      title: Center(
-        child: Text(
-          isEnglish ? "Watch Shop" : "متجر الساعات",
-          style: GoogleFonts.adamina(
-            textStyle: const TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-              letterSpacing: .5,
-            ),
+      centerTitle: true,
+      title: Text(
+        isEnglish ? "Watch Shop" : "متجر الساعات",
+        style: GoogleFonts.adamina(
+          textStyle: const TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+            letterSpacing: .5,
           ),
         ),
       ),
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.notification_add, color: Colors.black),
+          onPressed: () {
+            Navigator.pushNamed(context, '/notifications');
+          },
+        ),
+      ],
     );
   }
 }

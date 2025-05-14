@@ -1,14 +1,16 @@
-import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
-import 'package:app_e_ecommerce/View/SplashScreen/SplashScreen.dart';
-import 'package:app_e_ecommerce/View/language/language_provider.dart';
-import 'package:app_e_ecommerce/View/CartScreen/LoginPage.dart';
-import 'package:app_e_ecommerce/View/Login%20Screen/SignUpScreen.dart';
+import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
+import 'package:app_e_ecommerce/View/les_elements/Favorite/favorite_screen.dart';
+import 'package:app_e_ecommerce/View/notification_provider/notification_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+
 import 'provider/mode_provider.dart';
-import 'View/Drawer/Theme%20Mode/theme_mode.dart';
+import 'View/language/language_provider.dart';
+import 'View/CartScreen/LoginPage.dart';
+import 'View/Login Screen/SignUpScreen.dart';
 import 'View/les_elements/Home/Home_scren.dart';
+import 'View/Drawer/Theme Mode/theme_mode.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +19,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => ModeProvider()),
         ChangeNotifierProvider(create: (_) => LanguageProvider()),
+        ChangeNotifierProvider(create: (_) => NotificationProvider()),
       ],
       child: const MyApp(),
     ),
@@ -48,11 +51,16 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      home: const Login_Screen(),
+      home: const Home_Screen(),
       routes: {
         "signup": (context) => const SignUpScreen(),
         "login": (context) => const Login_PageScreen(),
-        "homepage": (context) => const Home_Screen()
+        "homepage": (context) => const Home_Screen(),
+        '/notifications': (context) => const NotificationScreen(),
+        '/favorites': (context) => FavoriteScreen(
+              favoriteItems: const [],
+              onRemoveItem: (item) {},
+            ), // مثال
       },
     );
   }

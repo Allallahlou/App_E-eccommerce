@@ -23,7 +23,7 @@ class _HomeScreenState extends State<Home_Screen> {
   final List<Widget> _screens = [
     const Home_Screen(),
     const Card_Screen(),
-    const NoificationScreen(),
+    const NotificationScreen(),
     const CategoryScreen(),
     const Login_Screen(),
   ];
@@ -40,7 +40,7 @@ class _HomeScreenState extends State<Home_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const Custom_AppBar(),
+      appBar: const CustomAppBar(),
       body: const Home_Content(),
       drawer: const CustomDrawer(),
       bottomNavigationBar: Custom_Bottom_Nav(
