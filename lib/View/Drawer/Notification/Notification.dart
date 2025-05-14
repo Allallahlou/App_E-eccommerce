@@ -1,5 +1,5 @@
 // ignore_for_file: file_names
-import 'package:app_e_ecommerce/View/notification_provider/notification_provider.dart';
+import 'package:app_e_ecommerce/View/Drawer/Notification/notification_provider/notification_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,16 +8,47 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final notifications = context.watch<NotificationProvider>().notifications;
+    final notificationProvider = context.watch<NotificationProvider>();
+    final notifications = notificationProvider.notifications;
+
+    // إضافة إشعار "تمت العملية بنجاح" مرة واحدة فقط إذا ماكانش موجود
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final alreadyExists = notifications.any((item) =>
+          item['title'] == " The operation was successful. " &&
+          item['body'] == "Payment successful");
+
+      if (!alreadyExists) {
+        notificationProvider.addNotification(
+          "The operation was successful. ",
+          {
+            'body': "Payment successful",
+            'time': TimeOfDay.now().format(context),
+          } as String,
+        );
+      }
+    });
 
     return Scaffold(
       appBar: AppBar(
         title: const Text("Notifications"),
         centerTitle: true,
         backgroundColor: Colors.pinkAccent,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.delete_forever),
+            tooltip: 'Clear all',
+            onPressed: () {
+              notificationProvider.clearNotifications();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                    content: Text('All notifications have been cleared.')),
+              );
+            },
+          ),
+        ],
       ),
       body: notifications.isEmpty
-          ? const Center(child: Text("No notifications yet!"))
+          ? const Center(child: Text("There are no notifications currently."))
           : ListView.separated(
               padding: const EdgeInsets.all(16),
               itemCount: notifications.length,

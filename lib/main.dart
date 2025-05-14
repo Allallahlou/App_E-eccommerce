@@ -1,6 +1,6 @@
 import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
 import 'package:app_e_ecommerce/View/les_elements/Favorite/favorite_screen.dart';
-import 'package:app_e_ecommerce/View/notification_provider/notification_provider.dart';
+import 'package:app_e_ecommerce/View/Drawer/Notification/notification_provider/notification_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';

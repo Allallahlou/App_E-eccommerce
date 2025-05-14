@@ -1,5 +1,5 @@
 import 'package:app_e_ecommerce/View/Login%20Screen/Payment.dart';
-import 'package:app_e_ecommerce/View/notification_provider/notification_provider.dart';
+import 'package:app_e_ecommerce/View/Drawer/Notification/notification_provider/notification_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

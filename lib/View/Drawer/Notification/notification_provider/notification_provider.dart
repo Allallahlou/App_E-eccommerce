@@ -13,4 +13,14 @@ class NotificationProvider extends ChangeNotifier {
     });
     notifyListeners();
   }
+  void clearNotifications() {
+  _notifications.clear();
+  notifyListeners();
+}
+
+void addNotificationFromMap(Map<String, String> notification) {
+  _notifications.add(notification);
+  notifyListeners();
+}
+
 }
