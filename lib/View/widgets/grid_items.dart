@@ -29,101 +29,108 @@ class GridItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final languageProvider = Provider.of<LanguageProvider>(context);
+    double imageSize = MediaQuery.of(context).size.width * 0.35;
 
     return GridView.builder(
-        itemCount: pNames.length,
-        physics: const NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          childAspectRatio: 0.7,
-          crossAxisCount: 2,
-        ),
-        itemBuilder: (context, index) {
-          return Container(
-            margin: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: Colors.grey.shade400,
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.black87,
-                  blurRadius: 4,
-                  spreadRadius: 2,
+      itemCount: pNames.length,
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        childAspectRatio: 0.7,
+        crossAxisCount: 2,
+      ),
+      itemBuilder: (context, index) {
+        return Container(
+          margin: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.grey.shade400,
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black87,
+                blurRadius: 4,
+                spreadRadius: 2,
+              ),
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              children: [
+                // الخصم وزر القلب
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      languageProvider.currentLocale.languageCode == 'en'
+                          ? "30% off"
+                          : "خصم 30%",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
+                      ),
+                    ),
+                    FavoriteButton(
+                      isFavorite: false,
+                      valueChanged: (isFavorite) {
+                        if (kDebugMode) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => FavoriteScreen(
+                                favoriteItems: const [],
+                                onRemoveItem: (item) {},
+                              ),
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                  ],
+                ),
+
+                // صورة الساعة
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ItemScreen(),
+                      ),
+                    );
+                  },
+                  child: SizedBox(
+                    height: imageSize,
+                    width: imageSize,
+                    child: Image.asset(
+                      "images/${pNames[index]}.png",
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+
+                // اسم الساعة
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        pNames[index],
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.black.withOpacity(0.8),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        languageProvider.currentLocale.languageCode == 'en'
-                            ? " 30% off"
-                            : " خصم 30%",
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                      ),
-                      FavoriteButton(
-                          isFavorite: false,
-                          valueChanged: (isFavorite) {
-                            if (kDebugMode) {
-                              print(
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => FavoriteScreen(
-                                            favoriteItems: const [],
-                                            onRemoveItem: (item) {},
-                                          )),
-                                ),
-                              );
-                            }
-                          }),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ItemScreen()),
-                        );
-                      },
-                      child: Image.asset(
-                        "images/${pNames[index]}.png",
-                        height: 181,
-                        width: 181,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          pNames[index],
-                          style: TextStyle(
-                            fontSize: 20,
-                            // ignore: deprecated_member_use
-                            color: Colors.black.withOpacity(0.8),
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }

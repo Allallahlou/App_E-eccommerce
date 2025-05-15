@@ -26,7 +26,7 @@ class AppRatingScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 380),
+            const SizedBox(height: 250),
             Center(
               child: Text(
                 isEnglish

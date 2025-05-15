@@ -16,6 +16,10 @@ class Home_Content extends StatelessWidget {
     final languageProvider = Provider.of<LanguageProvider>(context);
     bool isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
+    final size = MediaQuery.of(context).size;
+    double screenWidth = size.width;
+    double screenHeight = size.height;
+
     List<Color> Crs = [
       const Color.fromARGB(255, 139, 149, 149),
       const Color.fromARGB(255, 139, 149, 149),
@@ -46,17 +50,18 @@ class Home_Content extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+            padding: EdgeInsets.symmetric(
+                vertical: screenHeight * 0.01, horizontal: screenWidth * 0.04),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   isEnglish ? "Welcome To Our Store" : "مرحبا بكم في متجرنا",
                   style: GoogleFonts.adamina(
-                    textStyle: const TextStyle(
+                    textStyle: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
-                      fontSize: 22,
+                      fontSize: screenWidth * 0.055,
                       letterSpacing: .5,
                     ),
                   ),
@@ -64,10 +69,10 @@ class Home_Content extends StatelessWidget {
                 Text(
                   isEnglish ? "Let's shop something" : " دعونا نتسوق شيئا ما ",
                   style: GoogleFonts.adamina(
-                    textStyle: const TextStyle(
+                    textStyle: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.pink,
-                      fontSize: 22,
+                      fontSize: screenWidth * 0.055,
                       letterSpacing: .5,
                     ),
                   ),
@@ -75,45 +80,45 @@ class Home_Content extends StatelessWidget {
               ],
             ),
           ),
+
           // العروض
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.only(left: 15),
+            padding: EdgeInsets.only(left: screenWidth * 0.04),
             child: Row(
               children: [
                 for (int i = 0; i < 3; i++)
                   Container(
-                    margin: const EdgeInsets.only(right: 10),
-                    width: MediaQuery.of(context).size.width / 1.4,
-                    height: MediaQuery.of(context).size.height / 4.5,
+                    margin: EdgeInsets.only(right: screenWidth * 0.03),
+                    width: screenWidth * 0.75,
+                    height: screenHeight * 0.25,
                     decoration: BoxDecoration(
                       color: Crs[i],
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                isEnglish
-                                    ? "30% off on Winter Collection"
-                                    : "خصم 30% على مجموعة الشتاء",
-                                style: GoogleFonts.adamina(
-                                  textStyle: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                    fontSize: 21,
-                                    letterSpacing: .5,
+                          child: Padding(
+                            padding: EdgeInsets.all(screenWidth * 0.03),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  isEnglish
+                                      ? "30% off on Winter Collection"
+                                      : "خصم 30% على مجموعة الشتاء",
+                                  style: GoogleFonts.adamina(
+                                    textStyle: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: screenWidth * 0.05,
+                                      letterSpacing: .5,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(16.0),
-                                child: ElevatedButton.icon(
+                                ElevatedButton.icon(
                                   onPressed: () {
                                     Navigator.push(
                                       context,
@@ -128,7 +133,7 @@ class Home_Content extends StatelessWidget {
                                     isEnglish ? "Shop" : "تسوق الأن",
                                     style: GoogleFonts.abel(
                                       textStyle: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: screenWidth * 0.045,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.pinkAccent.shade400,
                                         letterSpacing: .5,
@@ -136,14 +141,18 @@ class Home_Content extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
-                        Image.asset(
-                          imageList[i],
-                          height: 200,
-                          width: 200,
+                        Padding(
+                          padding: EdgeInsets.all(screenWidth * 0.01),
+                          child: Image.asset(
+                            imageList[i],
+                            height: screenHeight * 0.20,
+                            width: screenWidth * 0.35,
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ],
                     ),
@@ -152,17 +161,18 @@ class Home_Content extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 20),
+          SizedBox(height: screenHeight * 0.02),
+
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+            padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   isEnglish ? "Top Categories" : "أفضل الفئات",
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                    fontSize: screenWidth * 0.045,
                   ),
                 ),
                 TextButton(
@@ -173,7 +183,7 @@ class Home_Content extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => FavoriteScreen(favoriteItems:const [], onRemoveItem: (item){  },),
+                        builder: (context) => const Card_Screen(),
                       ),
                     );
                   },
@@ -191,18 +201,20 @@ class Home_Content extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 20),
+
+          SizedBox(height: screenHeight * 0.02),
+
           // الفئات
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Padding(
-              padding: const EdgeInsets.only(left: 10),
+              padding: EdgeInsets.only(left: screenWidth * 0.02),
               child: Row(
                 children: [
                   for (var i = 0; i < 10; i++)
                     Container(
-                      height: 80,
-                      width: 80,
+                      height: 70, // صغرنا شوية الحجم
+                      width: 70,
                       margin: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         color: const Color(0xFFD4ECF7),
@@ -217,14 +229,19 @@ class Home_Content extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8),
-                        child: Image.asset(iconImageList[i]),
+                        child: FittedBox(
+                          fit: BoxFit.contain,
+                          child: Image.asset(iconImageList[i]),
+                        ),
                       ),
                     ),
                 ],
               ),
             ),
           ),
-          const SizedBox(height: 10),
+
+          SizedBox(height: screenHeight * 0.015),
+
           GridItems(6),
         ],
       ),

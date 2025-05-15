@@ -1,9 +1,12 @@
-import 'package:app_e_ecommerce/View/Drawer/Notification/Notification.dart';
-import 'package:app_e_ecommerce/View/les_elements/Favorite/favorite_screen.dart';
-import 'package:app_e_ecommerce/View/Drawer/Notification/notification_provider/notification_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:device_preview/device_preview.dart';
+
+import 'View/Drawer/Notification/Notification.dart';
+import 'View/les_elements/Favorite/favorite_screen.dart';
+import 'View/Drawer/Notification/notification_provider/notification_provider.dart';
 import 'provider/mode_provider.dart';
 import 'View/language/language_provider.dart';
 import 'View/CartScreen/LoginPage.dart';
@@ -13,14 +16,18 @@ import 'View/Drawer/Theme Mode/theme_mode.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
   runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => ModeProvider()),
-        ChangeNotifierProvider(create: (_) => LanguageProvider()),
-        ChangeNotifierProvider(create: (_) => NotificationProvider()),
-      ],
-      child: const MyApp(),
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => ModeProvider()),
+          ChangeNotifierProvider(create: (_) => LanguageProvider()),
+          ChangeNotifierProvider(create: (_) => NotificationProvider()),
+        ],
+        child: const MyApp(),
+      ),
     ),
   );
 }
@@ -35,21 +42,23 @@ class MyApp extends StatelessWidget {
     bool isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
     return MaterialApp(
-      theme: modeProvider.lightModeEnable
-          ? ModeTheme.lightMode
-          : ModeTheme.darkMode,
-      debugShowCheckedModeBanner: false,
-      title: isEnglish ? "Watch Shop" : "متجر الساعات",
+      useInheritedMediaQuery: true,
       locale: languageProvider.currentLocale,
+      builder: DevicePreview.appBuilder,
       supportedLocales: const [
-        Locale('en', ''), // English
-        Locale('ar', ''), // Arabic
+        Locale('en', ''),
+        Locale('ar', ''),
       ],
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+      title: isEnglish ? "Watch Shop" : "متجر الساعات",
+      theme: modeProvider.lightModeEnable
+          ? ModeTheme.lightMode
+          : ModeTheme.darkMode,
+      debugShowCheckedModeBanner: false,
       home: const Home_Screen(),
       routes: {
         "signup": (context) => const SignUpScreen(),
@@ -59,7 +68,7 @@ class MyApp extends StatelessWidget {
         '/favorites': (context) => FavoriteScreen(
               favoriteItems: const [],
               onRemoveItem: (item) {},
-            ), // مثال
+            ),
       },
     );
   }

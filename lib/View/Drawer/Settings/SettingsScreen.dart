@@ -39,7 +39,7 @@ class SettingsScreen extends StatelessWidget {
           Text(
             isEnglish ? "Account Settings" : "إعدادات الحساب",
             style: const TextStyle(
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -103,17 +103,17 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
 
-          const SizedBox(height: 20),
+          const SizedBox(height: 5),
 
           // عنوان قسم إدارة الصلاحيات
           Text(
             isEnglish ? "User Permissions" : "إدارة الصلاحيات",
             style: const TextStyle(
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 5),
 
           // زر إضافة مستخدم جديد
           _buildSettingsOption(
@@ -145,7 +145,7 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
 
-          const SizedBox(height: 20),
+          const SizedBox(height: 5),
 
           // عنوان قسم إدارة الصلاحيات
           Text(
@@ -153,7 +153,7 @@ class SettingsScreen extends StatelessWidget {
                 ? "User Roles & Permissions"
                 : "إدارة الأدوار والصلاحيات للمستخدمين ",
             style: const TextStyle(
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -225,7 +225,7 @@ class SettingsScreen extends StatelessWidget {
         title: Text(text),
         trailing: const Icon(
           Icons.arrow_forward_ios,
-          size: 18,
+          size: 16,
           color: Colors.grey,
         ),
         onTap: onTap,

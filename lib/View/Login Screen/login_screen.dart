@@ -42,19 +42,19 @@ class _LoginScreenState extends State<Login_Screen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 Lottie.asset(
                   "Json/lo.json",
                   width: 400,
                   height: 400,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 5),
                 Text(
                   isEnglish
                       ? "LOGIN TO YOUR ACCOUNT"
                       : "تسجيل الدخول إلى حسابك",
                   style: GoogleFonts.poppins(
-                    fontSize: 28,
+                    fontSize: 20,
                     fontWeight: FontWeight.w800,
                     color: Colors.white,
                   ),
@@ -100,7 +100,7 @@ class _LoginScreenState extends State<Login_Screen> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 25),
+                      const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -138,7 +138,7 @@ class _LoginScreenState extends State<Login_Screen> {
                               ),
                             ),
                           ),
-                          const SizedBox(width: 20),
+                          const SizedBox(width: 10),
                           AnimatedContainer(
                             duration: const Duration(milliseconds: 300),
                             width: 140,

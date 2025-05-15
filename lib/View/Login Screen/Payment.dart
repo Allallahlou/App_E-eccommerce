@@ -113,7 +113,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  const SizedBox(height: 100),
+                  const SizedBox(height: 10),
                   Card(
                     // ignore: deprecated_member_use
                     color: Colors.white.withOpacity(0.9), // شفافية للكارد

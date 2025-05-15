@@ -83,16 +83,16 @@ dependencies:
   qr_flutter: ^4.1.0
   google_maps_flutter: ^2.12.1
   share_plus: ^10.0.0
+  device_preview: ^1.2.0
    
   
 
-
-flutter_launcher_icons:
+flutter_icons:
   android: true
   ios: true
-  image_path: "images/logo.png"  
-  adaptive_icon_background: "#000000"  
-  adaptive_icon_foreground: "images/logo.png"  
+  image_path: "images/Al.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "images/Al.png"
 
 
 
