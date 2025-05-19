@@ -34,7 +34,7 @@ class _SubmitProductPageState extends State<SubmitProductPage> {
             TextField(
               controller: titleController,
               decoration: const InputDecoration(
-                labelText: "Address / Title",
+                labelText: "Title",
                 border: OutlineInputBorder(),
               ),
             ),

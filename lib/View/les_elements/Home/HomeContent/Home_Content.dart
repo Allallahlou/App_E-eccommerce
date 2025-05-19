@@ -2,7 +2,6 @@
 
 import 'package:app_e_ecommerce/View/CartScreen/Cart_Screen.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
-import 'package:app_e_ecommerce/View/les_elements/Favorite/favorite_screen.dart';
 import 'package:app_e_ecommerce/View/widgets/grid_items.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

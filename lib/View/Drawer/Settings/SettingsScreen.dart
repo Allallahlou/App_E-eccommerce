@@ -1,13 +1,10 @@
 // ignore_for_file: file_names
 
-import 'package:app_e_ecommerce/View/Drawer/Settings/AddUser/AddUser.dart';
-import 'package:app_e_ecommerce/View/Drawer/Settings/ChangePassword/ChangePassword.dart';
-import 'package:app_e_ecommerce/View/Drawer/Settings/DeleteAccount/DeleteAccount.dart';
-import 'package:app_e_ecommerce/View/Drawer/Settings/ManageUsers/ManageUsers.dart';
+import 'package:app_e_ecommerce/View/Drawer/Settings/AccountSettingsScreen/AccountSettingsScreen.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/OrdersPaymentSettings/OrdersPaymentSettings.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/ProductInventorySettings/ProductInventorySettings.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/StoreSettings/StoreSettings.dart';
-import 'package:app_e_ecommerce/View/Drawer/Settings/UpdateProfile/UpdateProfile.dart';
+import 'package:app_e_ecommerce/View/Drawer/Settings/UserManagementPage/UserManagementPage.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/UserRoles/UserRoles.dart';
 import 'package:app_e_ecommerce/View/Login%20Screen/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -39,12 +36,10 @@ class SettingsScreen extends StatelessWidget {
           Text(
             isEnglish ? "Account Settings" : "إعدادات الحساب",
             style: const TextStyle(
-              fontSize: 16,
+              fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 10),
-
           _buildSettingsOption(
             icon: Icons.person,
             text: isEnglish ? "Profile" : " المعلومات الشخصية",
@@ -61,99 +56,47 @@ class SettingsScreen extends StatelessWidget {
           // زر تحديث المعلومات الشخصية
           _buildSettingsOption(
             icon: Icons.update,
-            text: isEnglish ? "Update Profile" : "تحديث المعلومات الشخصية",
+            text: isEnglish ? "Account Settings" : "تحديث المعلومات الشخصية",
             onTap: () {
               // توجيه المستخدم إلى شاشة تحديث الحساب
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const UpdateProfileScreen(),
+                  builder: (context) => const AccountSettingsScreen(),
                 ),
               );
             },
           ),
-
-          // زر تغيير كلمة المرور
-          _buildSettingsOption(
-            icon: Icons.lock,
-            text: isEnglish ? "Change Password" : "تغيير كلمة المرور",
-            onTap: () {
-              // توجيه المستخدم إلى شاشة تغيير كلمة المرور
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ChangePasswordScreen(),
-                ),
-              );
-            },
-          ),
-
-          // زر حذف الحساب
-          _buildSettingsOption(
-            icon: Icons.delete_forever,
-            text: isEnglish ? "Delete Account" : "حذف الحساب",
-            onTap: () {
-              // تأكيد وحذف الحساب
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const DeleteAccountScreen(),
-                ),
-              );
-            },
-          ),
-
-          const SizedBox(height: 5),
 
           // عنوان قسم إدارة الصلاحيات
           Text(
             isEnglish ? "User Permissions" : "إدارة الصلاحيات",
             style: const TextStyle(
-              fontSize: 16,
+              fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 5),
-
           // زر إضافة مستخدم جديد
           _buildSettingsOption(
             icon: Icons.group_add,
-            text: isEnglish ? "Add New User" : "إضافة مستخدم جديد",
+            text: isEnglish ? "UserManagementPage" : "إضافة مستخدم جديد",
             onTap: () {
               // فتح شاشة إضافة مستخدم بصلاحيات معينة
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const AddUserScreen(),
+                  builder: (context) => const UserManagementPage(),
                 ),
               );
             },
           ),
-
-          // زر إدارة المستخدمين الحاليين
-          _buildSettingsOption(
-            icon: Icons.manage_accounts,
-            text: isEnglish ? "Manage Users" : "إدارة المستخدمين",
-            onTap: () {
-              // فتح شاشة إدارة المستخدمين
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ManageUsersScreen(),
-                ),
-              );
-            },
-          ),
-
-          const SizedBox(height: 5),
-
           // عنوان قسم إدارة الصلاحيات
           Text(
             isEnglish
                 ? "User Roles & Permissions"
                 : "إدارة الأدوار والصلاحيات للمستخدمين ",
             style: const TextStyle(
-              fontSize: 16,
+              fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -225,7 +168,7 @@ class SettingsScreen extends StatelessWidget {
         title: Text(text),
         trailing: const Icon(
           Icons.arrow_forward_ios,
-          size: 16,
+          size: 14,
           color: Colors.grey,
         ),
         onTap: onTap,

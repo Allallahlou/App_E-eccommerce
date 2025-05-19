@@ -61,7 +61,7 @@ dependencies:
   cloud_firestore: ^4.17.5
   flutter_stripe: ^11.3.0
   flutter_chat_ui: ^1.3.0
-  flutter_chat_types: ^3.6.0
+  flutter_chat_types: ^3.6.2
   emoji_picker_flutter: ^1.0.0
   media_kit: ^1.1.11 
   media_kit_video: ^1.2.5 
@@ -84,6 +84,8 @@ dependencies:
   google_maps_flutter: ^2.12.1
   share_plus: ^10.0.0
   device_preview: ^1.2.0
+  flutter_keyboard_visibility: ^6.0.0
+
    
   
 

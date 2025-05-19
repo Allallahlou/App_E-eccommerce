@@ -56,7 +56,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
       "page": PerfumeProductsPage(),
     },
     {
-      "title": "Submit Your Product",
+      "title": "Add your product",
       "icon": Icons.add_box,
       "color": Colors.orangeAccent,
       "page": const SubmitProductPage(),

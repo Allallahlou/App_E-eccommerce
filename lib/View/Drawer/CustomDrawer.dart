@@ -1,3 +1,6 @@
+// ignore_for_file: file_names
+
+import 'package:app_e_ecommerce/View/language/LanguageInfo.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:app_e_ecommerce/View/Drawer/Settings/SettingsScreen.dart';
@@ -98,6 +101,16 @@ class CustomDrawer extends StatelessWidget {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(builder: (_) => const MainPage()),
+                  ),
+                ),
+                _buildDrawerItem(
+                  icon: Icons.language,
+                  iconColor: Colors.purple,
+                  title: isEnglish ? "languge" : "اللغة ",
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => const LanguageInfoScreen()),
                   ),
                 ),
                 _buildDrawerItem(

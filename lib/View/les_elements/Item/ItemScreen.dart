@@ -58,7 +58,7 @@ class ItemScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
@@ -94,7 +94,7 @@ class ItemScreen extends StatelessWidget {
                       const Text("(450)"),
                     ],
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   const Row(
                     children: [
                       Text(
@@ -111,12 +111,12 @@ class ItemScreen extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black54,
                           decoration: TextDecoration.lineThrough,
-                          fontSize: 18,
+                          fontSize: 16,
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 25),
+                  const SizedBox(height: 10),
                   Text(
                     languageProvider.currentLocale.languageCode == 'en'
                         ? " Our store offers a wide selection of luxury and casual watches for both men and women."
@@ -131,7 +131,7 @@ class ItemScreen extends StatelessWidget {
                             "لدينا الساعة المثالية لكل مناسبة."
                             "طاقمنا المتمرس موجود لمساعدتك في العثور على الساعة المثالية التي تناسب أسلوبك واحتياجاتك."
                             "قم بزيارتنا للحصول على أفضل مجموعة من ساعات اليد وخدمة عملاء استثنائية.",
-                    style: const TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 13),
                     textAlign: TextAlign.justify,
                   ),
                 ],
@@ -142,7 +142,7 @@ class ItemScreen extends StatelessWidget {
       ),
       bottomNavigationBar: Container(
         height: 70,
-        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 95),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -155,9 +155,9 @@ class ItemScreen extends StatelessWidget {
                 );
               },
               child: AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
-                height: 60,
-                width: MediaQuery.of(context).size.width / 1.5,
+                duration: const Duration(milliseconds: 100),
+                height: 40,
+                width: MediaQuery.of(context).size.width / 2,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   gradient: const LinearGradient(

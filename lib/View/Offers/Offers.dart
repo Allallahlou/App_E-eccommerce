@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, camel_case_types
+
 import 'package:flutter/material.dart';
 
 class Offers_Screen extends StatelessWidget {
@@ -130,6 +132,7 @@ class Offers_Screen extends StatelessWidget {
                         ),
                         const SizedBox(width: 8),
                         Text(
+                          // ignore: unnecessary_brace_in_string_interps
                           '\$${oldPrice}',
                           style: const TextStyle(
                             decoration: TextDecoration.lineThrough,
