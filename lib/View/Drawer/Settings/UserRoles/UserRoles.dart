@@ -8,11 +8,12 @@ class User {
   String role;
   List<String> permissions;
 
-  User(
-      {required this.name,
-      required this.email,
-      required this.role,
-      required this.permissions});
+  User({
+    required this.name,
+    required this.email,
+    required this.role,
+    required this.permissions,
+  });
 }
 
 class UserRolesScreen extends StatefulWidget {
@@ -32,7 +33,7 @@ class _UserRolesScreenState extends State<UserRolesScreen> {
 
   final Map<String, List<String>> rolePermissions = {
     "Seller": ["Add Products", "View Orders"],
-    "Employee": ["Manage Users", "View Reports", "Edit Orders"],
+    "Employee": ["Manage Users", "View Reports", "Edit Orders"], // لا صلاحيات
   };
 
   void _addUser() {
@@ -46,14 +47,28 @@ class _UserRolesScreenState extends State<UserRolesScreen> {
         ));
       });
 
-      _nameController.clear();
-      _emailController.clear();
-      _selectedRole = "Seller";
-      _selectedPermissions = [];
-
+      _clearForm();
       Navigator.pop(context);
       ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("User Added Successfully")));
+    }
+  }
+
+  void _editUser(int index) {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        users[index] = User(
+          name: _nameController.text,
+          email: _emailController.text,
+          role: _selectedRole,
+          permissions: _selectedPermissions,
+        );
+      });
+
+      _clearForm();
+      Navigator.pop(context);
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("User Updated Successfully")));
     }
   }
 
@@ -65,15 +80,47 @@ class _UserRolesScreenState extends State<UserRolesScreen> {
         const SnackBar(content: Text("User Deleted Successfully")));
   }
 
+  void _clearForm() {
+    _nameController.clear();
+    _emailController.clear();
+    _selectedRole = "Seller";
+    _selectedPermissions = [];
+  }
+
   void _openAddUserDialog() {
+    _clearForm();
     showDialog(
       context: context,
       builder: (context) {
-        return AlertDialog(
-          title: const Text("Add User"),
-          content: StatefulBuilder(
-            builder: (context, setDialogState) {
-              return Column(
+        return _buildUserDialog("Add User", _addUser);
+      },
+    );
+  }
+
+  void _openEditUserDialog(int index) {
+    User user = users[index];
+    _nameController.text = user.name;
+    _emailController.text = user.email;
+    _selectedRole = user.role;
+    _selectedPermissions = List.from(user.permissions);
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return _buildUserDialog("Edit User", () => _editUser(index));
+      },
+    );
+  }
+
+  Widget _buildUserDialog(String title, VoidCallback onSubmit) {
+    return AlertDialog(
+      title: Text(title),
+      content: StatefulBuilder(
+        builder: (context, setDialogState) {
+          return Form(
+            key: _formKey,
+            child: SingleChildScrollView(
+              child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   TextFormField(
@@ -89,47 +136,49 @@ class _UserRolesScreenState extends State<UserRolesScreen> {
                   ),
                   DropdownButtonFormField<String>(
                     value: _selectedRole,
-                    items: ["Seller", "Employee"].map((role) {
+                    items: rolePermissions.keys.map((role) {
                       return DropdownMenuItem(value: role, child: Text(role));
                     }).toList(),
                     onChanged: (value) {
                       setDialogState(() {
                         _selectedRole = value!;
-                        _selectedPermissions = rolePermissions[_selectedRole]!;
+                        _selectedPermissions = [];
                       });
                     },
                     decoration: const InputDecoration(labelText: "Role"),
                   ),
                   const SizedBox(height: 10),
-                  const Text("Permissions:",
-                      style: TextStyle(fontWeight: FontWeight.bold)),
-                  Column(
-                    children: rolePermissions[_selectedRole]!.map((perm) {
-                      return CheckboxListTile(
-                        title: Text(perm),
-                        value: _selectedPermissions.contains(perm),
-                        onChanged: (bool? value) {
-                          setDialogState(() {
-                            value == true
-                                ? _selectedPermissions.add(perm)
-                                : _selectedPermissions.remove(perm);
-                          });
-                        },
-                      );
-                    }).toList(),
-                  ),
+                  if (rolePermissions[_selectedRole]!.isNotEmpty) ...[
+                    const Text("Permissions:",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    Column(
+                      children: rolePermissions[_selectedRole]!.map((perm) {
+                        return CheckboxListTile(
+                          title: Text(perm),
+                          value: _selectedPermissions.contains(perm),
+                          onChanged: (bool? value) {
+                            setDialogState(() {
+                              value == true
+                                  ? _selectedPermissions.add(perm)
+                                  : _selectedPermissions.remove(perm);
+                            });
+                          },
+                        );
+                      }).toList(),
+                    ),
+                  ]
                 ],
-              );
-            },
-          ),
-          actions: [
-            TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Text("Cancel")),
-            ElevatedButton(onPressed: _addUser, child: const Text("Add")),
-          ],
-        );
-      },
+              ),
+            ),
+          );
+        },
+      ),
+      actions: [
+        TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("Cancel")),
+        ElevatedButton(onPressed: onSubmit, child: const Text("Save")),
+      ],
     );
   }
 
@@ -151,9 +200,18 @@ class _UserRolesScreenState extends State<UserRolesScreen> {
               title: Text(users[index].name),
               subtitle: Text(
                   "Role: ${users[index].role}\nPermissions: ${users[index].permissions.join(", ")}"),
-              trailing: IconButton(
-                icon: const Icon(Icons.delete, color: Colors.red),
-                onPressed: () => _deleteUser(index),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.edit, color: Colors.blue),
+                    onPressed: () => _openEditUserDialog(index),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.delete, color: Colors.red),
+                    onPressed: () => _deleteUser(index),
+                  ),
+                ],
               ),
             ),
           );
