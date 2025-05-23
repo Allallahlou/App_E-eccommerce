@@ -16,6 +16,7 @@ import 'View/Drawer/Theme Mode/theme_mode.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  
 
   runApp(
     DevicePreview(
