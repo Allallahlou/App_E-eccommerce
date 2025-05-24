@@ -47,15 +47,6 @@ class LanguageInfoScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Icon(Icons.language, size: 100, color: Colors.blue),
-                  const SizedBox(height: 20),
-                  Text(
-                    isEnglish
-                        ? 'Welcome to the Language Information Screen!'
-                        : 'مرحبًا بك في شاشة معلومات اللغة!',
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
                   const SizedBox(height: 40),
                   ElevatedButton(
                     onPressed: languageProvider.toggleLanguage,

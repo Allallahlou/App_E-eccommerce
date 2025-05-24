@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
-import 'package:firebase_auth/firebase_auth.dart'; // إضافة مكتبة Firebase Auth
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +10,6 @@ class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _ForgotPasswordScreenState createState() => _ForgotPasswordScreenState();
 }
 
@@ -22,11 +21,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     return languageProvider.currentLocale.languageCode == 'en';
   }
 
-  // دالة إرسال رابط إعادة تعيين كلمة المرور
   void _sendResetLink() async {
     String email = _emailController.text.trim();
 
-    // التحقق من صحة البريد الإلكتروني
     if (email.isEmpty ||
         !RegExp(r"^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(email)) {
       _showDialog("Error", "Please enter a valid email.");
@@ -34,16 +31,13 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     }
 
     try {
-      // إرسال رابط إعادة تعيين كلمة المرور باستخدام Firebase
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
       _showDialog("Success", "Password reset link sent successfully.");
     } on FirebaseAuthException catch (e) {
-      // التعامل مع الأخطاء
       _showDialog("Error", e.message ?? "An error occurred.");
     }
   }
 
-  // دالة لعرض الحوار
   void _showDialog(String title, String content) {
     showDialog(
       context: context,
@@ -73,77 +67,72 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     Provider.of<LanguageProvider>(context);
 
     return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset(
-            'images/eco.png',
-            fit: BoxFit.cover,
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.pinkAccent, // لون الـ AppBar
+        title: Text(
+          isEnglish ? "Forgot Password" : "هل نسيت كلمة السر؟",
+          style: GoogleFonts.adamina(
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+            color: Colors.white,
           ),
-          SingleChildScrollView(
-            child: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: 100),
-                    Text(
-                      isEnglish ? "Forgot Password?" : "هل نسيت كلمة السر؟",
-                      style: GoogleFonts.adamina(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
+        ),
+        centerTitle: true,
+        elevation: 4,
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 50),
+                  Text(
+                    isEnglish
+                        ? "Enter your email to reset your password"
+                        : "أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور الخاصة بك",
+                    style: GoogleFonts.adamina(
+                      fontSize: 16,
+                      color: Colors.black,
                     ),
-                    const SizedBox(height: 10),
-                    Text(
-                      isEnglish
-                          ? "Enter your email to reset your password"
-                          : "أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور الخاصة بك",
-                      style: GoogleFonts.adamina(
-                        fontSize: 16,
-                        color: Colors.black,
-                      ),
-                      textAlign: TextAlign.center,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 50),
+                  _buildTextField(
+                    controller: _emailController,
+                    hintText: isEnglish ? "Email" : "بريد إلكتروني",
+                    icon: Icons.email,
+                  ),
+                  const SizedBox(height: 20),
+                  _buildButton(
+                    context: context,
+                    label: isEnglish
+                        ? "Send Reset Link"
+                        : "إرسال رابط إعادة الضبط",
+                    onPressed: _sendResetLink,
+                  ),
+                  const SizedBox(height: 20),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      isEnglish ? "Back to Login" : "العودة إلى تسجيل الدخول",
+                      style: const TextStyle(color: Colors.black, fontSize: 16),
                     ),
-                    const SizedBox(height: 50),
-                    _buildTextField(
-                      controller: _emailController,
-                      hintText: isEnglish ? "Email" : "بريد إلكتروني",
-                      icon: Icons.email,
-                    ),
-                    const SizedBox(height: 20),
-                    _buildButton(
-                      context: context,
-                      label: isEnglish
-                          ? "Send Reset Link"
-                          : "إرسال رابط إعادة الضبط",
-                      onPressed: _sendResetLink,
-                    ),
-                    const SizedBox(height: 20),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text(
-                        isEnglish ? "Back to Login" : "العودة إلى تسجيل الدخول",
-                        style:
-                            const TextStyle(color: Colors.black, fontSize: 16),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
-        ],
+        ),
       ),
     );
   }
 
-  // دالة حقل الإدخال
   Widget _buildTextField({
     required TextEditingController controller,
     required String hintText,
@@ -173,7 +162,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     );
   }
 
-  // دالة زر الإجراء
   Widget _buildButton({
     required BuildContext context,
     required String label,

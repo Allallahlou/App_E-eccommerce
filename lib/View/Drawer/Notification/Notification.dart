@@ -11,15 +11,15 @@ class NotificationScreen extends StatelessWidget {
     final notificationProvider = context.watch<NotificationProvider>();
     final notifications = notificationProvider.notifications;
 
-    // إضافة إشعار "تمت العملية بنجاح" مرة واحدة فقط إذا ماكانش موجود
+    // إضافة إشعار "تمت العملية بنجاح" إذا لم يكن موجوداً
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final alreadyExists = notifications.any((item) =>
-          item['title'] == " The operation was successful. " &&
-          item['body'] == "Payment successful");
+          item['title']?.trim() == "The operation was successful." &&
+          item['body']?.trim() == "Payment successful");
 
       if (!alreadyExists) {
         notificationProvider.addNotification(
-          "The operation was successful. ",
+          "The operation was successful.",
           {
             'body': "Payment successful",
             'time': TimeOfDay.now().format(context),
@@ -41,14 +41,20 @@ class NotificationScreen extends StatelessWidget {
               notificationProvider.clearNotifications();
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
-                    content: Text('All notifications have been cleared.')),
+                  content: Text('All notifications have been cleared.'),
+                ),
               );
             },
           ),
         ],
       ),
       body: notifications.isEmpty
-          ? const Center(child: Text("There are no notifications currently."))
+          ? const Center(
+              child: Text(
+                "",
+                style: TextStyle(fontSize: 16, color: Colors.grey),
+              ),
+            )
           : ListView.separated(
               padding: const EdgeInsets.all(16),
               itemCount: notifications.length,

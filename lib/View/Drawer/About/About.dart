@@ -3,6 +3,7 @@ import 'package:app_e_ecommerce/View/language/language_provider.dart';
 import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class AboutAppScreen extends StatelessWidget {
@@ -14,13 +15,14 @@ class AboutAppScreen extends StatelessWidget {
     final isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
     return Scaffold(
+      backgroundColor: const Color(0xFFF5F6FA),
       appBar: AppBar(
         title: Text(
           isEnglish ? "About the App" : "حول التطبيق",
           style: GoogleFonts.lato(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: Colors.green.shade700,
+        backgroundColor: const Color(0xFF5B4FE9),
         foregroundColor: Colors.white,
         elevation: 0,
       ),
@@ -29,36 +31,34 @@ class AboutAppScreen extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Container(
-                  height: 250,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.green.shade700, Colors.green.shade400],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(50),
-                      bottomRight: Radius.circular(50),
+                ClipPath(
+                  clipper: WaveClipper(),
+                  child: Container(
+                    height: 260,
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Color(0xFF5B4FE9), Color(0xFF9A7CFD)],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
                     ),
                   ),
                 ),
                 Positioned(
-                  top: 50,
+                  bottom: 0,
                   left: 0,
                   right: 0,
-                  child: Center(
-                    child: Image.asset(
-                      'assets/images/yy.png',
-                      height: 150,
-                      fit: BoxFit.contain,
-                    ),
+                  child: Lottie.asset(
+                    "Json/success.json",
+                    height: 180,
+                    repeat: true,
                   ),
                 ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -70,25 +70,34 @@ class AboutAppScreen extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: Colors.green.shade800,
+                        color: const Color(0xFF3D3D7D),
                       ),
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  _buildFeatureList(isEnglish),
                   const SizedBox(height: 30),
+                  _buildFeatureList(isEnglish),
+                  const SizedBox(height: 40),
                   Center(
-                    child: ElevatedButton(
+                    child: ElevatedButton.icon(
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Home_Screen()),
+                            builder: (context) => const Home_Screen(),
+                          ),
                         );
                       },
+                      icon: const Icon(Icons.explore),
+                      label: Text(
+                        isEnglish ? "Start Exploring" : "ابدأ الاستكشاف",
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green.shade700,
+                        backgroundColor: const Color(0xFF5B4FE9),
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 40,
@@ -97,14 +106,7 @@ class AboutAppScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        elevation: 5,
-                      ),
-                      child: Text(
-                        isEnglish ? "Start Exploring" : "ابدأ الاستكشاف",
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        elevation: 6,
                       ),
                     ),
                   ),
@@ -122,47 +124,32 @@ class AboutAppScreen extends StatelessWidget {
       {
         'icon': Icons.shopping_bag,
         'title': isEnglish
-            ? "Discover the world of elegance and sophistication with our luxurious collection of watches!"
-            : "اكتشف عالم الأناقة والرقي مع تشكيلتنا الفاخرة من الساعات!",
+            ? "Discover elegance and sophistication!"
+            : "اكتشف الأناقة والرقي!",
         'description': isEnglish
-            ? "Enjoy a unique experience with the finest watches carefully designed by the best international brands.\n"
-                "Each watch is a masterpiece that reflects the quality, luxury, and elegance you deserve.\n"
-                "Why choose our collection?\n"
-                "- Elegant designs to suit all tastes.\n"
-                "- Luxurious materials that ensure\n"
-                " durability and high quality.\n"
-                "- Trusted international brands.\n"
-                "- Safe and easy shopping experience.\n"
-                "Start your journey into the world of luxury today!"
-            : "استمتع بتجربة فريدة من نوعها مع أرقى الساعات المصممة بعناية فائقة من أفضل العلامات التجارية العالمية.\n"
-                "كل ساعة تمثل تحفة فنية تعكس الجودة، الفخامة، والأناقة التي تستحقها.\n\n"
-                "لماذا تختار تشكيلتنا؟\n"
-                "- تصاميم راقية تناسب جميع الأذواق.\n"
-                "- مواد فاخرة تضمن المتانة والجودة العالية.\n"
-                "- علامات تجارية عالمية موثوقة.\n"
-                "- تجربة شراء آمنة وسهلة.\n\n"
-                "ابدأ رحلتك في عالم الفخامة اليوم!",
+            ? "Luxury watches by top brands. Elegant designs, high-quality materials, and secure shopping."
+            : "ساعات فاخرة من أفضل العلامات. تصاميم راقية، مواد عالية الجودة، وتجربة شراء آمنة.",
       },
       {
         'icon': Icons.sell,
         'title': isEnglish ? "Easy Selling" : "بيع سهل",
         'description': isEnglish
-            ? "With a few simple steps, you can list your luxury watches on our platform and get in front of thousands of interested buyers. Enjoy a smooth and secure selling experience, with the ability to set prices and communicate directly with customers to get the best deals."
-            : "بخطوات بسيطة وسهلة، يمكنك إدراج ساعاتك الفاخرة على منصتنا والظهور أمام آلاف المشترين المهتمين. استمتع بتجربة بيع سلسة وآمنة، مع إمكانية تحديد الأسعار والتواصل مباشرة مع العملاء للحصول على أفضل العروض.",
+            ? "List your watches and reach buyers easily."
+            : "أدرج ساعاتك وتواصل مع المشترين بسهولة.",
       },
       {
         'icon': Icons.star_rate,
         'title': isEnglish ? "Customer Reviews" : "تقييمات العملاء",
         'description': isEnglish
-            ? "Read authentic reviews before purchasing."
-            : "اقرأ تقييمات حقيقية قبل الشراء.",
+            ? "Check reviews before buying."
+            : "اطّلع على التقييمات قبل الشراء.",
       },
       {
         'icon': Icons.lock,
         'title': isEnglish ? "Secure Transactions" : "معاملات آمنة",
         'description': isEnglish
-            ? "Your payments are protected and secure."
-            : "مدفوعاتك محمية وآمنة.",
+            ? "Your payments and data are protected."
+            : "بياناتك ومدفوعاتك آمنة تماماً.",
       },
     ];
 
@@ -170,7 +157,8 @@ class AboutAppScreen extends StatelessWidget {
       children: features.map((feature) {
         return Card(
           margin: const EdgeInsets.symmetric(vertical: 10),
-          elevation: 4,
+          elevation: 3,
+          color: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
@@ -178,14 +166,14 @@ class AboutAppScreen extends StatelessWidget {
             leading: Icon(
               feature['icon'],
               size: 30,
-              color: Colors.green.shade700,
+              color: const Color(0xFF5B4FE9),
             ),
             title: Text(
               feature['title'],
               style: GoogleFonts.lato(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.green.shade800,
+                color: const Color(0xFF3D3D7D),
               ),
             ),
             subtitle: Text(
@@ -200,4 +188,30 @@ class AboutAppScreen extends StatelessWidget {
       }).toList(),
     );
   }
+}
+
+class WaveClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+    path.lineTo(0.0, size.height - 60);
+
+    final firstControlPoint = Offset(size.width / 4, size.height);
+    final firstEndPoint = Offset(size.width / 2, size.height - 30);
+    final secondControlPoint = Offset(size.width * 3 / 4, size.height - 90);
+    final secondEndPoint = Offset(size.width, size.height - 60);
+
+    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
+        firstEndPoint.dx, firstEndPoint.dy);
+
+    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
+        secondEndPoint.dx, secondEndPoint.dy);
+
+    path.lineTo(size.width, 0.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }

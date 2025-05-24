@@ -29,7 +29,7 @@ class Share_Screen extends StatelessWidget {
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: Text(isEnglish ? 'Share the app' : 'شارك التطبيق'),
+        title: Text(isEnglish ? 'Share ' : 'شارك التطبيق'),
         centerTitle: true,
       ),
       body: Center(
@@ -107,30 +107,28 @@ class Share_Screen extends StatelessWidget {
                         spacing: 10,
                         children: [
                           IconButton(
-                            icon: const Icon(Icons.chat,
+                            icon: const Icon(Icons.chat_bubble_outline,
                                 color: Colors.green, size: 30),
                             onPressed: () {
-                              _openSocial('https://wa.me/?text=$appLink');
+                              _openSocial('https://www.whatsapp.com');
                             },
                           ),
                           IconButton(
                             icon: const Icon(Icons.facebook,
                                 color: Colors.blue, size: 30),
                             onPressed: () {
-                              _openSocial(
-                                  'https://www.facebook.com/sharer/sharer.php?u=$appLink');
+                              _openSocial('https://www.facebook.com');
                             },
                           ),
                           IconButton(
                             icon: const Icon(Icons.telegram,
                                 color: Colors.blueAccent, size: 30),
                             onPressed: () {
-                              _openSocial(
-                                  'https://t.me/share/url?url=$appLink');
+                              _openSocial('https://www.telegram.com');
                             },
                           ),
                           IconButton(
-                            icon: const Icon(Icons.camera_alt,
+                            icon: const Icon(Icons.person,
                                 color: Colors.purple, size: 30),
                             onPressed: () {
                               _openSocial('https://www.instagram.com');
@@ -138,7 +136,7 @@ class Share_Screen extends StatelessWidget {
                             tooltip: 'Instagram',
                           ),
                           IconButton(
-                            icon: const Icon(Icons.videocam,
+                            icon: const Icon(Icons.personal_injury,
                                 color: Colors.black, size: 30),
                             onPressed: () {
                               _openSocial('https://www.tiktok.com');

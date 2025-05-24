@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:lottie/lottie.dart';
 import 'dart:async';
+import 'package:app_e_ecommerce/ApiService/ApiService.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
-  Color _buttonColor = Colors.deepPurple;
+  Color _buttonColor = const Color(0xFFFF7E5F); // بداية بلون برتقالي فاتح
   late Timer _timer;
 
   @override
@@ -36,8 +37,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void _startColorAnimation() {
     _timer = Timer.periodic(const Duration(seconds: 2), (timer) {
       setState(() {
-        _buttonColor = Color((0xFF000000 + (timer.tick * 0x100000)) % 0xFFFFFF)
-            .withOpacity(1.0);
+        _buttonColor = _buttonColor == const Color(0xFFFF7E5F)
+            ? const Color(0xFFFD3A69)
+            : const Color(0xFFFF7E5F);
       });
     });
   }
@@ -53,12 +55,44 @@ class _SignUpScreenState extends State<SignUpScreen> {
     super.dispose();
   }
 
-  void _onSignUpPressed() {
+  void _onSignUpPressed() async {
     if (passwordController.text == confirmPasswordController.text) {
-      // عملية التسجيل هنا
+      final token = await ApiService.login(
+        emailController.text.trim(),
+        passwordController.text.trim(),
+      );
+
+      if (token != null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Login successful. Token: $token')),
+        );
+        // هنا يمكنك التنقل للشاشة الرئيسية مثلاً بعد تسجيل الدخول
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              Provider.of<LanguageProvider>(context, listen: false)
+                          .currentLocale
+                          .languageCode ==
+                      'en'
+                  ? 'Invalid email or password'
+                  : 'البريد الإلكتروني أو كلمة المرور غير صحيحة',
+            ),
+          ),
+        );
+      }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Passwords do not match')),
+        SnackBar(
+          content: Text(
+            Provider.of<LanguageProvider>(context, listen: false)
+                        .currentLocale
+                        .languageCode ==
+                    'en'
+                ? 'Passwords do not match'
+                : 'كلمات المرور غير متطابقة',
+          ),
+        ),
       );
     }
   }
@@ -68,139 +102,123 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final languageProvider = Provider.of<LanguageProvider>(context);
     final bool isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
+    const Color startColor = Color(0xFFFF7E5F); // برتقالي فاتح
+    const Color endColor = Color(0xFFFD3A69); // برتقالي مائل للأحمر
+
     return Scaffold(
-      body: Stack(
-        children: [
-          AnimatedContainer(
-            duration: const Duration(seconds: 2),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.purple.shade900, Colors.blue.shade900],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+      extendBodyBehindAppBar: true,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [startColor, endColor],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            centerTitle: true,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.white),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Login_Screen()),
+                );
+              },
+            ),
+            title: Text(
+              isEnglish ? "Create Account" : "إنشاء حساب",
+              style: GoogleFonts.montserrat(
+                fontSize: 22,
+                fontWeight: FontWeight.w700,
+                color: Colors.white,
               ),
             ),
           ),
-          SafeArea(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10.0, top: 10.0),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: IconButton(
-                      icon: const Icon(Icons.arrow_back, color: Colors.white),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Login_Screen()),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-                Lottie.asset(
-                  "Json/signup.json",
-                  width: MediaQuery.of(context).size.width / 1.5,
-                ),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        children: [
-                          Text(
-                            isEnglish ? "Create Account" : "إنشاء حساب",
-                            style: isEnglish
-                                ? GoogleFonts.montserrat(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  )
-                                : GoogleFonts.cairo(
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  ),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 30),
-                          Card(
-                            color: Colors.white.withOpacity(0.9),
-                            elevation: 15,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(20.0),
-                              child: Column(
-                                children: [
-                                  CustomTextField(
-                                    controller: lastNameController,
-                                    hintText: isEnglish ? "Last Name" : "النسب",
-                                    icon: Icons.person_pin,
-                                  ),
-                                  const SizedBox(height: 15),
-                                  CustomTextField(
-                                    controller: firstNameController,
-                                    hintText:
-                                        isEnglish ? "First Name" : "الاسم",
-                                    icon: Icons.person,
-                                  ),
-                                  const SizedBox(height: 15),
-                                  CustomTextField(
-                                    controller: emailController,
-                                    hintText:
-                                        isEnglish ? "Email" : "بريد إلكتروني",
-                                    icon: Icons.email,
-                                  ),
-                                  const SizedBox(height: 15),
-                                  CustomTextField(
-                                    controller: passwordController,
-                                    hintText:
-                                        isEnglish ? "Password" : "كلمة المرور",
-                                    icon: Icons.lock,
-                                    obscureText: true,
-                                  ),
-                                  const SizedBox(height: 15),
-                                  CustomTextField(
-                                    controller: confirmPasswordController,
-                                    hintText: isEnglish
-                                        ? "Confirm Password"
-                                        : "تأكيد كلمة المرور",
-                                    icon: Icons.lock,
-                                    obscureText: true,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 30),
-                          AnimatedContainer(
-                            duration: const Duration(milliseconds: 500),
-                            child: SizedBox(
-                              width: 150,
-                              height: 45,
-                              child: CustomButton(
-                                label: isEnglish ? "Sign Up" : "قم بالتسجيل",
-                                color: _buttonColor,
-                                onPressed: () {
-                                  _onSignUpPressed(); // تم تفعيله هنا
-                                },
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+        ),
+      ),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [startColor, endColor],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
-        ],
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              Lottie.asset(
+                "Json/signup.json",
+                width: MediaQuery.of(context).size.width / 1.5,
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      children: [
+                        Card(
+                          color: Colors.white.withOpacity(0.9),
+                          elevation: 15,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              children: [
+                                CustomTextField(
+                                  controller: firstNameController,
+                                  hintText: isEnglish
+                                      ? "username"
+                                      : "   الاسم الكامل",
+                                  icon: Icons.person,
+                                ),
+                                const SizedBox(height: 8),
+                                CustomTextField(
+                                  controller: emailController,
+                                  hintText:
+                                      isEnglish ? "Email" : "بريد إلكتروني",
+                                  icon: Icons.email,
+                                ),
+                                const SizedBox(height: 8),
+                                CustomTextField(
+                                  controller: passwordController,
+                                  hintText:
+                                      isEnglish ? "Password" : "كلمة المرور",
+                                  icon: Icons.lock,
+                                  obscureText: true,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 15),
+                        AnimatedContainer(
+                          duration: const Duration(milliseconds: 500),
+                          child: SizedBox(
+                            width: 150,
+                            height: 45,
+                            child: CustomButton(
+                              label: isEnglish ? "Sign Up" : "قم بالتسجيل",
+                              color: _buttonColor,
+                              onPressed: _onSignUpPressed,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
