@@ -107,9 +107,7 @@ class _Card_ScreenState extends State<Card_Screen> {
       "quantity": 1,
     },
   ];
-
-  double getTotal() => cartItems.fold(
-        0,
+  double getTotal() => cartItems.fold(0,
         (sum, item) => sum + (item['price'] * item['quantity']),
       );
 

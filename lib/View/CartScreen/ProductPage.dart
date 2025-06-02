@@ -6,7 +6,6 @@ class Product {
   final double price;
   final String imagePath;
   bool isFavorite;
-
   Product({
     required this.name,
     required this.price,

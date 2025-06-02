@@ -18,7 +18,6 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final languageProvider = Provider.of<LanguageProvider>(context);
     final isEnglish = languageProvider.currentLocale.languageCode == 'en';
-
     return Scaffold(
       appBar: AppBar(
         title: Center(

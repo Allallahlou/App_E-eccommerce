@@ -131,15 +131,13 @@ class _LoginScreenState extends State<Login_Screen> {
                             ),
                             child: TextButton(
                               onPressed: () {
-                                setState(() {
-                                  isLoginPressed = true;
-                                  isSignUpPressed = false;
-                                });
-                                Future.delayed(
-                                  const Duration(milliseconds: 300),
-                                  () {
-                                    Navigator.pushNamed(context, "homepage");
-                                  },
+                                showDialog(
+                                  context: context,
+                                  builder: (_) => const AlertDialog(
+                                    title: Text("Login Disabled"),
+                                    content: Text(
+                                        "Login is not available yet. Please try again later."),
+                                  ),
                                 );
                               },
                               child: Text(

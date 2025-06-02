@@ -9,33 +9,27 @@ class BagsProductsPage extends StatelessWidget {
   final List<Map<String, dynamic>> bagsProducts = [
     {
       'name': 'Elegant womens bag',
-      'image': 'images/bag_1.png',
-      'price': 120.0,
+      'image': 'images/bag_1.png', 'price': 120.0,
     },
     {
       'name': 'luxury handbag',
-      'image': 'images/bag_2.png',
-      'price': 180.0,
+      'image': 'images/bag_2.png', 'price': 180.0,
     },
     {
       'name': 'Stylish backpack',
-      'image': 'images/bag_3.png',
-      'price': 150.0,
+      'image': 'images/bag_3.png', 'price': 150.0,
     },
     {
       'name': 'Trendy crossbody bag',
-      'image': 'images/bag_4.png',
-      'price': 90.0,
+      'image': 'images/bag_4.png', 'price': 90.0,
     },
     {
       'name': 'Classic tote bag',
-      'image': 'images/bag_5.png',
-      'price': 110.0,
+      'image': 'images/bag_5.png', 'price': 110.0,
     },
     {
       'name': 'Chic shoulder bag',
-      'image': 'images/bag_6.png',
-      'price': 130.0,
+      'image': 'images/bag_6.png', 'price': 130.0,
     }
   ];
 

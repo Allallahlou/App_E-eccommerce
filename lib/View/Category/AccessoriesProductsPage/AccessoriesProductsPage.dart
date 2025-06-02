@@ -41,8 +41,7 @@ class AccessoriesProductsPage extends StatelessWidget {
   ];
 
   double getTotalPrice() {
-    return accessoriesProducts.fold(
-      0,
+    return accessoriesProducts.fold(0,
       (sum, item) => sum + (item['price'] as double),
     );
   }
