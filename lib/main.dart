@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const Home_Screen(),
       routes: {
-        "signup": (context) => const SignUpScreen(),
+        "signup": (context) =>  SignUpScreen(),
         "login": (context) => const Login_PageScreen(),
         "homepage": (context) => const Home_Screen(),
         '/notifications': (context) => const NotificationScreen(),

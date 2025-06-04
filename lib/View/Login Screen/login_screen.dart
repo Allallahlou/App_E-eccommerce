@@ -1,9 +1,11 @@
+import 'package:app_e_ecommerce/api_service/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:lottie/lottie.dart';
 
 import 'package:app_e_ecommerce/View/Login%20Screen/ForgotPasswordScreen.dart';
+import 'package:app_e_ecommerce/View/Login%20Screen/SignUpScreen.dart'; // هذا مهم
 import 'package:app_e_ecommerce/View/Login%20Screen/components/custom_text_field.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
 
@@ -15,17 +17,26 @@ class Login_Screen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<Login_Screen> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   bool isLoginPressed = false;
   bool isSignUpPressed = false;
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final languageProvider = Provider.of<LanguageProvider>(context);
     final bool isEnglish = languageProvider.currentLocale.languageCode == 'en';
 
-    // ألوان Gradient برتقالية دافئة
-    const Color startColor = Color(0xFFFF7E5F); // برتقالي فاتح
-    const Color endColor = Color(0xFFFD3A69); // برتقالي مائل للأحمر
+    const Color startColor = Color(0xFFFF7E5F);
+    const Color endColor = Color(0xFFFD3A69);
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -68,24 +79,21 @@ class _LoginScreenState extends State<Login_Screen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(
-                    height: kToolbarHeight + 20), // لتعويض AppBar الشفاف
-                Lottie.asset(
-                  "Json/lo.json",
-                  width: 300,
-                  height: 300,
-                ),
+                const SizedBox(height: kToolbarHeight + 20),
+                Lottie.asset("Json/lo.json", width: 300, height: 300),
                 const SizedBox(height: 30),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Column(
                     children: [
                       CustomTextField(
+                        controller: _emailController,
                         hintText: isEnglish ? "Email" : "البريد الإلكتروني",
                         icon: Icons.email,
                       ),
                       const SizedBox(height: 20),
                       CustomTextField(
+                        controller: _passwordController,
                         hintText: isEnglish ? "Password" : "كلمة المرور",
                         icon: Icons.lock,
                         obscureText: true,
@@ -98,8 +106,7 @@ class _LoginScreenState extends State<Login_Screen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    const ForgotPasswordScreen(),
+                                builder: (_) => const ForgotPasswordScreen(),
                               ),
                             );
                           },
@@ -119,6 +126,7 @@ class _LoginScreenState extends State<Login_Screen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          // زر تسجيل الدخول
                           AnimatedContainer(
                             duration: const Duration(milliseconds: 300),
                             width: 140,
@@ -130,15 +138,37 @@ class _LoginScreenState extends State<Login_Screen> {
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: TextButton(
-                              onPressed: () {
-                                showDialog(
-                                  context: context,
-                                  builder: (_) => const AlertDialog(
-                                    title: Text("Login Disabled"),
-                                    content: Text(
-                                        "Login is not available yet. Please try again later."),
-                                  ),
-                                );
+                              onPressed: () async {
+                                setState(() {
+                                  isLoginPressed = true;
+                                  isSignUpPressed = false;
+                                });
+
+                                final email = _emailController.text.trim();
+                                final password =
+                                    _passwordController.text.trim();
+
+                                final token =
+                                    await ApiService.login(email, password);
+
+                                if (token != null) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(isEnglish
+                                          ? 'Login successful!'
+                                          : 'تم تسجيل الدخول بنجاح'),
+                                    ),
+                                  );
+                                  // Navigator.pushReplacementNamed(context, "home");
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(isEnglish
+                                          ? 'Login failed'
+                                          : 'فشل تسجيل الدخول'),
+                                    ),
+                                  );
+                                }
                               },
                               child: Text(
                                 isEnglish ? "Login" : "تسجيل الدخول",
@@ -153,6 +183,8 @@ class _LoginScreenState extends State<Login_Screen> {
                             ),
                           ),
                           const SizedBox(width: 15),
+
+                          // زر التسجيل SignUp
                           AnimatedContainer(
                             duration: const Duration(milliseconds: 300),
                             width: 140,
@@ -166,14 +198,13 @@ class _LoginScreenState extends State<Login_Screen> {
                             child: TextButton(
                               onPressed: () {
                                 setState(() {
-                                  isSignUpPressed = true;
                                   isLoginPressed = false;
+                                  isSignUpPressed = true;
                                 });
-                                Future.delayed(
-                                  const Duration(milliseconds: 300),
-                                  () {
-                                    Navigator.pushNamed(context, "signup");
-                                  },
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => SignUpScreen()),
                                 );
                               },
                               child: Text(
