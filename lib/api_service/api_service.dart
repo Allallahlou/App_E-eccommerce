@@ -2,39 +2,36 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  static const String baseUrl = 'http://localhost:5000';
+  static const baseUrl = 'http://10.0.2.2:5000';
 
-  static Future<String?> signup(String email, String password) async {
-    final url = Uri.parse('$baseUrl/signup');
+  static Future<String?> signup(String firstName, String lastName, String email, String password) async {
     final response = await http.post(
-      url,
+      Uri.parse('$baseUrl/signup'),
       headers: {"Content-Type": "application/json"},
-      body: jsonEncode({"email": email, "password": password}),
+      body: jsonEncode({
+        "firstname": firstName,
+        "lastname": lastName,
+        "email": email,
+        "password": password,
+      }),
     );
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      return data["token"];
+      return data['token'];
     } else {
-      print("Signup failed: ${response.body}");
       return null;
     }
   }
 
-  static Future<String?> login(String email, String password) async {
-    final url = Uri.parse('$baseUrl/login');
-    final response = await http.post(
-      url,
-      headers: {"Content-Type": "application/json"},
-      body: jsonEncode({"email": email, "password": password}),
-    );
-
+  static Future<List<dynamic>> getUsers() async {
+    final response = await http.get(Uri.parse('$baseUrl/users'));
     if (response.statusCode == 200) {
-      final data = jsonDecode(response.body);
-      return data["token"];
+      return jsonDecode(response.body);
     } else {
-      print("Login failed: ${response.body}");
-      return null;
+      return [];
     }
   }
+
+  static Future login(String email, String password) async {}
 }

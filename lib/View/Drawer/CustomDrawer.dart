@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:app_e_ecommerce/View/Login%20Screen/UsersListScreen.dart';
 import 'package:app_e_ecommerce/View/language/LanguageInfo.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -121,6 +122,15 @@ class CustomDrawer extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (_) => const NotificationScreen()),
+                  ),
+                ),
+                _buildDrawerItem(
+                  icon: Icons.notification_add,
+                  iconColor: Colors.grey,
+                  title: isEnglish ? "UsersList" : "قائمة المستخدمين",
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => UsersListScreen()),
                   ),
                 ),
                 _buildDrawerItem(

@@ -10,13 +10,12 @@ import 'View/Drawer/Notification/notification_provider/notification_provider.dar
 import 'provider/mode_provider.dart';
 import 'View/language/language_provider.dart';
 import 'View/CartScreen/LoginPage.dart';
-import 'View/Login Screen/SignUpScreen.dart';
+import 'View/Login Screen/SignUpScreen.dart'; // <-- تأكد أن هذا يحتوي كود signup_screen.dart
 import 'View/les_elements/Home/Home_scren.dart';
 import 'View/Drawer/Theme Mode/theme_mode.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  
 
   runApp(
     DevicePreview(
@@ -62,7 +61,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const Home_Screen(),
       routes: {
-        "signup": (context) =>  SignUpScreen(),
+        "signup": (context) => const SignUpScreen(),  // هذا هو المسار الجديد
         "login": (context) => const Login_PageScreen(),
         "homepage": (context) => const Home_Screen(),
         '/notifications': (context) => const NotificationScreen(),
