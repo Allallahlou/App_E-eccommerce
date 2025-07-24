@@ -50,16 +50,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: ListView(
             children: [
               TextFormField(
-                controller: _firstNameController,
-                decoration: const InputDecoration(labelText: "First Name"),
-                validator: (value) =>
-                    value!.isEmpty ? "Enter your first name" : null,
-              ),
-              TextFormField(
                 controller: _lastNameController,
-                decoration: const InputDecoration(labelText: "Last Name"),
+                decoration: const InputDecoration(labelText: "Username"),
                 validator: (value) =>
-                    value!.isEmpty ? "Enter your last name" : null,
+                    value!.isEmpty ? "Enter your username" : null,
               ),
               TextFormField(
                 controller: _emailController,

@@ -1,3 +1,4 @@
+import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
@@ -10,8 +11,7 @@ import 'View/Drawer/Notification/notification_provider/notification_provider.dar
 import 'provider/mode_provider.dart';
 import 'View/language/language_provider.dart';
 import 'View/CartScreen/LoginPage.dart';
-import 'View/Login Screen/SignUpScreen.dart'; // <-- تأكد أن هذا يحتوي كود signup_screen.dart
-import 'View/les_elements/Home/Home_scren.dart';
+import 'View/Login Screen/SignUpScreen.dart';
 import 'View/Drawer/Theme Mode/theme_mode.dart';
 
 void main() {
@@ -26,14 +26,14 @@ void main() {
           ChangeNotifierProvider(create: (_) => LanguageProvider()),
           ChangeNotifierProvider(create: (_) => NotificationProvider()),
         ],
-        child: const MyApp(),
+        child: MyApp(),
       ),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const Home_Screen(),
       routes: {
-        "signup": (context) => const SignUpScreen(),  // هذا هو المسار الجديد
+        "signup": (context) => const SignUpScreen(),
         "login": (context) => const Login_PageScreen(),
         "homepage": (context) => const Home_Screen(),
         '/notifications': (context) => const NotificationScreen(),
