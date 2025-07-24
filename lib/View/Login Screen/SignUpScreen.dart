@@ -1,5 +1,4 @@
 import 'package:app_e_ecommerce/View/Login%20Screen/UsersListScreen.dart';
-import 'package:app_e_ecommerce/api_service/api_service.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -22,28 +21,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (_formKey.currentState!.validate()) {
       setState(() => _isLoading = true);
 
-      final token = await ApiService.signup(
-        _firstNameController.text.trim(),
-        _lastNameController.text.trim(),
-        _emailController.text.trim(),
-        _passwordController.text.trim(),
-      );
+      // محاكاة انتظار كأننا نرسل للـ API
+      await Future.delayed(const Duration(seconds: 2));
 
       setState(() => _isLoading = false);
 
-      if (token != null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Signup successful!')),
-        );
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (_) => UsersListScreen()),
-        );
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Signup failed')),
-        );
-      }
+      // نعرض رسالة نجاح
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Signup successful!')),
+      );
+
+      // ننتقل لصفحة UsersListScreen
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => UsersListScreen()),
+      );
     }
   }
 

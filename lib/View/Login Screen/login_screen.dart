@@ -1,5 +1,4 @@
 import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
-import 'package:app_e_ecommerce/api_service/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -21,8 +20,6 @@ class _Login_ScreenState extends State<Login_Screen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  bool isLoginPressed = false;
-  bool isSignUpPressed = false;
   bool isLoading = false;
 
   @override
@@ -38,32 +35,27 @@ class _Login_ScreenState extends State<Login_Screen> {
 
     if (email.isEmpty || password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Please enter all fields")),
+        SnackBar(content: Text("Please enter all fields")),
       );
       return;
     }
 
     setState(() => isLoading = true);
 
-    final token = await ApiService.login(email, password);
+    // محاكاة تحميل
+    await Future.delayed(const Duration(seconds: 2));
 
     setState(() => isLoading = false);
 
-    if (token != null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Login successful!")),
-      );
+    // افترض تسجيل الدخول ناجح
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("Login successful!")),
+    );
 
-      // ✅ التوجيه إلى HomeScreen
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const Home_Screen()),
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Login failed")),
-      );
-    }
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const Home_Screen()),
+    );
   }
 
   @override

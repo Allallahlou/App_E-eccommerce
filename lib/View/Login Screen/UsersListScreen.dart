@@ -1,4 +1,3 @@
-import 'package:app_e_ecommerce/api_service/api_service.dart';
 import 'package:flutter/material.dart';
 
 class UsersListScreen extends StatefulWidget {
@@ -7,7 +6,7 @@ class UsersListScreen extends StatefulWidget {
 }
 
 class _UsersListScreenState extends State<UsersListScreen> {
-  List<dynamic> users = [];
+  List<Map<String, String>> users = []; // بيانات المستخدمين بشكل محلي
   bool isLoading = true;
 
   @override
@@ -17,7 +16,28 @@ class _UsersListScreenState extends State<UsersListScreen> {
   }
 
   Future<void> fetchUsers() async {
-    final fetchedUsers = await ApiService.getUsers();
+    // نحاكي تحميل البيانات من السيرفر
+    await Future.delayed(const Duration(seconds: 2));
+
+    // بيانات وهمية محلية
+    final fetchedUsers = [
+      {
+        'firstname': 'Allal',
+        'lastname': 'Lahlou',
+        'email': 'allal@example.com',
+      },
+      {
+        'firstname': 'Salma',
+        'lastname': 'Assalah',
+        'email': 'salma@example.com',
+      },
+      {
+        'firstname': 'Ali',
+        'lastname': 'Kamal',
+        'email': 'ali.kamal@example.com',
+      },
+    ];
+
     setState(() {
       users = fetchedUsers;
       isLoading = false;
@@ -27,9 +47,9 @@ class _UsersListScreenState extends State<UsersListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Registered Users')),
+      appBar: AppBar(title: const Text('Registered Users')),
       body: isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: DataTable(
