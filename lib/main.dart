@@ -33,8 +33,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  
-
   @override
   Widget build(BuildContext context) {
     final modeProvider = Provider.of<ModeProvider>(context);
