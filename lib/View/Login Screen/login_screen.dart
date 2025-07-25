@@ -1,6 +1,7 @@
-import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:lottie/lottie.dart';
 
@@ -8,6 +9,7 @@ import 'ForgotPasswordScreen.dart';
 import 'SignUpScreen.dart';
 import 'components/custom_text_field.dart';
 import 'package:app_e_ecommerce/View/language/language_provider.dart';
+import 'package:app_e_ecommerce/View/les_elements/Home/Home_scren.dart';
 
 class Login_Screen extends StatefulWidget {
   const Login_Screen({Key? key}) : super(key: key);
@@ -19,7 +21,6 @@ class Login_Screen extends StatefulWidget {
 class _Login_ScreenState extends State<Login_Screen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
   bool isLoading = false;
 
   @override
@@ -30,33 +31,47 @@ class _Login_ScreenState extends State<Login_Screen> {
   }
 
   Future<void> _handleLogin() async {
-    final email = _emailController.text.trim();
-    final password = _passwordController.text.trim();
+  final email = _emailController.text.trim();
+  final password = _passwordController.text.trim();
 
-    if (email.isEmpty || password.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Please enter all fields")),
-      );
-      return;
-    }
+  if (email.isEmpty || password.isEmpty) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text("Please enter all fields")),
+    );
+    return;
+  }
 
-    setState(() => isLoading = true);
+  setState(() => isLoading = true);
 
-    // محاكاة تحميل
-    await Future.delayed(const Duration(seconds: 2));
+  try {
+    final response = await http.post(
+      Uri.parse("http://127.0.0.1:8000/login"),
+      headers: {"Content-Type": "application/json"},
+      body: json.encode({"email": email, "password": password}),
+    );
 
     setState(() => isLoading = false);
 
-    // افترض تسجيل الدخول ناجح
+    if (response.statusCode == 200) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Login successful!")),
+      );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const Home_Screen()),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Login failed: ${response.body}")),
+      );
+    }
+  } catch (e) {
+    setState(() => isLoading = false);
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Login successful!")),
-    );
-
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const Home_Screen()),
+      SnackBar(content: Text("Error: $e")),
     );
   }
+}
 
   @override
   Widget build(BuildContext context) {
